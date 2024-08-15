@@ -2,8 +2,8 @@ extends AudioStreamPlayer
 
 
 
-## Signal to respond to beats, includes index.
-signal beat(index)
+## Signal to respond to beats, includes index, emitted every beat.
+signal beat(index : int)
 
 ## Path to music folder.
 const MUSIC_FOLDER_PATH : String = "res://art/music/"
@@ -25,7 +25,7 @@ func _ready() -> void:
 
 ## Get and play song by title, optional format parameter.
 func play_song(title : String, format : String = "mp3") -> void:
-	var music_path : String = "{0}{1}.{3}".format([MUSIC_FOLDER_PATH, title, format])
+	var music_path : String = "{0}{1}.{2}".format([MUSIC_FOLDER_PATH, title, format])
 	if !ResourceLoader.exists(music_path): return
 	stream = ResourceLoader.load(music_path)
 	begin_playback()
@@ -39,8 +39,6 @@ func begin_playback() -> void:
 	elif stream is AudioStreamWAV:
 		printerr("WAVE files not supported!")
 
-	Engine.set_physics_ticks_per_second( ceil(bpm) )
-
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	last_passed_beat = 0
@@ -51,13 +49,13 @@ func begin_playback() -> void:
 func reset() -> void:
 	bpm = 0
 	last_passed_beat = 0
-	Engine.set_physics_ticks_per_second( 60 )
 
 	stop()
 
 func _physics_process(_delta: float) -> void:
 	if !playing: return
 	var current_beat : int = get_current_beat()
+	# Avoid overlap by checking beat index.
 	if current_beat > last_passed_beat:
 		last_passed_beat = current_beat
 		beat.emit(current_beat)

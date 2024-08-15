@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 BeatDirector="*res://autoloads/beat_director.gd"
 
+[display]
+
+window/size/always_on_top.editor=true
+
 [input]
 
 move_left={
