@@ -12,10 +12,7 @@ const MUSIC_FOLDER_PATH : String = "res://art/music/"
 var bpm : float :
 	set(value):
 		bpm = value
-		if bpm:
-			beat_time = 60 / bpm
-		else:
-			beat_time = 0
+		beat_time = 60 / bpm if bpm else 0.0
 ## The index of the last beat that happened.
 var last_passed_beat : int = 0
 ## The time a beat lasts, 60/bpm.
@@ -33,7 +30,7 @@ func _ready() -> void:
 
 
 ## Function still not completed, this will take a bit, I am still unsure on the exact execution and it's frying my brain.
-## Gets the time offset to the specified beat as a float.
+## Gets the time offset to the specified beat as a float, negative numbers indicate early calls.
 func get_beat_offset(beat_index : int) -> float:
 	var elapsed_time_by_beat : float = beat_index * beat_time
 	return _get_playback_time() - elapsed_time_by_beat
@@ -53,7 +50,9 @@ func begin_playback() -> void:
 		else:
 			printerr("No BPM Defined!")
 			return
-	else: printerr("Filetype not supported!")
+	else:
+		printerr("Filetype not supported!")
+		return
 
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
