@@ -9,17 +9,34 @@ signal beat(index : int)
 const MUSIC_FOLDER_PATH : String = "res://art/music/"
 
 ## Beats per minute of the current music.
-var bpm : float
+var bpm : float :
+	set(value):
+		bpm = value
+		if bpm:
+			beat_time = 60 / bpm
+		else:
+			beat_time = 0
 ## The index of the last beat that happened.
 var last_passed_beat : int = 0
+## The time a beat lasts, 60/bpm.
+var beat_time : float
 
 var _time_begin : int
 var _time_delay : float
 
 
 
+## General setup.
 func _ready() -> void:
 	bus = &"Music"
+
+
+
+## Function still not completed, this will take a bit, I am still unsure on the exact execution and it's frying my brain.
+## Gets the time offset to the specified beat as a float.
+func get_beat_offset(beat_index : int) -> float:
+	var elapsed_time_by_beat : float = beat_index * beat_time
+	return _get_playback_time() - elapsed_time_by_beat
 
 
 
@@ -36,8 +53,7 @@ func begin_playback() -> void:
 		else:
 			printerr("No BPM Defined!")
 			return
-	elif stream is AudioStreamWAV:
-		printerr("WAVE files not supported!")
+	else: printerr("Filetype not supported!")
 
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
