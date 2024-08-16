@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=8 format=3 uid="uid://bgoiy1vdujhr"]
 
 [ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="1_1hn02"]
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
+[ext_resource type="Script" path="res://components/player/abilities.gd" id="3_4170l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iew1x"]
 
@@ -57,3 +58,8 @@ texture = ExtResource("1_1hn02")
 libraries = {
 "": SubResource("AnimationLibrary_hysdy")
 }
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("3_4170l")
+
+[node name="Charges" type="Node2D" parent="Weapon"]

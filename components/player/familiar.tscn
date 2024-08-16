@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs6a7sw446unp"]
+
+[ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="1_oac4a"]
+
+[node name="Familiar" type="Sprite2D"]
+visible = false
+modulate = Color(0.495848, 0.19083, 0.174051, 1)
+position = Vector2(-42, -36)
+scale = Vector2(0.234375, 0.242187)
+texture = ExtResource("1_oac4a")
