@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://crxc1ipwpgjq4"]
+
+[ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_o4y3m"]
+
+[sub_resource type="Gradient" id="Gradient_5ge31"]
+colors = PackedColorArray(0.320654, 0.10602, 0.109112, 1, 0.100507, 0.055327, 0.171835, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3c72h"]
+gradient = SubResource("Gradient_5ge31")
+fill_to = Vector2(1, 1)
+
+[node name="StartMenu" type="Node"]
+script = ExtResource("1_o4y3m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_3c72h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
