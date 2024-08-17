@@ -9,14 +9,18 @@ signal beat(index : int)
 const MUSIC_FOLDER_PATH : String = "res://art/music/"
 
 ## Beats per minute of the current music.
-var bpm : float :
+var bpm : float = 0 :
 	set(value):
 		bpm = value
 		beat_time = 60 / bpm if bpm else 0.0
+## The beat count of the current music.
+var beat_count : int = 0
 ## The index of the last beat that happened.
 var last_passed_beat : int = 0
 ## The time a beat lasts, 60/bpm.
 var beat_time : float
+## Whether or not the song should loop.
+var do_loop : bool = false
 
 var _time_begin : int
 var _time_delay : float
@@ -26,6 +30,7 @@ var _time_delay : float
 ## General setup.
 func _ready() -> void:
 	bus = &"Music"
+	finished.connect(_on_finished_playing)
 
 
 
@@ -56,6 +61,7 @@ func begin_playback() -> void:
 
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
+	beat_count = stream.get_beat_count()
 	last_passed_beat = 0
 
 	play()
@@ -63,6 +69,7 @@ func begin_playback() -> void:
 ## Reset player and associated values.
 func reset() -> void:
 	bpm = 0
+	beat_count = 0
 	last_passed_beat = 0
 
 	stop()
@@ -88,3 +95,6 @@ func _get_playback_time() -> float:
 ## Return current beat as int.
 func get_current_beat() -> int:
 	return int(_get_playback_time() / (60.0 / bpm))
+
+func _on_finished_playing() -> void:
+	if do_loop: begin_playback()
