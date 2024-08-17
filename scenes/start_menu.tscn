@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://crxc1ipwpgjq4"]
+[gd_scene load_steps=5 format=3 uid="uid://crxc1ipwpgjq4"]
 
 [ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_o4y3m"]
 
@@ -8,6 +8,8 @@ colors = PackedColorArray(0.320654, 0.10602, 0.109112, 1, 0.100507, 0.055327, 0.
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3c72h"]
 gradient = SubResource("Gradient_5ge31")
 fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6i4m"]
 
 [node name="StartMenu" type="Node"]
 script = ExtResource("1_o4y3m")
@@ -20,26 +22,53 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_3c72h")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 11
-anchor_left = 1.0
+[node name="Root" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_i6i4m")
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Main" type="Control" parent="Root"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Root/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/Main/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Start" type="Button" parent="Root/Main/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Start"
 
-[node name="Settings" type="Button" parent="VBoxContainer"]
+[node name="Settings" type="Button" parent="Root/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 
-[node name="Credits" type="Button" parent="VBoxContainer"]
+[node name="Credits" type="Button" parent="Root/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Credits"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="Root/Main/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

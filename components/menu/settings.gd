@@ -290,7 +290,7 @@ func _listen_for_input(button : Button) -> void:
 	button.text = "Set"
 
 func _on_reset_pressed() -> void:
-	## Confirm window here.
+	## TODO: Confirm window here.
 	reset_all()
 
 func reset_all() -> void:
