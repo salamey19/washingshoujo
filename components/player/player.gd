@@ -9,6 +9,7 @@ const DASH_SPEED = 800
 var dashed_this_beat : bool = false
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var abilities_animation_player: AnimationPlayer = $AbilitiesAnimationPlayer
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")

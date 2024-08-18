@@ -53,7 +53,10 @@ func _unhandled_input(event: InputEvent) -> void:
 	if player.is_on_beat and !ability_used_this_beat:
 		if event.is_action_pressed("attack"):
 			#do basic attack bonk
+			if player.abilities_animation_player.is_playing():
+				player.abilities_animation_player.stop()
 			print("basic attack")
+			player.abilities_animation_player.play("basic_attack")
 			ability_used_this_beat = true
 		if player.current_charges > 0:
 			if event.is_action_pressed("ability1"):
@@ -73,13 +76,10 @@ func shuffle_children() -> void:
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 #if trans deal more damage? maybe
-func _on_basic_attack_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"):
-		if body.has_method("hurt"):
-			body.hurt(basic_attack_damage)
+
+func _on_basic_attack_area_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Enemy"):
+		if area.has_method("damage"):
+			area.damage(basic_attack_damage)

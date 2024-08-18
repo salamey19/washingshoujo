@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://u8k2tv6oynmo"]
+[gd_scene load_steps=5 format=3 uid="uid://u8k2tv6oynmo"]
+
+[ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="1_e308y"]
+[ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="2_pdyvj"]
+[ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="3_agcj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45gcl"]
 
 [node name="EnemyTest" type="Node2D"]
+
+[node name="HealthComponent" parent="." instance=ExtResource("1_e308y")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["Enemy"] instance=ExtResource("2_pdyvj")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_45gcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.688022, 0.26524, 0.668316, 1)
+position = Vector2(4.76837e-07, -4.76837e-07)
+scale = Vector2(0.179688, 0.175781)
+texture = ExtResource("3_agcj8")
