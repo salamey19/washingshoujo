@@ -18,7 +18,7 @@ var beat_count : int = 0
 ## The index of the last beat that happened.
 var last_passed_beat : int = 0
 ## The time a beat lasts, 60/bpm.
-var beat_time : float
+var beat_time : float = 0
 ## Whether or not the song should loop.
 var do_loop : bool = false
 
