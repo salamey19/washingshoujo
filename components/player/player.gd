@@ -26,6 +26,8 @@ var current_index : int = 0
 #charges can be used for abilities
 #regain a charge automatically every x beat??
 
+var is_transformed : bool = false
+
 #Abilities
 const MAX_CHARGES = 3
 @onready var current_charges : int = 0

@@ -12,7 +12,12 @@ const FAMILIAR = preload("res://components/player/familiar.tscn")
 @onready var familiar_pos_1 : Vector2 = Vector2(-42, -36)
 @onready var familiar_pos_2 : Vector2 = Vector2(0, -45)
 @onready var familiar_pos_3 : Vector2 = Vector2(42, -36)
-# Called when the node enters the scene tree for the first time.
+
+
+@onready var basic_attack_area: Area2D = $BasicAttackArea
+@export var basic_attack_damage : int = 1
+
+
 func _ready() -> void:
 	player.player_on_beat.connect(on_beat_weapon)
 	player.charge_added.connect(on_charge_added)
@@ -54,6 +59,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.is_action_pressed("ability1"):
 				print("ability1")
 				player.current_charges -= 1
+				charges.remove_child(charges.get_child(0))
 
 				ability_used_this_beat = true
 			if event.is_action_pressed("ability2"):
@@ -62,7 +68,18 @@ func _unhandled_input(event: InputEvent) -> void:
 				ability_used_this_beat = true
 
 
+func shuffle_children() -> void:
+	#if get
+	pass
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+#if trans deal more damage? maybe
+func _on_basic_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		if body.has_method("hurt"):
+			body.hurt(basic_attack_damage)
