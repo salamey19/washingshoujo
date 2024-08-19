@@ -6,6 +6,8 @@ extends AudioStreamPlayer
 signal beat(index : int)
 ## Signal emitted on major beats.
 signal major_beat
+## Signal emitted on every non-major beat.
+signal minor_beat
 
 ## Path to music folder.
 const MUSIC_FOLDER_PATH : String = "res://art/music/"
@@ -84,6 +86,7 @@ func _physics_process(_delta: float) -> void:
 		last_passed_beat = current_beat
 		beat.emit(current_beat)
 		if !current_beat % beat_count: major_beat.emit()
+		else: minor_beat.emit()
 
 ## Return current playback time as a float.
 func _get_playback_time() -> float:
