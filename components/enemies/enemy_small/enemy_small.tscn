@@ -1,0 +1,130 @@
+[gd_scene load_steps=24 format=3 uid="uid://c37rct5n5yh32"]
+
+[ext_resource type="Script" path="res://components/enemies/enemy_small/enemy_small.gd" id="1_n0rnc"]
+[ext_resource type="Texture2D" uid="uid://bfmiti4b1oaq3" path="res://art/2d/enemies/small/Attack finished for/Blink_1-1.png" id="2_fouga"]
+[ext_resource type="Texture2D" uid="uid://idsxa3m0g7vh" path="res://art/2d/enemies/small/Attack finished for/Blink_1-2.png" id="3_12ekd"]
+[ext_resource type="Texture2D" uid="uid://dx7ajblbsj0at" path="res://art/2d/enemies/small/Attack finished for/Blink_1-3.png" id="4_nyvov"]
+[ext_resource type="Texture2D" uid="uid://dwtd0ktyjsrde" path="res://art/2d/enemies/small/Attack finished for/Blink_1-4.png" id="5_e7fur"]
+[ext_resource type="Texture2D" uid="uid://cxfsnhs1ajro4" path="res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-1.png" id="6_8jxkx"]
+[ext_resource type="Texture2D" uid="uid://dncvbhxafq2fi" path="res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-2.png" id="7_lpw6r"]
+[ext_resource type="Texture2D" uid="uid://d1up8iy1pevwi" path="res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-3.png" id="8_6ufvv"]
+[ext_resource type="Texture2D" uid="uid://bm8bel17vm3bl" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-1.png" id="14_5x11e"]
+[ext_resource type="Texture2D" uid="uid://bhdhhmys72tre" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-2.png" id="15_i2h82"]
+[ext_resource type="Texture2D" uid="uid://bcfbc6jaupidg" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-3.png" id="16_u1t2p"]
+[ext_resource type="Texture2D" uid="uid://beyrxlplgmfp8" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-4.png" id="17_bjjn8"]
+[ext_resource type="Texture2D" uid="uid://cg78di7xauqfr" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-5.png" id="18_1a0cr"]
+[ext_resource type="Texture2D" uid="uid://bjn1vf41ofgl7" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-6.png" id="19_xk2xc"]
+[ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="19_y3tud"]
+[ext_resource type="Texture2D" uid="uid://cktajhomrunvh" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-7.png" id="20_1n1dr"]
+[ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="20_yntf7"]
+[ext_resource type="Texture2D" uid="uid://db1kymiq5sptf" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-8.png" id="21_wjy6h"]
+[ext_resource type="Texture2D" uid="uid://3e3uuxp7f4l0" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-9.png" id="22_n172c"]
+[ext_resource type="Texture2D" uid="uid://fiflitgvov4o" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-10.png" id="23_u5m13"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xhmpd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fouga")
+}, {
+"duration": 4.0,
+"texture": ExtResource("3_12ekd")
+}, {
+"duration": 2.5,
+"texture": ExtResource("4_nyvov")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_e7fur")
+}],
+"loop": false,
+"name": &"blink_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("6_8jxkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lpw6r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6ufvv")
+}],
+"loop": true,
+"name": &"blink_idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ml137"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_5x11e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_i2h82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u1t2p")
+}, {
+"duration": 1.5,
+"texture": ExtResource("17_bjjn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_1a0cr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xk2xc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_1n1dr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wjy6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n172c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_u5m13")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3h7ds"]
+radius = 20.0
+
+[node name="enemy_small" type="Node2D"]
+script = ExtResource("1_n0rnc")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -11)
+scale = Vector2(0.031, 0.031)
+sprite_frames = SubResource("SpriteFrames_xhmpd")
+animation = &"blink_attack"
+autoplay = "blink_idle"
+speed_scale = 1.5
+
+[node name="VFX" type="Node2D" parent="."]
+position = Vector2(-110, 0)
+
+[node name="AttackSprite" type="AnimatedSprite2D" parent="VFX"]
+position = Vector2(-65, -14)
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_ml137")
+animation = &"attack"
+frame = 9
+frame_progress = 1.0
+speed_scale = 1.5
+
+[node name="HealthComponent" parent="." instance=ExtResource("19_y3tud")]
+position = Vector2(-110, 0)
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["Enemy"] instance=ExtResource("20_yntf7")]
+position = Vector2(0, -11)
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_3h7ds")

@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://dv0f12ej066u7"]
+
+[ext_resource type="Script" path="res://components/enemies/enemy_tank/tank_enemy.gd" id="1_dilsq"]
+[ext_resource type="Texture2D" uid="uid://c1so6apc5keet" path="res://art/2d/enemies/tank/Blink/Blink_2-1.png" id="1_kngye"]
+[ext_resource type="Texture2D" uid="uid://cbp1qlvqwhbh" path="res://art/2d/enemies/tank/Blink/Blink_2-3.png" id="2_drhfs"]
+[ext_resource type="Texture2D" uid="uid://dqc2x4kr22pjc" path="res://art/2d/enemies/tank/Blink/Blink_2-2.png" id="3_scj3f"]
+[ext_resource type="Texture2D" uid="uid://clkilcro4d5b" path="res://art/2d/enemies/tank/VFX/Blink_2-1.png" id="4_q67kd"]
+[ext_resource type="Texture2D" uid="uid://cj2do5ff45jmp" path="res://art/2d/enemies/tank/VFX/Blink_2-2.png" id="5_tchyp"]
+[ext_resource type="Texture2D" uid="uid://5hmmlehqbq5q" path="res://art/2d/enemies/tank/VFX/Blink_2-3.png" id="6_sopye"]
+[ext_resource type="Texture2D" uid="uid://c5l8s2v88o4y3" path="res://art/2d/enemies/tank/VFX/Blink_2-4.png" id="7_wpbo5"]
+[ext_resource type="Texture2D" uid="uid://c8djxed5qi7wu" path="res://art/2d/enemies/tank/VFX/Blink_2-5.png" id="8_ip5ij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0er0"]
+animations = [{
+"frames": [{
+"duration": 7.0,
+"texture": ExtResource("1_kngye")
+}, {
+"duration": 0.9,
+"texture": ExtResource("2_drhfs")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_scj3f")
+}],
+"loop": true,
+"name": &"blink_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_scj3f")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jt5ie"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_q67kd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tchyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sopye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wpbo5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ip5ij")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"shield_block",
+"speed": 5.0
+}]
+
+[node name="TankEnemy" type="Node2D"]
+script = ExtResource("1_dilsq")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_g0er0")
+animation = &"hit"
+autoplay = "blink_idle"
+
+[node name="VFX" type="AnimatedSprite2D" parent="."]
+position = Vector2(15, 17)
+scale = Vector2(0.164, 0.164)
+sprite_frames = SubResource("SpriteFrames_jt5ie")
+animation = &"shield_block"
+frame = 5
+frame_progress = 1.0
+speed_scale = 1.5

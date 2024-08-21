@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://chhjtihuvlj27"]
+
+[ext_resource type="Texture2D" uid="uid://b3hvha83wykyv" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-1.png" id="1_0orf8"]
+[ext_resource type="Texture2D" uid="uid://brg6so86ice1s" path="res://art/2d/enemies/boss/Final hurt/hurt_1-2.png" id="1_sk7h0"]
+[ext_resource type="Texture2D" uid="uid://0sloi4ssx0wy" path="res://art/2d/enemies/boss/Final hurt/hurt_1-3.png" id="2_1542u"]
+[ext_resource type="Texture2D" uid="uid://cb1op3kdrbin5" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-2.png" id="2_i702t"]
+[ext_resource type="Texture2D" uid="uid://cavfsjc8nyfr2" path="res://art/2d/enemies/boss/Final hurt/hurt_1-4.png" id="3_c5lbn"]
+[ext_resource type="Texture2D" uid="uid://b7oxyepcbnjoy" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-3.png" id="3_ffx1g"]
+[ext_resource type="Texture2D" uid="uid://56im3yoqk4es" path="res://art/2d/enemies/boss/Final hurt/hurt_1-5.png" id="4_4ns30"]
+[ext_resource type="Texture2D" uid="uid://ckqb8ms7tyfm8" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-4.png" id="4_q0hff"]
+[ext_resource type="Texture2D" uid="uid://b6utujpxl2r8q" path="res://art/2d/enemies/boss/Final hurt/hurt_1-1.png" id="5_pgj1d"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a5dbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pgj1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_sk7h0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1542u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c5lbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ns30")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_0orf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i702t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ffx1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0hff")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Boss" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_a5dbc")
+animation = &"idle"
+autoplay = "hurt"
+frame_progress = 0.42514
+speed_scale = 0.499

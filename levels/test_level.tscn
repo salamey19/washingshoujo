@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=9 format=3 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
 [ext_resource type="PackedScene" uid="uid://u8k2tv6oynmo" path="res://components/enemies/enemy_test.tscn" id="2_n075w"]
+[ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="4_2u64h"]
+[ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/enemy_small/enemy_small.tscn" id="4_fcwub"]
+[ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_j4yrl"]
+[ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="6_ubnj5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(486, 114)
@@ -10,10 +14,16 @@ size = Vector2(486, 114)
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_l3xy2")]
-position = Vector2(91, 359)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
+position = Vector2(576, -126)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+update_rotation = false
+update_scale = false
 
 [node name="Floors" type="Node2D" parent="."]
+position = Vector2(0, -450)
 
 [node name="Floor" type="StaticBody2D" parent="Floors"]
 position = Vector2(0, 653)
@@ -94,17 +104,139 @@ scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
 [node name="Floor7" type="StaticBody2D" parent="Floors"]
-position = Vector2(4661, 531)
-scale = Vector2(0.51999, 0.132306)
+position = Vector2(5108, -196)
+scale = Vector2(0.39999, 0.101773)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor7"]
+visible = false
 position = Vector2(233, 47)
 shape = SubResource("RectangleShape2D_8l8x7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/Floor7"]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(232.5, 47.5)
 scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
+[node name="Floor9" type="StaticBody2D" parent="Floors"]
+position = Vector2(4661, -147)
+scale = Vector2(0.48001, 0.0756041)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor9"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor9"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Floor10" type="StaticBody2D" parent="Floors"]
+position = Vector2(5223, -139)
+scale = Vector2(0.31999, 0.102484)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor10"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor10"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Floor12" type="StaticBody2D" parent="Floors"]
+position = Vector2(5223, -105)
+scale = Vector2(0.240068, 0.102484)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor12"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor12"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Floor8" type="StaticBody2D" parent="Floors"]
+position = Vector2(5061, -138)
+scale = Vector2(0.199951, 0.102484)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor8"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor8"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Floor13" type="StaticBody2D" parent="Floors"]
+position = Vector2(5223, -168)
+scale = Vector2(0.119912, 0.102484)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor13"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor13"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Floor14" type="StaticBody2D" parent="Floors"]
+position = Vector2(5061, -168)
+scale = Vector2(0.119912, 0.102484)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor14"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor14"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Floor11" type="StaticBody2D" parent="Floors"]
+position = Vector2(5061, -104)
+scale = Vector2(0.199951, 0.102484)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor11"]
+visible = false
+position = Vector2(233, 47)
+shape = SubResource("RectangleShape2D_8l8x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floors/Floor11"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(232.5, 47.5)
+scale = Vector2(485, 113)
+texture = SubResource("PlaceholderTexture2D_jo71w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, -126)
+
 [node name="EnemyTest" parent="." instance=ExtResource("2_n075w")]
-position = Vector2(1050, 520)
+position = Vector2(1050, 70)
+
+[node name="Boss" parent="." instance=ExtResource("4_2u64h")]
+position = Vector2(0, 131)
+
+[node name="enemy_small" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(937, -16)
+
+[node name="TankEnemy" parent="." instance=ExtResource("5_j4yrl")]
+position = Vector2(1366, -18)
+
+[node name="EnemyMedium" parent="." instance=ExtResource("6_ubnj5")]
+position = Vector2(1505, -1)

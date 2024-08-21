@@ -1,13 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=22 format=3 uid="uid://bgoiy1vdujhr"]
 
 [ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="1_1hn02"]
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
-[ext_resource type="Texture2D" uid="uid://cwrlgy7s2tg7h" path="res://art/2d/player/jump_up.png" id="2_7d4c1"]
+[ext_resource type="Texture2D" uid="uid://x5gmglkthoof" path="res://art/2d/player/Finished idle/Idle_1-1.png" id="2_drps4"]
 [ext_resource type="Script" path="res://components/player/abilities.gd" id="3_4170l"]
+[ext_resource type="Texture2D" uid="uid://5l26g7lcbi56" path="res://art/2d/player/Finished idle/Idle_1-2.png" id="5_b8oiw"]
+[ext_resource type="Texture2D" uid="uid://cqtoqhfkf7tas" path="res://art/2d/player/Finished idle/Idle_1-3.png" id="6_fh6ai"]
+[ext_resource type="Texture2D" uid="uid://dpqtqhk8ct1r2" path="res://art/2d/player/Finished idle/Idle_1-4.png" id="7_uyfvu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iew1x"]
-radius = 17.0
-height = 62.0
+radius = 34.0
+height = 110.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_va6oa"]
+animations = [{
+"frames": [{
+"duration": 4.5,
+"texture": ExtResource("2_drps4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b8oiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fh6ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uyfvu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_vmmv7"]
 length = 0.001
@@ -35,21 +58,65 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-
-[sub_resource type="Animation" id="Animation_rm1v6"]
-resource_name = "player_on_beat"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon/Ability2Areas/Level1Shape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon/Ability2Areas/Level2Shape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Weapon/Ability2Areas/Level3Shape:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:skew")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, -0.418879, 0.0]
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:skew")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_hcoej"]
@@ -104,15 +171,119 @@ tracks/3/keys = {
 "values": [true, false]
 }
 
+[sub_resource type="Animation" id="Animation_rm1v6"]
+resource_name = "player_on_beat"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.418879, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.418879, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.418879, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wpytj"]
+resource_name = "ability2_level_1"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/Ability2Areas/Level1Shape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_pxl6o"]
+resource_name = "ability2_level_2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/Ability2Areas/Level2Shape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_dey86"]
+resource_name = "ability2_level_3"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/Ability2Areas/Level3Shape:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_cnh18"]
+resource_name = "idle"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hysdy"]
 _data = {
 "RESET": SubResource("Animation_vmmv7"),
+"ability2_level_1": SubResource("Animation_wpytj"),
+"ability2_level_2": SubResource("Animation_pxl6o"),
+"ability2_level_3": SubResource("Animation_dey86"),
 "basic_attack": SubResource("Animation_hcoej"),
+"idle": SubResource("Animation_cnh18"),
 "player_on_beat": SubResource("Animation_rm1v6")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxear"]
-size = Vector2(62, 48)
+size = Vector2(82, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjqrw"]
+size = Vector2(98, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ddl1"]
+size = Vector2(98, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxu5g"]
+size = Vector2(98, 46)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vyv0g")
@@ -122,9 +293,18 @@ grace_max = 0.85
 shape = SubResource("CapsuleShape2D_iew1x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(9.53674e-07, 1.90735e-06)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_7d4c1")
+texture = ExtResource("2_drps4")
+flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_va6oa")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.190159
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -143,12 +323,11 @@ script = ExtResource("3_4170l")
 [node name="Charges" type="Node2D" parent="Weapon"]
 
 [node name="BasicAttackArea" type="Area2D" parent="Weapon"]
-position = Vector2(20, -24)
+position = Vector2(72, -22)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/BasicAttackArea"]
-position = Vector2(28, 1)
 shape = SubResource("RectangleShape2D_jxear")
 disabled = true
 
@@ -159,7 +338,34 @@ position = Vector2(28, 0.999999)
 scale = Vector2(0.476563, 0.382813)
 texture = ExtResource("1_1hn02")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(1.39, 1.39)
+[node name="Ability1Marker" type="Marker2D" parent="Weapon"]
+position = Vector2(33, 0)
+
+[node name="Ability2Areas" type="Area2D" parent="Weapon"]
+position = Vector2(27, -10)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Level1Shape" type="CollisionShape2D" parent="Weapon/Ability2Areas"]
+position = Vector2(39, 0)
+shape = SubResource("RectangleShape2D_wjqrw")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon/Ability2Areas"]
+
+[node name="Level2Shape" type="CollisionShape2D" parent="Weapon/Ability2Areas"]
+position = Vector2(39, -1)
+shape = SubResource("RectangleShape2D_6ddl1")
+disabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Weapon/Ability2Areas"]
+
+[node name="Level3Shape" type="CollisionShape2D" parent="Weapon/Ability2Areas"]
+position = Vector2(39, -3)
+shape = SubResource("RectangleShape2D_oxu5g")
+disabled = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Weapon/Ability2Areas"]
 
 [connection signal="area_entered" from="Weapon/BasicAttackArea" to="Weapon" method="_on_basic_attack_area_area_entered"]
+[connection signal="area_entered" from="Weapon/Ability2Areas" to="Weapon" method="_on_ability_2_areas_area_entered"]
