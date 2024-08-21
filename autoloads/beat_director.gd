@@ -17,10 +17,14 @@ var bpm : float = 0 :
 	set(value):
 		bpm = value
 		beat_time = 60 / bpm if bpm else 0.0
-## The beat count of the current music.
+## The bar beat offset of the current music.
 var beat_count : int = 0
+## The bar beats of the current music.
+var bar_beats : int = 0
 ## The index of the last beat that happened.
 var last_passed_beat : int = 0
+## The index of the last major beat that happened.
+var last_passed_major_beat : int = 0
 ## The time a beat lasts, 60/bpm.
 var beat_time : float = 0
 ## Whether or not the song should loop.
@@ -44,6 +48,11 @@ func get_beat_offset(beat_index : int) -> float:
 	var elapsed_time_by_beat : float = beat_index * beat_time
 	return _get_playback_time() - elapsed_time_by_beat
 
+func get_major_beat_offset() -> float:
+	var value : float = min(\
+		abs(get_beat_offset(last_passed_major_beat)),\
+		abs(get_beat_offset(last_passed_major_beat + bar_beats)))
+	return value
 
 
 ## Get and play song by title, optional format parameter.
@@ -66,6 +75,7 @@ func begin_playback() -> void:
 	_time_begin = Time.get_ticks_usec()
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	beat_count = stream.get_beat_count()
+	bar_beats = stream.get_bar_beats()
 	last_passed_beat = 0
 
 	play()
@@ -74,6 +84,7 @@ func begin_playback() -> void:
 func reset() -> void:
 	bpm = 0
 	beat_count = 0
+	bar_beats = 0
 	last_passed_beat = 0
 
 	stop()
@@ -85,7 +96,7 @@ func _physics_process(_delta: float) -> void:
 	if current_beat > last_passed_beat:
 		last_passed_beat = current_beat
 		beat.emit(current_beat)
-		if !current_beat % beat_count: major_beat.emit()
+		if !(current_beat + beat_count) % bar_beats: major_beat.emit()
 		else: minor_beat.emit()
 
 ## Return current playback time as a float.
