@@ -1,33 +1,42 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxsckyyrrfes0"]
+[gd_scene load_steps=23 format=3 uid="uid://bxsckyyrrfes0"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_medium/enemy_medium.gd" id="1_31nfd"]
 [ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="2_02i30"]
-[ext_resource type="Texture2D" uid="uid://bathjmuqwkfpr" path="res://art/2d/enemies/flagbearer/Bonk Attack/Blink_1-1.png" id="2_2thqn"]
-[ext_resource type="Texture2D" uid="uid://dh37wiy8t6c1e" path="res://art/2d/enemies/flagbearer/Bonk Attack/Blink_1-2.png" id="3_0ayol"]
+[ext_resource type="Texture2D" uid="uid://btqn7s8e7i3mg" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-1.png" id="2_4t2g1"]
 [ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="3_ba3gy"]
-[ext_resource type="Texture2D" uid="uid://b3vhm6u0rxh4b" path="res://art/2d/enemies/flagbearer/Bonk Attack/Blink_1-3.png" id="4_4pdtm"]
-[ext_resource type="Texture2D" uid="uid://lglp02u8b0ho" path="res://art/2d/enemies/flagbearer/Bonk Attack/Blink_1-4.png" id="5_6dvhk"]
-[ext_resource type="Texture2D" uid="uid://cags1drejb2al" path="res://art/2d/enemies/flagbearer/Bonk Attack/Blink_1-5.png" id="6_uri05"]
+[ext_resource type="Texture2D" uid="uid://caa2rtyx62uge" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-2.png" id="3_qh4gs"]
+[ext_resource type="Texture2D" uid="uid://c22yk2fhvrk8o" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-3.png" id="4_3m6yn"]
+[ext_resource type="Texture2D" uid="uid://bj3g4mrk056so" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-4.png" id="5_dah20"]
+[ext_resource type="Texture2D" uid="uid://cxnktmxnxwjmm" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-5.png" id="6_b5syy"]
+[ext_resource type="Texture2D" uid="uid://dc38ewkmw1sq" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-6.png" id="7_je1xl"]
 [ext_resource type="Texture2D" uid="uid://d2xv16ptmeybh" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-1.png" id="7_xyl8b"]
+[ext_resource type="Texture2D" uid="uid://ccj8p2wwsvwy4" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-7.png" id="8_8a4ix"]
 [ext_resource type="Texture2D" uid="uid://ceydvbp0nge2x" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-2.png" id="8_t24bn"]
+[ext_resource type="PackedScene" uid="uid://mxkku20e4ia8" path="res://components/enemies/patrol_points.tscn" id="13_unjpi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e65ux"]
 animations = [{
 "frames": [{
-"duration": 4.6,
-"texture": ExtResource("2_2thqn")
-}, {
-"duration": 0.5,
-"texture": ExtResource("3_0ayol")
+"duration": 3.5,
+"texture": ExtResource("2_4t2g1")
 }, {
 "duration": 0.3,
-"texture": ExtResource("4_4pdtm")
+"texture": ExtResource("3_qh4gs")
 }, {
-"duration": 0.3,
-"texture": ExtResource("5_6dvhk")
+"duration": 0.2,
+"texture": ExtResource("4_3m6yn")
 }, {
-"duration": 0.5,
-"texture": ExtResource("6_uri05")
+"duration": 0.2,
+"texture": ExtResource("5_dah20")
+}, {
+"duration": 0.8,
+"texture": ExtResource("6_b5syy")
+}, {
+"duration": 0.2,
+"texture": ExtResource("7_je1xl")
+}, {
+"duration": 0.2,
+"texture": ExtResource("8_8a4ix")
 }],
 "loop": false,
 "name": &"attack",
@@ -59,6 +68,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EnemySprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_3kf3e"]
 resource_name = "attack"
@@ -76,13 +97,32 @@ tracks/0/keys = {
 "values": [1.5708, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_sroyi"]
+resource_name = "patrol"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0523599, 0.0, -0.0523599, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0yec"]
 _data = {
 "RESET": SubResource("Animation_ihd71"),
-"attack": SubResource("Animation_3kf3e")
+"attack": SubResource("Animation_3kf3e"),
+"patrol": SubResource("Animation_sroyi")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erltr"]
+size = Vector2(45, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5d7w"]
 size = Vector2(4.75, 47)
@@ -101,22 +141,25 @@ metadata/_edit_horizontal_guides_ = [-55.0]
 position = Vector2(-44, -26)
 scale = Vector2(0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_e65ux")
-animation = &"blink_idle"
+animation = &"attack"
 autoplay = "blink_idle"
-frame_progress = 0.0855106
+frame = 6
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_o0yec")
 }
+autoplay = "patrol"
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_02i30")]
 MAX_HEALTH = 2
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_ba3gy")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["Enemy"] instance=ExtResource("3_ba3gy")]
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(-0.5, -8.5)
 shape = SubResource("RectangleShape2D_erltr")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -142,6 +185,7 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WithinRange"]
 shape = SubResource("CircleShape2D_0mxpx")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Patrol" parent="." instance=ExtResource("13_unjpi")]
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
+[connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

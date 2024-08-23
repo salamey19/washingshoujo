@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://c37rct5n5yh32"]
+[gd_scene load_steps=28 format=3 uid="uid://c37rct5n5yh32"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_small/enemy_small.gd" id="1_n0rnc"]
+[ext_resource type="Shader" path="res://art/shaders/death_shader.gdshader" id="2_8syi5"]
 [ext_resource type="Texture2D" uid="uid://bfmiti4b1oaq3" path="res://art/2d/enemies/small/Attack finished for/Blink_1-1.png" id="2_fouga"]
 [ext_resource type="Texture2D" uid="uid://idsxa3m0g7vh" path="res://art/2d/enemies/small/Attack finished for/Blink_1-2.png" id="3_12ekd"]
 [ext_resource type="Texture2D" uid="uid://dx7ajblbsj0at" path="res://art/2d/enemies/small/Attack finished for/Blink_1-3.png" id="4_nyvov"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cxfsnhs1ajro4" path="res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-1.png" id="6_8jxkx"]
 [ext_resource type="Texture2D" uid="uid://dncvbhxafq2fi" path="res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-2.png" id="7_lpw6r"]
 [ext_resource type="Texture2D" uid="uid://d1up8iy1pevwi" path="res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-3.png" id="8_6ufvv"]
+[ext_resource type="Texture2D" uid="uid://cdh12tnva3dil" path="res://art/2d/enemies/small/Death/Blink_1-1.png" id="10_23u48"]
 [ext_resource type="Texture2D" uid="uid://bm8bel17vm3bl" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-1.png" id="14_5x11e"]
 [ext_resource type="Texture2D" uid="uid://bhdhhmys72tre" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-2.png" id="15_i2h82"]
 [ext_resource type="Texture2D" uid="uid://bcfbc6jaupidg" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-3.png" id="16_u1t2p"]
@@ -20,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://db1kymiq5sptf" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-8.png" id="21_wjy6h"]
 [ext_resource type="Texture2D" uid="uid://3e3uuxp7f4l0" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-9.png" id="22_n172c"]
 [ext_resource type="Texture2D" uid="uid://fiflitgvov4o" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-10.png" id="23_u5m13"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i0x6f"]
+shader = ExtResource("2_8syi5")
+shader_parameter/ghost_progress = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xhmpd"]
 animations = [{
@@ -52,6 +58,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"blink_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_23u48")
+}],
+"loop": true,
+"name": &"death",
 "speed": 5.0
 }]
 
@@ -96,23 +110,37 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3h7ds"]
 radius = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_v3wb5"]
+radius = 328.098
+
 [node name="enemy_small" type="Node2D"]
+rotation = -3.14159
 script = ExtResource("1_n0rnc")
 
+[node name="GhostSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+material = SubResource("ShaderMaterial_i0x6f")
+position = Vector2(-6.1196e-07, 7)
+rotation = 3.14159
+scale = Vector2(0.031, 0.031)
+texture = ExtResource("6_8jxkx")
+
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -11)
 scale = Vector2(0.031, 0.031)
 sprite_frames = SubResource("SpriteFrames_xhmpd")
-animation = &"blink_attack"
+animation = &"death"
 autoplay = "blink_idle"
 speed_scale = 1.5
+flip_h = true
+flip_v = true
 
 [node name="VFX" type="Node2D" parent="."]
 position = Vector2(-110, 0)
 
 [node name="AttackSprite" type="AnimatedSprite2D" parent="VFX"]
-position = Vector2(-65, -14)
-scale = Vector2(0.15, 0.15)
+position = Vector2(279, -12)
+scale = Vector2(-0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_ml137")
 animation = &"attack"
 frame = 9
@@ -123,8 +151,16 @@ speed_scale = 1.5
 position = Vector2(-110, 0)
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["Enemy"] instance=ExtResource("20_yntf7")]
-position = Vector2(0, -11)
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_3h7ds")
+
+[node name="WithinRange" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WithinRange"]
+shape = SubResource("CircleShape2D_v3wb5")
+
+[connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
+[connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

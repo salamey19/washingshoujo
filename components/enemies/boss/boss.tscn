@@ -1,32 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://chhjtihuvlj27"]
+[gd_scene load_steps=25 format=3 uid="uid://chhjtihuvlj27"]
 
 [ext_resource type="Texture2D" uid="uid://b3hvha83wykyv" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-1.png" id="1_0orf8"]
-[ext_resource type="Texture2D" uid="uid://brg6so86ice1s" path="res://art/2d/enemies/boss/Final hurt/hurt_1-2.png" id="1_sk7h0"]
-[ext_resource type="Texture2D" uid="uid://0sloi4ssx0wy" path="res://art/2d/enemies/boss/Final hurt/hurt_1-3.png" id="2_1542u"]
 [ext_resource type="Texture2D" uid="uid://cb1op3kdrbin5" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-2.png" id="2_i702t"]
-[ext_resource type="Texture2D" uid="uid://cavfsjc8nyfr2" path="res://art/2d/enemies/boss/Final hurt/hurt_1-4.png" id="3_c5lbn"]
 [ext_resource type="Texture2D" uid="uid://b7oxyepcbnjoy" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-3.png" id="3_ffx1g"]
-[ext_resource type="Texture2D" uid="uid://56im3yoqk4es" path="res://art/2d/enemies/boss/Final hurt/hurt_1-5.png" id="4_4ns30"]
 [ext_resource type="Texture2D" uid="uid://ckqb8ms7tyfm8" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-4.png" id="4_q0hff"]
-[ext_resource type="Texture2D" uid="uid://b6utujpxl2r8q" path="res://art/2d/enemies/boss/Final hurt/hurt_1-1.png" id="5_pgj1d"]
+[ext_resource type="Texture2D" uid="uid://itonwexktc5n" path="res://art/2d/enemies/boss/Final jumps/Jump-down.png" id="7_c1vt6"]
+[ext_resource type="Texture2D" uid="uid://bcwbfbfsfrhep" path="res://art/2d/enemies/boss/Final jumps/jump_up-1.png" id="8_xjbf6"]
+[ext_resource type="Texture2D" uid="uid://d087jy5r4cvf4" path="res://art/2d/enemies/boss/Hurt final/hurt_1-1.png" id="10_v7i26"]
+[ext_resource type="Texture2D" uid="uid://b080xr1vxvslo" path="res://art/2d/enemies/boss/Hurt final/hurt_1-2.png" id="11_4pxbq"]
+[ext_resource type="Texture2D" uid="uid://tj40syit3quk" path="res://art/2d/enemies/boss/Hurt VFX/hurt_1-1.png" id="12_v4jg5"]
+[ext_resource type="Texture2D" uid="uid://dcxqlxthoohsx" path="res://art/2d/enemies/boss/Hurt VFX/hurt_1-2.png" id="13_dup84"]
+[ext_resource type="Texture2D" uid="uid://b27qutjb0lwh7" path="res://art/2d/enemies/boss/Hurt VFX/hurt_1-3.png" id="14_77grl"]
+[ext_resource type="Texture2D" uid="uid://c1pqavgv6u72i" path="res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-1.png" id="14_welw4"]
+[ext_resource type="Texture2D" uid="uid://2te5226rx5v5" path="res://art/2d/enemies/boss/Hurt VFX/hurt_1-4.png" id="15_3qqd6"]
+[ext_resource type="Texture2D" uid="uid://bg6dh16umkc7m" path="res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-2.png" id="15_i4417"]
+[ext_resource type="Texture2D" uid="uid://xhglubdjsqb1" path="res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-3.png" id="16_fau07"]
+[ext_resource type="Texture2D" uid="uid://cfmjdpoc0b4y1" path="res://art/2d/enemies/boss/Hurt VFX/hurt_1-5.png" id="16_r4awv"]
+[ext_resource type="Texture2D" uid="uid://2otffosh5gn0" path="res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-4.png" id="17_opms4"]
+[ext_resource type="Texture2D" uid="uid://cnokd6dcg3k6k" path="res://art/2d/enemies/boss/Jump up VFX/jump_up-1.png" id="18_f3dn3"]
+[ext_resource type="Texture2D" uid="uid://dkwplkytls1fm" path="res://art/2d/enemies/boss/Jump up VFX/jump_up-2.png" id="19_yca4f"]
+[ext_resource type="Texture2D" uid="uid://b4k1ihmvy1eye" path="res://art/2d/enemies/boss/Jump up VFX/jump_up-3.png" id="20_7w54t"]
+[ext_resource type="Texture2D" uid="uid://0r20hmkuya6f" path="res://art/2d/enemies/boss/Jump up VFX/jump_up-4.png" id="21_iodu1"]
+[ext_resource type="Texture2D" uid="uid://bfckpqwu84vo2" path="res://art/2d/enemies/boss/Jump up VFX/jump_up-5.png" id="22_s846s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5dbc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_pgj1d")
+"texture": ExtResource("10_v7i26")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_sk7h0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_1542u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_c5lbn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_4ns30")
+"texture": ExtResource("11_4pxbq")
 }],
 "loop": true,
 "name": &"hurt",
@@ -48,14 +52,101 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_c1vt6")
+}],
+"loop": true,
+"name": &"jump_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xjbf6")
+}],
+"loop": true,
+"name": &"jump_up",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"jump_up_phase_2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqiln"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_v4jg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_dup84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_77grl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3qqd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_r4awv")
+}],
+"loop": true,
+"name": &"hurt_vfx",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_welw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_i4417")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_fau07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_opms4")
+}],
+"loop": true,
+"name": &"jump_down_vfx",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_f3dn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_yca4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7w54t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_iodu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_s846s")
+}],
+"loop": true,
+"name": &"jump_up_vfx",
+"speed": 5.0
 }]
 
 [node name="Boss" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_a5dbc")
-animation = &"idle"
-autoplay = "hurt"
-frame_progress = 0.42514
+animation = &"jump_down"
+autoplay = "idle"
 speed_scale = 0.499
+
+[node name="VFX" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 11)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_yqiln")
+animation = &"jump_down_vfx"
+frame_progress = 0.920053

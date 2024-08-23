@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=10 format=3 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
 [ext_resource type="PackedScene" uid="uid://u8k2tv6oynmo" path="res://components/enemies/enemy_test.tscn" id="2_n075w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/enemy_small/enemy_small.tscn" id="4_fcwub"]
 [ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_j4yrl"]
 [ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="6_ubnj5"]
+[ext_resource type="PackedScene" uid="uid://mxkku20e4ia8" path="res://components/enemies/patrol_points.tscn" id="7_eiblo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(486, 114)
@@ -233,10 +234,47 @@ position = Vector2(1050, 70)
 position = Vector2(0, 131)
 
 [node name="enemy_small" parent="." instance=ExtResource("4_fcwub")]
-position = Vector2(937, -16)
+position = Vector2(481, 88)
 
 [node name="TankEnemy" parent="." instance=ExtResource("5_j4yrl")]
-position = Vector2(1366, -18)
+position = Vector2(1671, -17)
 
 [node name="EnemyMedium" parent="." instance=ExtResource("6_ubnj5")]
-position = Vector2(1505, -1)
+position = Vector2(1890, 161)
+
+[node name="Patrol2" parent="EnemyMedium" instance=ExtResource("7_eiblo")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Borders" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border2" type="ColorRect" parent="CanvasLayer/Borders"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.926
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 13.952
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Border3" type="ColorRect" parent="CanvasLayer/Borders"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.926
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -600.048
+offset_right = 4.0
+offset_bottom = -614.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
