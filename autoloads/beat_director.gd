@@ -22,9 +22,9 @@ var beat_count : int = 0
 ## The bar beats of the current music.
 var bar_beats : int = 0
 ## The index of the last beat that happened.
-var last_passed_beat : int = 0
+var last_passed_beat : int = -1
 ## The index of the last major beat that happened.
-var last_passed_major_beat : int = 0
+var last_passed_major_beat : int = -1
 ## The time a beat lasts, 60/bpm.
 var beat_time : float = 0
 ## Whether or not the song should loop.
@@ -42,23 +42,30 @@ func _ready() -> void:
 
 
 
-## Function still not completed, this will take a bit, I am still unsure on the exact execution and it's frying my brain.
 ## Gets the time offset to the specified beat as a float, negative numbers indicate early calls.
 func get_beat_offset(beat_index : int) -> float:
 	var elapsed_time_by_beat : float = beat_index * beat_time
 	return _get_playback_time() - elapsed_time_by_beat
 
+## Gets the time offset to the nearest major beat, only returns offset as a positive number.
 func get_major_beat_offset() -> float:
-	var value : float = min(\
-		abs(get_beat_offset(last_passed_major_beat)),\
-		abs(get_beat_offset(last_passed_major_beat + bar_beats)))
+	var value : float =\
+		min(\
+			abs(get_beat_offset(last_passed_major_beat)),\
+			abs(get_beat_offset(last_passed_major_beat + bar_beats))\
+		)\
+		if last_passed_major_beat != -1 else\
+		abs(get_beat_offset(beat_count + bar_beats))
 	return value
 
 
+
 ## Get and play song by title, optional format parameter.
-func play_song(title : String, format : String = "mp3") -> void:
+func play_song(title : String, format : String = "ogg") -> void:
 	var music_path : String = "{0}{1}.{2}".format([MUSIC_FOLDER_PATH, title, format])
-	if !ResourceLoader.exists(music_path): return
+	if !ResourceLoader.exists(music_path):
+		printerr("Song at ", music_path, " not found!")
+		return
 	stream = ResourceLoader.load(music_path)
 	begin_playback()
 
@@ -76,8 +83,8 @@ func begin_playback() -> void:
 	_time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	beat_count = stream.get_beat_count()
 	bar_beats = stream.get_bar_beats()
-	last_passed_beat = 0
-	last_passed_major_beat = 0
+	last_passed_beat = -1
+	last_passed_major_beat = -1
 
 	play()
 
@@ -86,13 +93,14 @@ func reset() -> void:
 	bpm = 0
 	beat_count = 0
 	bar_beats = 0
-	last_passed_beat = 0
-	last_passed_major_beat = 0
+	last_passed_beat = -1
+	last_passed_major_beat = -1
 
 	do_loop = false
 
 	stop()
 
+## Updates and beat emitter.
 func _physics_process(_delta: float) -> void:
 	if !playing: return
 	var current_beat : int = get_current_beat()
@@ -100,7 +108,7 @@ func _physics_process(_delta: float) -> void:
 	if current_beat > last_passed_beat:
 		last_passed_beat = current_beat
 		beat.emit(current_beat)
-		if !(current_beat + beat_count) % bar_beats:
+		if !(current_beat + beat_count) % bar_beats == current_beat:
 			last_passed_major_beat = current_beat
 			major_beat.emit()
 		else: minor_beat.emit()
@@ -119,5 +127,6 @@ func _get_playback_time() -> float:
 func get_current_beat() -> int:
 	return int(_get_playback_time() / (60.0 / bpm))
 
+## Loop once it finishes playing if do_loop is true.
 func _on_finished_playing() -> void:
 	if do_loop: begin_playback()
