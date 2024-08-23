@@ -23,6 +23,7 @@ BeatDirector="*res://autoloads/beat_director.gd"
 
 [display]
 
+window/stretch/mode="canvas_items"
 window/size/always_on_top.editor=true
 
 [gui]
