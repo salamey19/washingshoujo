@@ -77,6 +77,7 @@ func begin_playback() -> void:
 	beat_count = stream.get_beat_count()
 	bar_beats = stream.get_bar_beats()
 	last_passed_beat = 0
+	last_passed_major_beat = 0
 
 	play()
 
@@ -86,6 +87,9 @@ func reset() -> void:
 	beat_count = 0
 	bar_beats = 0
 	last_passed_beat = 0
+	last_passed_major_beat = 0
+
+	do_loop = false
 
 	stop()
 
@@ -96,7 +100,9 @@ func _physics_process(_delta: float) -> void:
 	if current_beat > last_passed_beat:
 		last_passed_beat = current_beat
 		beat.emit(current_beat)
-		if !(current_beat + beat_count) % bar_beats: major_beat.emit()
+		if !(current_beat + beat_count) % bar_beats:
+			last_passed_major_beat = current_beat
+			major_beat.emit()
 		else: minor_beat.emit()
 
 ## Return current playback time as a float.
