@@ -87,6 +87,7 @@ func reset() -> void:
 	beat_count = 0
 	bar_beats = 0
 	last_passed_beat = 0
+	last_passed_major_beat = 0
 
 	do_loop = false
 
