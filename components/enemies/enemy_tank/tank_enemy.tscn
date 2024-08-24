@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv0f12ej066u7"]
+[gd_scene load_steps=20 format=3 uid="uid://dv0f12ej066u7"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_tank/tank_enemy.gd" id="1_dilsq"]
 [ext_resource type="Texture2D" uid="uid://c1so6apc5keet" path="res://art/2d/enemies/tank/Blink/Blink_2-1.png" id="1_kngye"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c8djxed5qi7wu" path="res://art/2d/enemies/tank/VFX/Blink_2-5.png" id="8_ip5ij"]
 [ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="10_on4dy"]
 [ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="11_1ax43"]
+[ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="14_e2suf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s534t"]
 shader = ExtResource("2_7dy3u")
@@ -80,6 +81,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raph5"]
 size = Vector2(127, 89)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsoe8"]
+radius = 48.0
+height = 136.0
+
 [node name="TankEnemy" type="Node2D"]
 script = ExtResource("1_dilsq")
 
@@ -116,3 +121,10 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(-2, 5.5)
 shape = SubResource("RectangleShape2D_raph5")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("14_e2suf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_wsoe8")

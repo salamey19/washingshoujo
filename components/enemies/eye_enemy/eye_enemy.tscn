@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://c37rct5n5yh32"]
+[gd_scene load_steps=31 format=3 uid="uid://c37rct5n5yh32"]
 
-[ext_resource type="Script" path="res://components/enemies/enemy_small/enemy_small.gd" id="1_n0rnc"]
+[ext_resource type="Script" path="res://components/enemies/eye_enemy/eye_enemy.gd" id="1_n0rnc"]
 [ext_resource type="Shader" path="res://art/shaders/death_shader.gdshader" id="2_8syi5"]
 [ext_resource type="Texture2D" uid="uid://bfmiti4b1oaq3" path="res://art/2d/enemies/small/Attack finished for/Blink_1-1.png" id="2_fouga"]
 [ext_resource type="Texture2D" uid="uid://idsxa3m0g7vh" path="res://art/2d/enemies/small/Attack finished for/Blink_1-2.png" id="3_12ekd"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="20_yntf7"]
 [ext_resource type="Texture2D" uid="uid://db1kymiq5sptf" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-8.png" id="21_wjy6h"]
 [ext_resource type="Texture2D" uid="uid://3e3uuxp7f4l0" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-9.png" id="22_n172c"]
+[ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="23_2ff3u"]
 [ext_resource type="Texture2D" uid="uid://fiflitgvov4o" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-10.png" id="23_u5m13"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0x6f"]
@@ -113,7 +114,13 @@ radius = 20.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3wb5"]
 radius = 328.098
 
-[node name="enemy_small" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o245f"]
+size = Vector2(328, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p1t3x"]
+radius = 23.0
+
+[node name="EyeEnemy" type="Node2D"]
 rotation = -3.14159
 script = ExtResource("1_n0rnc")
 
@@ -162,5 +169,19 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WithinRange"]
 shape = SubResource("CircleShape2D_v3wb5")
 
+[node name="AttackArea" type="Area2D" parent="."]
+position = Vector2(8, -2.02815e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(154, 1.49961)
+shape = SubResource("RectangleShape2D_o245f")
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("23_2ff3u")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(-2, 5.07036e-06)
+shape = SubResource("CircleShape2D_p1t3x")
+
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
 [connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

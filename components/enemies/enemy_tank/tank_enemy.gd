@@ -4,13 +4,10 @@ extends Node2D
 @onready var vfx: AnimatedSprite2D = $VFX
 @onready var ghost_sprite: Sprite2D = $GhostSprite
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		vfx.visible = true
 		vfx.play("shield_block")

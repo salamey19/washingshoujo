@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgyfamlbv0sg8"]
 
 [ext_resource type="Script" path="res://components/player/ability_1_projectile.gd" id="1_fjbm7"]
-[ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="2_tdb6h"]
+[ext_resource type="Texture2D" uid="uid://bcrumwgix71mi" path="res://art/2d/player/Ability 1 Resized/NA_1-5.png" id="2_lx8fd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vrr3"]
 radius = 7.0
@@ -14,11 +14,13 @@ script = ExtResource("1_fjbm7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7vrr3")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="pivot" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="pivot"]
 modulate = Color(0.446566, 0.739579, 1, 1)
-position = Vector2(-5.96046e-08, 7.15256e-07)
-scale = Vector2(0.09375, 0.109375)
-texture = ExtResource("2_tdb6h")
+position = Vector2(53, 19)
+scale = Vector2(0.212, 0.212)
+texture = ExtResource("2_lx8fd")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

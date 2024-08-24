@@ -9,11 +9,16 @@ extends CharacterBody2D
 
 #movement
 const SPEED = 425.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
 const FALL_GRAVITY := 1500
 const GRAVITY := 1000
 
+#jump
+var has_jump : bool = true
+
+
 #DASH
+var has_dash : bool = true
 const DASH_SPEED = 2000
 var dashed_this_beat : bool = false
 var is_dashing : bool = false
@@ -44,31 +49,13 @@ const MAX_CHARGES = 3
 
 const AFTERIMAGE = preload("res://components/player/afterimage.tscn")
 
-func _ready() -> void:
-	BeatDirector.beat.connect(on_beat)
-	BeatDirector.play_song("peritune_scene_tragic")
-	animated_sprite.play("idle")
 
-
-signal player_on_beat
-func on_beat(index) -> void:
-
-	if !(index % 3):
-		dashed_this_beat = false
-		beat_index = index
-		#print(index)
-		is_on_beat = true
-		player_on_beat.emit()
-		#animation_player.play("player_on_beat")
 
 
 var is_left : bool = false
 func _input(event: InputEvent) -> void:
 
 	#handling character flipping
-	if event.is_action_pressed('attack'):
-		hurt()
-		await animated_sprite.animation_finished
 
 	if event.is_action_pressed("move_right") and is_left:
 		is_left = false
@@ -94,33 +81,27 @@ func get_grav(velocity: Vector2):
 
 func _physics_process(delta: float) -> void:
 
-	if BeatDirector.get_beat_offset(beat_index) < grace_min:
-		is_on_beat = true
-	elif BeatDirector.get_beat_offset(beat_index) >= grace_max:
-		is_on_beat = true
-	else:
-		is_on_beat = false
-
 	if is_dashing:
 		position.y = dash_height
 	else:
+		pass
 		if not is_on_floor():
 			velocity.y += get_grav(velocity) * delta
-		if Input.is_action_just_released("jump") and velocity.y < 0 and velocity.y <= (JUMP_VELOCITY / 2):
-			velocity.y = JUMP_VELOCITY / 2
-		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+		#if Input.is_action_just_released("jump") and velocity.y < 0 and velocity.y <= (JUMP_VELOCITY / 2):
+			#velocity.y = JUMP_VELOCITY / 2
+		## Handle jump.
+		#if Input.is_action_just_pressed("jump") and is_on_floor():
+			#velocity.y = JUMP_VELOCITY
 
 
-	if velocity.x > 450 or velocity.x < -450:
-		animated_sprite.play("dash")
-	elif velocity.x <= 450 and velocity.x > 0:
-		if !animated_sprite.is_playing():
-			animated_sprite.play("idle")
-	else:
-		if !animated_sprite.is_playing():
-			animated_sprite.play("idle")
+	#if velocity.x > 450 or velocity.x < -450:
+		#animated_sprite.play("dash")
+	#elif velocity.x <= 450 and velocity.x > 0:
+		#if !animated_sprite.is_playing():
+			#animated_sprite.play("run")
+	#else:
+		#if !animated_sprite.is_playing():
+			#animated_sprite.play("idle")
 
 
 
@@ -144,60 +125,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 
-	#dash stuff, should be able to dash once on every beat
-	if Input.is_action_just_pressed("dash") and is_on_beat and !dashed_this_beat and !is_zero_approx(direction):
-		dashed_this_beat = true
-		print("dash")
-		is_dashing = true
+
+	if Input.is_action_just_pressed("dash"):
 		dash_direction = direction
-		dash_height = position.y
-		dash_timer = 0
-
-		charge_counter += 1
-		if charge_counter >= 1:
-			charge_counter = 0
-			add_charge()
-	elif Input.is_action_just_pressed("dash") and !is_on_beat and !dashed_this_beat:
-		charge_counter = 0
-
-	#handling dash
-	if is_dashing:
-		dash_timer += delta
-
-	if is_dashing and dash_timer >= dash_time_max:
-		is_dashing = false
-		spawn_afterimage()
-		do_once = false
-		do_twice = false
-		do_thrice = false
-		print("dashing over")
-
-	elif is_dashing and dash_timer <= dash_time_max:
-
-		velocity.x += dash_direction * DASH_SPEED * delta
-		#spawning afterimages
-		if dash_timer >= dash_time_max / 4 and !do_once:
-			do_once = true
-			print("do-once")
-			spawn_afterimage()
-		elif dash_timer >= (dash_time_max / 2) and !do_twice:
-			print("do-twice")
-			do_twice = true
-			spawn_afterimage()
-			spawn_afterimage()
-		elif dash_timer >= (dash_time_max / 2 + dash_time_max / 4) and !do_thrice:
-			print("do-twice")
-			do_thrice = true
-			spawn_afterimage()
-		#afterimage_counter += 1
-		#if afterimage_counter == 5:
-			#afterimage_counter = 0
-			#spawn_afterimage()
-
-
-
-
-
 
 	move_and_slide()
 
@@ -209,9 +139,17 @@ var afterimage_counter : int = 0
 func spawn_afterimage() -> void:
 	var afterInstance = load("res://components/player/afterimage.tscn").instantiate()
 	afterInstance.position = position
+	afterInstance.texture = animated_sprite.sprite_frames.get_frame_texture(animated_sprite.animation, animated_sprite.frame)
+	if !is_left:
+		afterInstance.flip_h = true
 	if dash_direction == 1:
 		afterInstance.flip_h = true
 	get_parent().add_child(afterInstance)
+
+
+func damaged(amount : int = 1) -> void:
+	print("hurt")
+	hurt()
 
 func hurt() -> void:
 	animated_sprite.play("hurt")

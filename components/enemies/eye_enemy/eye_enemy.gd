@@ -5,6 +5,8 @@ extends Node2D
 @export var attack_cooldown : float = 0
 
 
+@onready var attack_collision: CollisionShape2D = $AttackArea/CollisionShape2D
+
 var within_range : bool = false
 var player : CharacterBody2D
 var stop_aiming : bool = false
@@ -13,7 +15,7 @@ var is_attacking : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	attack_sprite.visible = false
-
+	attack_collision.disabled = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,12 +51,16 @@ func attack() -> void:
 	attack_sprite.play("attack")
 	await get_tree().create_timer(0.25)
 	stop_aiming = true
+	await get_tree().create_timer(0.5).timeout
+	print("red part")
+	attack_collision.disabled = false
 	await attack_sprite.animation_finished
 	var rng = RandomNumberGenerator.new()
 	attack_sprite.visible = false
-	attack_cooldown = randf_range(0, 1)
+	attack_cooldown = rng.randf_range(0, 1)
 	stop_aiming = false
 	is_attacking = false
+	attack_collision.disabled = true
 	await enemy_sprite.animation_finished
 
 @onready var ghost_sprite: Sprite2D = $GhostSprite
@@ -85,3 +91,13 @@ func _on_within_range_body_entered(body: Node2D) -> void:
 func _on_within_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		within_range = false
+
+
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player.damaged()
+
+
+func _on_body_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player.damaged()

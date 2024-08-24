@@ -1,9 +1,12 @@
 extends Area2D
 
-var speed = 750
+var speed = 1050
+@onready var sprite: Sprite2D = $pivot/Sprite2D
+@onready var pivot: Node2D = $pivot
 
 func _physics_process(delta):
 	position += transform.x * speed * delta
+	pivot.rotation += deg_to_rad(25)
 
 
 func _on_area_entered(area: Area2D) -> void:

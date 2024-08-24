@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bxsckyyrrfes0"]
+[gd_scene load_steps=24 format=3 uid="uid://bxsckyyrrfes0"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_medium/enemy_medium.gd" id="1_31nfd"]
 [ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="2_02i30"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d2xv16ptmeybh" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-1.png" id="7_xyl8b"]
 [ext_resource type="Texture2D" uid="uid://ccj8p2wwsvwy4" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-7.png" id="8_8a4ix"]
 [ext_resource type="Texture2D" uid="uid://ceydvbp0nge2x" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-2.png" id="8_t24bn"]
-[ext_resource type="PackedScene" uid="uid://mxkku20e4ia8" path="res://components/enemies/patrol_points.tscn" id="13_unjpi"]
+[ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="13_ds1g7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e65ux"]
 animations = [{
@@ -38,7 +38,7 @@ animations = [{
 "duration": 0.2,
 "texture": ExtResource("8_8a4ix")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -80,10 +80,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.98827, 3.40458)]
+}
 
 [sub_resource type="Animation" id="Animation_3kf3e"]
 resource_name = "attack"
-length = 0.5
+length = 1.069
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -91,10 +104,22 @@ tracks/0/path = NodePath("Pivot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.166667, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354)]
 }
 
 [sub_resource type="Animation" id="Animation_sroyi"]
@@ -124,14 +149,17 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erltr"]
 size = Vector2(45, 85)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5d7w"]
-size = Vector2(4.75, 47)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5nfj"]
+size = Vector2(95.4206, 7.92174)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l2ikj"]
-size = Vector2(31, 17.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xli2g"]
+size = Vector2(26.1718, 55)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0mxpx"]
 radius = 209.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_end8p"]
+size = Vector2(44, 83)
 
 [node name="EnemyMedium" type="Node2D"]
 script = ExtResource("1_31nfd")
@@ -143,8 +171,7 @@ scale = Vector2(0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_e65ux")
 animation = &"attack"
 autoplay = "blink_idle"
-frame = 6
-frame_progress = 1.0
+frame_progress = 0.317881
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -163,21 +190,23 @@ position = Vector2(-0.5, -8.5)
 shape = SubResource("RectangleShape2D_erltr")
 
 [node name="Pivot" type="Node2D" parent="."]
-visible = false
-position = Vector2(-11, 2)
+position = Vector2(-26, 2)
 rotation = 1.5708
 
-[node name="FlagArea" type="Area2D" parent="Pivot"]
-position = Vector2(-24.715, 0.334999)
-rotation = -1.57952
+[node name="HurtboxComponent" parent="Pivot" instance=ExtResource("13_ds1g7")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/FlagArea"]
-position = Vector2(-0.04, 0)
-shape = SubResource("RectangleShape2D_b5d7w")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HurtboxComponent"]
+position = Vector2(-40.6092, 12.0992)
+rotation = -0.26529
+shape = SubResource("RectangleShape2D_w5nfj")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pivot/FlagArea"]
-position = Vector2(13, -15.25)
-shape = SubResource("RectangleShape2D_l2ikj")
+[node name="HurtboxComponent2" parent="Pivot" instance=ExtResource("13_ds1g7")]
+position = Vector2(-80, -7.99971)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HurtboxComponent2"]
+position = Vector2(2.98827, 3.40458)
+rotation = -0.122173
+shape = SubResource("RectangleShape2D_xli2g")
 
 [node name="WithinRange" type="Area2D" parent="."]
 visible = false
@@ -185,7 +214,11 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WithinRange"]
 shape = SubResource("CircleShape2D_0mxpx")
 
-[node name="Patrol" parent="." instance=ExtResource("13_unjpi")]
+[node name="HurtboxComponent" parent="." instance=ExtResource("13_ds1g7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(-1, -9.5)
+shape = SubResource("RectangleShape2D_end8p")
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
 [connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

@@ -1,12 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=9 format=3 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
 [ext_resource type="PackedScene" uid="uid://u8k2tv6oynmo" path="res://components/enemies/enemy_test.tscn" id="2_n075w"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="4_2u64h"]
-[ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/enemy_small/enemy_small.tscn" id="4_fcwub"]
+[ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/eye_enemy/eye_enemy.tscn" id="4_fcwub"]
 [ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_j4yrl"]
 [ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="6_ubnj5"]
-[ext_resource type="PackedScene" uid="uid://mxkku20e4ia8" path="res://components/enemies/patrol_points.tscn" id="7_eiblo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(486, 114)
@@ -241,8 +240,6 @@ position = Vector2(1671, -17)
 
 [node name="EnemyMedium" parent="." instance=ExtResource("6_ubnj5")]
 position = Vector2(1890, 161)
-
-[node name="Patrol2" parent="EnemyMedium" instance=ExtResource("7_eiblo")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

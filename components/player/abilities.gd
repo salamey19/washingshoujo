@@ -21,9 +21,6 @@ const ABILITY_1_PROJECTILE = preload("res://components/player/ability_1_projecti
 
 var ability_2_damage : int = 0
 
-func _ready() -> void:
-	player.player_on_beat.connect(on_beat_weapon)
-	player.charge_added.connect(on_charge_added)
 
 
 func on_beat_weapon() -> void:
@@ -53,23 +50,23 @@ func on_charge_added() -> void:
 #tie ability speed to bpm??
 func _unhandled_input(event: InputEvent) -> void:
 
-	if player.is_on_beat and !ability_used_this_beat:
+	if !ability_used_this_beat:
 		if event.is_action_pressed("attack"):
-			#do basic attack bonk
-			if player.abilities_animation_player.is_playing():
-				player.abilities_animation_player.stop()
-			print("basic attack")
-			player.abilities_animation_player.play("basic_attack")
-			ability_used_this_beat = true
+			##do basic attack bonk
+			#if player.abilities_animation_player.is_playing():
+				#player.abilities_animation_player.stop()
+			#print("basic attack")
+			#player.animated_sprite.play("basic_attack")
+			ability_used_this_beat = false
 		if player.current_charges > 0:
 			if event.is_action_pressed("ability1"):
 				print("ability1")
 				swing()
-				ability_used_this_beat = true
+				ability_used_this_beat = false
 			if event.is_action_pressed("ability2"):
 				ability_2(player.current_charges)
 				player.current_charges = 0
-				ability_used_this_beat = true
+				ability_used_this_beat = false
 
 
 func shuffle_children() -> void:
@@ -100,6 +97,8 @@ func swing() -> void:
 	player.current_charges -= 1
 	charges.remove_child(charges.get_child(0))
 	var b = ABILITY_1_PROJECTILE.instantiate()
+	player.animated_sprite.play("ability_1")
+	await player.animated_sprite.animation_finished
 	get_parent().get_parent().add_child(b)
 	b.transform = $Ability1Marker.global_transform
 
