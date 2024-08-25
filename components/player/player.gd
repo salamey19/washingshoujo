@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var abilities_animation_player: AnimationPlayer = $AbilitiesAnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var charges: Node2D = $Weapon/Charges
+
 #@onready var vfx: AnimatedSprite2D = $VFX
 
 
@@ -46,11 +48,11 @@ const MAX_CHARGES = 3
 @onready var current_charges : int = 0
 @onready var charge_counter : int = 0
 @onready var weapon: Node2D = $Weapon
-
+var ability_2_damage : int = 0
 const AFTERIMAGE = preload("res://components/player/afterimage.tscn")
 
-
-
+var locked : bool = false
+var locked_height : float = 0
 
 var is_left : bool = false
 func _input(event: InputEvent) -> void:
@@ -80,28 +82,15 @@ func get_grav(velocity: Vector2):
 
 
 func _physics_process(delta: float) -> void:
+	#print(velocity.y)
+	if locked:
+		position.y = locked_height
 
 	if is_dashing:
 		position.y = dash_height
 	else:
-		pass
 		if not is_on_floor():
 			velocity.y += get_grav(velocity) * delta
-		#if Input.is_action_just_released("jump") and velocity.y < 0 and velocity.y <= (JUMP_VELOCITY / 2):
-			#velocity.y = JUMP_VELOCITY / 2
-		## Handle jump.
-		#if Input.is_action_just_pressed("jump") and is_on_floor():
-			#velocity.y = JUMP_VELOCITY
-
-
-	#if velocity.x > 450 or velocity.x < -450:
-		#animated_sprite.play("dash")
-	#elif velocity.x <= 450 and velocity.x > 0:
-		#if !animated_sprite.is_playing():
-			#animated_sprite.play("run")
-	#else:
-		#if !animated_sprite.is_playing():
-			#animated_sprite.play("idle")
 
 
 
@@ -154,6 +143,14 @@ func damaged(amount : int = 1) -> void:
 func hurt() -> void:
 	animated_sprite.play("hurt")
 	%VFX.play("knock_back")
+
+func lock_player() -> void:
+	locked_height = position.y
+	locked = true
+
+func unlock_player() -> void:
+	locked = false
+	locked_height = 0
 
 
 signal charge_added

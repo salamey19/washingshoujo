@@ -26,6 +26,10 @@ func Physics_Update(delta : float):
 		player.dash_timer += delta
 
 	if player.is_dashing and player.dash_timer >= player.dash_time_max:
+
+		if !player.is_on_floor():
+			Transitioned.emit(self, "falling")
+
 		if player.velocity.x > 0 or player.velocity.x < 0:
 			Transitioned.emit(self, "run")
 		else:

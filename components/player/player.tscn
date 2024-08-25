@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=84 format=3 uid="uid://bgoiy1vdujhr"]
 
 [ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="1_1hn02"]
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
@@ -29,9 +29,11 @@
 [ext_resource type="Texture2D" uid="uid://dg51pg2ty1h8s" path="res://art/2d/player/ability 2/1 charge/NA_1-3.png" id="8_biale"]
 [ext_resource type="Texture2D" uid="uid://b13janinamt4b" path="res://art/2d/player/Final attack fr/NA_1-6.png" id="8_cphjc"]
 [ext_resource type="Texture2D" uid="uid://byr11j4fe48ko" path="res://art/2d/player/Hurt finished/Idle_1-4.png" id="8_pd4l3"]
+[ext_resource type="Script" path="res://components/player/statemachine/states/player_ability1.gd" id="9_ixp21"]
 [ext_resource type="Texture2D" uid="uid://dtkvamt05vwqw" path="res://art/2d/player/Real final dash/Idle_1-3.png" id="9_psnhx"]
 [ext_resource type="Texture2D" uid="uid://cbkefmr4emq3v" path="res://art/2d/player/ability 2/1 charge/NA_1-4.png" id="9_xmo3t"]
 [ext_resource type="Texture2D" uid="uid://cjqwvfroc061a" path="res://art/2d/player/ability 2/1 charge/NA_1-5.png" id="10_ayt3s"]
+[ext_resource type="Script" path="res://components/player/statemachine/states/player_ability2.gd" id="10_kh3wv"]
 [ext_resource type="Texture2D" uid="uid://d11owhja6er3h" path="res://art/2d/player/Real final dash/Idle_1-4.png" id="10_wabcn"]
 [ext_resource type="Texture2D" uid="uid://cu57n4y73bnp7" path="res://art/2d/player/ability 2/1 charge/NA_1-6.png" id="11_6c1ft"]
 [ext_resource type="Texture2D" uid="uid://1cp12byhn148" path="res://art/2d/player/Real final dash/Idle_1-1.png" id="11_mhugw"]
@@ -109,7 +111,7 @@ animations = [{
 "duration": 1.7,
 "texture": ExtResource("12_ecuqj")
 }],
-"loop": true,
+"loop": false,
 "name": &"ability_2_1",
 "speed": 5.0
 }, {
@@ -135,7 +137,7 @@ animations = [{
 "duration": 1.7,
 "texture": ExtResource("19_wgock")
 }],
-"loop": true,
+"loop": false,
 "name": &"ability_2_2",
 "speed": 5.0
 }, {
@@ -161,7 +163,7 @@ animations = [{
 "duration": 1.7,
 "texture": ExtResource("26_dxby0")
 }],
-"loop": true,
+"loop": false,
 "name": &"ability_2_3",
 "speed": 5.0
 }, {
@@ -598,6 +600,14 @@ player = NodePath("../..")
 script = ExtResource("8_b411x")
 player = NodePath("../..")
 
+[node name="Ability1" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("9_ixp21")
+player = NodePath("../..")
+
+[node name="Ability2" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("10_kh3wv")
+player = NodePath("../..")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_iew1x")
@@ -613,7 +623,7 @@ flip_h = true
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_va6oa")
-animation = &"basic_attack"
+animation = &"ability_2_2"
 flip_h = true
 
 [node name="VFX" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
@@ -658,6 +668,7 @@ scale = Vector2(0.476563, 0.382813)
 texture = ExtResource("1_1hn02")
 
 [node name="Ability1Marker" type="Marker2D" parent="Weapon"]
+unique_name_in_owner = true
 position = Vector2(33, 0)
 
 [node name="Ability2Areas" type="Area2D" parent="Weapon"]
