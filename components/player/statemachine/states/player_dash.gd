@@ -7,7 +7,9 @@ func Enter():
 	player.animated_sprite.play("dash_start")
 	await player.animated_sprite.animation_finished
 	player.animated_sprite.play("dash")
+	player.has_dash = false
 	dash()
+
 
 func Exit():
 	player.is_dashing = false
@@ -15,10 +17,14 @@ func Exit():
 	player.do_once = false
 	player.do_twice = false
 	player.do_thrice = false
+	if !player.is_on_floor():
+		player.velocity.y = -205
 
 
 
 func Physics_Update(delta : float):
+	if player.is_hurt:
+		Transitioned.emit(self, "hurt")
 
 
 		#handling dash

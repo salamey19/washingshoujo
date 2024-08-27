@@ -109,7 +109,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3h7ds"]
-radius = 20.0
+radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v3wb5"]
 radius = 328.098
@@ -158,6 +158,7 @@ speed_scale = 1.5
 position = Vector2(-110, 0)
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["Enemy"] instance=ExtResource("20_yntf7")]
+position = Vector2(-2, 5.07036e-06)
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

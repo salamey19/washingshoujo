@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cfmjqfi161xrd"
+path="res://.godot/imported/ovani_convos_main.ogg-50ac4340ce443c72026156e75e0e0b9c.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/New folder/ovani_convos_main.ogg"
+dest_files=["res://.godot/imported/ovani_convos_main.ogg-50ac4340ce443c72026156e75e0e0b9c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=92.0
+beat_count=1
+bar_beats=4

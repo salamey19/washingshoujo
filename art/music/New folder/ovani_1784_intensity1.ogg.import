@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ckfv1nc8l6t2o"
+path="res://.godot/imported/ovani_1784_intensity1.ogg-fa363d317ad6372a2303800e39b28b7a.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/New folder/ovani_1784_intensity1.ogg"
+dest_files=["res://.godot/imported/ovani_1784_intensity1.ogg-fa363d317ad6372a2303800e39b28b7a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=89.0
+beat_count=1
+bar_beats=2

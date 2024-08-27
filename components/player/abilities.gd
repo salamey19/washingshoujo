@@ -59,9 +59,21 @@ func _on_basic_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		if area.has_method("damage"):
 			area.damage(basic_attack_damage)
+			OS.delay_msec(100)
+			get_tree().get_first_node_in_group("Camera").camera_shake(10)
+			#player.attack_bounce()
 
 
 func _on_ability_2_areas_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		if area.has_method("damage"):
 			area.damage(player.ability_2_damage)
+			if player.ability_2_damage == 1:
+				OS.delay_msec(100)
+				get_tree().get_first_node_in_group("Camera").camera_shake(10)
+			if player.ability_2_damage == 2:
+				OS.delay_msec(200)
+				get_tree().get_first_node_in_group("Camera").camera_shake(20)
+			if player.ability_2_damage == 3:
+				OS.delay_msec(300)
+				get_tree().get_first_node_in_group("Camera").camera_shake(30)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8p8al7xl4oip"
+path="res://.godot/imported/big fight.wav-592f51ba42aa73cf817ceda50b3478db.sample"
+
+[deps]
+
+source_file="res://art/music/big fight.wav"
+dest_files=["res://.godot/imported/big fight.wav-592f51ba42aa73cf817ceda50b3478db.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=155000
+edit/loop_end=-1
+compress/mode=0

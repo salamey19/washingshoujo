@@ -1,6 +1,7 @@
 extends Node
 
 
+signal enemy_defeated
 
 ## Whether or not the app is currently focused.
 var is_app_focused : bool = true

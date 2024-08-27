@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 1050
+var speed = 1150
 @onready var sprite: Sprite2D = $pivot/Sprite2D
 @onready var pivot: Node2D = $pivot
 
@@ -12,7 +12,9 @@ func _physics_process(delta):
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		area.damage(1)
-	queue_free()
+		OS.delay_msec(150)
+		get_tree().get_first_node_in_group("Camera").camera_shake(20)
+		queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:

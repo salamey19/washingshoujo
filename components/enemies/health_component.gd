@@ -11,8 +11,10 @@ func _ready() -> void:
 
 
 func damage(amount : int) -> void:
+
 	if amount < tank_amount:
-		print("block", amount)
+		if get_parent().has_method("blocked"):
+			get_parent().blocked()
 	else:
 		print("ouch")
 		health -= amount

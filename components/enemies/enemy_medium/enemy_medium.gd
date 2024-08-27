@@ -3,6 +3,8 @@ extends Node2D
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @export var attack_cooldown : float = 0
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hurtbox_component: Area2D = $Pivot/HurtboxComponent
+@onready var ghost_sprite: Sprite2D = $GhostSprite
 
 @export var patrol_point_1 : Node2D
 @export var patrol_point_2 : Node2D
@@ -42,6 +44,26 @@ func attack() -> void:
 	print(attack_timer)
 	attack_timer = 0
 	enemy_sprite.play("blink_idle")
+
+func set_ghost_progress(val: float):
+	ghost_sprite.material.set("shader_parameter/ghost_progress", val)
+
+
+func death() -> void:
+	Global.enemy_defeated.emit()
+	hurtbox_component.monitoring = false
+	set_process(false)
+	enemy_sprite.offset.x = 750
+	animation_player.stop()
+	enemy_sprite.play("death")
+	ghost_sprite.visible = true
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_method(set_ghost_progress, 0.0, 1.0, 1.0)
+	tween.tween_property(enemy_sprite, "position:y", enemy_sprite.position.y + 30, 1)
+	await tween.finished
+	queue_free()
+
 
 
 func _on_within_range_body_entered(body: Node2D) -> void:

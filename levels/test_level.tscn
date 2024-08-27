@@ -1,21 +1,87 @@
-[gd_scene load_steps=9 format=3 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=24 format=3 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
-[ext_resource type="PackedScene" uid="uid://u8k2tv6oynmo" path="res://components/enemies/enemy_test.tscn" id="2_n075w"]
+[ext_resource type="Texture2D" uid="uid://h4jo5qxi3003" path="res://art/2d/Backgrounds/background final/1.png" id="1_ux2wn"]
+[ext_resource type="Texture2D" uid="uid://cue7km506nweo" path="res://art/2d/Backgrounds/Background level 1 second try/Untitled_Artwork-1.png" id="2_2lx3p"]
+[ext_resource type="Texture2D" uid="uid://blp4p2pcjjcva" path="res://art/2d/Backgrounds/background final/2.png" id="3_xdb3j"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="4_2u64h"]
 [ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/eye_enemy/eye_enemy.tscn" id="4_fcwub"]
+[ext_resource type="Texture2D" uid="uid://b4sryttb5nbrn" path="res://art/2d/Backgrounds/background final/3.png" id="4_qiq80"]
 [ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_j4yrl"]
+[ext_resource type="Texture2D" uid="uid://chbchmqo1hqiu" path="res://art/2d/Backgrounds/background final/4.png" id="5_xj80p"]
+[ext_resource type="Texture2D" uid="uid://djoyln2rd2soa" path="res://art/2d/Backgrounds/background final/5.png" id="6_3pv8s"]
 [ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="6_ubnj5"]
+[ext_resource type="Texture2D" uid="uid://dfuglqdygddso" path="res://art/2d/Backgrounds/background final/6.png" id="7_eibxi"]
+[ext_resource type="Texture2D" uid="uid://bobg3atfusocq" path="res://art/2d/Backgrounds/background final/7.png" id="8_mfwor"]
+[ext_resource type="Texture2D" uid="uid://md3phnmfh4mu" path="res://art/2d/Backgrounds/background final/9.png" id="9_gsyd6"]
+[ext_resource type="Texture2D" uid="uid://bgx60rjwbqg01" path="res://art/2d/Backgrounds/background final/10.png" id="10_slxrl"]
+[ext_resource type="Texture2D" uid="uid://8wk1glw7m0b" path="res://art/2d/Backgrounds/background final/11.png" id="11_k6vma"]
+[ext_resource type="Texture2D" uid="uid://3h0lm2ofb0nw" path="res://art/2d/Backgrounds/Fourth try background level 1/Untitled_Artwork-11.png" id="12_wxv3f"]
+[ext_resource type="Script" path="res://components/camera/camera.gd" id="13_4f1gs"]
+[ext_resource type="PackedScene" uid="uid://dxyi7khgjp0v0" path="res://components/riro/riro.tscn" id="19_llrsb"]
+[ext_resource type="AudioStream" uid="uid://1u0sc5xjvmab" path="res://art/music/big fight_2.wav" id="20_j8dnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
-size = Vector2(486, 114)
+size = Vector2(744.65, 521.724)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jo71w"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vs4j"]
+size = Vector2(487, 143.75)
+
 [node name="TestLevel" type="Node2D"]
 
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(460, -347)
+
+[node name="Layer1" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("1_ux2wn")
+
+[node name="Stencil" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(1849.68, -25.975)
+texture = ExtResource("2_2lx3p")
+
+[node name="Layer2" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("3_xdb3j")
+
+[node name="Layer3" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("4_qiq80")
+
+[node name="Layer4" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("5_xj80p")
+
+[node name="Layer5" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("6_3pv8s")
+
+[node name="Layer6" type="Sprite2D" parent="Background"]
+position = Vector2(1482, -25.96)
+texture = ExtResource("7_eibxi")
+
+[node name="Layer9" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("8_mfwor")
+
+[node name="Layer7" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("9_gsyd6")
+
+[node name="Layer10" type="Sprite2D" parent="Background"]
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("11_k6vma")
+
+[node name="Layer11" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(1849.69, -25.96)
+texture = ExtResource("12_wxv3f")
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
-position = Vector2(576, -126)
+position = Vector2(451, -593)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -25,8 +91,17 @@ update_scale = false
 [node name="Floors" type="Node2D" parent="."]
 position = Vector2(0, -450)
 
+[node name="Floor15" type="StaticBody2D" parent="Floors"]
+position = Vector2(212, -94)
+rotation = 0.123918
+scale = Vector2(1, 0.16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor15"]
+position = Vector2(32.3738, 403.598)
+shape = SubResource("RectangleShape2D_8l8x7")
+
 [node name="Floor" type="StaticBody2D" parent="Floors"]
-position = Vector2(0, 653)
+position = Vector2(0, 911)
 scale = Vector2(18.6, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor"]
@@ -39,7 +114,7 @@ scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
 [node name="Floor2" type="StaticBody2D" parent="Floors"]
-position = Vector2(634, 564)
+position = Vector2(634, 1427)
 scale = Vector2(1, 0.16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor2"]
@@ -52,11 +127,11 @@ scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
 [node name="Floor3" type="StaticBody2D" parent="Floors"]
-position = Vector2(1317, 484)
+position = Vector2(1317, 920)
 scale = Vector2(1, 0.16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor3"]
-position = Vector2(233, 47)
+position = Vector2(233, 104.303)
 shape = SubResource("RectangleShape2D_8l8x7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/Floor3"]
@@ -65,12 +140,12 @@ scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
 [node name="Floor4" type="StaticBody2D" parent="Floors"]
-position = Vector2(2003, 450)
+position = Vector2(2306, 581)
 scale = Vector2(1, 0.16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor4"]
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
+position = Vector2(231.5, 53.125)
+shape = SubResource("RectangleShape2D_1vs4j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Floors/Floor4"]
 position = Vector2(232.5, 47.5)
@@ -78,7 +153,7 @@ scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
 [node name="Floor5" type="StaticBody2D" parent="Floors"]
-position = Vector2(2757, 450)
+position = Vector2(2757, 1316)
 scale = Vector2(2.87768, 2.00026)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor5"]
@@ -223,23 +298,47 @@ position = Vector2(232.5, 47.5)
 scale = Vector2(485, 113)
 texture = SubResource("PlaceholderTexture2D_jo71w")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, -126)
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+position = Vector2(451, -593)
+offset = Vector2(0, -194)
+script = ExtResource("13_4f1gs")
 
-[node name="EnemyTest" parent="." instance=ExtResource("2_n075w")]
-position = Vector2(1050, 70)
+[node name="Timer" type="Timer" parent="Camera2D"]
 
 [node name="Boss" parent="." instance=ExtResource("4_2u64h")]
 position = Vector2(0, 131)
 
-[node name="enemy_small" parent="." instance=ExtResource("4_fcwub")]
-position = Vector2(481, 88)
-
 [node name="TankEnemy" parent="." instance=ExtResource("5_j4yrl")]
-position = Vector2(1671, -17)
+position = Vector2(2639, 80)
+
+[node name="enemy_small" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(3661, -79)
+
+[node name="enemy_small2" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(3371, -193)
+
+[node name="enemy_small5" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(774, 155)
+
+[node name="enemy_small6" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(484, 41)
+
+[node name="enemy_small3" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(3661, -307)
+
+[node name="enemy_small4" parent="." instance=ExtResource("4_fcwub")]
+position = Vector2(3371, -421)
 
 [node name="EnemyMedium" parent="." instance=ExtResource("6_ubnj5")]
 position = Vector2(1890, 161)
+
+[node name="Riro" parent="." instance=ExtResource("19_llrsb")]
+position = Vector2(195, -593)
+scale = Vector2(0.1, 0.1)
+
+[node name="Layer8" type="Sprite2D" parent="."]
+position = Vector2(2309.69, -372.96)
+texture = ExtResource("10_slxrl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -275,3 +374,27 @@ offset_bottom = -614.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
+
+[node name="Combo" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_top = 0.054
+anchor_right = 0.124
+anchor_bottom = 0.275
+offset_top = 0.00799942
+offset_right = 0.151993
+offset_bottom = -0.199997
+
+[node name="Label" type="Label" parent="CanvasLayer/Combo" groups=["Combo"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.448
+anchor_bottom = 0.364
+offset_left = 1.0
+offset_right = -0.064003
+offset_bottom = -0.052002
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_j8dnv")

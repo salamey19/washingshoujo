@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1ptcwe27dhvg"
+path="res://.godot/imported/holy_beat_test.ogg-1d4cc2c35e03176a29834a5f8fbb6c90.oggvorbisstr"
+
+[deps]
+
+source_file="res://art/music/New folder/holy_beat_test.ogg"
+dest_files=["res://.godot/imported/holy_beat_test.ogg-1d4cc2c35e03176a29834a5f8fbb6c90.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=80.0
+beat_count=0
+bar_beats=3

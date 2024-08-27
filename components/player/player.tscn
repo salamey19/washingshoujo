@@ -1,33 +1,23 @@
-[gd_scene load_steps=84 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=86 format=3 uid="uid://bgoiy1vdujhr"]
 
-[ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="1_1hn02"]
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
 [ext_resource type="Texture2D" uid="uid://x5gmglkthoof" path="res://art/2d/player/Finished idle/Idle_1-1.png" id="2_drps4"]
-[ext_resource type="Texture2D" uid="uid://y1qk8qfk7p6j" path="res://art/2d/player/Final attack fr/NA_1-1.png" id="3_1qs5a"]
 [ext_resource type="Script" path="res://components/player/abilities.gd" id="3_4170l"]
-[ext_resource type="Texture2D" uid="uid://cp0hb5jmh7sfg" path="res://art/2d/player/Ability 1 Resized/NA_1-2.png" id="3_vle22"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_run.gd" id="4_6oooy"]
-[ext_resource type="Texture2D" uid="uid://dy48qcgps57sv" path="res://art/2d/player/Final attack fr/NA_1-2.png" id="4_gnugj"]
-[ext_resource type="Texture2D" uid="uid://cbcvlxpb2x2bw" path="res://art/2d/player/Ability 1 Resized/NA_1-3.png" id="4_gxbyi"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_jump.gd" id="5_1y55s"]
 [ext_resource type="Texture2D" uid="uid://5l26g7lcbi56" path="res://art/2d/player/Finished idle/Idle_1-2.png" id="5_b8oiw"]
-[ext_resource type="Texture2D" uid="uid://b2xhno8i10ohs" path="res://art/2d/player/Ability 1 Resized/NA_1-4.png" id="5_r5ucp"]
-[ext_resource type="Texture2D" uid="uid://idap5ukx2dkr" path="res://art/2d/player/Final attack fr/NA_1-3.png" id="5_s3x6n"]
 [ext_resource type="Texture2D" uid="uid://c6ef46bpjuvk5" path="res://art/2d/player/Hurt finished/Idle_1-1.png" id="5_u7bmo"]
 [ext_resource type="Texture2D" uid="uid://dd4sck8hr78mb" path="res://art/2d/player/ability 2/1 charge/NA_1-1.png" id="6_1khr4"]
 [ext_resource type="Texture2D" uid="uid://cro13kjfuohhm" path="res://art/2d/player/Hurt finished/Idle_1-2.png" id="6_2vf6c"]
 [ext_resource type="Texture2D" uid="uid://cqtoqhfkf7tas" path="res://art/2d/player/Finished idle/Idle_1-3.png" id="6_fh6ai"]
-[ext_resource type="Texture2D" uid="uid://flrsxj4xgtsd" path="res://art/2d/player/Final attack fr/NA_1-4.png" id="6_qy581"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_falling.gd" id="6_r6215"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_dash.gd" id="7_bci8c"]
 [ext_resource type="Texture2D" uid="uid://c06bhr0nk105d" path="res://art/2d/player/ability 2/1 charge/NA_1-2.png" id="7_fko40"]
-[ext_resource type="Texture2D" uid="uid://db6wfqsv4v2an" path="res://art/2d/player/Final attack fr/NA_1-5.png" id="7_iuotg"]
 [ext_resource type="Texture2D" uid="uid://b5o583gdnni3y" path="res://art/2d/player/Hurt finished/Idle_1-3.png" id="7_tbvy1"]
 [ext_resource type="Texture2D" uid="uid://dpqtqhk8ct1r2" path="res://art/2d/player/Finished idle/Idle_1-4.png" id="7_uyfvu"]
 [ext_resource type="Texture2D" uid="uid://cp30udrrxi3wx" path="res://art/2d/player/Jump final/Jump up/Idle_1-1.png" id="7_xq5a1"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_attack.gd" id="8_b411x"]
 [ext_resource type="Texture2D" uid="uid://dg51pg2ty1h8s" path="res://art/2d/player/ability 2/1 charge/NA_1-3.png" id="8_biale"]
-[ext_resource type="Texture2D" uid="uid://b13janinamt4b" path="res://art/2d/player/Final attack fr/NA_1-6.png" id="8_cphjc"]
 [ext_resource type="Texture2D" uid="uid://byr11j4fe48ko" path="res://art/2d/player/Hurt finished/Idle_1-4.png" id="8_pd4l3"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_ability1.gd" id="9_ixp21"]
 [ext_resource type="Texture2D" uid="uid://dtkvamt05vwqw" path="res://art/2d/player/Real final dash/Idle_1-3.png" id="9_psnhx"]
@@ -36,13 +26,17 @@
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_ability2.gd" id="10_kh3wv"]
 [ext_resource type="Texture2D" uid="uid://d11owhja6er3h" path="res://art/2d/player/Real final dash/Idle_1-4.png" id="10_wabcn"]
 [ext_resource type="Texture2D" uid="uid://cu57n4y73bnp7" path="res://art/2d/player/ability 2/1 charge/NA_1-6.png" id="11_6c1ft"]
+[ext_resource type="Script" path="res://components/player/statemachine/states/player_hurt.gd" id="11_fi1wl"]
 [ext_resource type="Texture2D" uid="uid://1cp12byhn148" path="res://art/2d/player/Real final dash/Idle_1-1.png" id="11_mhugw"]
 [ext_resource type="Texture2D" uid="uid://b6aex5hlj4gnu" path="res://art/2d/player/ability 2/1 charge/NA_1-7.png" id="12_ecuqj"]
 [ext_resource type="Texture2D" uid="uid://c5ivkf41chhh1" path="res://art/2d/player/Real final dash/Idle_1-2.png" id="12_ykocs"]
 [ext_resource type="Texture2D" uid="uid://ds7jk4h4bql4b" path="res://art/2d/player/ability 2/2 charge/NA_1-1.png" id="13_5jxva"]
+[ext_resource type="Texture2D" uid="uid://bexj8agad1lf8" path="res://art/2d/player/FINSL FINAL SBILITY 1/Running_1-1.png" id="13_xql4v"]
 [ext_resource type="Texture2D" uid="uid://dwo4nrolf8exp" path="res://art/2d/player/ability 2/2 charge/NA_1-2.png" id="14_3uav8"]
 [ext_resource type="Texture2D" uid="uid://cxkrtlo3bbnxv" path="res://art/2d/player/Knock back VFX/Idle_1-1.png" id="14_4x337"]
+[ext_resource type="Texture2D" uid="uid://bmfxd0ynyt121" path="res://art/2d/player/FINSL FINAL SBILITY 1/Running_1-2.png" id="14_fcgjv"]
 [ext_resource type="Texture2D" uid="uid://c1a6l07aosymj" path="res://art/2d/player/ability 2/2 charge/NA_1-3.png" id="15_2yf0o"]
+[ext_resource type="Texture2D" uid="uid://bdmxwo3nyf7qv" path="res://art/2d/player/FINSL FINAL SBILITY 1/Running_1-3.png" id="15_a06lj"]
 [ext_resource type="Texture2D" uid="uid://ctn0xb11fkv6f" path="res://art/2d/player/Knock back VFX/Idle_1-2.png" id="15_i0upu"]
 [ext_resource type="Texture2D" uid="uid://cpx4lj56jcy1o" path="res://art/2d/player/ability 2/2 charge/NA_1-4.png" id="16_4mwdw"]
 [ext_resource type="Texture2D" uid="uid://br5ef026y1u8y" path="res://art/2d/player/Knock back VFX/Idle_1-3.png" id="16_qcbqb"]
@@ -66,6 +60,12 @@
 [ext_resource type="Texture2D" uid="uid://cypkir0f05e3o" path="res://art/2d/player/ability 2/3 charge/NA_1-6.png" id="25_055by"]
 [ext_resource type="Texture2D" uid="uid://dkgwenp46phvq" path="res://art/2d/player/Run test/Running_1-6.png" id="25_t27kg"]
 [ext_resource type="Texture2D" uid="uid://dqituw4q0iyc7" path="res://art/2d/player/ability 2/3 charge/NA_1-7.png" id="26_dxby0"]
+[ext_resource type="Texture2D" uid="uid://b3k7antf0jga5" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-1.png" id="37_ni1gj"]
+[ext_resource type="Texture2D" uid="uid://c05nsa37x3l66" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-2.png" id="38_0jwdo"]
+[ext_resource type="Texture2D" uid="uid://cnbxm60av46kh" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-3.png" id="39_fwcvp"]
+[ext_resource type="Texture2D" uid="uid://4v8kruebhkg1" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-4.png" id="40_s6hdw"]
+[ext_resource type="Texture2D" uid="uid://wr3gjy8h8av6" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-5.png" id="41_5uhwb"]
+[ext_resource type="Texture2D" uid="uid://bpya48028a8d6" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-6.png" id="42_5n7ku"]
 [ext_resource type="Script" path="res://components/player/statemachine/state_machine.gd" id="60_nv2gq"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_idle.gd" id="61_c721r"]
 
@@ -77,13 +77,13 @@ height = 110.0
 animations = [{
 "frames": [{
 "duration": 0.5,
-"texture": ExtResource("3_vle22")
+"texture": ExtResource("13_xql4v")
 }, {
 "duration": 0.5,
-"texture": ExtResource("4_gxbyi")
+"texture": ExtResource("14_fcgjv")
 }, {
 "duration": 0.5,
-"texture": ExtResource("5_r5ucp")
+"texture": ExtResource("15_a06lj")
 }],
 "loop": false,
 "name": &"ability_1",
@@ -168,23 +168,23 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.7,
-"texture": ExtResource("3_1qs5a")
+"duration": 0.5,
+"texture": ExtResource("38_0jwdo")
 }, {
-"duration": 0.7,
-"texture": ExtResource("4_gnugj")
+"duration": 0.5,
+"texture": ExtResource("39_fwcvp")
 }, {
-"duration": 0.7,
-"texture": ExtResource("5_s3x6n")
+"duration": 0.5,
+"texture": ExtResource("40_s6hdw")
 }, {
-"duration": 0.7,
-"texture": ExtResource("6_qy581")
+"duration": 0.5,
+"texture": ExtResource("41_5uhwb")
 }, {
-"duration": 0.7,
-"texture": ExtResource("7_iuotg")
+"duration": 0.5,
+"texture": ExtResource("42_5n7ku")
 }, {
-"duration": 0.7,
-"texture": ExtResource("8_cphjc")
+"duration": 0.5,
+"texture": ExtResource("37_ni1gj")
 }],
 "loop": false,
 "name": &"basic_attack",
@@ -332,19 +332,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/BasicAttackArea/Sprite2D:visible")
+tracks/1/path = NodePath("Weapon/Ability2Areas/Level1Shape:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon/Ability2Areas/Level1Shape:disabled")
+tracks/2/path = NodePath("Weapon/Ability2Areas/Level2Shape:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -356,7 +356,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon/Ability2Areas/Level2Shape:disabled")
+tracks/3/path = NodePath("Weapon/Ability2Areas/Level3Shape:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -368,19 +368,19 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon/Ability2Areas/Level3Shape:disabled")
+tracks/4/path = NodePath(".:skew")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [0.0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath(".:skew")
+tracks/5/path = NodePath("AnimatedSprite2D:skew")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -392,14 +392,26 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimatedSprite2D:skew")
+tracks/6/path = NodePath("AnimatedSprite2D:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(5, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_wpytj"]
@@ -463,7 +475,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(28, 1)]
+"values": [Vector2(13, 19.125)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -484,26 +496,46 @@ tracks/2/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon/BasicAttackArea/Sprite2D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+
+[sub_resource type="Animation" id="Animation_tnaq7"]
+resource_name = "flash_red"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.820272, 0.167768, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_cnh18"]
 resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_hlui8"]
+resource_name = "immune_flash"
+length = 1.6515
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.366667, 0.5, 0.733333, 0.866667, 1, 1.1, 1.36667, 1.5, 1.63333, 1.86667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 1), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 1), Color(1, 1, 1, 0.529412), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_rm1v6"]
 resource_name = "player_on_beat"
@@ -552,12 +584,14 @@ _data = {
 "ability2_level_2": SubResource("Animation_pxl6o"),
 "ability2_level_3": SubResource("Animation_dey86"),
 "basic_attack": SubResource("Animation_hcoej"),
+"flash_red": SubResource("Animation_tnaq7"),
 "idle": SubResource("Animation_cnh18"),
+"immune_flash": SubResource("Animation_hlui8"),
 "player_on_beat": SubResource("Animation_rm1v6")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jxear"]
-size = Vector2(82, 58)
+size = Vector2(67.875, 93.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjqrw"]
 size = Vector2(98, 20)
@@ -570,7 +604,7 @@ size = Vector2(98, 46)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_vyv0g")
-grace_max = 0.85
+metadata/_edit_vertical_guides_ = [-233.0]
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("60_nv2gq")
@@ -608,7 +642,12 @@ player = NodePath("../..")
 script = ExtResource("10_kh3wv")
 player = NodePath("../..")
 
+[node name="Hurt" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("11_fi1wl")
+player = NodePath("../..")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_iew1x")
 
@@ -623,7 +662,7 @@ flip_h = true
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_va6oa")
-animation = &"ability_2_2"
+animation = &"ability_1"
 flip_h = true
 
 [node name="VFX" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
@@ -652,20 +691,14 @@ script = ExtResource("3_4170l")
 [node name="Charges" type="Node2D" parent="Weapon"]
 
 [node name="BasicAttackArea" type="Area2D" parent="Weapon"]
-position = Vector2(72, -22)
+position = Vector2(34, -7)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon/BasicAttackArea"]
+position = Vector2(5, 16)
 shape = SubResource("RectangleShape2D_jxear")
 disabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Weapon/BasicAttackArea"]
-visible = false
-modulate = Color(0.811765, 0.560784, 0.47451, 0.34902)
-position = Vector2(28, 0.999999)
-scale = Vector2(0.476563, 0.382813)
-texture = ExtResource("1_1hn02")
 
 [node name="Ability1Marker" type="Marker2D" parent="Weapon"]
 unique_name_in_owner = true
@@ -696,6 +729,8 @@ shape = SubResource("RectangleShape2D_oxu5g")
 disabled = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Weapon/Ability2Areas"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Weapon/BasicAttackArea" to="Weapon" method="_on_basic_attack_area_area_entered"]
 [connection signal="area_entered" from="Weapon/Ability2Areas" to="Weapon" method="_on_ability_2_areas_area_entered"]

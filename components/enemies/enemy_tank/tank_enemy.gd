@@ -6,17 +6,19 @@ extends Node2D
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("attack"):
-		vfx.visible = true
-		vfx.play("shield_block")
-		enemy_sprite.play("hit")
-		await vfx.animation_finished
-		enemy_sprite.play("blink_idle")
+
 
 func set_ghost_progress(val: float):
 	ghost_sprite.material.set("shader_parameter/ghost_progress", val)
+
+func blocked() -> void:
+	vfx.visible = true
+	if vfx.is_playing():
+		vfx.stop()
+	vfx.play("shield_block")
+	enemy_sprite.play("hit")
+	await vfx.animation_finished
+	enemy_sprite.play("blink_idle")
 
 func death() -> void:
 	set_process(false)

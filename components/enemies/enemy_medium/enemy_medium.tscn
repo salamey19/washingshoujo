@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bxsckyyrrfes0"]
+[gd_scene load_steps=27 format=3 uid="uid://bxsckyyrrfes0"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_medium/enemy_medium.gd" id="1_31nfd"]
 [ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="2_02i30"]
 [ext_resource type="Texture2D" uid="uid://btqn7s8e7i3mg" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-1.png" id="2_4t2g1"]
+[ext_resource type="Shader" path="res://art/shaders/death_shader.gdshader" id="2_otro5"]
 [ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="3_ba3gy"]
 [ext_resource type="Texture2D" uid="uid://caa2rtyx62uge" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-2.png" id="3_qh4gs"]
 [ext_resource type="Texture2D" uid="uid://c22yk2fhvrk8o" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-3.png" id="4_3m6yn"]
@@ -12,7 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://d2xv16ptmeybh" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-1.png" id="7_xyl8b"]
 [ext_resource type="Texture2D" uid="uid://ccj8p2wwsvwy4" path="res://art/2d/enemies/flagbearer/Final Attack/Blink_1-7.png" id="8_8a4ix"]
 [ext_resource type="Texture2D" uid="uid://ceydvbp0nge2x" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-2.png" id="8_t24bn"]
+[ext_resource type="Texture2D" uid="uid://dst374sqsssqm" path="res://art/2d/enemies/flagbearer/Death/Blink_1-1.png" id="12_j20kl"]
 [ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="13_ds1g7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xu53c"]
+shader = ExtResource("2_otro5")
+shader_parameter/ghost_progress = 0.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e65ux"]
 animations = [{
@@ -38,7 +44,7 @@ animations = [{
 "duration": 0.2,
 "texture": ExtResource("8_8a4ix")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 5.0
 }, {
@@ -51,6 +57,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"blink_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_j20kl")
+}],
+"loop": true,
+"name": &"death",
 "speed": 5.0
 }]
 
@@ -165,13 +179,20 @@ size = Vector2(44, 83)
 script = ExtResource("1_31nfd")
 metadata/_edit_horizontal_guides_ = [-55.0]
 
+[node name="GhostSprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 3
+material = SubResource("ShaderMaterial_xu53c")
+position = Vector2(-41, -36)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_xyl8b")
+
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-44, -26)
 scale = Vector2(0.055, 0.055)
 sprite_frames = SubResource("SpriteFrames_e65ux")
-animation = &"attack"
+animation = &"death"
 autoplay = "blink_idle"
-frame_progress = 0.317881
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

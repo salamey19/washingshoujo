@@ -4,6 +4,7 @@ extends Node2D
 @onready var attack_sprite: AnimatedSprite2D = $VFX/AttackSprite
 @export var attack_cooldown : float = 0
 
+@onready var hurtbox_component: Area2D = $HurtboxComponent
 
 @onready var attack_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 
@@ -49,7 +50,7 @@ func attack() -> void:
 	enemy_sprite.visible = true
 	enemy_sprite.play("blink_attack")
 	attack_sprite.play("attack")
-	await get_tree().create_timer(0.25)
+	#await get_tree().create_timer(0.25)
 	stop_aiming = true
 	await get_tree().create_timer(0.5).timeout
 	print("red part")
@@ -57,7 +58,7 @@ func attack() -> void:
 	await attack_sprite.animation_finished
 	var rng = RandomNumberGenerator.new()
 	attack_sprite.visible = false
-	attack_cooldown = rng.randf_range(0, 1)
+	attack_cooldown = rng.randf_range(1, 2)
 	stop_aiming = false
 	is_attacking = false
 	attack_collision.disabled = true
@@ -69,6 +70,9 @@ func set_ghost_progress(val: float):
 	ghost_sprite.material.set("shader_parameter/ghost_progress", val)
 
 func death() -> void:
+	Global.enemy_defeated.emit()
+	hurtbox_component.monitoring = false
+	attack_collision.disabled = true
 	set_process(false)
 	enemy_sprite.play("death")
 	ghost_sprite.visible = true

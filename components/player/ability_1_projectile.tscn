@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bcrumwgix71mi" path="res://art/2d/player/Ability 1 Resized/NA_1-5.png" id="2_lx8fd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vrr3"]
-radius = 7.0
+radius = 14.0357
 
 [node name="Ability1Projectile" type="Area2D"]
 collision_layer = 0
@@ -12,12 +12,12 @@ collision_mask = 2
 script = ExtResource("1_fjbm7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_7vrr3")
 
 [node name="pivot" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="pivot"]
-modulate = Color(0.446566, 0.739579, 1, 1)
 position = Vector2(53, 19)
 scale = Vector2(0.212, 0.212)
 texture = ExtResource("2_lx8fd")

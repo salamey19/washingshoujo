@@ -7,13 +7,16 @@ extends CharacterBody2D
 @onready var charges: Node2D = $Weapon/Charges
 
 #@onready var vfx: AnimatedSprite2D = $VFX
+@onready var vfx: AnimatedSprite2D = %VFX
 
-
+#health
+var is_hurt : bool = false
+var can_be_hurt : bool = true
 #movement
 const SPEED = 425.0
-const JUMP_VELOCITY = -600.0
-const FALL_GRAVITY := 1500
-const GRAVITY := 1000
+const JUMP_VELOCITY = -650.0
+const FALL_GRAVITY := 1000
+const GRAVITY := 800
 
 #jump
 var has_jump : bool = true
@@ -29,19 +32,25 @@ var dash_timer : float = 0.0
 var dash_direction : float = 0
 var dash_height : float = 0
 
-#beat stuff
-var is_on_beat : bool = true
-var beat_index : int = 0
-var current_index : int = 0
-@export var grace_max : float = 0.9
-@export var grace_min : float = 0.3
+var do_once = false
+var do_twice = false
+var do_thrice = false
+var afterimage_counter : int = 0
+
 
 #ideas balls act as charges up to 3
 #charges can block damage, but lose charge
 #charges can be used for abilities
 #regain a charge automatically every x beat??
 
+#combo stuff
+var current_combo : int = 0
+var combo_speed : float = 0
+
+
 var is_transformed : bool = false
+
+
 
 #Abilities
 const MAX_CHARGES = 3
@@ -54,7 +63,15 @@ const AFTERIMAGE = preload("res://components/player/afterimage.tscn")
 var locked : bool = false
 var locked_height : float = 0
 
+var should_fall : bool = true
+var using_ability : bool = false
+
 var is_left : bool = false
+
+
+func _ready() -> void:
+	Global.enemy_defeated.connect(on_enemy_defeated)
+
 func _input(event: InputEvent) -> void:
 
 	#handling character flipping
@@ -83,13 +100,18 @@ func get_grav(velocity: Vector2):
 
 func _physics_process(delta: float) -> void:
 	#print(velocity.y)
+	#print("has jump: ",has_jump)
+
+	if is_on_floor() and current_combo == 0:
+		stop_combo()
+
 	if locked:
 		position.y = locked_height
 
 	if is_dashing:
 		position.y = dash_height
 	else:
-		if not is_on_floor():
+		if not is_on_floor() and should_fall:
 			velocity.y += get_grav(velocity) * delta
 
 
@@ -99,17 +121,20 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 
 	if direction > 0 and !animated_sprite.flip_h:
-		%VFX.flip_h = true
+		vfx.flip_h = true
+		vfx.position.x = absf(vfx.position.x)
 		animated_sprite.flip_h = true
 		weapon.scale.x = 1
 	if direction < 0 and animated_sprite.flip_h:
-		%VFX.flip_h = false
+		vfx.flip_h = false
+
+		vfx.position.x = absf(vfx.position.x) * -1
 		animated_sprite.flip_h = false
 		weapon.scale.x = -1
 
 	if !is_dashing:
-		if direction:
-			velocity.x = direction * SPEED
+		if direction and !using_ability:
+			velocity.x = direction * SPEED + combo_speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -117,14 +142,34 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("dash"):
 		dash_direction = direction
-
+	if is_on_floor() and !has_jump:
+		has_jump = true
+	if is_on_floor() and !has_dash:
+		has_dash = true
 	move_and_slide()
 
 
-var do_once = false
-var do_twice = false
-var do_thrice = false
-var afterimage_counter : int = 0
+func on_enemy_defeated() -> void:
+	has_jump = true
+	has_dash = true
+	add_charge()
+	add_combo()
+
+
+
+
+func add_combo() -> void:
+	current_combo +1
+	combo_speed += 5
+	get_tree().get_first_node_in_group("Combo").text = str(int(get_tree().get_first_node_in_group("Combo").text) + 1)
+
+
+func stop_combo() -> void:
+	current_combo = 0
+	combo_speed = 0
+	get_tree().get_first_node_in_group("Combo").text = "0"
+
+
 func spawn_afterimage() -> void:
 	var afterInstance = load("res://components/player/afterimage.tscn").instantiate()
 	afterInstance.position = position
@@ -136,13 +181,32 @@ func spawn_afterimage() -> void:
 	get_parent().add_child(afterInstance)
 
 
-func damaged(amount : int = 1) -> void:
-	print("hurt")
-	hurt()
+func damaged(_amount : int = 1) -> void:
+	if can_be_hurt:
+		is_hurt = true
 
+
+var kb_force = 1200
 func hurt() -> void:
+	var kb_direction = -1
+	if is_left:
+		kb_direction = 1
+
+
+	var kb = (Vector2(500 * kb_direction, 500) - velocity).normalized() * kb_force
+	velocity = kb
+	print(velocity)
 	animated_sprite.play("hurt")
+	animation_player.play("flash_red")
+	#velocity.y -= 300
+	move_and_slide()
 	%VFX.play("knock_back")
+	await animated_sprite.animation_finished
+	is_hurt = false
+	animation_player.play("immune_flash")
+	can_be_hurt = false
+	await animation_player.animation_finished
+	can_be_hurt = true
 
 func lock_player() -> void:
 	locked_height = position.y
@@ -152,6 +216,9 @@ func unlock_player() -> void:
 	locked = false
 	locked_height = 0
 
+func attack_bounce() -> void:
+	if !is_on_floor():
+		velocity.y -= 250
 
 signal charge_added
 func add_charge() -> void:

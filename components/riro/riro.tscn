@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxyi7khgjp0v0"]
+
+[ext_resource type="Texture2D" uid="uid://bjjgqh1o0imte" path="res://art/2d/Final Riro/Idle_1-1.png" id="1_l27l6"]
+[ext_resource type="Texture2D" uid="uid://cjeumy165paxl" path="res://art/2d/Final Riro/Idle_1-2.png" id="2_swbmu"]
+[ext_resource type="Texture2D" uid="uid://cc6or4dhwdlwx" path="res://art/2d/Final Riro/Idle_1-3.png" id="3_oei4s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k32na"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_l27l6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_swbmu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gebty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oei4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oei4s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Riro" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_k32na")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0871388
+flip_h = true
+
+[node name="vfx" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gebty")
+flip_h = true

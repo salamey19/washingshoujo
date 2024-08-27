@@ -10,7 +10,10 @@ func Enter():
 	player.animated_sprite.play("idle")
 
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float):
+	if player.is_hurt:
+		Transitioned.emit(self, "hurt")
+
 
 	if player.velocity.x > 0 or player.velocity.x < 0:
 		Transitioned.emit(self, "run")
