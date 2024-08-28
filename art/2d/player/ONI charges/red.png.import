@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcrumwgix71mi"
-path="res://.godot/imported/NA_1-5.png-7d1ca9a663a6e6a4a2b17587e6b22491.ctex"
+uid="uid://cag5yrnmitbps"
+path="res://.godot/imported/red.png-4d8879c15872e9098d401f2aeecdf42c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/2d/player/Ability 1 Resized/NA_1-5.png"
-dest_files=["res://.godot/imported/NA_1-5.png-7d1ca9a663a6e6a4a2b17587e6b22491.ctex"]
+source_file="res://art/2d/player/ONI charges/red.png"
+dest_files=["res://.godot/imported/red.png-4d8879c15872e9098d401f2aeecdf42c.ctex"]
 
 [params]
 

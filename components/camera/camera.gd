@@ -16,4 +16,4 @@ func camera_shake(intensity : float = 5.0) -> void:
 func startCameraShake(intensity : float):
 	var cameraOffset = camera_shake_noise.get_noise_1d(Time.get_ticks_msec()) * intensity
 	offset.x = cameraOffset
-	offset.y = -194 + cameraOffset
+	offset.y = cameraOffset

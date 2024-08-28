@@ -79,11 +79,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raph5"]
-size = Vector2(127, 89)
+size = Vector2(142.799, 113.513)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wsoe8"]
-radius = 48.0
-height = 136.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_linjd"]
+size = Vector2(151.797, 113.513)
 
 [node name="TankEnemy" type="Node2D"]
 script = ExtResource("1_dilsq")
@@ -93,11 +92,11 @@ visible = false
 texture_filter = 3
 material = SubResource("ShaderMaterial_s534t")
 position = Vector2(0, -20)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.065, 0.065)
 texture = ExtResource("3_js4pa")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.065, 0.065)
 sprite_frames = SubResource("SpriteFrames_g0er0")
 animation = &"death"
 autoplay = "blink_idle"
@@ -119,12 +118,13 @@ tank_amount = 3
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(-2, 5.5)
+position = Vector2(-11.1083, 9.41902)
+skew = -0.200713
 shape = SubResource("RectangleShape2D_raph5")
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("14_e2suf")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, 3)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_wsoe8")
+position = Vector2(-6.60957, 9.41902)
+skew = -0.200713
+shape = SubResource("RectangleShape2D_linjd")

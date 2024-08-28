@@ -19,11 +19,11 @@ func Physics_Update(_delta: float):
 
 func Handle_Input(event: InputEvent):
 
-	if event.is_action_pressed("jump") and player.has_jump:
+	if event.is_action_pressed("jump") and (player.has_jump or player.has_double_jump):
 		Transitioned.emit(self, "jump")
 	if event.is_action_pressed("dash") and player.has_dash:
 		Transitioned.emit(self, "dash")
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and player.has_basic_attack:
 		Transitioned.emit(self, "attack")
 	if player.current_charges > 0:
 		if event.is_action_pressed("ability1"):

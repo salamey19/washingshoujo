@@ -4,6 +4,29 @@ var speed = 1150
 @onready var sprite: Sprite2D = $pivot/Sprite2D
 @onready var pivot: Node2D = $pivot
 
+var choice : int = 0
+
+const red = preload("res://art/2d/player/ONI charges/red.png")
+const red_pos = Vector2(-14, 81)
+const green = preload("res://art/2d/player/ONI charges/green.png")
+const green_pos = Vector2(69, 27)
+const yellow = preload("res://art/2d/player/ONI charges/yellow.png")
+const yellow_pos = Vector2(-64, 48)
+
+func _ready() -> void:
+	if choice == 0:
+		sprite.texture = green
+		sprite.position = green_pos
+		sprite.scale = Vector2(0.277, 0.277)
+	elif choice == 1:
+		sprite.texture = red
+		sprite.position = red_pos
+		sprite.scale = Vector2(0.222, 0.222)
+	else:
+		sprite.texture = yellow
+		sprite.position = yellow_pos
+		sprite.scale = Vector2(0.222, 0.222)
+
 func _physics_process(delta):
 	position += transform.x * speed * delta
 	pivot.rotation += deg_to_rad(25)

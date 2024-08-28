@@ -25,7 +25,7 @@ func Handle_Input(event: InputEvent):
 		Transitioned.emit(self, "jump")
 	if event.is_action_pressed("dash"):
 		Transitioned.emit(self, "dash")
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and player.has_basic_attack:
 		Transitioned.emit(self, "attack")
 	if player.current_charges > 0:
 		if event.is_action_pressed("ability1"):

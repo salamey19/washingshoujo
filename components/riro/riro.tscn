@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxyi7khgjp0v0"]
+[gd_scene load_steps=7 format=3 uid="uid://dxyi7khgjp0v0"]
 
 [ext_resource type="Texture2D" uid="uid://bjjgqh1o0imte" path="res://art/2d/Final Riro/Idle_1-1.png" id="1_l27l6"]
 [ext_resource type="Texture2D" uid="uid://cjeumy165paxl" path="res://art/2d/Final Riro/Idle_1-2.png" id="2_swbmu"]
@@ -32,13 +32,24 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Riro" type="AnimatedSprite2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rfi3g"]
+radius = 230.0
+height = 544.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_mask = 0
+
+[node name="Riro" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k32na")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.0871388
 flip_h = true
 
-[node name="vfx" type="AnimatedSprite2D" parent="."]
+[node name="vfx" type="AnimatedSprite2D" parent="Riro"]
 sprite_frames = SubResource("SpriteFrames_gebty")
 flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(68, 5)
+shape = SubResource("CapsuleShape2D_rfi3g")

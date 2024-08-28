@@ -4,6 +4,8 @@ extends Node2D
 @onready var vfx: AnimatedSprite2D = $VFX
 @onready var ghost_sprite: Sprite2D = $GhostSprite
 
+@onready var hurtbox_component: Area2D = $HurtboxComponent
+@onready var hitbox_component: Area2D = $HitboxComponent
 
 
 
@@ -21,6 +23,9 @@ func blocked() -> void:
 	enemy_sprite.play("blink_idle")
 
 func death() -> void:
+	hurtbox_component.queue_free()
+	hitbox_component.queue_free()
+	Global.enemy_defeated.emit()
 	set_process(false)
 	enemy_sprite.play("death")
 	ghost_sprite.visible = true

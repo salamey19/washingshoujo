@@ -17,8 +17,10 @@ func Exit():
 
 func swing() -> void:
 	player.current_charges -= 1
-	player.charges.remove_child(player.charges.get_child(0))
+	var charge_number = player.charges.get_child_count() - 1
+	player.charges.remove_child(player.charges.get_child(charge_number))
 	var b = ABILITY_1_PROJECTILE.instantiate()
+	b.choice = charge_number
 	player.animated_sprite.play("ability_1")
 	player.should_fall = false
 	player.using_ability = true

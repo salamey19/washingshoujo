@@ -2,7 +2,9 @@ extends Node2D
 
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @onready var attack_sprite: AnimatedSprite2D = $VFX/AttackSprite
-@export var attack_cooldown : float = 0
+@export var attack_cooldown : float = 4
+@onready var hitbox_component: Area2D = $HitboxComponent
+@onready var attack_area: Area2D = $AttackArea
 
 @onready var hurtbox_component: Area2D = $HurtboxComponent
 
@@ -48,6 +50,7 @@ func attack() -> void:
 	is_attacking = true
 	attack_sprite.visible = true
 	enemy_sprite.visible = true
+
 	enemy_sprite.play("blink_attack")
 	attack_sprite.play("attack")
 	#await get_tree().create_timer(0.25)
@@ -70,9 +73,12 @@ func set_ghost_progress(val: float):
 	ghost_sprite.material.set("shader_parameter/ghost_progress", val)
 
 func death() -> void:
+	attack_area.monitorable = false
+	attack_area.monitoring = false
+	hurtbox_component.queue_free()
+	hitbox_component.queue_free()
+
 	Global.enemy_defeated.emit()
-	hurtbox_component.monitoring = false
-	attack_collision.disabled = true
 	set_process(false)
 	enemy_sprite.play("death")
 	ghost_sprite.visible = true
@@ -89,7 +95,7 @@ func _on_within_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = body
 		within_range = true
-		attack_cooldown = 1
+		attack_cooldown = 3
 
 
 func _on_within_range_body_exited(body: Node2D) -> void:

@@ -1,10 +1,12 @@
 extends State
 class_name PlayerDash
 
+@onready var dash_sfx: AudioStreamPlayer = $"../../DashSFX"
 
 
 func Enter():
 	player.animated_sprite.play("dash_start")
+	dash_sfx.play()
 	await player.animated_sprite.animation_finished
 	player.animated_sprite.play("dash")
 	player.has_dash = false
@@ -13,6 +15,7 @@ func Enter():
 
 func Exit():
 	player.is_dashing = false
+	#dash_sfx.stop()
 	player.spawn_afterimage()
 	player.do_once = false
 	player.do_twice = false
@@ -67,7 +70,7 @@ func Physics_Update(delta : float):
 
 
 func Handle_Input(event: InputEvent):
-	if event.is_action_pressed("jump") and player.has_jump:
+	if event.is_action_pressed("jump") and (player.has_jump or player.has_double_jump):
 		Transitioned.emit(self, "jump")
 
 

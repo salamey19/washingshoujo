@@ -8,7 +8,7 @@ extends Node2D
 @onready var ability_used_this_beat : bool = false
 @onready var charges: Node2D = $Charges
 
-const FAMILIAR = preload("res://components/player/familiar.tscn")
+const CHARGE = preload("res://components/player/charge.tscn")
 
 @onready var familiar_pos_1 : Vector2 = Vector2(-42, -36)
 @onready var familiar_pos_2 : Vector2 = Vector2(0, -45)
@@ -26,21 +26,21 @@ func _ready() -> void:
 var child_temp : int = 0
 #handle adding familiars here
 func on_charge_added() -> void:
-	print("Charge added")
-	charges.add_child(FAMILIAR.instantiate())
-	child_temp = charges.get_child_count() - 1
+
+	var charge = CHARGE.instantiate()
+	child_temp = charges.get_child_count()
 
 	#based on child, change position
 	if child_temp == 0:
-		charges.get_child(child_temp).visible = true
+		charge.texture = charge.green
 	elif child_temp == 1:
-		charges.get_child(child_temp).position = familiar_pos_2
-		charges.get_child(child_temp).visible = true
+		charge.texture = charge.yellow
 	elif child_temp == 2:
-		charges.get_child(child_temp).position = familiar_pos_3
-		charges.get_child(child_temp).visible = true
+		charge.texture = charge.red
 	else:
 		print("Error: overloaded the children")
+
+	charges.add_child(charge)
 
 
 
@@ -57,7 +57,7 @@ func shuffle_children() -> void:
 
 func _on_basic_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
-		if area.has_method("damage"):
+		if area.has_method("damage") and area.monitoring:
 			area.damage(basic_attack_damage)
 			OS.delay_msec(100)
 			get_tree().get_first_node_in_group("Camera").camera_shake(10)

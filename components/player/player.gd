@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var abilities_animation_player: AnimationPlayer = $AbilitiesAnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var charges: Node2D = $Weapon/Charges
+@onready var hitbox_component: Area2D = $HitboxComponent
 
 #@onready var vfx: AnimatedSprite2D = $VFX
 @onready var vfx: AnimatedSprite2D = %VFX
@@ -19,7 +20,8 @@ const FALL_GRAVITY := 1000
 const GRAVITY := 800
 
 #jump
-var has_jump : bool = true
+var has_jump : bool = false
+var has_double_jump : bool = true
 
 
 #DASH
@@ -60,11 +62,15 @@ const MAX_CHARGES = 3
 var ability_2_damage : int = 0
 const AFTERIMAGE = preload("res://components/player/afterimage.tscn")
 
+var has_basic_attack : bool = true
+
+
 var locked : bool = false
 var locked_height : float = 0
 
 var should_fall : bool = true
 var using_ability : bool = false
+
 
 var is_left : bool = false
 
@@ -73,6 +79,9 @@ func _ready() -> void:
 	Global.enemy_defeated.connect(on_enemy_defeated)
 
 func _input(event: InputEvent) -> void:
+
+	if event.is_action_pressed("jump"):
+		has_jump = false
 
 	#handling character flipping
 
@@ -144,13 +153,16 @@ func _physics_process(delta: float) -> void:
 		dash_direction = direction
 	if is_on_floor() and !has_jump:
 		has_jump = true
+		has_double_jump = true
 	if is_on_floor() and !has_dash:
 		has_dash = true
+	if is_on_floor() and !has_basic_attack:
+		has_basic_attack = true
 	move_and_slide()
 
 
 func on_enemy_defeated() -> void:
-	has_jump = true
+	has_double_jump = true
 	has_dash = true
 	add_charge()
 	add_combo()

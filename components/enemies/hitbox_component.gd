@@ -4,5 +4,5 @@ extends Area2D
 
 
 func damage(amount : int) -> void:
-	if health_component:
+	if health_component != null:
 		health_component.damage(amount)

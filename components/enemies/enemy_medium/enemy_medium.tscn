@@ -130,10 +130,10 @@ tracks/1/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354)]
+"values": [Vector2(0.943222, -1.92994), Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354), Vector2(0.943222, -1.92994)]
 }
 
 [sub_resource type="Animation" id="Animation_sroyi"]
@@ -161,19 +161,19 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erltr"]
-size = Vector2(45, 85)
+size = Vector2(47, 97.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5nfj"]
-size = Vector2(95.4206, 7.92174)
+size = Vector2(103.402, 7.92174)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xli2g"]
-size = Vector2(26.1718, 55)
+size = Vector2(35.9565, 63.3918)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0mxpx"]
 radius = 209.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_end8p"]
-size = Vector2(44, 83)
+size = Vector2(38, 96)
 
 [node name="EnemyMedium" type="Node2D"]
 script = ExtResource("1_31nfd")
@@ -184,14 +184,14 @@ visible = false
 texture_filter = 3
 material = SubResource("ShaderMaterial_xu53c")
 position = Vector2(-41, -36)
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.065, 0.065)
 texture = ExtResource("7_xyl8b")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-44, -26)
-scale = Vector2(0.055, 0.055)
+scale = Vector2(0.065, 0.065)
 sprite_frames = SubResource("SpriteFrames_e65ux")
-animation = &"death"
+animation = &"blink_idle"
 autoplay = "blink_idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -207,7 +207,7 @@ MAX_HEALTH = 2
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(-0.5, -8.5)
+position = Vector2(11.5, -5.25)
 shape = SubResource("RectangleShape2D_erltr")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -217,16 +217,19 @@ rotation = 1.5708
 [node name="HurtboxComponent" parent="Pivot" instance=ExtResource("13_ds1g7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HurtboxComponent"]
-position = Vector2(-40.6092, 12.0992)
+position = Vector2(-44.4604, 13.1456)
 rotation = -0.26529
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w5nfj")
 
 [node name="HurtboxComponent2" parent="Pivot" instance=ExtResource("13_ds1g7")]
-position = Vector2(-80, -7.99971)
+position = Vector2(-89, -7.99968)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HurtboxComponent2"]
 position = Vector2(2.98827, 3.40458)
-rotation = -0.122173
+rotation = -0.0872665
+scale = Vector2(0.999999, 1)
+skew = 0.0349065
 shape = SubResource("RectangleShape2D_xli2g")
 
 [node name="WithinRange" type="Area2D" parent="."]
@@ -238,7 +241,7 @@ shape = SubResource("CircleShape2D_0mxpx")
 [node name="HurtboxComponent" parent="." instance=ExtResource("13_ds1g7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(-1, -9.5)
+position = Vector2(10, -3)
 shape = SubResource("RectangleShape2D_end8p")
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]

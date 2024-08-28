@@ -6,7 +6,11 @@ func Enter():
 
 	player.animated_sprite.play("jump_up")
 	player.velocity.y = player.JUMP_VELOCITY
-	player.has_jump = false
+	await get_tree().create_timer(0.001).timeout
+	if player.has_jump:
+		player.has_jump = false
+	else:
+		player.has_double_jump = false
 	player.spawn_afterimage()
 
 
@@ -26,11 +30,11 @@ func Physics_Update(delta : float):
 
 
 func Handle_Input(event: InputEvent):
-	if event.is_action_pressed("jump") and player.has_jump:
+	if event.is_action_pressed("jump") and (player.has_jump or player.has_double_jump):
 		Transitioned.emit(self, "jump")
 	if event.is_action_pressed("dash") and player.has_dash:
 		Transitioned.emit(self, "dash")
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("attack") and player.has_basic_attack:
 		Transitioned.emit(self, "attack")
 	if player.current_charges > 0:
 		if event.is_action_pressed("ability1"):

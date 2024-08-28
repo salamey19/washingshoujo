@@ -25,5 +25,6 @@ func damage(amount : int) -> void:
 func die() -> void:
 	if get_parent().has_method("death"):
 		get_parent().death()
+		queue_free()
 	else:
 		get_parent().queue_free()

@@ -5,6 +5,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_component: Area2D = $Pivot/HurtboxComponent
 @onready var ghost_sprite: Sprite2D = $GhostSprite
+@onready var hitbox_component: Area2D = $HitboxComponent
 
 @export var patrol_point_1 : Node2D
 @export var patrol_point_2 : Node2D
@@ -50,8 +51,10 @@ func set_ghost_progress(val: float):
 
 
 func death() -> void:
+	hurtbox_component.queue_free()
+	hitbox_component.queue_free()
 	Global.enemy_defeated.emit()
-	hurtbox_component.monitoring = false
+
 	set_process(false)
 	enemy_sprite.offset.x = 750
 	animation_player.stop()

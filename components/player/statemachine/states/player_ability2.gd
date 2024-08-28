@@ -18,7 +18,9 @@ func blast() -> void:
 	player.ability_2_damage = player.current_charges
 
 
+
 	player.animated_sprite.play("ability_2_" + str(player.current_charges))
+	player.current_charges = 0
 	player.lock_player()
 	player.should_fall = false
 	player.using_ability = true
