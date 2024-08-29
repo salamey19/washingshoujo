@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=127 format=3 uid="uid://bgoiy1vdujhr"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
 [ext_resource type="Texture2D" uid="uid://x5gmglkthoof" path="res://art/2d/player/Finished idle/Idle_1-1.png" id="2_drps4"]
@@ -69,11 +69,45 @@
 [ext_resource type="Texture2D" uid="uid://bpya48028a8d6" path="res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-6.png" id="42_5n7ku"]
 [ext_resource type="Script" path="res://components/player/statemachine/state_machine.gd" id="60_nv2gq"]
 [ext_resource type="Script" path="res://components/player/statemachine/states/player_idle.gd" id="61_c721r"]
+[ext_resource type="Texture2D" uid="uid://bs4viwybn1pph" path="res://art/2d/player/Normal attack VFX/Running_1-1.png" id="63_nokjx"]
+[ext_resource type="Texture2D" uid="uid://djqu7sbl6n01q" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-1.png" id="63_yhy53"]
+[ext_resource type="Texture2D" uid="uid://bbicru4rn0edy" path="res://art/2d/player/Normal attack VFX/Running_1-2.png" id="64_g0734"]
+[ext_resource type="Texture2D" uid="uid://b5b5njk5sl3ws" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-2.png" id="64_jdl5j"]
+[ext_resource type="Texture2D" uid="uid://dgunstm6vc1vk" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-3.png" id="65_823ep"]
+[ext_resource type="Texture2D" uid="uid://dc6ik2yddjjgw" path="res://art/2d/player/Normal attack VFX/Running_1-3.png" id="65_p44lw"]
+[ext_resource type="Texture2D" uid="uid://cqx7pr80lxvb0" path="res://art/2d/player/Normal attack VFX/Running_1-4.png" id="66_8kvni"]
+[ext_resource type="Texture2D" uid="uid://srmrhcgpqk6v" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-4.png" id="66_p6g53"]
+[ext_resource type="Texture2D" uid="uid://bh3037gboriku" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-5.png" id="67_abg8n"]
+[ext_resource type="Texture2D" uid="uid://4hbi0wromfwx" path="res://art/2d/player/Normal attack VFX/Running_1-5.png" id="67_t7ql8"]
+[ext_resource type="Texture2D" uid="uid://ksssp474u6ko" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-6.png" id="68_83nxu"]
 [ext_resource type="AudioStream" uid="uid://k3boarl41tjc" path="res://art/sfx/dash_1.wav" id="69_iupsu"]
+[ext_resource type="Texture2D" uid="uid://coy07ige0twtm" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-7.png" id="69_mi20l"]
+[ext_resource type="AudioStream" uid="uid://ckwdo8vh0s22f" path="res://art/sfx/SWINGBALL.wav" id="70_b7twq"]
+[ext_resource type="AudioStream" uid="uid://cocyt78e1mpve" path="res://art/sfx/batbonk.wav" id="70_hetaw"]
+[ext_resource type="Texture2D" uid="uid://csyooemxrpx2x" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-8.png" id="70_ua6e7"]
+[ext_resource type="Texture2D" uid="uid://ckf50dpx42gy7" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-9.png" id="71_ja2ly"]
+[ext_resource type="Texture2D" uid="uid://02co6662m0fi" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-1.png" id="72_soks4"]
+[ext_resource type="Texture2D" uid="uid://hlp7vqnxpuss" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-2.png" id="73_n2s28"]
+[ext_resource type="Texture2D" uid="uid://b7rldrfbqmtwk" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-3.png" id="74_ap873"]
+[ext_resource type="Texture2D" uid="uid://kgankng80odk" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-4.png" id="75_v5j0i"]
+[ext_resource type="Texture2D" uid="uid://dt6pq0up866s" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-5.png" id="76_jfy40"]
+[ext_resource type="Texture2D" uid="uid://cdgtq0tx266ta" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-6.png" id="77_tg2vd"]
+[ext_resource type="Texture2D" uid="uid://dovyn1h2danlg" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-7.png" id="78_84j0u"]
+[ext_resource type="Texture2D" uid="uid://cwofarknbeyw8" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-8.png" id="79_iuraj"]
+[ext_resource type="Texture2D" uid="uid://b5g8uwu4b5mo1" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-9.png" id="80_k4d4x"]
+[ext_resource type="Texture2D" uid="uid://8tl4pvaiyain" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-1.png" id="81_m4eba"]
+[ext_resource type="Texture2D" uid="uid://ctdsa0cmfq73t" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-2.png" id="82_m6hrk"]
+[ext_resource type="Texture2D" uid="uid://c4mgvcjjuni7p" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-3.png" id="83_udor4"]
+[ext_resource type="Texture2D" uid="uid://uywnp6y381y7" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-4.png" id="84_t3sw0"]
+[ext_resource type="Texture2D" uid="uid://dm3f10gahfejf" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-5.png" id="85_m6dub"]
+[ext_resource type="Texture2D" uid="uid://cuvyyqbaieh4k" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-6.png" id="86_b8pl8"]
+[ext_resource type="Texture2D" uid="uid://dqm80rmwa08dg" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-7.png" id="87_iqjfx"]
+[ext_resource type="Texture2D" uid="uid://c5v4lvp802v2b" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-8.png" id="88_w3voi"]
+[ext_resource type="Texture2D" uid="uid://b25woquqcu542" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-9.png" id="89_vfrg6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iew1x"]
 radius = 34.0
-height = 134.0
+height = 124.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_va6oa"]
 animations = [{
@@ -313,6 +347,131 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_epwy4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("63_yhy53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_jdl5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_823ep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_p6g53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_abg8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_83nxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_mi20l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_ua6e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_ja2ly")
+}],
+"loop": false,
+"name": &"ability_2_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("72_soks4")
+}, {
+"duration": 0.4,
+"texture": ExtResource("73_n2s28")
+}, {
+"duration": 0.5,
+"texture": ExtResource("74_ap873")
+}, {
+"duration": 0.5,
+"texture": ExtResource("75_v5j0i")
+}, {
+"duration": 0.5,
+"texture": ExtResource("76_jfy40")
+}, {
+"duration": 0.5,
+"texture": ExtResource("77_tg2vd")
+}, {
+"duration": 0.5,
+"texture": ExtResource("78_84j0u")
+}, {
+"duration": 0.5,
+"texture": ExtResource("79_iuraj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("80_k4d4x")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"ability_2_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("81_m4eba")
+}, {
+"duration": 0.4,
+"texture": ExtResource("82_m6hrk")
+}, {
+"duration": 0.4,
+"texture": ExtResource("83_udor4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("84_t3sw0")
+}, {
+"duration": 0.5,
+"texture": ExtResource("85_m6dub")
+}, {
+"duration": 0.5,
+"texture": ExtResource("86_b8pl8")
+}, {
+"duration": 0.5,
+"texture": ExtResource("87_iqjfx")
+}, {
+"duration": 0.5,
+"texture": ExtResource("88_w3voi")
+}, {
+"duration": 0.5,
+"texture": ExtResource("89_vfrg6")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"ability_2_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("63_nokjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_g0734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_p44lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_8kvni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_t7ql8")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"bonk",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 0.8,
 "texture": ExtResource("14_4x337")
@@ -590,6 +749,70 @@ tracks/4/keys = {
 "values": [Vector2(60, 63.75), Vector2(60, 101.735)]
 }
 
+[sub_resource type="Animation" id="Animation_2yjyg"]
+resource_name = "basic_attack2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(33.865, 22.1634), Vector2(24, -6.875)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.18675, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_jxear")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, 101.735), Vector2(60, 63.75)]
+}
+
 [sub_resource type="Animation" id="Animation_tnaq7"]
 resource_name = "flash_red"
 length = 0.2
@@ -665,70 +888,6 @@ tracks/2/keys = {
 "values": [0.0, -0.418879, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_2yjyg"]
-resource_name = "basic_attack2"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(33.865, 22.1634), Vector2(24, -6.875)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.18675, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:shape")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("RectangleShape2D_jxear")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Weapon/BasicAttackArea/CollisionShape2D:shape:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(60, 101.735), Vector2(60, 63.75)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hysdy"]
 _data = {
 "RESET": SubResource("Animation_vmmv7"),
@@ -751,6 +910,16 @@ size = Vector2(98, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxu5g"]
 size = Vector2(98, 46)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_l5jhm"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("70_b7twq")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_11ni7"]
+random_pitch = 1.3
+streams_count = 1
+stream_0/stream = ExtResource("70_hetaw")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gacld"]
 random_pitch = 1.4
@@ -823,20 +992,17 @@ flip_h = true
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_va6oa")
-animation = &"basic_attack2"
-frame = 5
-frame_progress = 1.0
+animation = &"ability_2_1"
 flip_h = true
 
 [node name="VFX" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 unique_name_in_owner = true
-position = Vector2(730, 140)
-scale = Vector2(0.75, 0.75)
+z_index = 5
+position = Vector2(1328, -3.05176e-05)
+rotation = 1.5708
+scale = Vector2(1.279, 1.279)
 sprite_frames = SubResource("SpriteFrames_epwy4")
-animation = &"knock_back"
-frame = 6
-frame_progress = 1.0
-flip_h = true
+animation = &"ability_2_2"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -863,7 +1029,6 @@ collision_mask = 2
 position = Vector2(5, 16)
 rotation = 0.18675
 shape = SubResource("RectangleShape2D_jxear")
-disabled = true
 
 [node name="Ability1Marker" type="Marker2D" parent="Weapon"]
 unique_name_in_owner = true
@@ -894,6 +1059,14 @@ shape = SubResource("RectangleShape2D_oxu5g")
 disabled = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Weapon/Ability2Areas"]
+
+[node name="SFX" type="Node2D" parent="."]
+
+[node name="SwingSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_l5jhm")
+
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = SubResource("AudioStreamRandomizer_11ni7")
 
 [node name="DashSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_gacld")

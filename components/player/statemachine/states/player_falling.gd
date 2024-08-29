@@ -8,7 +8,10 @@ func Enter():
 
 #can be interrupted by abilites?
 
-func Physics_Update(_delta: float):
+func Physics_Update(delta: float):
+
+	if player.jump_buffer > 0 and player.has_jump:
+		Transitioned.emit(self, "jump")
 	if player.is_hurt:
 		Transitioned.emit(self, "hurt")
 	if player.is_on_floor():
@@ -18,9 +21,9 @@ func Physics_Update(_delta: float):
 			Transitioned.emit(self, "idle")
 
 func Handle_Input(event: InputEvent):
-
-	if event.is_action_pressed("jump") and (player.has_jump or player.has_double_jump):
+	if event.is_action_pressed("jump") and player.has_double_jump and !player.has_jump:
 		Transitioned.emit(self, "jump")
+
 	if event.is_action_pressed("dash") and player.has_dash:
 		Transitioned.emit(self, "dash")
 	if event.is_action_pressed("attack") and player.has_basic_attack:

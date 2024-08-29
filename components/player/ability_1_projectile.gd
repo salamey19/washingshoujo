@@ -3,6 +3,9 @@ extends Area2D
 var speed = 1150
 @onready var sprite: Sprite2D = $pivot/Sprite2D
 @onready var pivot: Node2D = $pivot
+@onready var explosion_sfx: AudioStreamPlayer2D = $ExplosionSFX
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var choice : int = 0
 
@@ -34,11 +37,21 @@ func _physics_process(delta):
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
+		explosion()
+		set_physics_process(false)
+		collision_shape.disabled = true
 		area.damage(1)
-		OS.delay_msec(150)
-		get_tree().get_first_node_in_group("Camera").camera_shake(20)
-		queue_free()
 
+		OS.delay_msec(150)
+		pivot.visible = false
+		get_tree().get_first_node_in_group("Camera").camera_shake(20)
+
+
+func explosion() -> void:
+	explosion_sfx.play()
+	animated_sprite.play("explosion")
+	await explosion_sfx.finished
+	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("Player"):

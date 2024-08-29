@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bxsckyyrrfes0"]
+[gd_scene load_steps=31 format=3 uid="uid://bxsckyyrrfes0"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_medium/enemy_medium.gd" id="1_31nfd"]
 [ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="2_02i30"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ceydvbp0nge2x" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-2.png" id="8_t24bn"]
 [ext_resource type="Texture2D" uid="uid://dst374sqsssqm" path="res://art/2d/enemies/flagbearer/Death/Blink_1-1.png" id="12_j20kl"]
 [ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="13_ds1g7"]
+[ext_resource type="AudioStream" uid="uid://kbgda1p8ndof" path="res://art/sfx/BannerManFlag.wav" id="16_h3u7y"]
+[ext_resource type="AudioStream" uid="uid://xf1k3pbvt8qb" path="res://art/sfx/MONSTERDYING VRS2.wav" id="17_8g66q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xu53c"]
 shader = ExtResource("2_otro5")
@@ -106,11 +108,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(2.98827, 3.40458)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/HurtboxComponent/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3kf3e"]
 resource_name = "attack"
-length = 1.069
-loop_mode = 1
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -118,10 +143,10 @@ tracks/0/path = NodePath("Pivot:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [1.5708, 0.0]
+"values": [1.5708, 0.0, 0.0, 1.5708]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -130,10 +155,34 @@ tracks/1/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.133333, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.3, 0.466667, 0.533333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.943222, -1.92994), Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354), Vector2(0.943222, -1.92994)]
+"values": [Vector2(0.943222, -1.92994), Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354), Vector2(0.943222, -1.92994), Vector2(10.4382, 55.354), Vector2(2.98827, 3.40458), Vector2(0.943222, -1.92994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/HurtboxComponent/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_sroyi"]
@@ -174,6 +223,15 @@ radius = 209.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_end8p"]
 size = Vector2(38, 96)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tlp6y"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("16_h3u7y")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_agt46"]
+streams_count = 1
+stream_0/stream = ExtResource("17_8g66q")
 
 [node name="EnemyMedium" type="Node2D"]
 script = ExtResource("1_31nfd")
@@ -219,7 +277,6 @@ rotation = 1.5708
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/HurtboxComponent"]
 position = Vector2(-44.4604, 13.1456)
 rotation = -0.26529
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_w5nfj")
 
 [node name="HurtboxComponent2" parent="Pivot" instance=ExtResource("13_ds1g7")]
@@ -238,11 +295,17 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WithinRange"]
 shape = SubResource("CircleShape2D_0mxpx")
 
-[node name="HurtboxComponent" parent="." instance=ExtResource("13_ds1g7")]
+[node name="Hurtbox" parent="." instance=ExtResource("13_ds1g7")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(10, -3)
 shape = SubResource("RectangleShape2D_end8p")
+
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_tlp6y")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_agt46")
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
 [connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

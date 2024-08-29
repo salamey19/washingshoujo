@@ -1,16 +1,13 @@
 extends State
 class_name PlayerJump
 
+var is_jumping : bool = false
 
 func Enter():
 
 	player.animated_sprite.play("jump_up")
+	is_jumping = true
 	player.velocity.y = player.JUMP_VELOCITY
-	await get_tree().create_timer(0.001).timeout
-	if player.has_jump:
-		player.has_jump = false
-	else:
-		player.has_double_jump = false
 	player.spawn_afterimage()
 
 
@@ -19,6 +16,16 @@ func Exit():
 
 
 func Physics_Update(delta : float):
+	if is_jumping and !player.is_on_floor():
+		is_jumping = false
+		if player.has_jump:
+			player.has_jump = false
+		else:
+			player.has_double_jump = false
+
+	if player.jump_buffer > 0 and player.has_jump:
+		Transitioned.emit(self, "jump")
+
 	if player.is_hurt:
 		Transitioned.emit(self, "hurt")
 	if not player.is_on_floor():
@@ -30,7 +37,8 @@ func Physics_Update(delta : float):
 
 
 func Handle_Input(event: InputEvent):
-	if event.is_action_pressed("jump") and (player.has_jump or player.has_double_jump):
+
+	if event.is_action_pressed("jump") and player.has_double_jump and !player.has_jump:
 		Transitioned.emit(self, "jump")
 	if event.is_action_pressed("dash") and player.has_dash:
 		Transitioned.emit(self, "dash")

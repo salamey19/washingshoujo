@@ -8,7 +8,8 @@ func Enter():
 
 
 func Physics_Update(_delta : float):
-
+	if player.jump_buffer > 0 and player.has_jump:
+		Transitioned.emit(self, "jump")
 	if is_zero_approx(player.velocity.x):
 		Transitioned.emit(self, "idle")
 	if player.velocity.y > 0.0 :
@@ -17,8 +18,7 @@ func Physics_Update(_delta : float):
 func Handle_Input(event: InputEvent):
 	if player.is_hurt:
 		Transitioned.emit(self, "hurt")
-	if event.is_action_pressed("jump") and player.has_jump:
-		Transitioned.emit(self, "jump")
+
 	if event.is_action_pressed("dash"):
 		Transitioned.emit(self, "dash")
 	if event.is_action_pressed("attack") and player.has_basic_attack:

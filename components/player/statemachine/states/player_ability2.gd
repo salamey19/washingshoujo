@@ -20,6 +20,7 @@ func blast() -> void:
 
 
 	player.animated_sprite.play("ability_2_" + str(player.current_charges))
+	player.vfx.play("ability_2_" + str(player.current_charges))
 	player.current_charges = 0
 	player.lock_player()
 	player.should_fall = false

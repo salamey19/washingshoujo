@@ -2,7 +2,7 @@ extends State
 class_name PlayerAbility1
 
 const ABILITY_1_PROJECTILE = preload("res://components/player/ability_1_projectile.tscn")
-
+@onready var swing_sfx: AudioStreamPlayer2D = $"../../SFX/SwingSFX"
 
 #freeze character during abilites
 
@@ -22,9 +22,11 @@ func swing() -> void:
 	var b = ABILITY_1_PROJECTILE.instantiate()
 	b.choice = charge_number
 	player.animated_sprite.play("ability_1")
+	swing_sfx.play()
 	player.should_fall = false
 	player.using_ability = true
 	player.lock_player()
+
 	await player.animated_sprite.animation_finished
 	player.unlock_player()
 	player.get_parent().add_child(b)

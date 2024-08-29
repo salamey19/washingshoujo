@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://50dxp2p3x7gk"]
+
+[ext_resource type="Texture2D" uid="uid://cun4uhwa2wnqi" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1.png" id="1_xentl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evyn5"]
+size = Vector2(156.674, 208.941)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfhgf"]
+size = Vector2(710.009, 349.701)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xentl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-417.174, 96.7494)
+rotation = -1.68424
+skew = -0.287979
+shape = SubResource("RectangleShape2D_evyn5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1.43462, -55.0799)
+rotation = -0.176278
+scale = Vector2(1, 1)
+skew = -0.0261801
+shape = SubResource("RectangleShape2D_kfhgf")

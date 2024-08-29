@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsuid1nuxgt6a"
+path="res://.godot/imported/LASERDIE VRS2.wav-4067875cd5e9dcd0c7c9c10529c334d6.sample"
+
+[deps]
+
+source_file="res://art/sfx/NewSFX/LASERDIE VRS2.wav"
+dest_files=["res://.godot/imported/LASERDIE VRS2.wav-4067875cd5e9dcd0c7c9c10529c334d6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

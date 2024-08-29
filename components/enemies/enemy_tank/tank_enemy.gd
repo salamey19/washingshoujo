@@ -8,6 +8,8 @@ extends Node2D
 @onready var hitbox_component: Area2D = $HitboxComponent
 
 
+@onready var tank_sfx: AudioStreamPlayer2D = $TankSFX
+@onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
 
 
 func set_ghost_progress(val: float):
@@ -18,6 +20,7 @@ func blocked() -> void:
 	if vfx.is_playing():
 		vfx.stop()
 	vfx.play("shield_block")
+	tank_sfx.play()
 	enemy_sprite.play("hit")
 	await vfx.animation_finished
 	enemy_sprite.play("blink_idle")
@@ -28,6 +31,7 @@ func death() -> void:
 	Global.enemy_defeated.emit()
 	set_process(false)
 	enemy_sprite.play("death")
+	death_sfx.play()
 	ghost_sprite.visible = true
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)

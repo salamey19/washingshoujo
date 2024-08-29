@@ -6,6 +6,10 @@ extends Node2D
 @onready var hurtbox_component: Area2D = $Pivot/HurtboxComponent
 @onready var ghost_sprite: Sprite2D = $GhostSprite
 @onready var hitbox_component: Area2D = $HitboxComponent
+@onready var pivot: Node2D = $Pivot
+@onready var hurtbox: Area2D = $Hurtbox
+@onready var attack_sfx: AudioStreamPlayer2D = $AttackSFX
+@onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
 
 @export var patrol_point_1 : Node2D
 @export var patrol_point_2 : Node2D
@@ -40,6 +44,8 @@ func attack() -> void:
 	attacking = true
 	enemy_sprite.play("attack")
 	animation_player.play("attack")
+	await get_tree().create_timer(0.5).timeout
+	attack_sfx.play()
 	await enemy_sprite.animation_finished
 	attacking = false
 	print(attack_timer)
@@ -51,13 +57,16 @@ func set_ghost_progress(val: float):
 
 
 func death() -> void:
-	hurtbox_component.queue_free()
+
+	hurtbox.queue_free()
 	hitbox_component.queue_free()
+	animation_player.stop()
+	pivot.queue_free()
 	Global.enemy_defeated.emit()
 
 	set_process(false)
 	enemy_sprite.offset.x = 750
-	animation_player.stop()
+	death_sfx.play()
 	enemy_sprite.play("death")
 	ghost_sprite.visible = true
 	var tween = get_tree().create_tween()
@@ -72,7 +81,7 @@ func death() -> void:
 func _on_within_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		within_range = true
-		attack_cooldown = 4
+		attack_cooldown = 5
 
 func _on_within_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):

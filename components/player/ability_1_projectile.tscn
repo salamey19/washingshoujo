@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgyfamlbv0sg8"]
+[gd_scene load_steps=12 format=3 uid="uid://bgyfamlbv0sg8"]
 
 [ext_resource type="Script" path="res://components/player/ability_1_projectile.gd" id="1_fjbm7"]
 [ext_resource type="Texture2D" uid="uid://cag5yrnmitbps" path="res://art/2d/player/ONI charges/red.png" id="2_pvrh2"]
+[ext_resource type="AudioStream" uid="uid://ejuanwl31ibk" path="res://art/sfx/MAGICALBALLEXPO.wav" id="3_u2qba"]
+[ext_resource type="Texture2D" uid="uid://cdo5t23jbm7ew" path="res://art/2d/player/Ability 1 VFX/Running_1-1.png" id="4_16d88"]
+[ext_resource type="Texture2D" uid="uid://dqfefx4voubcr" path="res://art/2d/player/Ability 1 VFX/Running_1-2.png" id="5_il8oj"]
+[ext_resource type="Texture2D" uid="uid://b85j06us4tifi" path="res://art/2d/player/Ability 1 VFX/Running_1-3.png" id="6_xdvbe"]
+[ext_resource type="Texture2D" uid="uid://bev5dheq7mswe" path="res://art/2d/player/Ability 1 VFX/Running_1-4.png" id="7_jpbr0"]
+[ext_resource type="Texture2D" uid="uid://u538nfrdvc63" path="res://art/2d/player/Ability 1 VFX/Running_1-5.png" id="8_6obdw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7vrr3"]
 radius = 18.0278
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2pt3e"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("3_u2qba")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohlh3"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("4_16d88")
+}, {
+"duration": 0.8,
+"texture": ExtResource("5_il8oj")
+}, {
+"duration": 0.8,
+"texture": ExtResource("6_xdvbe")
+}, {
+"duration": 0.8,
+"texture": ExtResource("7_jpbr0")
+}, {
+"duration": 0.8,
+"texture": ExtResource("8_6obdw")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 5.0
+}]
 
 [node name="Ability1Projectile" type="Area2D"]
 collision_layer = 0
@@ -21,6 +58,17 @@ shape = SubResource("CircleShape2D_7vrr3")
 position = Vector2(-14, 81)
 scale = Vector2(0.222, 0.222)
 texture = ExtResource("2_pvrh2")
+
+[node name="ExplosionSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_2pt3e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-20, 12)
+scale = Vector2(0.22, 0.22)
+sprite_frames = SubResource("SpriteFrames_ohlh3")
+animation = &"explosion"
+frame = 5
+frame_progress = 1.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

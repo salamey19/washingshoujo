@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c37rct5n5yh32"]
+[gd_scene load_steps=34 format=3 uid="uid://c37rct5n5yh32"]
 
 [ext_resource type="Script" path="res://components/enemies/eye_enemy/eye_enemy.gd" id="1_n0rnc"]
 [ext_resource type="Shader" path="res://art/shaders/death_shader.gdshader" id="2_8syi5"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://3e3uuxp7f4l0" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-9.png" id="22_n172c"]
 [ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="23_2ff3u"]
 [ext_resource type="Texture2D" uid="uid://fiflitgvov4o" path="res://art/2d/enemies/small/Attack Final VFX/Blink_1-10.png" id="23_u5m13"]
+[ext_resource type="AudioStream" uid="uid://cisxogwkjsut5" path="res://art/sfx/monster laser.wav" id="24_qm5xh"]
+[ext_resource type="AudioStream" uid="uid://bo41ihmwyyfyd" path="res://art/sfx/NewSFX/LASERDIE.wav" id="25_myxfd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i0x6f"]
 shader = ExtResource("2_8syi5")
@@ -34,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_fouga")
 }, {
-"duration": 4.0,
+"duration": 3.0,
 "texture": ExtResource("3_12ekd")
 }, {
 "duration": 2.5,
@@ -73,34 +75,34 @@ animations = [{
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml137"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("14_5x11e")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("15_i2h82")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("16_u1t2p")
 }, {
-"duration": 1.5,
+"duration": 1.1,
 "texture": ExtResource("17_bjjn8")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("18_1a0cr")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("19_xk2xc")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("20_1n1dr")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("21_wjy6h")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("22_n172c")
 }, {
-"duration": 1.0,
+"duration": 0.7,
 "texture": ExtResource("23_u5m13")
 }],
 "loop": false,
@@ -120,6 +122,11 @@ size = Vector2(328, 41)
 [sub_resource type="CircleShape2D" id="CircleShape2D_p1t3x"]
 radius = 36.0139
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mgtuh"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("24_qm5xh")
+
 [node name="EyeEnemy" type="Node2D"]
 rotation = -3.14159
 script = ExtResource("1_n0rnc")
@@ -136,8 +143,10 @@ texture = ExtResource("6_8jxkx")
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_xhmpd")
-animation = &"death"
+animation = &"blink_attack"
 autoplay = "blink_idle"
+frame = 3
+frame_progress = 1.0
 speed_scale = 1.5
 flip_h = true
 flip_v = true
@@ -182,6 +191,12 @@ shape = SubResource("RectangleShape2D_o245f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(-3.99999, 5.00001)
 shape = SubResource("CircleShape2D_p1t3x")
+
+[node name="LaserSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_mgtuh")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_myxfd")
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
 [connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

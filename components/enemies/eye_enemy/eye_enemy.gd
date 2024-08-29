@@ -5,6 +5,8 @@ extends Node2D
 @export var attack_cooldown : float = 4
 @onready var hitbox_component: Area2D = $HitboxComponent
 @onready var attack_area: Area2D = $AttackArea
+@onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX
+@onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
 
 @onready var hurtbox_component: Area2D = $HurtboxComponent
 
@@ -55,13 +57,14 @@ func attack() -> void:
 	attack_sprite.play("attack")
 	#await get_tree().create_timer(0.25)
 	stop_aiming = true
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout
+	laser_sfx.play()
 	print("red part")
 	attack_collision.disabled = false
 	await attack_sprite.animation_finished
 	var rng = RandomNumberGenerator.new()
 	attack_sprite.visible = false
-	attack_cooldown = rng.randf_range(1, 2)
+	attack_cooldown = rng.randf_range(2, 3)
 	stop_aiming = false
 	is_attacking = false
 	attack_collision.disabled = true
@@ -81,6 +84,7 @@ func death() -> void:
 	Global.enemy_defeated.emit()
 	set_process(false)
 	enemy_sprite.play("death")
+	death_sfx.play()
 	ghost_sprite.visible = true
 	var tween = get_tree().create_tween()
 	tween.set_parallel(true)
@@ -95,7 +99,7 @@ func _on_within_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = body
 		within_range = true
-		attack_cooldown = 3
+		attack_cooldown = 5
 
 
 func _on_within_range_body_exited(body: Node2D) -> void:

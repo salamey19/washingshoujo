@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ds8muv0q3hw6f"
+path="res://.godot/imported/cut long.wav-83d8effdbed889ad912eb1ec92f2028e.sample"
+
+[deps]
+
+source_file="res://art/sfx/cut long.wav"
+dest_files=["res://.godot/imported/cut long.wav-83d8effdbed889ad912eb1ec92f2028e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

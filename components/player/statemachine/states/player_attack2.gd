@@ -2,6 +2,7 @@ extends State
 class_name PlayerAttack2
 
 @onready var collision_shape: CollisionShape2D = $"../../Weapon/BasicAttackArea/CollisionShape2D"
+@onready var attack_sfx: AudioStreamPlayer2D = $"../../SFX/AttackSFX"
 
 func move_forward(amount : float) -> void:
 	player.position.x += amount
@@ -14,6 +15,7 @@ func Enter():
 	player.velocity.y = 0
 	player.animated_sprite.play("basic_attack2")
 	player.abilities_animation_player.play("basic_attack2")
+	attack_sfx.play()
 	var tween = create_tween()
 	if player.is_left:
 		tween.tween_method(move_forward, -2, 1, 0.2)

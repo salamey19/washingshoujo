@@ -17,12 +17,12 @@ func Physics_Update(_delta: float):
 
 	if player.velocity.x > 0 or player.velocity.x < 0:
 		Transitioned.emit(self, "run")
-
+	if player.jump_buffer > 0 and player.has_jump:
+		Transitioned.emit(self, "jump")
 
 
 func Handle_Input(event: InputEvent):
-	if event.is_action_pressed("jump") and player.has_jump:
-		Transitioned.emit(self, "jump")
+
 	if event.is_action_pressed("dash"):
 		Transitioned.emit(self, "dash")
 	if event.is_action_pressed("attack") and player.has_basic_attack:

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var abilities_animation_player: AnimationPlayer = $AbilitiesAnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var charges: Node2D = $Weapon/Charges
-@onready var hitbox_component: Area2D = $HitboxComponent
+
 
 #@onready var vfx: AnimatedSprite2D = $VFX
 @onready var vfx: AnimatedSprite2D = %VFX
@@ -22,7 +22,7 @@ const GRAVITY := 800
 #jump
 var has_jump : bool = false
 var has_double_jump : bool = true
-
+var jump_buffer : float = 0.1
 
 #DASH
 var has_dash : bool = true
@@ -80,8 +80,8 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 
-	if event.is_action_pressed("jump"):
-		has_jump = false
+	#if event.is_action_pressed("jump"):
+		#has_jump = false
 
 	#handling character flipping
 
@@ -110,6 +110,10 @@ func get_grav(velocity: Vector2):
 func _physics_process(delta: float) -> void:
 	#print(velocity.y)
 	#print("has jump: ",has_jump)
+
+	if Input.is_action_just_pressed("jump"):
+		jump_buffer = 0.1
+	jump_buffer -= delta
 
 	if is_on_floor() and current_combo == 0:
 		stop_combo()
@@ -193,13 +197,14 @@ func spawn_afterimage() -> void:
 	get_parent().add_child(afterInstance)
 
 
-func damaged(_amount : int = 1) -> void:
+func damaged() -> void:
 	if can_be_hurt:
 		is_hurt = true
 
 
 var kb_force = 1200
 func hurt() -> void:
+
 	var kb_direction = -1
 	if is_left:
 		kb_direction = 1
@@ -211,8 +216,10 @@ func hurt() -> void:
 	animated_sprite.play("hurt")
 	animation_player.play("flash_red")
 	#velocity.y -= 300
+	if is_on_floor():
+		%VFX.play("knock_back")
 	move_and_slide()
-	%VFX.play("knock_back")
+
 	await animated_sprite.animation_finished
 	is_hurt = false
 	animation_player.play("immune_flash")
