@@ -70,6 +70,14 @@ animations = [{
 "loop": true,
 "name": &"death",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_6ufvv")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml137"]
@@ -143,10 +151,8 @@ texture = ExtResource("6_8jxkx")
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.04, 0.04)
 sprite_frames = SubResource("SpriteFrames_xhmpd")
-animation = &"blink_attack"
+animation = &"sleep"
 autoplay = "blink_idle"
-frame = 3
-frame_progress = 1.0
 speed_scale = 1.5
 flip_h = true
 flip_v = true

@@ -13,6 +13,9 @@ extends CharacterBody2D
 #health
 var is_hurt : bool = false
 var can_be_hurt : bool = true
+const MAX_LIVES : int = 3
+var current_lives : int = 3
+
 #movement
 const SPEED = 425.0
 const JUMP_VELOCITY = -650.0
@@ -77,6 +80,7 @@ var is_left : bool = false
 
 func _ready() -> void:
 	Global.enemy_defeated.connect(on_enemy_defeated)
+	current_lives = MAX_LIVES
 
 func _input(event: InputEvent) -> void:
 
@@ -204,6 +208,9 @@ func damaged() -> void:
 
 var kb_force = 1200
 func hurt() -> void:
+	current_lives -= 1
+	if current_lives < 1:
+		death()
 
 	var kb_direction = -1
 	if is_left:
@@ -226,6 +233,10 @@ func hurt() -> void:
 	can_be_hurt = false
 	await animation_player.animation_finished
 	can_be_hurt = true
+
+func death():
+	print("death")
+	pass
 
 func lock_player() -> void:
 	locked_height = position.y

@@ -12,11 +12,11 @@ void fragment() {
 	// Sample color data from texture
 	float mipmap_index = ghost_progress * 9.5;
 	vec4 ghost_tex = textureLod(TEXTURE, fly_up_uv, mipmap_index);
-	
+
 	// Set ghost like propperties: light color and transparency
 	ghost_tex.rgb = ghost_tex.rrr * 1.7;
 	float ghost_opacity = 0.8;
 	ghost_tex.a *= ghost_opacity - ghost_opacity * ghost_progress;
-	 
+
 	COLOR.rgba = mix(ghost_tex.rgba, base_joe_tex.rgba, COLOR.a);
 }

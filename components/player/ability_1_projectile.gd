@@ -39,7 +39,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		explosion()
 		set_physics_process(false)
-		collision_shape.disabled = true
+		collision_shape.set_deferred("disabled", true)
 		area.damage(1)
 
 		OS.delay_msec(150)

@@ -2,11 +2,12 @@ extends Node2D
 
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @onready var attack_sprite: AnimatedSprite2D = $VFX/AttackSprite
-@export var attack_cooldown : float = 4
+@export var attack_cooldown : float = 4.8
 @onready var hitbox_component: Area2D = $HitboxComponent
 @onready var attack_area: Area2D = $AttackArea
 @onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX
 @onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
+#@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var hurtbox_component: Area2D = $HurtboxComponent
 
@@ -17,10 +18,18 @@ var player : CharacterBody2D
 var stop_aiming : bool = false
 var is_attacking : bool = false
 
+@export var asleep : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	attack_sprite.visible = false
 	attack_collision.disabled = true
+	if asleep:
+		enemy_sprite.play("sleep")
+		#animation_player.play("sleeping")
+		set_process(false)
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -76,8 +85,8 @@ func set_ghost_progress(val: float):
 	ghost_sprite.material.set("shader_parameter/ghost_progress", val)
 
 func death() -> void:
-	attack_area.monitorable = false
-	attack_area.monitoring = false
+	attack_area.set_deferred("monitorable", false)
+	attack_area.set_deferred("monitoring", false)
 	hurtbox_component.queue_free()
 	hitbox_component.queue_free()
 
@@ -99,7 +108,7 @@ func _on_within_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = body
 		within_range = true
-		attack_cooldown = 5
+
 
 
 func _on_within_range_body_exited(body: Node2D) -> void:

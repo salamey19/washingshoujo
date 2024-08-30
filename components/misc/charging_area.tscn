@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1hr8scmagpfr"]
+
+[ext_resource type="Script" path="res://components/misc/charging_area.gd" id="1_ep4ya"]
+
+[node name="ChargingArea" type="Area2D"]
+script = ExtResource("1_ep4ya")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

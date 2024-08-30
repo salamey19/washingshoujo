@@ -2,6 +2,7 @@ extends State
 class_name PlayerAbility2
 
 
+@onready var vfx_ability2: AnimatedSprite2D = %VFXAbility2
 
 
 func Enter():
@@ -19,8 +20,7 @@ func blast() -> void:
 
 
 
-	player.animated_sprite.play("ability_2_" + str(player.current_charges))
-	player.vfx.play("ability_2_" + str(player.current_charges))
+	play_animations(player.current_charges)
 	player.current_charges = 0
 	player.lock_player()
 	player.should_fall = false
@@ -33,3 +33,21 @@ func blast() -> void:
 		Transitioned.emit(self, "falling")
 	else:
 		Transitioned.emit(self, "idle")
+
+
+var scales : Array[float] = [1.0, 1.2, 1.33]
+
+func play_animations(current_charges : int) -> void:
+
+
+	if player.is_left:
+		vfx_ability2.get_parent().scale.x = -1
+		vfx_ability2.position = Vector2(1156, 176)
+	else:
+		vfx_ability2.get_parent().scale.x = 1
+		vfx_ability2.position = Vector2(1380, 176)
+
+	vfx_ability2.scale = Vector2(scales[current_charges - 1], scales[current_charges - 1])
+	player.animated_sprite.play("ability_2_" + str(current_charges))
+	vfx_ability2.play("ability_2_" + str(current_charges))
+	player.abilities_animation_player.play("ability_2_" + str(current_charges))

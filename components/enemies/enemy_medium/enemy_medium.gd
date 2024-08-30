@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
-@export var attack_cooldown : float = 0
+@export var attack_cooldown : float = 4
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var hurtbox_component: Area2D = $Pivot/HurtboxComponent
 @onready var ghost_sprite: Sprite2D = $GhostSprite
@@ -10,6 +10,9 @@ extends Node2D
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var attack_sfx: AudioStreamPlayer2D = $AttackSFX
 @onready var death_sfx: AudioStreamPlayer2D = $DeathSFX
+
+@onready var flag_collision1: CollisionShape2D = $Pivot/HurtboxComponent/CollisionShape2D
+@onready var flag_collision2: CollisionShape2D = $Pivot/HurtboxComponent2/CollisionShape2D
 
 @export var patrol_point_1 : Node2D
 @export var patrol_point_2 : Node2D
@@ -37,16 +40,18 @@ func _process(delta: float) -> void:
 
 	if within_range and attack_cooldown >= 5:
 		attack()
-		attack_cooldown = rng.randf_range(0, 1)
+		attack_cooldown = rng.randf_range(2, 3)
 
 
 func attack() -> void:
 	attacking = true
 	enemy_sprite.play("attack")
+	await get_tree().create_timer(0.75).timeout
 	animation_player.play("attack")
-	await get_tree().create_timer(0.5).timeout
 	attack_sfx.play()
 	await enemy_sprite.animation_finished
+	flag_collision2.disabled = true
+	flag_collision1.disabled = true
 	attacking = false
 	print(attack_timer)
 	attack_timer = 0
@@ -60,7 +65,7 @@ func death() -> void:
 
 	hurtbox.queue_free()
 	hitbox_component.queue_free()
-	animation_player.stop()
+	animation_player.call_deferred("stop")
 	pivot.queue_free()
 	Global.enemy_defeated.emit()
 
@@ -81,7 +86,6 @@ func death() -> void:
 func _on_within_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		within_range = true
-		attack_cooldown = 5
 
 func _on_within_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):

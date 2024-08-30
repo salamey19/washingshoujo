@@ -118,7 +118,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -130,12 +130,12 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_3kf3e"]
 resource_name = "attack"
-length = 0.8
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -155,10 +155,10 @@ tracks/1/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.133333, 0.3, 0.466667, 0.533333, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.943222, -1.92994), Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354), Vector2(0.943222, -1.92994), Vector2(10.4382, 55.354), Vector2(2.98827, 3.40458), Vector2(0.943222, -1.92994)]
+"values": [Vector2(0.943222, -1.92994), Vector2(2.98827, 3.40458), Vector2(10.4382, 55.354), Vector2(0.943222, -1.92994), Vector2(2.98827, 3.40458), Vector2(0.943222, -1.92994)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -167,7 +167,7 @@ tracks/2/path = NodePath("Pivot/HurtboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -179,7 +179,7 @@ tracks/3/path = NodePath("Pivot/HurtboxComponent2/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -278,6 +278,7 @@ rotation = 1.5708
 position = Vector2(-44.4604, 13.1456)
 rotation = -0.26529
 shape = SubResource("RectangleShape2D_w5nfj")
+disabled = true
 
 [node name="HurtboxComponent2" parent="Pivot" instance=ExtResource("13_ds1g7")]
 position = Vector2(-89, -7.99968)
@@ -288,6 +289,7 @@ rotation = -0.0872665
 scale = Vector2(0.999999, 1)
 skew = 0.0349065
 shape = SubResource("RectangleShape2D_xli2g")
+disabled = true
 
 [node name="WithinRange" type="Area2D" parent="."]
 visible = false

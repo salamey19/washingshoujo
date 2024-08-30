@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://w6awmggcomya"]
+
+[ext_resource type="Script" path="res://components/camera/camera_transitions.gd" id="1_05od6"]
+
+[node name="CameraTransitions" type="Area2D"]
+script = ExtResource("1_05od6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
