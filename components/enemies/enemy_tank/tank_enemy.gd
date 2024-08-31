@@ -1,4 +1,5 @@
 extends Node2D
+class_name TankEnemy
 
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @onready var vfx: AnimatedSprite2D = $VFX

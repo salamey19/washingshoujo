@@ -1,13 +1,13 @@
-[gd_scene load_steps=156 format=4 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=153 format=4 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
-[ext_resource type="Texture2D" uid="uid://cue7km506nweo" path="res://art/2d/Backgrounds/Background level 1 second try/Untitled_Artwork-1.png" id="2_2lx3p"]
 [ext_resource type="Texture2D" uid="uid://cepmcnib3saby" path="res://art/2d/Backgrounds/bg 1/1.png" id="2_wkfsp"]
 [ext_resource type="Texture2D" uid="uid://beq528fypiou2" path="res://art/2d/Backgrounds/bg 1/2.png" id="3_kyfud"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="4_2u64h"]
 [ext_resource type="Texture2D" uid="uid://docpyw2bimu70" path="res://art/2d/Backgrounds/bg 1/3.png" id="4_byjdy"]
 [ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/eye_enemy/eye_enemy.tscn" id="4_fcwub"]
 [ext_resource type="Texture2D" uid="uid://tmwmitvyl523" path="res://art/2d/Backgrounds/bg 1/4.png" id="5_h2lew"]
+[ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_j4yrl"]
 [ext_resource type="Texture2D" uid="uid://btxykjo58k1p1" path="res://art/2d/Backgrounds/bg 1/10.png" id="6_1t85p"]
 [ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="6_ubnj5"]
 [ext_resource type="Texture2D" uid="uid://c5bbuon7qu5m7" path="res://art/2d/Backgrounds/bg 1/7.png" id="7_a38by"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://c8phkckr2jtv7" path="res://art/2d/Backgrounds/bg 1/6.png" id="8_j0lj6"]
 [ext_resource type="Texture2D" uid="uid://bobg3atfusocq" path="res://art/2d/Backgrounds/background final/7.png" id="8_mfwor"]
 [ext_resource type="Texture2D" uid="uid://cutdbtcksdmxx" path="res://art/2d/Backgrounds/bg 1/9.png" id="9_8tvft"]
-[ext_resource type="Texture2D" uid="uid://8wk1glw7m0b" path="res://art/2d/Backgrounds/background final/11.png" id="11_k6vma"]
 [ext_resource type="Script" path="res://components/camera/camera.gd" id="13_4f1gs"]
 [ext_resource type="Shader" path="res://art/shaders/shadow.gdshader" id="13_kt4ek"]
 [ext_resource type="Texture2D" uid="uid://kbrbr1lj7cjq" path="res://art/2d/Backgrounds/bg 2/1.png" id="14_oahpa"]
@@ -67,24 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://cul0nm2ewread" path="res://art/2d/platforms/Platforms level 3/Untitled_Artwork-7.png" id="49_yk426"]
 [ext_resource type="Texture2D" uid="uid://ddmml3fqg2u6b" path="res://art/2d/platforms/Platforms level 3/Untitled_Artwork-8.png" id="50_o3wxr"]
 [ext_resource type="Texture2D" uid="uid://dkdha28dm7s52" path="res://art/2d/UI/Hearts/Untitled_Artwork-1.png" id="52_avi5q"]
-
-[sub_resource type="Gradient" id="Gradient_fjjni"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ttg1r"]
-gradient = SubResource("Gradient_fjjni")
-width = 836
-use_hdr = true
-
-[sub_resource type="Gradient" id="Gradient_7untp"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nhidn"]
-gradient = SubResource("Gradient_7untp")
-fill_from = Vector2(0.987179, 0)
-fill_to = Vector2(0, 0.974359)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7qxh6"]
-polygon = PackedVector2Array(-64, 267, 4042, 271, 4152, 425, -78, 432)
+[ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="67_u8qxg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_badi1"]
 shader = ExtResource("13_kt4ek")
@@ -92,8 +74,6 @@ shader_parameter/look_right = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(632.39, 541.875)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jo71w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muatn"]
 size = Vector2(2370, 63)
@@ -14443,21 +14423,6 @@ size = Vector2(496, 371)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3n7"]
 size = Vector2(4278, 444)
 
-[sub_resource type="Animation" id="Animation_imvcr"]
-resource_name = "fade_black"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.533333, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_5wa3y"]
 length = 0.001
 tracks/0/type = "value"
@@ -14473,11 +14438,45 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_imvcr"]
+resource_name = "fade_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ayx2h"]
 _data = {
 "RESET": SubResource("Animation_5wa3y"),
 "fade_black": SubResource("Animation_imvcr")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n4y4g"]
+radius = 559.151
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wl0nw"]
+size = Vector2(337, 46)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dj1o1"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(109.955, 1, 1)
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 81.08
+gravity = Vector3(0, -50, 0)
+damping_min = 15.83
+damping_max = 15.83
+scale_min = 3.0
+scale_max = 3.0
+color_ramp = SubResource("GradientTexture1D_333i3")
 
 [node name="TestLevel" type="Node2D"]
 
@@ -14485,45 +14484,6 @@ _data = {
 position = Vector2(289, -577)
 scale = Vector2(0.125, 0.125)
 collision_layer = 0
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="CanvasLayer2"]
-visible = false
-position = Vector2(1444, 50)
-color = Color(0.975725, 0.886968, 0.748564, 1)
-energy = 0.43
-blend_mode = 2
-range_layer_min = -10
-range_layer_max = 1
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 1
-max_distance = 125.0
-
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer2"]
-visible = false
-position = Vector2(2227.65, -260.375)
-scale = Vector2(2.93817, 625.417)
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 0.956863)
-shadow_filter = 2
-texture = SubResource("GradientTexture1D_ttg1r")
-texture_scale = 4.2
-
-[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer2"]
-visible = false
-position = Vector2(2322, -614.5)
-scale = Vector2(82.9688, 36.6719)
-color = Color(0.6308, 0.441083, 0.320686, 1)
-shadow_enabled = true
-shadow_color = Color(0, 0, 0, 1)
-shadow_filter = 1
-texture = SubResource("GradientTexture2D_nhidn")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="CanvasLayer2"]
-visible = false
-occluder = SubResource("OccluderPolygon2D_7qxh6")
 
 [node name="Background" type="Node2D" parent="."]
 position = Vector2(460, -347)
@@ -14537,37 +14497,32 @@ transform = Transform2D(1, 0, 0, 1, 0, 200)
 position = Vector2(2450, -223)
 texture = ExtResource("2_wkfsp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Background"]
-layer = 0
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background/CanvasLayer"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
 layer = -5
 scroll_offset = Vector2(-0.13, 0.435)
 scroll_base_offset = Vector2(-2000, 750)
 scroll_base_scale = Vector2(4.308, 1.473)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(-3.41, 67.435)
 
-[node name="Layer2" type="Sprite2D" parent="Background/CanvasLayer/ParallaxBackground/ParallaxLayer"]
+[node name="Layer2" type="Sprite2D" parent="Background/ParallaxBackground/ParallaxLayer"]
 position = Vector2(-544, -1368)
 texture = ExtResource("3_kyfud")
 centered = false
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="Background"]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background/CanvasLayer3"]
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Background"]
 layer = -4
 scroll_offset = Vector2(-0.13, 0.435)
 scroll_base_offset = Vector2(-2000, 750)
 scroll_base_scale = Vector2(4.308, 1.473)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/CanvasLayer3/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ParallaxBackground2"]
 motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(-3.41, 67.435)
 
-[node name="Layer3" type="Sprite2D" parent="Background/CanvasLayer3/ParallaxBackground/ParallaxLayer"]
+[node name="Layer3" type="Sprite2D" parent="Background/ParallaxBackground2/ParallaxLayer"]
 position = Vector2(-497, -1368)
 texture = ExtResource("4_byjdy")
 centered = false
@@ -14579,17 +14534,6 @@ follow_viewport_enabled = true
 [node name="Layer4" type="Sprite2D" parent="Background/CanvasLayer4"]
 position = Vector2(2183, -212)
 texture = ExtResource("5_h2lew")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background/CanvasLayer4"]
-layer = -4
-visible = false
-scroll_offset = Vector2(-0.13, 0.435)
-scroll_base_offset = Vector2(-2000, 750)
-scroll_base_scale = Vector2(4.308, 1.473)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/CanvasLayer4/ParallaxBackground"]
-motion_scale = Vector2(0.2, 0.2)
-motion_offset = Vector2(-3.41, 67.435)
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="Background"]
 follow_viewport_enabled = true
@@ -14623,20 +14567,6 @@ position = Vector2(-420, -1451)
 texture = ExtResource("8_j0lj6")
 centered = false
 
-[node name="CanvasLayer8" type="CanvasLayer" parent="Background"]
-layer = 0
-follow_viewport_enabled = true
-
-[node name="Layer10" type="Sprite2D" parent="Background/CanvasLayer8"]
-visible = false
-position = Vector2(2309.69, -390)
-texture = ExtResource("11_k6vma")
-
-[node name="Stencil" type="Sprite2D" parent="Background"]
-visible = false
-position = Vector2(2309.71, -372.94)
-texture = ExtResource("2_2lx3p")
-
 [node name="Layer9" type="Sprite2D" parent="Background"]
 position = Vector2(1849.69, -25.96)
 texture = ExtResource("8_mfwor")
@@ -14654,21 +14584,18 @@ position = Vector2(6489.5, -2336)
 texture = ExtResource("14_oahpa")
 offset = Vector2(0, 178.725)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Background2"]
-layer = 0
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background2/CanvasLayer"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background2"]
 layer = -5
 scroll_offset = Vector2(-0.13, 0.435)
 scroll_base_offset = Vector2(-2000, 750)
 scroll_base_scale = Vector2(6.153, 3.548)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background2/CanvasLayer/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background2/ParallaxBackground"]
 position = Vector2(3810, -1789)
 motion_scale = Vector2(0.125, 0.125)
 motion_offset = Vector2(-3.41, 67.435)
 
-[node name="Layer2" type="Sprite2D" parent="Background2/CanvasLayer/ParallaxBackground/ParallaxLayer"]
+[node name="Layer2" type="Sprite2D" parent="Background2/ParallaxBackground/ParallaxLayer"]
 position = Vector2(830, -2151)
 texture = ExtResource("15_tjjlt")
 centered = false
@@ -14677,15 +14604,6 @@ offset = Vector2(-1900, 1670)
 [node name="CanvasLayer3" type="CanvasLayer" parent="Background2"]
 layer = -4
 follow_viewport_enabled = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background2/CanvasLayer3"]
-layer = -4
-scroll_base_offset = Vector2(-9000, 8.77)
-scroll_base_scale = Vector2(6.64, 3.1)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background2/CanvasLayer3/ParallaxBackground"]
-position = Vector2(3810, -1789)
-motion_scale = Vector2(0.09, 0.09)
 
 [node name="Layer3" type="Sprite2D" parent="Background2/CanvasLayer3"]
 position = Vector2(4105, -3207)
@@ -14699,15 +14617,6 @@ follow_viewport_enabled = true
 [node name="Layer4" type="Sprite2D" parent="Background2/CanvasLayer4"]
 position = Vector2(6340.08, -1801.26)
 texture = ExtResource("17_w2pcu")
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background2/CanvasLayer4"]
-layer = -3
-visible = false
-scroll_base_scale = Vector2(13.025, 5.16)
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background2/CanvasLayer4/ParallaxBackground"]
-position = Vector2(3810, -1789)
-motion_scale = Vector2(0.085, 0.085)
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="Background2"]
 follow_viewport_enabled = true
@@ -14738,44 +14647,32 @@ follow_viewport_enabled = true
 position = Vector2(10529, -184)
 texture = ExtResource("20_1ewi4")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="Background3"]
-layer = -5
-follow_viewport_enabled = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background3/CanvasLayer2"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Background3"]
 layer = -5
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/CanvasLayer2/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/ParallaxBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="Background3/CanvasLayer2/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Background3/ParallaxBackground/ParallaxLayer"]
 position = Vector2(10651, -211)
 texture = ExtResource("21_84qs3")
 offset = Vector2(-263, 49.581)
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="Background3"]
-layer = -5
-follow_viewport_enabled = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background3/CanvasLayer3"]
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="Background3"]
 layer = -5
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/CanvasLayer3/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/ParallaxBackground2"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background3/CanvasLayer3/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background3/ParallaxBackground2/ParallaxLayer"]
 position = Vector2(8692, -2913)
 texture = ExtResource("22_s7ahw")
 centered = false
 
-[node name="CanvasLayer7" type="CanvasLayer" parent="Background3"]
-layer = -4
-follow_viewport_enabled = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background3/CanvasLayer7"]
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="Background3"]
 layer = -4
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/CanvasLayer7/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/ParallaxBackground3"]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background3/CanvasLayer7/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background3/ParallaxBackground3/ParallaxLayer"]
 position = Vector2(8797, -2913)
 texture = ExtResource("23_4fo2r")
 centered = false
@@ -14795,28 +14692,24 @@ follow_viewport_enabled = true
 position = Vector2(10521, 0)
 texture = ExtResource("25_7m40y")
 
-[node name="CanvasLayer6" type="CanvasLayer" parent="Background3"]
-layer = -5
-follow_viewport_enabled = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Background3/CanvasLayer6"]
+[node name="ParallaxBackground4" type="ParallaxBackground" parent="Background3"]
 layer = -5
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/CanvasLayer6/ParallaxBackground"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background3/ParallaxBackground4"]
 motion_scale = Vector2(0.885, 0.885)
 motion_offset = Vector2(-900, 0)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Background3/CanvasLayer6/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D2" type="Sprite2D" parent="Background3/ParallaxBackground4/ParallaxLayer"]
 position = Vector2(8679, -2797)
 texture = ExtResource("26_6l42r")
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="Background3/CanvasLayer6/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D5" type="Sprite2D" parent="Background3/ParallaxBackground4/ParallaxLayer"]
 position = Vector2(8763, -2913)
 texture = ExtResource("29_c67h2")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="Background3/CanvasLayer6/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D4" type="Sprite2D" parent="Background3/ParallaxBackground4/ParallaxLayer"]
 position = Vector2(9194, -2854)
 texture = ExtResource("28_vkutr")
 centered = false
@@ -14847,7 +14740,7 @@ texture = ExtResource("30_sfjov")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
 material = SubResource("ShaderMaterial_badi1")
-position = Vector2(4291, -2171)
+position = Vector2(298, 91)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -14863,7 +14756,6 @@ scale = Vector2(18.6, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor"]
 position = Vector2(176.87, 47)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8l8x7")
 
 [node name="Crane" type="StaticBody2D" parent="Floors"]
@@ -14874,113 +14766,6 @@ scale = Vector2(1, 0.16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Crane"]
 position = Vector2(32.3738, 393.522)
 shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Template" type="Node2D" parent="Floors"]
-
-[node name="Floor7" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5108, -196)
-scale = Vector2(0.39999, 0.101773)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/Floor7"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/Floor7"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
-
-[node name="Floor10" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5223, -139)
-scale = Vector2(0.31999, 0.102484)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/Floor10"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/Floor10"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
-
-[node name="Floor12" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5223, -105)
-scale = Vector2(0.240068, 0.102484)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/Floor12"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/Floor12"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
-
-[node name="mediumshort" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5061, -138)
-scale = Vector2(0.199951, 0.102484)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/mediumshort"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/mediumshort"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
-
-[node name="Floor13" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5223, -168)
-scale = Vector2(0.119912, 0.102484)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/Floor13"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/Floor13"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
-
-[node name="Floor14" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5061, -168)
-scale = Vector2(0.119912, 0.102484)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/Floor14"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/Floor14"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
-
-[node name="Floor11" type="StaticBody2D" parent="Floors/Template"]
-position = Vector2(5061, -104)
-scale = Vector2(0.199951, 0.102484)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Template/Floor11"]
-visible = false
-position = Vector2(233, 47)
-shape = SubResource("RectangleShape2D_8l8x7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Floors/Template/Floor11"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(232.5, 47.5)
-scale = Vector2(485, 113)
-texture = SubResource("PlaceholderTexture2D_jo71w")
 
 [node name="BossFloor" type="StaticBody2D" parent="Floors"]
 position = Vector2(10540, 3171)
@@ -15043,14 +14828,12 @@ position = Vector2(339.5, -1527.5)
 shape = SubResource("RectangleShape2D_61s0x")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(4291, -2171)
+position = Vector2(298, 91)
+zoom = Vector2(0.9, 0.9)
 limit_smoothed = true
 script = ExtResource("13_4f1gs")
 
 [node name="Timer" type="Timer" parent="Camera2D"]
-
-[node name="Boss" parent="." instance=ExtResource("4_2u64h")]
-position = Vector2(10708, 1520)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4
@@ -15133,7 +14916,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 8.098
 anchor_bottom = 4.531
-offset_right = -0.013916
+offset_left = 1.0
+offset_right = 0.986084
 offset_bottom = 0.0669556
 theme_override_constants/separation = -1149
 script = ExtResource("35_e1524")
@@ -15228,7 +15012,6 @@ position = Vector2(3198, 198)
 position = Vector2(3540, -1108)
 
 [node name="Lighting" type="Node2D" parent="."]
-visible = false
 
 [node name="SpotLight" type="PointLight2D" parent="Lighting"]
 position = Vector2(2809.73, -300.418)
@@ -15240,9 +15023,11 @@ blend_mode = 2
 texture = SubResource("GradientTexture1D_woep0")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lighting"]
+visible = false
 color = Color(0.831857, 0.675552, 0.584134, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lighting"]
+visible = false
 position = Vector2(698, -1783)
 rotation = -0.0261799
 skew = 0.619592
@@ -15253,6 +15038,7 @@ shadow_filter = 1
 max_distance = 890.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
+visible = false
 position = Vector2(4642.5, -1899.5)
 scale = Vector2(152.484, 75.2656)
 energy = 2.44
@@ -15306,7 +15092,7 @@ process_material = SubResource("ParticleProcessMaterial_v0gs5")
 position = Vector2(546, -460)
 change_limits = true
 right_limit = 4740
-left_limit = -160
+left_limit = -140
 top_limit = -2630
 bottom_limit = 325
 
@@ -15321,7 +15107,7 @@ camera_zoom = Vector2(0.53, 0.53)
 change_limits = true
 right_limit = 12070
 left_limit = 9130
-top_limit = -2630
+top_limit = 950
 bottom_limit = 2855
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTransitions/CameraTransitions8"]
@@ -15443,5 +15229,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="BossFight" type="Node2D" parent="." node_paths=PackedStringArray("barrier", "barrier_enemy1", "barrier_enemy2")]
+position = Vector2(10691, 1604)
+script = ExtResource("67_u8qxg")
+barrier = NodePath("Barrier")
+barrier_enemy1 = NodePath("TankEnemy")
+barrier_enemy2 = NodePath("TankEnemy2")
+
+[node name="Boss" parent="BossFight" instance=ExtResource("4_2u64h")]
+position = Vector2(17, -84)
+
+[node name="Barrier" type="StaticBody2D" parent="BossFight"]
+position = Vector2(0, -168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossFight/Barrier"]
+position = Vector2(0, -209)
+shape = SubResource("CircleShape2D_n4y4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="BossFight/Barrier"]
+
+[node name="TankEnemy" parent="BossFight" instance=ExtResource("5_j4yrl")]
+position = Vector2(-933, 105)
+scale = Vector2(-1, 1)
+
+[node name="TankEnemy2" parent="BossFight" instance=ExtResource("5_j4yrl")]
+position = Vector2(877, 103)
+
+[node name="Enemies" type="Node2D" parent="BossFight"]
+position = Vector2(0, -3)
+
+[node name="ChargingArea" parent="BossFight" instance=ExtResource("39_q83nm")]
+position = Vector2(-57, 941)
+charge_amount = 3
+charge_delay_max = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossFight/ChargingArea"]
+position = Vector2(11.5, 28)
+shape = SubResource("RectangleShape2D_wl0nw")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BossFight/ChargingArea"]
+position = Vector2(3, 49)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_dj1o1")
 
 [connection signal="body_entered" from="Checkpoints/FallArea" to="Checkpoints" method="_on_fall_area_body_entered"]

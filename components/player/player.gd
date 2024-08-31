@@ -114,6 +114,7 @@ func get_grav(velocity: Vector2):
 func _physics_process(delta: float) -> void:
 	#print(velocity.y)
 	#print("has jump: ",has_jump)
+	print(position.x)
 
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer = 0.1
@@ -151,7 +152,7 @@ func _physics_process(delta: float) -> void:
 
 	if !is_dashing:
 		if direction and !using_ability:
-			velocity.x = direction * SPEED + combo_speed
+			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -212,32 +213,32 @@ func hurt() -> void:
 	get_tree().get_first_node_in_group("Lives").lose_life()
 	if current_lives < 1:
 		death()
+	else:
+		var kb_direction = -1
+		if is_left:
+			kb_direction = 1
 
-	var kb_direction = -1
-	if is_left:
-		kb_direction = 1
+		get_tree().get_first_node_in_group("Camera").camera_shake(10)
+		var kb = (Vector2(500 * kb_direction, 500) - velocity).normalized() * kb_force
+		velocity.x = kb.x
+		print(velocity)
+		animated_sprite.play("hurt")
+		animation_player.play("flash_red")
+		#velocity.y -= 300
+		if is_on_floor():
+			%VFX.play("knock_back")
+		move_and_slide()
 
-	get_tree().get_first_node_in_group("Camera").camera_shake(10)
-	var kb = (Vector2(500 * kb_direction, 500) - velocity).normalized() * kb_force
-	velocity.x = kb.x
-	print(velocity)
-	animated_sprite.play("hurt")
-	animation_player.play("flash_red")
-	#velocity.y -= 300
-	if is_on_floor():
-		%VFX.play("knock_back")
-	move_and_slide()
-
-	await animated_sprite.animation_finished
-	is_hurt = false
-	animation_player.play("immune_flash")
-	can_be_hurt = false
-	await animation_player.animation_finished
-	can_be_hurt = true
+		await animated_sprite.animation_finished
+		is_hurt = false
+		animation_player.play("immune_flash")
+		can_be_hurt = false
+		await animation_player.animation_finished
+		can_be_hurt = true
 
 func death():
 	print("death")
-	pass
+	Global.restart_level()
 
 func lock_player() -> void:
 	locked_height = position.y

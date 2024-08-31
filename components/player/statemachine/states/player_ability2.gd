@@ -15,8 +15,9 @@ func Exit():
 		player.velocity.y = -205
 
 func blast() -> void:
+	#2^ - 1
+	player.ability_2_damage = pow(2, player.current_charges) - 1
 
-	player.ability_2_damage = player.current_charges
 
 
 
@@ -50,4 +51,5 @@ func play_animations(current_charges : int) -> void:
 	vfx_ability2.scale = Vector2(scales[current_charges - 1], scales[current_charges - 1])
 	player.animated_sprite.play("ability_2_" + str(current_charges))
 	vfx_ability2.play("ability_2_" + str(current_charges))
+	await get_tree().create_timer(0.15).timeout
 	player.abilities_animation_player.play("ability_2_" + str(current_charges))

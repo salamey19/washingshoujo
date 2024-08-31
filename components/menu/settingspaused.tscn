@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxwolm4rerjvs"]
+
+[ext_resource type="Shader" path="res://art/shaders/basic_blur.gdshader" id="1_cl66b"]
+[ext_resource type="Theme" uid="uid://pv1ab5fawy4f" path="res://resources/settings.tres" id="2_rlcxp"]
+[ext_resource type="Script" path="res://components/menu/settings.gd" id="3_7ovtb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_050ii"]
+shader = ExtResource("1_cl66b")
+shader_parameter/lod = 0.9
+
+[node name="SettingControl" type="PanelContainer"]
+material = SubResource("ShaderMaterial_050ii")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rlcxp")
+script = ExtResource("3_7ovtb")
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 0.270588)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="TabButtons" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tabs_visible = false
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Footer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Footer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Reset" type="Button" parent="MarginContainer/VBoxContainer/Footer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Reset Settings"
+
+[node name="Close" type="Button" parent="MarginContainer/VBoxContainer/Footer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Return"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Footer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Footer/HBoxContainer/Close" to="." method="_on_close_pressed"]

@@ -18,9 +18,9 @@ func Enter():
 	attack_sfx.play()
 	var tween = create_tween()
 	if player.is_left:
-		tween.tween_method(move_forward, -2, 1, 0.2)
+		tween.tween_method(move_forward, -1, .1, 0.2)
 	else:
-		tween.tween_method(move_forward, 2, -1, 0.2)
+		tween.tween_method(move_forward, 1, -.1, 0.2)
 	await player.animated_sprite.animation_finished
 
 	if !player.is_on_floor():

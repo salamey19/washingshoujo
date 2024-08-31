@@ -300,4 +300,5 @@ func reset_all() -> void:
 
 func _on_close_pressed() -> void:
 	close_settings.emit()
+	get_tree().paused = false
 	queue_free()

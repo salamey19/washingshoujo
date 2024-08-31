@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://h27efdseqyid"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "
+
+
+
+
+
+
+
+
+
+
+
+[center]TBD[/center]"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="HSeparator" type="HSeparator" parent="."]
+offset_right = 3.0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="Footer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -60.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Footer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Close" type="Button" parent="Footer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Return"

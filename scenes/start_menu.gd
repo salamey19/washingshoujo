@@ -4,6 +4,7 @@ extends Node
 
 @onready var root : Control = %Root
 @onready var main: Control = %Main
+@onready var credits: Control = $Root/Credits
 
 ## Preload settings scene.
 var settings : PackedScene = preload("res://components/menu/settings.tscn")
@@ -15,7 +16,7 @@ func _ready() -> void:
 	%Start.grab_focus()
 
 func _on_start_pressed() -> void:
-	pass # Replace with function body.
+	Global.start_game()
 
 ## Open settings menu, the menu is preloaded and only instantiated.
 func _on_settings_pressed() -> void:
@@ -30,8 +31,14 @@ func _on_settings_closed() -> void:
 	%Start.grab_focus()
 
 func _on_credits_pressed() -> void:
-	pass # Replace with function body.
+	main.hide()
+	credits.visible = true
 
 ## Quit the game.
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_credits_close_pressed() -> void:
+	credits.visible = false
+	main.show()

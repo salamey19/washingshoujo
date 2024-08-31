@@ -119,7 +119,7 @@ speed_scale = 1.5
 
 [node name="HealthComponent" parent="." instance=ExtResource("10_on4dy")]
 MAX_HEALTH = 3
-tank_amount = 3
+tank_amount = 5
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") groups=["Enemy"] instance=ExtResource("11_1ax43")]
 health_component = NodePath("../HealthComponent")
