@@ -12,20 +12,13 @@ extends Area2D
 @export var top_limit : int
 @export var bottom_limit : int
 
+var is_active : bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 var camera : Camera2D
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		print("change camera")
+	if body.is_in_group("Player") and !is_active:
+		is_active = true
 		if change_pos:
 			camera.position = camera_pos
 		if change_zoom:
@@ -36,4 +29,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		pass
+		is_active = false

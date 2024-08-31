@@ -1048,7 +1048,7 @@ streams_count = 1
 stream_0/stream = ExtResource("69_iupsu")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2ohf4"]
-polygon = PackedVector2Array(51, -43, 40, -47, 45, -57, 18, -67, 11, -70, -9, -63, -11, -49, -29, -59, -42, -54, -51, -40, -46, -30, -34, -30, -23, -20, -45, 22, -45, 25, -20, 28, -18, 40, -49, 56, -42, 68, -30, 67, 1, 43, 19, 37, 13, 63, 19, 68, 31, 68, 39, 31, 17, 17, 38, 19, 36, 5, 46, 7, 48, -2, 28, -14)
+polygon = PackedVector2Array(-52, -33, -57, -10, -11, 66, -20, -18)
 
 [node name="Player" type="CharacterBody2D"]
 floor_constant_speed = true
@@ -1207,8 +1207,16 @@ stream = SubResource("AudioStreamRandomizer_11ni7")
 stream = SubResource("AudioStreamRandomizer_gacld")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
+position = Vector2(0, -2)
 occluder = SubResource("OccluderPolygon2D_2ohf4")
+sdf_collision = false
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, -2)
+occluder = SubResource("OccluderPolygon2D_2ohf4")
+occluder_light_mask = 2
 
 [connection signal="area_entered" from="Weapon/BasicAttackArea" to="Weapon" method="_on_basic_attack_area_area_entered"]
 [connection signal="area_entered" from="Weapon/Ability2Areas" to="Weapon" method="_on_ability_2_areas_area_entered"]

@@ -85,6 +85,10 @@ func death() -> void:
 
 func _on_within_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		if body.position.x > position.x:
+			scale.x = -1
+		else:
+			scale.x = 1
 		within_range = true
 
 func _on_within_range_body_exited(body: Node2D) -> void:

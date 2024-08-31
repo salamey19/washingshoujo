@@ -209,6 +209,7 @@ func damaged() -> void:
 var kb_force = 1200
 func hurt() -> void:
 	current_lives -= 1
+	get_tree().get_first_node_in_group("Lives").lose_life()
 	if current_lives < 1:
 		death()
 
@@ -216,9 +217,9 @@ func hurt() -> void:
 	if is_left:
 		kb_direction = 1
 
-
+	get_tree().get_first_node_in_group("Camera").camera_shake(10)
 	var kb = (Vector2(500 * kb_direction, 500) - velocity).normalized() * kb_force
-	velocity = kb
+	velocity.x = kb.x
 	print(velocity)
 	animated_sprite.play("hurt")
 	animation_player.play("flash_red")
