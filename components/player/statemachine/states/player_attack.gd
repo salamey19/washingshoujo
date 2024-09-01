@@ -4,8 +4,13 @@ class_name PlayerAttack
 var is_attacking : bool = false
 @onready var attack_sfx: AudioStreamPlayer2D = $"../../SFX/AttackSFX"
 
+var delta_temp : float
+
 func move_forward(amount : float) -> void:
-	player.position.x += amount
+	player.position.x += amount * 1.4 * delta_temp
+
+func Physics_Update(delta: float):
+	delta_temp = delta
 
 #deal damage
 func Enter():
@@ -19,9 +24,9 @@ func Enter():
 	attack_sfx.play()
 	var tween = create_tween()
 	if player.is_left:
-		tween.tween_method(move_forward, -1, .1, 0.2)
+		tween.tween_method(move_forward, -3, 1, 0.2)
 	else:
-		tween.tween_method(move_forward, 1, -.1, 0.2)
+		tween.tween_method(move_forward, 3, -1, 0.2)
 	await get_tree().create_timer(0.2).timeout
 	player.vfx.play("bonk")
 	is_attacking = false

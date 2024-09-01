@@ -234,6 +234,7 @@ streams_count = 1
 stream_0/stream = ExtResource("17_8g66q")
 
 [node name="EnemyMedium" type="Node2D"]
+z_index = -1
 script = ExtResource("1_31nfd")
 metadata/_edit_horizontal_guides_ = [-55.0]
 

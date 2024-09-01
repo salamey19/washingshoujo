@@ -114,7 +114,7 @@ func get_grav(velocity: Vector2):
 func _physics_process(delta: float) -> void:
 	#print(velocity.y)
 	#print("has jump: ",has_jump)
-	print(position.x)
+
 
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer = 0.1
@@ -209,6 +209,7 @@ func damaged() -> void:
 
 var kb_force = 1200
 func hurt() -> void:
+	Global.player_hurt.emit()
 	current_lives -= 1
 	get_tree().get_first_node_in_group("Lives").lose_life()
 	if current_lives < 1:

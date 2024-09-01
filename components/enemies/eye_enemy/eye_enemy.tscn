@@ -136,6 +136,7 @@ streams_count = 1
 stream_0/stream = ExtResource("24_qm5xh")
 
 [node name="EyeEnemy" type="Node2D"]
+z_index = -1
 rotation = -3.14159
 script = ExtResource("1_n0rnc")
 

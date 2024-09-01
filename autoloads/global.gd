@@ -2,6 +2,7 @@ extends Node
 
 
 signal enemy_defeated
+signal player_hurt
 var intro_done : bool = true
 
 ## Whether or not the app is currently focused.
