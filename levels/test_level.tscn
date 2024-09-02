@@ -21902,7 +21902,7 @@ position = Vector2(10514.3, -39.03)
 texture = ExtResource("30_sfjov")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
-position = Vector2(10847, 2033)
+position = Vector2(408, -507)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -21996,8 +21996,7 @@ position = Vector2(339.5, -1527.5)
 shape = SubResource("RectangleShape2D_61s0x")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(10847, 2033)
-offset = Vector2(0, -200)
+position = Vector2(408, -507)
 zoom = Vector2(0.9, 0.9)
 limit_smoothed = true
 script = ExtResource("13_4f1gs")

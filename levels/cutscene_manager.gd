@@ -32,10 +32,17 @@ func play_intro3() -> void:
 	var balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial3")
+
+
+func play_intro4() -> void:
+	var balloon = BALLOON.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial4")
 	await DialogueManager.dialogue_ended
 	player.set_process_input(false)
 	player.set_physics_process(true)
 	player.in_cutscene = false
+
 
 var on_wait_player : bool = false
 
@@ -57,6 +64,11 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("attack"):
 			attack_input = false
 			player_swing()
+	if ability1_input:
+		if event.is_action_pressed("ability1"):
+			player.add_charge()
+			ability1_input = false
+			player_ability1()
 
 
 signal do_action(action)
@@ -68,4 +80,6 @@ func player_swing() -> void:
 
 var ability1_input : bool = false
 func player_ability1() -> void:
-	ability1_input = true
+	do_action.emit("ability1")
+	get_tree().create_timer(0.5).timeout
+	play_intro4()
