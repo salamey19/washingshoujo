@@ -2,7 +2,9 @@ extends Node2D
 
 const BALLOON = preload("res://cutscenes/balloon.tscn")
 var balloon
-var character_label
+var character_label : RichTextLabel
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().root.ready
@@ -64,10 +66,14 @@ func player_falls() -> void:
 	on_wait_player = true
 	player.set_collision_mask_value(1, true)
 
+
 func _input(event: InputEvent) -> void:
 	if attack_input:
+		#var intro_hints = get_tree().get_first_node_in_group("IntroHints")
+		#intro_hints.get_child(0).intro_popup()
 		if event.is_action_pressed("attack"):
 			attack_input = false
+			#intro_hints.get_child(0).intro_close()
 			player_swing()
 	if ability1_input:
 		if event.is_action_pressed("ability1"):

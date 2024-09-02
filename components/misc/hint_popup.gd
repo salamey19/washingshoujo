@@ -22,6 +22,11 @@ func popup() -> void:
 	hint_popup.visible = true
 	get_tree().paused = true
 
+func intro_popup() -> void:
+	hint_popup.visible = true
+
+func intro_close() -> void:
+	hint_popup.visible = false
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and !hint_showed:

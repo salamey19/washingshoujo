@@ -28,8 +28,10 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ability1"):
-		phase2_start()
+
+	#if event.is_action_pressed("ability1"):
+		#phase2_start()
+	pass
 
 func phase1_start():
 	pass
