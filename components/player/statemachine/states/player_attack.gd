@@ -6,6 +6,8 @@ var is_attacking : bool = false
 
 var delta_temp : float
 
+
+
 func move_forward(amount : float) -> void:
 	player.position.x += amount * 1.4 * delta_temp
 

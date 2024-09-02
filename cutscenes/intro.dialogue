@@ -8,4 +8,34 @@ Akira: Just tell me how to use them.
 
 Riro: Hmph. Fine.
 
+do player_falls()
+
+=> END
+
+~ Tutorial2
+
+
+Riro: It seems your power revolves around your bat. Try giving it a swing. 
+
+set attack_input = true
+
+
+=> END
+
+~ Tutorial3
+
+Akira: That felt good.  
+
+Riro: Right. It seems that your able to summon oni’s, try using them to strike with your bat!
+
+set ability1_input = true
+
+=> END
+
+~ Tutorial4
+
+Akira: This kinda feels fun. 
+
+Riro: Maybe that’s your real oni emotion.
+
 => END

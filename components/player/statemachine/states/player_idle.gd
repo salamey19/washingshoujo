@@ -3,6 +3,14 @@ class_name PlayerIdle
 
 var first_start : bool = true
 
+
+func _ready() -> void:
+	CutsceneManager.do_action.connect(_do_action)
+
+func _do_action(action):
+	Transitioned.emit(self, action)
+
+
 func Enter():
 	if first_start:
 		await player.ready
@@ -19,16 +27,18 @@ func Physics_Update(_delta: float):
 		Transitioned.emit(self, "run")
 	if player.jump_buffer > 0 and player.has_jump:
 		Transitioned.emit(self, "jump")
-
+	if player.velocity.y > 0.0 :
+		Transitioned.emit(self, "falling")
 
 func Handle_Input(event: InputEvent):
 
-	if event.is_action_pressed("dash"):
-		Transitioned.emit(self, "dash")
-	if event.is_action_pressed("attack") and player.has_basic_attack:
-		Transitioned.emit(self, "attack")
-	if player.current_charges > 0:
-		if event.is_action_pressed("ability1"):
-			Transitioned.emit(self, "ability1")
-		if event.is_action_pressed("ability2"):
-			Transitioned.emit(self, "ability2")
+	if !player.in_cutscene:
+		if event.is_action_pressed("dash"):
+			Transitioned.emit(self, "dash")
+		if event.is_action_pressed("attack") and player.has_basic_attack:
+			Transitioned.emit(self, "attack")
+		if player.current_charges > 0:
+			if event.is_action_pressed("ability1"):
+				Transitioned.emit(self, "ability1")
+			if event.is_action_pressed("ability2"):
+				Transitioned.emit(self, "ability2")

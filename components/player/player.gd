@@ -77,6 +77,7 @@ var using_ability : bool = false
 
 var is_left : bool = false
 
+var in_cutscene : bool = false
 
 func _ready() -> void:
 	Global.enemy_defeated.connect(on_enemy_defeated)
@@ -175,6 +176,7 @@ func on_enemy_defeated() -> void:
 	has_dash = true
 	add_charge()
 	add_combo()
+
 
 
 
