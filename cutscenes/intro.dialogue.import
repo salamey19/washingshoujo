@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://cd8oymadnuxcc"
+path="res://.godot/imported/intro.dialogue-7a753ecb58e13e3ee5be63a8fb7dc385.tres"
+
+[deps]
+
+source_file="res://cutscenes/intro.dialogue"
+dest_files=["res://.godot/imported/intro.dialogue-7a753ecb58e13e3ee5be63a8fb7dc385.tres"]
+
+[params]
+
+defaults=true

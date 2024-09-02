@@ -8,16 +8,30 @@ var barrier_active : bool = true
 var phase1_health : int = 10
 
 @export_category("Phase2")
+var attack_time : float = 20
+var is_damage_phase : bool = false
+var damage_phase_time : float = 15
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
+@export_category("Attacks")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if barrier_active:
 		if !barrier_enemy1 and !barrier_enemy2:
 			barrier_active = false
 			barrier.queue_free()
+
+func phase1_start():
+	pass
+
+func phase2_start():
+	pass
+
+func long_cut() -> void:
+	pass
+
+func short_cuts() -> void:
+	pass
+
+func eye_attack() -> void:
+	pass

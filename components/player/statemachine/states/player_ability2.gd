@@ -3,6 +3,7 @@ class_name PlayerAbility2
 
 
 @onready var vfx_ability2: AnimatedSprite2D = %VFXAbility2
+@onready var ability_2sfx: AudioStreamPlayer2D = $"../../SFX/Ability2SFX"
 
 
 func Enter():
@@ -51,5 +52,6 @@ func play_animations(current_charges : int) -> void:
 	vfx_ability2.scale = Vector2(scales[current_charges - 1], scales[current_charges - 1])
 	player.animated_sprite.play("ability_2_" + str(current_charges))
 	vfx_ability2.play("ability_2_" + str(current_charges))
+	ability_2sfx.play()
 	await get_tree().create_timer(0.15).timeout
 	player.abilities_animation_player.play("ability_2_" + str(current_charges))

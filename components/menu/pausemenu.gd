@@ -6,7 +6,7 @@ var settings : PackedScene = preload("res://components/menu/settingspaused.tscn"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("menu") and !get_tree().paused:
 		get_tree().paused = true
 		var settings_menu : Control = settings.instantiate()

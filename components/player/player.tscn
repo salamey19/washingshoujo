@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=133 format=3 uid="uid://bgoiy1vdujhr"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
 [ext_resource type="Texture2D" uid="uid://x5gmglkthoof" path="res://art/2d/player/Finished idle/Idle_1-1.png" id="2_drps4"]
@@ -104,6 +104,10 @@
 [ext_resource type="Texture2D" uid="uid://dqm80rmwa08dg" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-7.png" id="87_iqjfx"]
 [ext_resource type="Texture2D" uid="uid://c5v4lvp802v2b" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-8.png" id="88_w3voi"]
 [ext_resource type="Texture2D" uid="uid://b25woquqcu542" path="res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-9.png" id="89_vfrg6"]
+[ext_resource type="Texture2D" uid="uid://crdqcv3k5q7bu" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-1.png" id="102_fxnsw"]
+[ext_resource type="Texture2D" uid="uid://dlac7wamdgv0g" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-2.png" id="103_q2qg2"]
+[ext_resource type="AudioStream" uid="uid://ekkytjbq640a" path="res://art/sfx/NewSFX2/BEAM!.wav" id="104_1ratk"]
+[ext_resource type="Texture2D" uid="uid://kl0pqinx60ww" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-3.png" id="104_alrkq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iew1x"]
 radius = 34.0
@@ -1023,6 +1027,26 @@ _data = {
 "player_on_beat": SubResource("Animation_rm1v6")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_517nh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("102_fxnsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_q2qg2")
+}, {
+"duration": 2.0,
+"texture": ExtResource("104_alrkq")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"Bonk",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wjqrw"]
 size = Vector2(162, 93)
 
@@ -1171,6 +1195,15 @@ rotation = 0.18675
 shape = SubResource("RectangleShape2D_jxear")
 disabled = true
 
+[node name="BonkVFX" type="AnimatedSprite2D" parent="Weapon/BasicAttackArea"]
+position = Vector2(174, 0)
+rotation = 0.834267
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_517nh")
+animation = &"Bonk"
+frame = 3
+frame_progress = 1.0
+
 [node name="Ability1Marker" type="Marker2D" parent="Weapon"]
 unique_name_in_owner = true
 position = Vector2(33, 0)
@@ -1199,9 +1232,15 @@ disabled = true
 
 [node name="SwingSFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_l5jhm")
+bus = &"Effects"
 
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = SubResource("AudioStreamRandomizer_11ni7")
+bus = &"Effects"
+
+[node name="Ability2SFX" type="AudioStreamPlayer2D" parent="SFX"]
+stream = ExtResource("104_1ratk")
+bus = &"Effects"
 
 [node name="DashSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_gacld")
