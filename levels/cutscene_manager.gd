@@ -1,7 +1,8 @@
 extends Node2D
 
 const BALLOON = preload("res://cutscenes/balloon.tscn")
-
+var balloon
+var character_label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().root.ready
@@ -13,7 +14,8 @@ var player : CharacterBody2D
 func play_intro() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	player.in_cutscene = true
-	var balloon = BALLOON.instantiate()
+	balloon = BALLOON.instantiate()
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial")
 	player.set_process_input(false)
@@ -23,20 +25,23 @@ func play_intro() -> void:
 	player.set_physics_process(true)
 
 func play_intro2() -> void:
-	var balloon = BALLOON.instantiate()
+	balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial2")
 
 
 func play_intro3() -> void:
-	var balloon = BALLOON.instantiate()
+	balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial3")
 
 
 func play_intro4() -> void:
-	var balloon = BALLOON.instantiate()
+	balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial4")
 	await DialogueManager.dialogue_ended
 	player.set_process_input(false)
@@ -83,3 +88,9 @@ func player_ability1() -> void:
 	do_action.emit("ability1")
 	get_tree().create_timer(0.5).timeout
 	play_intro4()
+
+func color_akira() -> void:
+	character_label.modulate = Color.PALE_VIOLET_RED
+
+func color_riro() -> void:
+	character_label.modulate = Color.SKY_BLUE

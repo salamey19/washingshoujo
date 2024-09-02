@@ -1,4 +1,4 @@
-[gd_scene load_steps=189 format=4 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=230 format=4 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
 [ext_resource type="Texture2D" uid="uid://cepmcnib3saby" path="res://art/2d/Backgrounds/bg 1/1.png" id="2_wkfsp"]
@@ -71,7 +71,44 @@
 [ext_resource type="PackedScene" uid="uid://cso2310pb4ijo" path="res://components/misc/hint_popup.tscn" id="63_ydgql"]
 [ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="67_u8qxg"]
 [ext_resource type="Texture2D" uid="uid://bnxm2o1jrxrh" path="res://art/2d/enemies/boss/background/boss-1.png" id="72_nmtph"]
+[ext_resource type="Texture2D" uid="uid://qr1cekyu1web" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-1.png" id="73_44rru"]
 [ext_resource type="Shader" path="res://art/shaders/shield.gdshader" id="73_jlpad"]
+[ext_resource type="Texture2D" uid="uid://dfsamfb4kjbps" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-2.png" id="74_8idif"]
+[ext_resource type="Texture2D" uid="uid://f7et7s5pi63e" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-3.png" id="75_uwrnn"]
+[ext_resource type="Texture2D" uid="uid://bugm7dsy4ipav" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-4.png" id="76_0wjh6"]
+[ext_resource type="Texture2D" uid="uid://cl0ed8rn2t87m" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-5.png" id="77_ebbti"]
+[ext_resource type="Texture2D" uid="uid://dlwb8mk1sp8l7" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-6.png" id="78_7o480"]
+[ext_resource type="Texture2D" uid="uid://bddsj03iuwguu" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-7.png" id="79_acje5"]
+[ext_resource type="Texture2D" uid="uid://318pcn1rndix" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-8.png" id="80_t4nc5"]
+[ext_resource type="Texture2D" uid="uid://by02xvxswf7db" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-9.png" id="81_43d8m"]
+[ext_resource type="Texture2D" uid="uid://x7k3a5cc8ckq" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-10.png" id="82_odkw6"]
+[ext_resource type="Texture2D" uid="uid://b2kk1seh3lksb" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-11.png" id="83_m5ijt"]
+[ext_resource type="Texture2D" uid="uid://s7lpget7o5o0" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-12.png" id="84_1hc8b"]
+[ext_resource type="Texture2D" uid="uid://d36qlxhcg6ggl" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-1.png" id="85_wtong"]
+[ext_resource type="Texture2D" uid="uid://bnixni1nxtexs" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-2.png" id="86_p5r48"]
+[ext_resource type="Texture2D" uid="uid://dk35nusb70cnw" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-3.png" id="87_4vsej"]
+[ext_resource type="Texture2D" uid="uid://2ta1r2uqv6g3" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-4.png" id="88_qj7y6"]
+[ext_resource type="Texture2D" uid="uid://bxd3lvugiy6tk" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-5.png" id="89_w2twd"]
+[ext_resource type="Texture2D" uid="uid://juigpmljuouh" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-6.png" id="90_aisja"]
+[ext_resource type="Texture2D" uid="uid://c3qvk3lmv5a31" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-7.png" id="91_7o22x"]
+[ext_resource type="Texture2D" uid="uid://sjtj0xxnpxw7" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-8.png" id="92_jyrwe"]
+[ext_resource type="Texture2D" uid="uid://cc2lg485nr7ly" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-9.png" id="93_1h1ps"]
+[ext_resource type="Shader" path="res://art/shaders/outline.gdshader" id="94_l3e5o"]
+[ext_resource type="Texture2D" uid="uid://b4d6b11mce0jk" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-1.png" id="95_ka8ow"]
+[ext_resource type="Texture2D" uid="uid://chxfsjamryn1i" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-2.png" id="96_t07kk"]
+[ext_resource type="Texture2D" uid="uid://p8lrqrig6awr" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-3.png" id="97_bww4a"]
+[ext_resource type="Texture2D" uid="uid://36wwr8er4ipo" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-4.png" id="98_ravdw"]
+[ext_resource type="Texture2D" uid="uid://dwo2tvbdj041j" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-5.png" id="99_773db"]
+[ext_resource type="Texture2D" uid="uid://dyqwgc4ewln6u" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-1.png" id="100_risgd"]
+[ext_resource type="Texture2D" uid="uid://bn8adaxiidmig" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-2.png" id="101_petcp"]
+[ext_resource type="Texture2D" uid="uid://c5q2e8tpn75mp" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-3.png" id="102_b8ukx"]
+[ext_resource type="Texture2D" uid="uid://fpgad346hybl" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-4.png" id="103_oohof"]
+[ext_resource type="Texture2D" uid="uid://peswypcnma1k" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-5.png" id="104_ntp8t"]
+[ext_resource type="Texture2D" uid="uid://dnuqqp0mbyeao" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-1.png" id="105_wi63p"]
+[ext_resource type="Texture2D" uid="uid://dp3jgyfnb67sb" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-2.png" id="106_ksx3p"]
+[ext_resource type="Texture2D" uid="uid://c781o2l0gcvph" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-3.png" id="107_l7jrr"]
+[ext_resource type="Texture2D" uid="uid://bw8ji1he8pkkw" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-4.png" id="108_mxn2p"]
+[ext_resource type="Texture2D" uid="uid://c3rg2grsbkusm" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-5.png" id="109_epi6w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(632.39, 541.875)
@@ -21641,6 +21678,166 @@ sources/18 = SubResource("TileSetAtlasSource_giopl")
 sources/19 = SubResource("TileSetAtlasSource_ckxob")
 sources/20 = SubResource("TileSetAtlasSource_epgtd")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_s21xs"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("73_44rru")
+}, {
+"duration": 0.6,
+"texture": ExtResource("74_8idif")
+}, {
+"duration": 0.6,
+"texture": ExtResource("75_uwrnn")
+}, {
+"duration": 0.6,
+"texture": ExtResource("76_0wjh6")
+}, {
+"duration": 0.6,
+"texture": ExtResource("77_ebbti")
+}, {
+"duration": 0.5,
+"texture": ExtResource("78_7o480")
+}, {
+"duration": 0.6,
+"texture": ExtResource("79_acje5")
+}, {
+"duration": 0.6,
+"texture": ExtResource("80_t4nc5")
+}, {
+"duration": 0.6,
+"texture": ExtResource("81_43d8m")
+}, {
+"duration": 0.8,
+"texture": ExtResource("82_odkw6")
+}, {
+"duration": 0.8,
+"texture": ExtResource("83_m5ijt")
+}, {
+"duration": 0.8,
+"texture": ExtResource("84_1hc8b")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"land",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3k002"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("85_wtong")
+}, {
+"duration": 0.5,
+"texture": ExtResource("86_p5r48")
+}, {
+"duration": 0.5,
+"texture": ExtResource("87_4vsej")
+}, {
+"duration": 0.5,
+"texture": ExtResource("88_qj7y6")
+}, {
+"duration": 0.5,
+"texture": ExtResource("89_w2twd")
+}, {
+"duration": 0.5,
+"texture": ExtResource("90_aisja")
+}, {
+"duration": 0.5,
+"texture": ExtResource("91_7o22x")
+}, {
+"duration": 0.5,
+"texture": ExtResource("92_jyrwe")
+}, {
+"duration": 0.5,
+"texture": ExtResource("93_1h1ps")
+}],
+"loop": false,
+"name": &"eye_attack",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xk05i"]
+shader = ExtResource("94_l3e5o")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/progress = 1.0
+shader_parameter/width = 0.006
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kcf0n"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("95_ka8ow")
+}, {
+"duration": 0.7,
+"texture": ExtResource("96_t07kk")
+}, {
+"duration": 0.7,
+"texture": ExtResource("97_bww4a")
+}, {
+"duration": 0.7,
+"texture": ExtResource("98_ravdw")
+}, {
+"duration": 0.7,
+"texture": ExtResource("99_773db")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("100_risgd")
+}, {
+"duration": 0.7,
+"texture": ExtResource("101_petcp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("102_b8ukx")
+}, {
+"duration": 0.7,
+"texture": ExtResource("103_oohof")
+}, {
+"duration": 0.7,
+"texture": ExtResource("104_ntp8t")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("105_wi63p")
+}, {
+"duration": 0.7,
+"texture": ExtResource("106_ksx3p")
+}, {
+"duration": 0.7,
+"texture": ExtResource("107_l7jrr")
+}, {
+"duration": 0.7,
+"texture": ExtResource("108_mxn2p")
+}, {
+"duration": 0.7,
+"texture": ExtResource("109_epi6w")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
+
 [node name="MainLevel" type="Node2D"]
 
 [node name="Riro" parent="." instance=ExtResource("19_llrsb")]
@@ -21902,7 +22099,7 @@ position = Vector2(10514.3, -39.03)
 texture = ExtResource("30_sfjov")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
-position = Vector2(408, -507)
+position = Vector2(10540, 1788)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -21941,6 +22138,18 @@ material = SubResource("ShaderMaterial_thj4k")
 position = Vector2(2003, 778.25)
 scale = Vector2(32.5469, 1.45703)
 texture = ExtResource("32_cuu8r")
+
+[node name="Balloons" type="Sprite2D" parent="Floors"]
+position = Vector2(2121, -380)
+texture = ExtResource("48_lp66d")
+
+[node name="Balloons2" type="Sprite2D" parent="Floors"]
+position = Vector2(7749, -2002)
+texture = ExtResource("49_yk426")
+
+[node name="Balloons3" type="Sprite2D" parent="Floors"]
+position = Vector2(5042, -1655)
+texture = ExtResource("50_o3wxr")
 
 [node name="Borders" type="Node2D" parent="."]
 
@@ -21996,7 +22205,7 @@ position = Vector2(339.5, -1527.5)
 shape = SubResource("RectangleShape2D_61s0x")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(408, -507)
+position = Vector2(10540, 1788)
 zoom = Vector2(0.9, 0.9)
 limit_smoothed = true
 script = ExtResource("13_4f1gs")
@@ -22423,9 +22632,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="BossFight" type="Node2D" parent="." node_paths=PackedStringArray("barrier", "barrier_enemy1", "barrier_enemy2")]
+[node name="BossFight" type="Node2D" parent="." node_paths=PackedStringArray("boss", "barrier", "barrier_enemy1", "barrier_enemy2")]
 position = Vector2(10691, 1604)
 script = ExtResource("67_u8qxg")
+boss = NodePath("Boss")
 barrier = NodePath("Phase1/Barrier")
 barrier_enemy1 = NodePath("Phase1/TankEnemy")
 barrier_enemy2 = NodePath("Phase1/TankEnemy2")
@@ -22441,6 +22651,7 @@ position = Vector2(0, -168)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossFight/Phase1/Barrier"]
 position = Vector2(0, -209)
 shape = SubResource("CircleShape2D_n4y4g")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="BossFight/Phase1/Barrier"]
 visible = false
@@ -22481,6 +22692,7 @@ visible = false
 position = Vector2(17, -566)
 tile_map_data = PackedByteArray("AADQ/x0AEQA5ABwAAADQ/x4AEQA5AB0AAADQ/x8AEQA5AB4AAADQ/yAAEQA5AB8AAADR/xwAEQA6ABsAAADR/x0AEQA6ABwAAADR/x4AEQA6AB0AAADR/x8AEQA6AB4AAADR/yAAEQA6AB8AAADR/yEAEQA6ACAAAADR/yIAEQA6ACEAAADS/xsAEQA7ABoAAADS/xwAEQA7ABsAAADS/x0AEQA7ABwAAADS/x4AEQA7AB0AAADS/x8AEQA7AB4AAADS/yAAEQA7AB8AAADS/yEAEQA7ACAAAADS/yIAEQA7ACEAAADS/yMAEQA7ACIAAADT/xsAEQA8ABoAAADT/xwAEQA8ABsAAADT/x0AEQA8ABwAAADT/x4AEQA8AB0AAADT/x8AEQA8AB4AAADT/yAAEQA8AB8AAADT/yEAEQA8ACAAAADT/yIAEQA8ACEAAADT/yMAEQA8ACIAAADT/yQAEQA8ACMAAADU/xsAEQA9ABoAAADU/xwAEQA9ABsAAADU/x0AEQA9ABwAAADU/x4AEQA9AB0AAADU/x8AEQA9AB4AAADU/yAAEQA9AB8AAADU/yEAEQA9ACAAAADU/yIAEQA9ACEAAADU/yMAEQA9ACIAAADU/yQAEQA9ACMAAADU/yUAEQA9ACQAAADV/xsAEQA+ABoAAADV/xwAEQA+ABsAAADV/x0AEQA+ABwAAADV/x4AEQA+AB0AAADV/x8AEQA+AB4AAADV/yAAEQA+AB8AAADV/yEAEQA+ACAAAADV/yIAEQA+ACEAAADV/yMAEQA+ACIAAADV/yQAEQA+ACMAAADV/yUAEQA+ACQAAADW/xwAEQA/ABsAAADW/x0AEQA/ABwAAADW/x4AEQA/AB0AAADW/x8AEQA/AB4AAADW/yAAEQA/AB8AAADW/yEAEQA/ACAAAADW/yIAEQA/ACEAAADW/yMAEQA/ACIAAADW/yQAEQA/ACMAAADW/yUAEQA/ACQAAADX/xwAEQBAABsAAADX/x0AEQBAABwAAADX/x4AEQBAAB0AAADX/x8AEQBAAB4AAADX/yAAEQBAAB8AAADX/yEAEQBAACAAAADX/yIAEQBAACEAAADX/yMAEQBAACIAAADX/yQAEQBAACMAAADX/yUAEQBAACQAAADY/x8AEQBBAB4AAADY/yAAEQBBAB8AAADY/yEAEQBBACAAAAApABsAEQA7ABoAABAoABsAEQA8ABoAABAnABsAEQA9ABoAABAmABsAEQA+ABoAABAqABwAEQA6ABsAABApABwAEQA7ABsAABAoABwAEQA8ABsAABAnABwAEQA9ABsAABAmABwAEQA+ABsAABAlABwAEQA/ABsAABAkABwAEQBAABsAABArAB0AEQA5ABwAABAqAB0AEQA6ABwAABApAB0AEQA7ABwAABAoAB0AEQA8ABwAABAnAB0AEQA9ABwAABAmAB0AEQA+ABwAABAlAB0AEQA/ABwAABAkAB0AEQBAABwAABArAB4AEQA5AB0AABAqAB4AEQA6AB0AABApAB4AEQA7AB0AABAoAB4AEQA8AB0AABAnAB4AEQA9AB0AABAmAB4AEQA+AB0AABAlAB4AEQA/AB0AABAkAB4AEQBAAB0AABArAB8AEQA5AB4AABAqAB8AEQA6AB4AABApAB8AEQA7AB4AABAoAB8AEQA8AB4AABAnAB8AEQA9AB4AABAmAB8AEQA+AB4AABAlAB8AEQA/AB4AABAkAB8AEQBAAB4AABAjAB8AEQBBAB4AABArACAAEQA5AB8AABAqACAAEQA6AB8AABApACAAEQA7AB8AABAoACAAEQA8AB8AABAnACAAEQA9AB8AABAmACAAEQA+AB8AABAlACAAEQA/AB8AABAkACAAEQBAAB8AABAjACAAEQBBAB8AABAqACEAEQA6ACAAABApACEAEQA7ACAAABAoACEAEQA8ACAAABAnACEAEQA9ACAAABAmACEAEQA+ACAAABAlACEAEQA/ACAAABAkACEAEQBAACAAABAjACEAEQBBACAAABAqACIAEQA6ACEAABApACIAEQA7ACEAABAoACIAEQA8ACEAABAnACIAEQA9ACEAABAmACIAEQA+ACEAABAlACIAEQA/ACEAABAkACIAEQBAACEAABApACMAEQA7ACIAABAoACMAEQA8ACIAABAnACMAEQA9ACIAABAmACMAEQA+ACIAABAlACMAEQA/ACIAABAkACMAEQBAACIAABAoACQAEQA8ACMAABAnACQAEQA9ACMAABAmACQAEQA+ACMAABAlACQAEQA/ACMAABAkACQAEQBAACMAABAnACUAEQA9ACQAABAmACUAEQA+ACQAABAlACUAEQA/ACQAABAkACUAEQBAACQAABC9/xAAEwAsABsAAAC9/xEAEwAsABwAAAC9/xIAEwAsAB0AAAC9/xMAEwAsAB4AAAC9/xQAEwAsAB8AAAC+/w8AEwAtABoAAAC+/xAAEwAtABsAAAC+/xEAEwAtABwAAAC+/xIAEwAtAB0AAAC+/xMAEwAtAB4AAAC+/xQAEwAtAB8AAAC+/xUAEwAtACAAAAC//w4AEwAuABkAAAC//w8AEwAuABoAAAC//xAAEwAuABsAAAC//xEAEwAuABwAAAC//xIAEwAuAB0AAAC//xMAEwAuAB4AAAC//xQAEwAuAB8AAAC//xUAEwAuACAAAAC//xYAEwAuACEAAADA/w4AEwAvABkAAADA/w8AEwAvABoAAADA/xAAEwAvABsAAADA/xEAEwAvABwAAADA/xIAEwAvAB0AAADA/xMAEwAvAB4AAADA/xQAEwAvAB8AAADA/xUAEwAvACAAAADA/xYAEwAvACEAAADA/xcAEwAvACIAAADB/w4AEwAwABkAAADB/w8AEwAwABoAAADB/xAAEwAwABsAAADB/xEAEwAwABwAAADB/xIAEwAwAB0AAADB/xMAEwAwAB4AAADB/xQAEwAwAB8AAADB/xUAEwAwACAAAADB/xYAEwAwACEAAADB/xcAEwAwACIAAADC/w4AEwAxABkAAADC/w8AEwAxABoAAADC/xAAEwAxABsAAADC/xEAEwAxABwAAADC/xIAEwAxAB0AAADC/xMAEwAxAB4AAADC/xQAEwAxAB8AAADC/xUAEwAxACAAAADC/xYAEwAxACEAAADC/xcAEwAxACIAAADD/w4AEwAyABkAAADD/w8AEwAyABoAAADD/xAAEwAyABsAAADD/xEAEwAyABwAAADD/xIAEwAyAB0AAADD/xMAEwAyAB4AAADD/xQAEwAyAB8AAADD/xUAEwAyACAAAADD/xYAEwAyACEAAADD/xcAEwAyACIAAADD/xgAEwAyACMAAADE/w8AEwAzABoAAADE/xAAEwAzABsAAADE/xEAEwAzABwAAADE/xIAEwAzAB0AAADE/xMAEwAzAB4AAADE/xQAEwAzAB8AAADE/xUAEwAzACAAAADE/xYAEwAzACEAAADE/xcAEwAzACIAAADE/xgAEwAzACMAAADF/xEAEwA0ABwAAADF/xIAEwA0AB0AAADF/xMAEwA0AB4AAADF/xQAEwA0AB8AAADF/xUAEwA0ACAAAADF/xYAEwA0ACEAAADF/xcAEwA0ACIAAADF/xgAEwA0ACMAAAA7AA8AEwAuABkAABA6AA8AEwAvABkAABA5AA8AEwAwABkAABA4AA8AEwAxABkAABA3AA8AEwAyABkAABA8ABAAEwAtABoAABA7ABAAEwAuABoAABA6ABAAEwAvABoAABA5ABAAEwAwABoAABA4ABAAEwAxABoAABA3ABAAEwAyABoAABA2ABAAEwAzABoAABA9ABEAEwAsABsAABA8ABEAEwAtABsAABA7ABEAEwAuABsAABA6ABEAEwAvABsAABA5ABEAEwAwABsAABA4ABEAEwAxABsAABA3ABEAEwAyABsAABA2ABEAEwAzABsAABA9ABIAEwAsABwAABA8ABIAEwAtABwAABA7ABIAEwAuABwAABA6ABIAEwAvABwAABA5ABIAEwAwABwAABA4ABIAEwAxABwAABA3ABIAEwAyABwAABA2ABIAEwAzABwAABA1ABIAEwA0ABwAABA9ABMAEwAsAB0AABA8ABMAEwAtAB0AABA7ABMAEwAuAB0AABA6ABMAEwAvAB0AABA5ABMAEwAwAB0AABA4ABMAEwAxAB0AABA3ABMAEwAyAB0AABA2ABMAEwAzAB0AABA1ABMAEwA0AB0AABA9ABQAEwAsAB4AABA8ABQAEwAtAB4AABA7ABQAEwAuAB4AABA6ABQAEwAvAB4AABA5ABQAEwAwAB4AABA4ABQAEwAxAB4AABA3ABQAEwAyAB4AABA2ABQAEwAzAB4AABA1ABQAEwA0AB4AABA9ABUAEwAsAB8AABA8ABUAEwAtAB8AABA7ABUAEwAuAB8AABA6ABUAEwAvAB8AABA5ABUAEwAwAB8AABA4ABUAEwAxAB8AABA3ABUAEwAyAB8AABA2ABUAEwAzAB8AABA1ABUAEwA0AB8AABA8ABYAEwAtACAAABA7ABYAEwAuACAAABA6ABYAEwAvACAAABA5ABYAEwAwACAAABA4ABYAEwAxACAAABA3ABYAEwAyACAAABA2ABYAEwAzACAAABA1ABYAEwA0ACAAABA7ABcAEwAuACEAABA6ABcAEwAvACEAABA5ABcAEwAwACEAABA4ABcAEwAxACEAABA3ABcAEwAyACEAABA2ABcAEwAzACEAABA1ABcAEwA0ACEAABA6ABgAEwAvACIAABA5ABgAEwAwACIAABA4ABgAEwAxACIAABA3ABgAEwAyACIAABA2ABgAEwAzACIAABA1ABgAEwA0ACIAABA3ABkAEwAyACMAABA2ABkAEwAzACMAABA1ABkAEwA0ACMAABDZ/wEAEgAhABoAABDY/wEAEgAiABoAABDX/wEAEgAjABoAABDW/wEAEgAkABoAABDV/wEAEgAlABoAABDa/wIAEgAgABsAABDZ/wIAEgAhABsAABDY/wIAEgAiABsAABDX/wIAEgAjABsAABDW/wIAEgAkABsAABDV/wIAEgAlABsAABDU/wIAEgAmABsAABDa/wMAEgAgABwAABDZ/wMAEgAhABwAABDY/wMAEgAiABwAABDX/wMAEgAjABwAABDW/wMAEgAkABwAABDV/wMAEgAlABwAABDU/wMAEgAmABwAABDT/wMAEgAnABwAABDa/wQAEgAgAB0AABDZ/wQAEgAhAB0AABDY/wQAEgAiAB0AABDX/wQAEgAjAB0AABDW/wQAEgAkAB0AABDV/wQAEgAlAB0AABDU/wQAEgAmAB0AABDT/wQAEgAnAB0AABDa/wUAEgAgAB4AABDZ/wUAEgAhAB4AABDY/wUAEgAiAB4AABDX/wUAEgAjAB4AABDW/wUAEgAkAB4AABDV/wUAEgAlAB4AABDU/wUAEgAmAB4AABDT/wUAEgAnAB4AABDa/wYAEgAgAB8AABDZ/wYAEgAhAB8AABDY/wYAEgAiAB8AABDX/wYAEgAjAB8AABDW/wYAEgAkAB8AABDV/wYAEgAlAB8AABDU/wYAEgAmAB8AABDT/wYAEgAnAB8AABDa/wcAEgAgACAAABDZ/wcAEgAhACAAABDY/wcAEgAiACAAABDX/wcAEgAjACAAABDW/wcAEgAkACAAABDV/wcAEgAlACAAABDU/wcAEgAmACAAABDT/wcAEgAnACAAABDZ/wgAEgAhACEAABDY/wgAEgAiACEAABDX/wgAEgAjACEAABDW/wgAEgAkACEAABDV/wgAEgAlACEAABDU/wgAEgAmACEAABDT/wgAEgAnACEAABDZ/wkAEgAhACIAABDY/wkAEgAiACIAABDX/wkAEgAjACIAABDW/wkAEgAkACIAABDV/wkAEgAlACIAABDU/wkAEgAmACIAABDT/wkAEgAnACIAABDY/woAEgAiACMAABDX/woAEgAjACMAABDW/woAEgAkACMAABDV/woAEgAlACMAABDU/woAEgAmACMAABDT/woAEgAnACMAABDW/wsAEgAkACQAABDV/wsAEgAlACQAABDU/wsAEgAmACQAABDT/wsAEgAnACQAABAnAAAAEgAlABoAAAAmAAAAEgAkABoAAAAlAAAAEgAjABoAAAAkAAAAEgAiABoAAAAjAAAAEgAhABoAAAAoAAEAEgAmABsAAAAnAAEAEgAlABsAAAAmAAEAEgAkABsAAAAlAAEAEgAjABsAAAAkAAEAEgAiABsAAAAjAAEAEgAhABsAAAAiAAEAEgAgABsAAAApAAIAEgAnABwAAAAoAAIAEgAmABwAAAAnAAIAEgAlABwAAAAmAAIAEgAkABwAAAAlAAIAEgAjABwAAAAkAAIAEgAiABwAAAAjAAIAEgAhABwAAAAiAAIAEgAgABwAAAApAAMAEgAnAB0AAAAoAAMAEgAmAB0AAAAnAAMAEgAlAB0AAAAmAAMAEgAkAB0AAAAlAAMAEgAjAB0AAAAkAAMAEgAiAB0AAAAjAAMAEgAhAB0AAAAiAAMAEgAgAB0AAAApAAQAEgAnAB4AAAAoAAQAEgAmAB4AAAAnAAQAEgAlAB4AAAAmAAQAEgAkAB4AAAAlAAQAEgAjAB4AAAAkAAQAEgAiAB4AAAAjAAQAEgAhAB4AAAAiAAQAEgAgAB4AAAApAAUAEgAnAB8AAAAoAAUAEgAmAB8AAAAnAAUAEgAlAB8AAAAmAAUAEgAkAB8AAAAlAAUAEgAjAB8AAAAkAAUAEgAiAB8AAAAjAAUAEgAhAB8AAAAiAAUAEgAgAB8AAAApAAYAEgAnACAAAAAoAAYAEgAmACAAAAAnAAYAEgAlACAAAAAmAAYAEgAkACAAAAAlAAYAEgAjACAAAAAkAAYAEgAiACAAAAAjAAYAEgAhACAAAAAiAAYAEgAgACAAAAApAAcAEgAnACEAAAAoAAcAEgAmACEAAAAnAAcAEgAlACEAAAAmAAcAEgAkACEAAAAlAAcAEgAjACEAAAAkAAcAEgAiACEAAAAjAAcAEgAhACEAAAApAAgAEgAnACIAAAAoAAgAEgAmACIAAAAnAAgAEgAlACIAAAAmAAgAEgAkACIAAAAlAAgAEgAjACIAAAAkAAgAEgAiACIAAAAjAAgAEgAhACIAAAApAAkAEgAnACMAAAAoAAkAEgAmACMAAAAnAAkAEgAlACMAAAAmAAkAEgAkACMAAAAlAAkAEgAjACMAAAAkAAkAEgAiACMAAAApAAoAEgAnACQAAAAoAAoAEgAmACQAAAAnAAoAEgAlACQAAAAmAAoAEgAkACQAAAA=")
 tile_set = SubResource("TileSet_n0iv4")
+collision_enabled = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="BossFight"]
 layer = -3
@@ -22489,10 +22701,35 @@ layer = -3
 motion_scale = Vector2(0.83, 0.83)
 motion_offset = Vector2(-1600, -85)
 
-[node name="Sprite2D" type="Sprite2D" parent="BossFight/ParallaxBackground/ParallaxLayer"]
+[node name="BossBackground" type="Sprite2D" parent="BossFight/ParallaxBackground/ParallaxLayer"]
+visible = false
 modulate = Color(0.779291, 0.779291, 0.779291, 1)
-position = Vector2(8723, 193)
+position = Vector2(8723, -2750)
 texture = ExtResource("72_nmtph")
 centered = false
+
+[node name="VFX" type="Node2D" parent="BossFight"]
+
+[node name="LandingVFX" type="AnimatedSprite2D" parent="BossFight/VFX"]
+position = Vector2(-183, -713)
+sprite_frames = SubResource("SpriteFrames_s21xs")
+animation = &"land"
+frame = 12
+frame_progress = 1.0
+
+[node name="EyeAttackVFX" type="AnimatedSprite2D" parent="BossFight/VFX"]
+visible = false
+position = Vector2(-61, -350)
+sprite_frames = SubResource("SpriteFrames_3k002")
+animation = &"eye_attack"
+frame = 8
+frame_progress = 1.0
+
+[node name="LongCutVFX" type="AnimatedSprite2D" parent="BossFight/VFX"]
+material = SubResource("ShaderMaterial_xk05i")
+position = Vector2(3, -282)
+sprite_frames = SubResource("SpriteFrames_kcf0n")
+animation = &"white"
+frame_progress = 0.562106
 
 [connection signal="body_entered" from="Checkpoints/FallArea" to="Checkpoints" method="_on_fall_area_body_entered"]
