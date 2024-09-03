@@ -13,9 +13,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 
 	if hint_showed:
-		if Input.is_action_just_pressed("ability1"):
+		if Input.is_action_just_pressed("attack"):
 			hint_popup.hide()
 			get_tree().paused = false
+			queue_free()
 
 
 func popup() -> void:
@@ -24,6 +25,7 @@ func popup() -> void:
 
 func intro_popup() -> void:
 	hint_popup.visible = true
+	hint_showed = true
 
 func intro_close() -> void:
 	hint_popup.visible = false

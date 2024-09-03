@@ -46,9 +46,10 @@ func play_intro4() -> void:
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Tutorial4")
 	await DialogueManager.dialogue_ended
-	player.set_process_input(false)
-	player.set_physics_process(true)
-	player.in_cutscene = false
+	var intro_hints = get_tree().get_first_node_in_group("IntroHints")
+	intro_hints.get_child(0).intro_popup()
+	movement_hint_shown = true
+
 
 
 var on_wait_player : bool = false
@@ -66,33 +67,57 @@ func player_falls() -> void:
 	on_wait_player = true
 	player.set_collision_mask_value(1, true)
 
-
+var attack_hint_shown : bool = false
+var ability1_hint_shown : bool = false
+var movement_hint_shown : bool = false
 func _input(event: InputEvent) -> void:
 	if attack_input:
-		#var intro_hints = get_tree().get_first_node_in_group("IntroHints")
-		#intro_hints.get_child(0).intro_popup()
+		var intro_hints = get_tree().get_first_node_in_group("IntroHints")
+		if !attack_hint_shown:
+			attack_hint_shown = true
+			intro_hints.get_child(0).intro_popup()
 		if event.is_action_pressed("attack"):
-			attack_input = false
-			#intro_hints.get_child(0).intro_close()
-			player_swing()
+			if intro_hints.get_child(0).hint_showed:
+				intro_hints.get_child(0).hint_showed = false
+				intro_hints.get_child(0).intro_close()
+			else:
+				attack_input = false
+				intro_hints.get_child(0).queue_free()
+				player_swing()
 	if ability1_input:
-		if event.is_action_pressed("ability1"):
-			player.add_charge()
-			ability1_input = false
-			player_ability1()
+		var intro_hints = get_tree().get_first_node_in_group("IntroHints")
+		if !ability1_hint_shown:
+			ability1_hint_shown = true
+			intro_hints.get_child(0).intro_popup()
+		if event.is_action_pressed("attack"):
+			if intro_hints.get_child(0).hint_showed:
+				intro_hints.get_child(0).hint_showed = false
+				intro_hints.get_child(0).intro_close()
+		if event.is_action_pressed("ability1") and !intro_hints.get_child(0).hint_showed:
+				player.add_charge()
+				ability1_input = false
+				intro_hints.get_child(0).queue_free()
+				player_ability1()
+	if movement_hint_shown:
+		if event.is_action_pressed("attack"):
+			movement_hint_shown = false
+			get_tree().get_first_node_in_group("IntroHints").get_child(0).intro_close()
+			player.set_process_input(false)
+			player.set_physics_process(true)
+			player.in_cutscene = false
 
 
 signal do_action(action)
 var attack_input : bool = false
 func player_swing() -> void:
 	do_action.emit("attack")
-	get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.7).timeout
 	play_intro3()
 
 var ability1_input : bool = false
 func player_ability1() -> void:
 	do_action.emit("ability1")
-	get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.7).timeout
 	play_intro4()
 
 func color_akira() -> void:
