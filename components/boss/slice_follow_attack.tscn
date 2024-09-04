@@ -1,0 +1,230 @@
+[gd_scene load_steps=26 format=3 uid="uid://cq43ijrifvhjf"]
+
+[ext_resource type="Shader" path="res://art/shaders/outline.gdshader" id="1_4tj5r"]
+[ext_resource type="Texture2D" uid="uid://b4d6b11mce0jk" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-1.png" id="2_8572f"]
+[ext_resource type="Texture2D" uid="uid://chxfsjamryn1i" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-2.png" id="3_geoiu"]
+[ext_resource type="Texture2D" uid="uid://p8lrqrig6awr" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-3.png" id="4_7k4jw"]
+[ext_resource type="Texture2D" uid="uid://36wwr8er4ipo" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-4.png" id="5_7otj1"]
+[ext_resource type="Texture2D" uid="uid://dwo2tvbdj041j" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-5.png" id="6_1p4jn"]
+[ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="7_s8ryv"]
+[ext_resource type="Texture2D" uid="uid://dyqwgc4ewln6u" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-1.png" id="8_0s4gk"]
+[ext_resource type="Texture2D" uid="uid://bn8adaxiidmig" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-2.png" id="9_tpcmc"]
+[ext_resource type="Texture2D" uid="uid://c5q2e8tpn75mp" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-3.png" id="10_83ku7"]
+[ext_resource type="Texture2D" uid="uid://fpgad346hybl" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-4.png" id="11_am174"]
+[ext_resource type="Texture2D" uid="uid://peswypcnma1k" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-5.png" id="12_6yhmm"]
+[ext_resource type="Texture2D" uid="uid://dnuqqp0mbyeao" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-1.png" id="13_h8p6h"]
+[ext_resource type="Texture2D" uid="uid://dp3jgyfnb67sb" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-2.png" id="14_o0iel"]
+[ext_resource type="Texture2D" uid="uid://c781o2l0gcvph" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-3.png" id="15_tx0sp"]
+[ext_resource type="Texture2D" uid="uid://bw8ji1he8pkkw" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-4.png" id="16_31fy0"]
+[ext_resource type="Texture2D" uid="uid://c3rg2grsbkusm" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-5.png" id="17_y2tdq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u08t0"]
+shader = ExtResource("1_4tj5r")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/progress = 1.0
+shader_parameter/width = 0.006
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_efgvv"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("2_8572f")
+}, {
+"duration": 0.7,
+"texture": ExtResource("3_geoiu")
+}, {
+"duration": 0.7,
+"texture": ExtResource("4_7k4jw")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_7otj1")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_1p4jn")
+}],
+"loop": false,
+"name": &"green",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xksuj"]
+size = Vector2(749.165, 57.9651)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jfgo"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("8_0s4gk")
+}, {
+"duration": 0.7,
+"texture": ExtResource("9_tpcmc")
+}, {
+"duration": 0.7,
+"texture": ExtResource("10_83ku7")
+}, {
+"duration": 0.7,
+"texture": ExtResource("11_am174")
+}, {
+"duration": 0.7,
+"texture": ExtResource("12_6yhmm")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjlop"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("13_h8p6h")
+}, {
+"duration": 0.7,
+"texture": ExtResource("14_o0iel")
+}, {
+"duration": 0.7,
+"texture": ExtResource("15_tx0sp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("16_31fy0")
+}, {
+"duration": 0.7,
+"texture": ExtResource("17_y2tdq")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_nep7g"]
+resource_name = "attack1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attack1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtboxComponent1/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Attack1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kcngc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Attack1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtboxComponent1/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Attack1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6fe6"]
+_data = {
+"RESET": SubResource("Animation_kcngc"),
+"attack1": SubResource("Animation_nep7g")
+}
+
+[node name="SliceFollowAttack" type="Node2D"]
+
+[node name="Attack1" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_u08t0")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_efgvv")
+animation = &"green"
+
+[node name="HurtboxComponent1" parent="." instance=ExtResource("7_s8ryv")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent1"]
+position = Vector2(19, 30)
+rotation = 0.675442
+shape = SubResource("RectangleShape2D_xksuj")
+disabled = true
+
+[node name="Attack2" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_u08t0")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_3jfgo")
+animation = &"red"
+frame_progress = 0.712712
+
+[node name="HurtboxComponent2" parent="." instance=ExtResource("7_s8ryv")]
+scale = Vector2(0.4, 0.4)
+
+[node name="Attack3" type="AnimatedSprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_u08t0")
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_xjlop")
+animation = &"white"
+frame_progress = 0.546906
+
+[node name="HurtboxComponent3" parent="." instance=ExtResource("7_s8ryv")]
+scale = Vector2(0.4, 0.4)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o6fe6")
+}
