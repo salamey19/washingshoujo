@@ -19,6 +19,7 @@ var stop_aiming : bool = false
 var is_attacking : bool = false
 
 @export var asleep : bool = false
+var dead : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -85,22 +86,31 @@ func set_ghost_progress(val: float):
 	ghost_sprite.material.set("shader_parameter/ghost_progress", val)
 
 func death() -> void:
-	attack_area.set_deferred("monitorable", false)
-	attack_area.set_deferred("monitoring", false)
-	hurtbox_component.queue_free()
-	hitbox_component.queue_free()
+	if asleep:
+		visible = false
+		dead = true
+		hurtbox_component.set_deferred("monitorable", false)
+		hurtbox_component.set_deferred("monitoring", false)
+		hitbox_component.set_deferred("monitoring", false)
+		hitbox_component.set_deferred("monitorable", false)
+		Global.enemy_defeated.emit()
+	else:
+		attack_area.set_deferred("monitorable", false)
+		attack_area.set_deferred("monitoring", false)
+		hurtbox_component.queue_free()
+		hitbox_component.queue_free()
 
-	Global.enemy_defeated.emit()
-	set_process(false)
-	enemy_sprite.play("death")
-	death_sfx.play()
-	ghost_sprite.visible = true
-	var tween = get_tree().create_tween()
-	tween.set_parallel(true)
-	tween.tween_method(set_ghost_progress, 0.0, 1.0, 1.0)
-	tween.tween_property(enemy_sprite, "position:y", enemy_sprite.position.y - 30, 1)
-	await tween.finished
-	queue_free()
+		Global.enemy_defeated.emit()
+		set_process(false)
+		enemy_sprite.play("death")
+		death_sfx.play()
+		ghost_sprite.visible = true
+		var tween = get_tree().create_tween()
+		tween.set_parallel(true)
+		tween.tween_method(set_ghost_progress, 0.0, 1.0, 1.0)
+		tween.tween_property(enemy_sprite, "position:y", enemy_sprite.position.y - 30, 1)
+		await tween.finished
+		queue_free()
 
 
 

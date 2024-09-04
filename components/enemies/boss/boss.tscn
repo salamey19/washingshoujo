@@ -200,8 +200,9 @@ speed_scale = 0.499
 position = Vector2(-6, -62)
 scale = Vector2(0.26, 0.26)
 sprite_frames = SubResource("SpriteFrames_yqiln")
-animation = &"hurt_vfx"
-frame_progress = 0.953794
+animation = &"jump_up_vfx"
+frame = 5
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -3,7 +3,9 @@ extends Node2D
 @export var boss : Node2D
 
 @export_category("Phase1")
-@export var barrier : Node2D
+@export var barrier : Area2D
+@onready var barrier_collision: CollisionShape2D = $Phase1/Barrier/CollisionShape2D
+const PHASE_1_ENEMIES = preload("res://components/boss/phase_1_enemies.tscn")
 var barrier_active : bool = true
 @export var barrier_enemy1 : Node2D
 @export var barrier_enemy2 : Node2D
@@ -29,12 +31,17 @@ func _process(_delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 
-	#if event.is_action_pressed("ability1"):
-		#phase2_start()
+	if event.is_action_pressed("ability1"):
+		%ScreenSlashAttack.attack()
 	pass
 
 func phase1_start():
-	pass
+	barrier_collision.disabled = false
+	#set sprite visible
+	add_child(PHASE_1_ENEMIES.instantiate())
+
+
+
 
 func phase2_start():
 	boss.jump_up()

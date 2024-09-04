@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://blmavqoarhqwd"]
+
+[ext_resource type="Texture2D" uid="uid://y0mlf1ehfih7" path="res://art/2d/Backgrounds/final bg 3/1.png" id="1_eyres"]
+[ext_resource type="Texture2D" uid="uid://bvsbfije2u6g3" path="res://art/2d/Backgrounds/final bg 3/3.png" id="2_wmijo"]
+[ext_resource type="Texture2D" uid="uid://bq0n5hvy6ywxj" path="res://art/2d/Backgrounds/final bg 3/4.png" id="3_kad0g"]
+[ext_resource type="Texture2D" uid="uid://qqf4tdunxycv" path="res://art/2d/Backgrounds/final bg 3/6.png" id="4_xyn0e"]
+[ext_resource type="Texture2D" uid="uid://xytcvcoybtel" path="res://art/2d/Backgrounds/final bg 3/8.png" id="5_5k83l"]
+[ext_resource type="Texture2D" uid="uid://c626rbv5t5l1i" path="res://art/2d/Backgrounds/final bg 3/12.png" id="6_1cyfh"]
+[ext_resource type="Texture2D" uid="uid://c3e70ufep7h12" path="res://art/2d/Backgrounds/final bg 3/2.png" id="7_lmao5"]
+[ext_resource type="Texture2D" uid="uid://2aboyn3n3nu" path="res://art/2d/Backgrounds/final bg 3/11.png" id="8_1r7j4"]
+[ext_resource type="Texture2D" uid="uid://bh2af88uifqvc" path="res://art/2d/Backgrounds/final bg 3/10.png" id="9_pfv0f"]
+[ext_resource type="Texture2D" uid="uid://y6j1d4y2fr7e" path="res://art/2d/Backgrounds/final bg 3/9.png" id="10_cgv3m"]
+[ext_resource type="Texture2D" uid="uid://bd1akxolvsxvk" path="res://art/2d/Backgrounds/final bg 3/5.png" id="11_a2kdu"]
+
+[node name="BossBackground" type="Node2D"]
+position = Vector2(9522, -1733)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+follow_viewport_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(10529, -184)
+texture = ExtResource("1_eyres")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(10651, -211)
+texture = ExtResource("2_wmijo")
+offset = Vector2(-263, 49.581)
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = -5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(8692, -2913)
+texture = ExtResource("3_kad0g")
+centered = false
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+layer = -4
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground3/ParallaxLayer"]
+position = Vector2(8797, -2913)
+texture = ExtResource("4_xyn0e")
+centered = false
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+layer = -3
+follow_viewport_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer4"]
+position = Vector2(10577, 0)
+texture = ExtResource("5_5k83l")
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer5"]
+position = Vector2(10521, 0)
+texture = ExtResource("6_1cyfh")
+
+[node name="ParallaxBackground4" type="ParallaxBackground" parent="."]
+layer = -5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground4"]
+motion_scale = Vector2(0.885, 0.885)
+motion_offset = Vector2(-900, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+position = Vector2(8679, -2797)
+texture = ExtResource("7_lmao5")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+position = Vector2(8763, -2913)
+texture = ExtResource("8_1r7j4")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+position = Vector2(9194, -2854)
+texture = ExtResource("9_pfv0f")
+centered = false
+
+[node name="CanvasLayer9" type="CanvasLayer" parent="."]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer9"]
+layer = 1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer9/ParallaxBackground"]
+motion_scale = Vector2(0.885, 0.885)
+motion_offset = Vector2(-900, 0)
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer9/ParallaxBackground/ParallaxLayer"]
+position = Vector2(8618, -2854)
+texture = ExtResource("10_cgv3m")
+centered = false
+
+[node name="CanvasLayer8" type="CanvasLayer" parent="."]
+layer = -5
+follow_viewport_enabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer8"]
+position = Vector2(10514.3, -39.03)
+texture = ExtResource("11_a2kdu")

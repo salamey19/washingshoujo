@@ -1,0 +1,27 @@
+~ Phase1Start
+
+do color_riro()
+Riro: Akira, be careful! 
+
+do color_akira()
+Akira: You! …. (pause) You won’t get away with this!
+
+do color_kaguya()
+Kaguya: HAHAHAHA, IT WON’T BE LONG BEFORE YOU SERVE ME.
+
+do player_falls_phase1()
+
+=> END
+
+~ Phase1End
+
+do color_riro()
+Riro: Akira, Remember that she’s still “human!”(idk if we consider them human) 
+
+do color_akira()
+Akira: I know!
+
+do color_kaguya()
+Kaguya: FEEL THE WRATH OF MY ARMY
+
+=> END
