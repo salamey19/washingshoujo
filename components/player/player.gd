@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#Improts
+#Imports
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var abilities_animation_player: AnimationPlayer = $AbilitiesAnimationPlayer
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -175,16 +175,11 @@ func on_enemy_defeated() -> void:
 	has_double_jump = true
 	has_dash = true
 	add_charge()
-	add_combo()
+	#add_combo()
 
 
 
 
-
-func add_combo() -> void:
-	current_combo +1
-	combo_speed += 5
-	get_tree().get_first_node_in_group("Combo").text = str(int(get_tree().get_first_node_in_group("Combo").text) + 1)
 
 
 func stop_combo() -> void:

@@ -11,7 +11,3 @@ func damage(amount : int) -> void:
 		Global.boss_hurt.emit()
 	if health_component != null:
 		health_component.damage(amount)
-
-func bonk() -> void:
-	if get_child(1):
-		get_child(1).play("Bonk")

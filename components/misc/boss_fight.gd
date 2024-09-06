@@ -34,6 +34,7 @@ var attacks_available : Array[bool] = [false, false, true]
 
 func _ready() -> void:
 	Global.boss_hurt.connect(_boss_hurt)
+	CutsceneManager.start_phase1_boss.connect(phase1_start)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -104,7 +105,9 @@ func phase2_start():
 	await tween.finished
 	get_tree().get_first_node_in_group("Camera").camera_shake(200)
 	landing_vfx.play()
+	await get_tree().create_timer(1.0).timeout
 	#do cutscene then start attack phase
+	CutsceneManager.play_phase2_1()
 	await get_tree().create_timer(1.0).timeout
 	is_attack_phase = true
 
@@ -237,3 +240,9 @@ func eye_attack() -> void:
 
 
 	attacks_available[2] = true
+
+var done : bool = false
+func _on_start_phase_2_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player") and !done:
+		done = true
+		phase2_start()

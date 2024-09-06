@@ -60,9 +60,7 @@ func _on_basic_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Enemy"):
 		if area.has_method("damage") and area.monitoring:
 			area.damage(basic_attack_damage)
-			#bonk_vfx.play()
-			if area.has_method("bonk"):
-				area.bonk()
+			Global.bonk.emit(area.get_parent().global_position)
 			OS.delay_msec(100)
 			get_tree().get_first_node_in_group("Camera").camera_shake(10)
 			#player.attack_bounce()

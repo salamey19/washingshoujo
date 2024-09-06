@@ -8,7 +8,7 @@ func Enter():
 
 #can be interrupted by abilites?
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float):
 
 	if player.jump_buffer > 0 and player.has_jump:
 		Transitioned.emit(self, "jump")

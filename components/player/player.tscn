@@ -1136,12 +1136,12 @@ position = Vector2(-2, 0)
 shape = SubResource("CapsuleShape2D_iew1x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.125, 0.125)
 texture = SubResource("CanvasTexture_3lkim")
 flip_h = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_va6oa")

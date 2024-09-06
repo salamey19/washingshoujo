@@ -26,4 +26,6 @@ Akira: I know!
 do color_kaguya()
 Kaguya: FEEL THE WRATH OF MY ARMY
 
+do player_falls2()
+
 => END

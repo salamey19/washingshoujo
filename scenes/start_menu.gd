@@ -16,6 +16,8 @@ func _ready() -> void:
 	%Start.grab_focus()
 
 func _on_start_pressed() -> void:
+	%Transition.play("fade_in")
+	await %Transition.animation_finished
 	Global.start_game()
 
 ## Open settings menu, the menu is preloaded and only instantiated.

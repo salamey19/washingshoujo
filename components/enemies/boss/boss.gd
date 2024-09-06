@@ -19,12 +19,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	delta_temp = delta
 
-func _input(event: InputEvent) -> void:
-	pass
-	#if event.is_action_pressed("attack"):
-		#jump_up()
-	#if event.is_action_pressed("ability1"):
-		#jump_down()
 
 
 func move_up(value: float) -> void:

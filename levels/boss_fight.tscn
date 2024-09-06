@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=4 uid="uid://clfu10k5s3xdi"]
+[gd_scene load_steps=127 format=4 uid="uid://clfu10k5s3xdi"]
 
 [ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="1_yikws"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="2_5fx5r"]
@@ -14452,6 +14452,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4mcg2"]
+size = Vector2(548, 184)
+
 [node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss", "barrier", "barrier_enemy1", "barrier_enemy2")]
 position = Vector2(10691, 1604)
 script = ExtResource("1_yikws")
@@ -14460,7 +14463,7 @@ barrier = NodePath("Phase1/Barrier")
 barrier_enemy1 = NodePath("Phase1/TankEnemy")
 barrier_enemy2 = NodePath("Phase1/TankEnemy2")
 
-[node name="Boss" parent="." instance=ExtResource("2_5fx5r")]
+[node name="Boss" parent="." groups=["Boss"] instance=ExtResource("2_5fx5r")]
 position = Vector2(17, -77)
 
 [node name="Phase1" type="Node2D" parent="."]
@@ -14603,4 +14606,12 @@ animation = &"land"
 frame = 12
 frame_progress = 1.0
 
+[node name="StartPhase2" type="Area2D" parent="."]
+position = Vector2(0, -190)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartPhase2"]
+position = Vector2(10, 82)
+shape = SubResource("RectangleShape2D_4mcg2")
+
 [connection signal="timeout" from="Phase2/CanvasLayer/HealthBarOutline/HealthBar/Timer" to="Phase2/CanvasLayer/HealthBarOutline/HealthBar" method="_on_timer_timeout"]
+[connection signal="body_entered" from="StartPhase2" to="." method="_on_start_phase_2_body_entered"]

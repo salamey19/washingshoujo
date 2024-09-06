@@ -7,12 +7,13 @@ var character_label : RichTextLabel
 signal start_phase1_cutscene
 signal play_audio
 signal show_sprites
+signal start_phase1_boss
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().root.ready
-	if !Global.intro_done:
-		play_intro()
+
 	start_phase1_cutscene.connect(_start_phase1)
 
 var player : CharacterBody2D
@@ -59,7 +60,8 @@ func play_intro4() -> void:
 
 var on_wait_player : bool = false
 var on_wait_player_phase1: bool = false
-func _physics_process(delta: float) -> void:
+var on_wait_player_phase1_2: bool = false
+func _physics_process(_delta: float) -> void:
 	if on_wait_player and player.is_on_floor():
 		on_wait_player = false
 		player.set_physics_process(false)
@@ -68,6 +70,10 @@ func _physics_process(delta: float) -> void:
 		on_wait_player_phase1 = false
 		player.set_physics_process(false)
 		play_phase1_2()
+	if on_wait_player_phase1_2 and player.is_on_floor():
+		on_wait_player_phase1_2 = false
+		player.set_physics_process(false)
+		start_phase1_boss.emit()
 
 
 func player_falls() -> void:
@@ -76,6 +82,14 @@ func player_falls() -> void:
 	await get_tree().create_timer(0.5).timeout
 	on_wait_player = true
 	player.set_collision_mask_value(1, true)
+
+func player_falls2() -> void:
+	player.set_physics_process(true)
+	player.set_collision_mask_value(1, false)
+	await get_tree().create_timer(1.2).timeout
+	on_wait_player_phase1_2 = true
+	player.set_collision_mask_value(1, true)
+
 
 func player_falls_phase1() -> void:
 	var boss = get_tree().get_first_node_in_group("Boss")
@@ -168,7 +182,8 @@ func play_phase1_2() -> void:
 	player.in_cutscene = false
 	player.set_process_input(true)
 	player.set_physics_process(true)
-	get_tree().call_group("Level1", "queue_free")
+
+
 	#get_tree().get_first_node_in_group("Main").add_child(BOSS_FIGHT.instantiate())
 
 func play_phase2_1() -> void:

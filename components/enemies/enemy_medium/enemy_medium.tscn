@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bxsckyyrrfes0"]
+[gd_scene load_steps=31 format=3 uid="uid://bxsckyyrrfes0"]
 
 [ext_resource type="Script" path="res://components/enemies/enemy_medium/enemy_medium.gd" id="1_31nfd"]
 [ext_resource type="PackedScene" uid="uid://c3g3ql5wm0e6d" path="res://components/enemies/health_component.tscn" id="2_02i30"]
@@ -15,11 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ceydvbp0nge2x" path="res://art/2d/enemies/flagbearer/Blink final/Blink_1-2.png" id="8_t24bn"]
 [ext_resource type="Texture2D" uid="uid://dst374sqsssqm" path="res://art/2d/enemies/flagbearer/Death/Blink_1-1.png" id="12_j20kl"]
 [ext_resource type="PackedScene" uid="uid://dcv7dip3omub1" path="res://components/enemies/hurtbox_component.tscn" id="13_ds1g7"]
-[ext_resource type="Texture2D" uid="uid://crdqcv3k5q7bu" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-1.png" id="15_l4ufp"]
 [ext_resource type="AudioStream" uid="uid://kbgda1p8ndof" path="res://art/sfx/BannerManFlag.wav" id="16_h3u7y"]
-[ext_resource type="Texture2D" uid="uid://dlac7wamdgv0g" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-2.png" id="16_rio8y"]
 [ext_resource type="AudioStream" uid="uid://xf1k3pbvt8qb" path="res://art/sfx/MONSTERDYING VRS2.wav" id="17_8g66q"]
-[ext_resource type="Texture2D" uid="uid://kl0pqinx60ww" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-3.png" id="17_u6a16"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xu53c"]
 shader = ExtResource("2_otro5")
@@ -215,26 +212,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erltr"]
 size = Vector2(47, 97.5)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_vj0c3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_l4ufp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_rio8y")
-}, {
-"duration": 2.0,
-"texture": ExtResource("17_u6a16")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"Bonk",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5nfj"]
 size = Vector2(103.402, 7.92174)
 
@@ -291,15 +268,6 @@ health_component = NodePath("../HealthComponent")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(11.5, -5.25)
 shape = SubResource("RectangleShape2D_erltr")
-
-[node name="BonkVFX" type="AnimatedSprite2D" parent="HitboxComponent"]
-position = Vector2(33, -62)
-rotation = 0.584685
-scale = Vector2(0.2, 0.2)
-sprite_frames = SubResource("SpriteFrames_vj0c3")
-animation = &"Bonk"
-frame = 3
-frame_progress = 1.0
 
 [node name="Pivot" type="Node2D" parent="."]
 position = Vector2(-26, 2)
