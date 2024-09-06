@@ -4,7 +4,8 @@ do color_riro()
 Riro: Akira, be careful! 
 
 do color_akira()
-Akira: You! …. (pause) You won’t get away with this!
+do play_audio.emit(0, 5)
+Akira: You! …. You won’t get away with this!
 
 do color_kaguya()
 Kaguya: HAHAHAHA, IT WON’T BE LONG BEFORE YOU SERVE ME.
@@ -18,6 +19,7 @@ do player_falls_phase1()
 do color_riro()
 Riro: Akira, Remember that she’s still “human!”(idk if we consider them human) 
 
+do play_audio.emit(0, 6)
 do color_akira()
 Akira: I know!
 

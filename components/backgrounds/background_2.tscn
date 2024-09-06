@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbqabv0leiynf"]
+
+[ext_resource type="Texture2D" uid="uid://kbrbr1lj7cjq" path="res://art/2d/Backgrounds/bg 2/1.png" id="1_3gq0g"]
+[ext_resource type="Texture2D" uid="uid://detck4ouj0eb5" path="res://art/2d/Backgrounds/bg 2/2.png" id="2_j4lli"]
+[ext_resource type="Texture2D" uid="uid://dfo11g07mj1tp" path="res://art/2d/Backgrounds/bg 2/3.png" id="3_01xqe"]
+[ext_resource type="Texture2D" uid="uid://bhwrgn88aexag" path="res://art/2d/Backgrounds/bg 2/5.png" id="4_pyj0s"]
+[ext_resource type="Texture2D" uid="uid://bj03lwd8jwqhu" path="res://art/2d/Backgrounds/bg 2/6.png" id="5_rhk4b"]
+[ext_resource type="Texture2D" uid="uid://bfojnwcpgtb8n" path="res://art/2d/Backgrounds/bg 2/4.png" id="6_4jeop"]
+
+[node name="Background2" type="Node2D"]
+position = Vector2(7697, -2114)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = -5
+offset = Vector2(0, 200)
+transform = Transform2D(1, 0, 0, 1, 0, 200)
+
+[node name="Layer1" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(6489.5, -2336)
+texture = ExtResource("1_3gq0g")
+offset = Vector2(0, 178.725)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -5
+scroll_offset = Vector2(-0.13, 0.435)
+scroll_base_offset = Vector2(-2000, 750)
+scroll_base_scale = Vector2(6.153, 3.548)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(3810, -1789)
+motion_scale = Vector2(0.125, 0.125)
+motion_offset = Vector2(-3.41, 67.435)
+
+[node name="Layer2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(830, -2151)
+texture = ExtResource("2_j4lli")
+centered = false
+offset = Vector2(-1900, 1670)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = -4
+follow_viewport_enabled = true
+
+[node name="Layer3" type="Sprite2D" parent="CanvasLayer3"]
+position = Vector2(4105, -3091)
+texture = ExtResource("3_01xqe")
+centered = false
+
+[node name="CanvasLayer4" type="CanvasLayer" parent="."]
+layer = -3
+follow_viewport_enabled = true
+
+[node name="Layer4" type="Sprite2D" parent="CanvasLayer4"]
+position = Vector2(6340.08, -1801.26)
+texture = ExtResource("4_pyj0s")
+
+[node name="CanvasLayer5" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Layer8" type="Sprite2D" parent="CanvasLayer5"]
+position = Vector2(3641, -3207)
+texture = ExtResource("5_rhk4b")
+centered = false
+
+[node name="CanvasLayer6" type="CanvasLayer" parent="."]
+layer = -3
+follow_viewport_enabled = true
+
+[node name="Layer5" type="Sprite2D" parent="CanvasLayer6"]
+position = Vector2(4575, -3161)
+texture = ExtResource("6_4jeop")
+centered = false
+offset = Vector2(0, 113.64)

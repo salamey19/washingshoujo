@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://t6i6ksas8jcb"
+path="res://.godot/imported/phase2.dialogue-398f70719d2932b00bb2673c1beeab56.tres"
+
+[deps]
+
+source_file="res://cutscenes/phase2.dialogue"
+dest_files=["res://.godot/imported/phase2.dialogue-398f70719d2932b00bb2673c1beeab56.tres"]
+
+[params]
+
+defaults=true

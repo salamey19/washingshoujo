@@ -5,6 +5,8 @@ var balloon
 var character_label : RichTextLabel
 
 signal start_phase1_cutscene
+signal play_audio
+signal show_sprites
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -168,6 +170,20 @@ func play_phase1_2() -> void:
 	player.set_physics_process(true)
 	get_tree().call_group("Level1", "queue_free")
 	#get_tree().get_first_node_in_group("Main").add_child(BOSS_FIGHT.instantiate())
+
+func play_phase2_1() -> void:
+	balloon = BALLOON.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
+	balloon.start(load("res://cutscenes/phase2.dialogue"), "Phase2Start")
+	await DialogueManager.dialogue_ended
+
+func play_phase2_2() -> void:
+	balloon = BALLOON.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
+	balloon.start(load("res://cutscenes/phase2.dialogue"), "Phase2End")
+	await DialogueManager.dialogue_ended
 
 
 func color_akira() -> void:

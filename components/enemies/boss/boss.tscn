@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://chhjtihuvlj27"]
+[gd_scene load_steps=35 format=3 uid="uid://chhjtihuvlj27"]
 
 [ext_resource type="Texture2D" uid="uid://b3hvha83wykyv" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-1.png" id="1_0orf8"]
 [ext_resource type="Script" path="res://components/enemies/boss/boss.gd" id="1_qxgy7"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://blcwxq7igxnht" path="res://art/sfx/NewSFX2/BOSSSPARK.wav" id="25_kkmps"]
 [ext_resource type="AudioStream" uid="uid://c3oulodxc4ic0" path="res://art/sfx/NewSFX2/BOSSELECTRIC.wav" id="26_wovq8"]
 [ext_resource type="AudioStream" uid="uid://ccnfym10o1qtp" path="res://art/sfx/NewSFX2/BOSSROCK.wav" id="27_okp3l"]
+[ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="28_mxkdi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5dbc"]
 animations = [{
@@ -186,6 +187,10 @@ _data = {
 "jump_up": SubResource("Animation_11fqv")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vcp6q"]
+radius = 47.0
+height = 154.0
+
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_qxgy7")
 
@@ -225,3 +230,9 @@ bus = &"Effects"
 stream = ExtResource("27_okp3l")
 volume_db = 18.965
 bus = &"Effects"
+
+[node name="HitboxComponent" parent="." groups=["Enemy"] instance=ExtResource("28_mxkdi")]
+is_boss = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_vcp6q")

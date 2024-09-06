@@ -1,17 +1,21 @@
 ~ Tutorial
 
 do color_akira()
+do play_audio.emit(0, 1)
+do show_sprites.emit(true)
 Akira: Yea yea, we've all heard this story before Riro. We don't have time for that.
 
 do color_riro()
 Riro: History is important ya know! It might help you understand your situation better.
 
 do color_akira()
+do play_audio.emit(0, 2)
 Akira: Just tell me how to use them.
 
 do color_riro()
 Riro: Hmph. Fine.
 
+do show_sprites.emit()
 do player_falls()
 
 => END
@@ -29,11 +33,14 @@ set attack_input = true
 ~ Tutorial3
 
 do color_akira()
+do play_audio.emit(0, 3)
+do show_sprites.emit(true)
 Akira: That felt good.  
 
 do color_riro()
 Riro: Right. It seems that your able to summon oni’s, try using them to strike with your bat!
 
+do show_sprites.emit()
 set ability1_input = true
 
 => END
@@ -41,9 +48,12 @@ set ability1_input = true
 ~ Tutorial4
 
 do color_akira()
+do play_audio.emit(0, 4)
+do show_sprites.emit(true)
 Akira: This kinda feels fun. 
 
 do color_riro()
 Riro: Maybe that’s your real oni emotion.
 
+do show_sprites.emit()
 => END

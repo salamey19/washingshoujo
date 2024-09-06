@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=4 uid="uid://clfu10k5s3xdi"]
+[gd_scene load_steps=126 format=4 uid="uid://clfu10k5s3xdi"]
 
 [ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="1_yikws"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="2_5fx5r"]
@@ -31,10 +31,13 @@
 [ext_resource type="Texture2D" uid="uid://bnxm2o1jrxrh" path="res://art/2d/enemies/boss/background/boss-1.png" id="28_2u57x"]
 [ext_resource type="Texture2D" uid="uid://c4em72257tesk" path="res://art/2d/UI/boss.png" id="28_xq7gd"]
 [ext_resource type="Texture2D" uid="uid://qr1cekyu1web" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-1.png" id="29_8dudc"]
+[ext_resource type="Script" path="res://components/boss/health_bar.gd" id="30_cvu0o"]
 [ext_resource type="Texture2D" uid="uid://dfsamfb4kjbps" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-2.png" id="30_umyd8"]
 [ext_resource type="PackedScene" uid="uid://gmoukr25cydk" path="res://components/boss/screen_slash_attack.tscn" id="30_vr0k7"]
 [ext_resource type="Texture2D" uid="uid://f7et7s5pi63e" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-3.png" id="31_pqk21"]
+[ext_resource type="PackedScene" uid="uid://cq43ijrifvhjf" path="res://components/boss/slice_follow_attack.tscn" id="31_sed3u"]
 [ext_resource type="Texture2D" uid="uid://bugm7dsy4ipav" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-4.png" id="32_tq7fc"]
+[ext_resource type="PackedScene" uid="uid://cpcjomy4hfq0d" path="res://components/boss/eye_attack.tscn" id="33_lmkmk"]
 [ext_resource type="Texture2D" uid="uid://cl0ed8rn2t87m" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-5.png" id="33_xncnc"]
 [ext_resource type="Texture2D" uid="uid://dlwb8mk1sp8l7" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-6.png" id="34_0jf0l"]
 [ext_resource type="Texture2D" uid="uid://bddsj03iuwguu" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-7.png" id="35_oap6d"]
@@ -43,31 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://x7k3a5cc8ckq" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-10.png" id="38_d060w"]
 [ext_resource type="Texture2D" uid="uid://b2kk1seh3lksb" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-11.png" id="39_at6pe"]
 [ext_resource type="Texture2D" uid="uid://s7lpget7o5o0" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-12.png" id="40_5ducg"]
-[ext_resource type="Texture2D" uid="uid://d36qlxhcg6ggl" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-1.png" id="41_npst8"]
-[ext_resource type="Texture2D" uid="uid://bnixni1nxtexs" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-2.png" id="42_gyfjm"]
-[ext_resource type="Texture2D" uid="uid://dk35nusb70cnw" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-3.png" id="43_gs5gu"]
-[ext_resource type="Texture2D" uid="uid://2ta1r2uqv6g3" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-4.png" id="44_2x4ir"]
-[ext_resource type="Texture2D" uid="uid://bxd3lvugiy6tk" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-5.png" id="45_f40cw"]
-[ext_resource type="Texture2D" uid="uid://juigpmljuouh" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-6.png" id="46_dneti"]
-[ext_resource type="Texture2D" uid="uid://c3qvk3lmv5a31" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-7.png" id="47_jxhx5"]
-[ext_resource type="Texture2D" uid="uid://sjtj0xxnpxw7" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-8.png" id="48_6ngix"]
-[ext_resource type="Texture2D" uid="uid://cc2lg485nr7ly" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-9.png" id="49_yvf1p"]
-[ext_resource type="Shader" path="res://art/shaders/outline.gdshader" id="50_un0ke"]
-[ext_resource type="Texture2D" uid="uid://b4d6b11mce0jk" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-1.png" id="51_wwwep"]
-[ext_resource type="Texture2D" uid="uid://chxfsjamryn1i" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-2.png" id="52_0vr0k"]
-[ext_resource type="Texture2D" uid="uid://p8lrqrig6awr" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-3.png" id="53_4t1dy"]
-[ext_resource type="Texture2D" uid="uid://36wwr8er4ipo" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-4.png" id="54_mal5b"]
-[ext_resource type="Texture2D" uid="uid://dwo2tvbdj041j" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-5.png" id="55_barjn"]
-[ext_resource type="Texture2D" uid="uid://dyqwgc4ewln6u" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-1.png" id="56_57xvx"]
-[ext_resource type="Texture2D" uid="uid://bn8adaxiidmig" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-2.png" id="57_jgrsl"]
-[ext_resource type="Texture2D" uid="uid://c5q2e8tpn75mp" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-3.png" id="58_ky6va"]
-[ext_resource type="Texture2D" uid="uid://fpgad346hybl" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-4.png" id="59_0yd56"]
-[ext_resource type="Texture2D" uid="uid://peswypcnma1k" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-5.png" id="60_4nq6x"]
-[ext_resource type="Texture2D" uid="uid://dnuqqp0mbyeao" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-1.png" id="61_6lq8l"]
-[ext_resource type="Texture2D" uid="uid://dp3jgyfnb67sb" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-2.png" id="62_wlds7"]
-[ext_resource type="Texture2D" uid="uid://c781o2l0gcvph" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-3.png" id="63_lnbap"]
-[ext_resource type="Texture2D" uid="uid://bw8ji1he8pkkw" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-4.png" id="64_dsh76"]
-[ext_resource type="Texture2D" uid="uid://c3rg2grsbkusm" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-5.png" id="65_1aamw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n4y4g"]
 radius = 559.151
@@ -7244,8 +7222,7 @@ texture = ExtResource("27_h2wfp")
 [sub_resource type="TileSet" id="TileSet_r2e2b"]
 occlusion_layer_0/light_mask = 1
 occlusion_layer_0/sdf_collision = true
-physics_layer_0/collision_layer = 0
-physics_layer_0/collision_mask = 0
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_3wve5")
 sources/1 = SubResource("TileSetAtlasSource_ocstd")
 sources/2 = SubResource("TileSetAtlasSource_sdco0")
@@ -14418,6 +14395,16 @@ sources/18 = SubResource("TileSetAtlasSource_giopl")
 sources/19 = SubResource("TileSetAtlasSource_ckxob")
 sources/20 = SubResource("TileSetAtlasSource_epgtd")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6b6s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkgtx"]
+bg_color = Color(1, 0, 0.243137, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aeds6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46rn7"]
+bg_color = Color(0.929715, 0.929715, 0.929715, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_s21xs"]
 animations = [{
 "frames": [{
@@ -14462,119 +14449,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"land",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3k002"]
-animations = [{
-"frames": [{
-"duration": 0.5,
-"texture": ExtResource("41_npst8")
-}, {
-"duration": 0.5,
-"texture": ExtResource("42_gyfjm")
-}, {
-"duration": 0.5,
-"texture": ExtResource("43_gs5gu")
-}, {
-"duration": 0.5,
-"texture": ExtResource("44_2x4ir")
-}, {
-"duration": 0.5,
-"texture": ExtResource("45_f40cw")
-}, {
-"duration": 0.5,
-"texture": ExtResource("46_dneti")
-}, {
-"duration": 0.5,
-"texture": ExtResource("47_jxhx5")
-}, {
-"duration": 0.5,
-"texture": ExtResource("48_6ngix")
-}, {
-"duration": 0.5,
-"texture": ExtResource("49_yvf1p")
-}],
-"loop": false,
-"name": &"eye_attack",
-"speed": 5.0
-}]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xk05i"]
-shader = ExtResource("50_un0ke")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/progress = 1.0
-shader_parameter/width = 0.006
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_kcf0n"]
-animations = [{
-"frames": [{
-"duration": 0.7,
-"texture": ExtResource("51_wwwep")
-}, {
-"duration": 0.7,
-"texture": ExtResource("52_0vr0k")
-}, {
-"duration": 0.7,
-"texture": ExtResource("53_4t1dy")
-}, {
-"duration": 0.7,
-"texture": ExtResource("54_mal5b")
-}, {
-"duration": 0.7,
-"texture": ExtResource("55_barjn")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"green",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 0.7,
-"texture": ExtResource("56_57xvx")
-}, {
-"duration": 0.7,
-"texture": ExtResource("57_jgrsl")
-}, {
-"duration": 0.7,
-"texture": ExtResource("58_ky6va")
-}, {
-"duration": 0.7,
-"texture": ExtResource("59_0yd56")
-}, {
-"duration": 0.7,
-"texture": ExtResource("60_4nq6x")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"red",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 0.7,
-"texture": ExtResource("61_6lq8l")
-}, {
-"duration": 0.7,
-"texture": ExtResource("62_wlds7")
-}, {
-"duration": 0.7,
-"texture": ExtResource("63_lnbap")
-}, {
-"duration": 0.7,
-"texture": ExtResource("64_dsh76")
-}, {
-"duration": 0.7,
-"texture": ExtResource("65_1aamw")
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"white",
 "speed": 5.0
 }]
 
@@ -14638,39 +14512,73 @@ tile_set = SubResource("TileSet_r2e2b")
 [node name="Phase2" type="Node2D" parent="."]
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Phase2"]
-visible = false
-position = Vector2(17, -566)
+position = Vector2(17, -667)
 tile_map_data = PackedByteArray("AADQ/x0AEQA5ABwAAADQ/x4AEQA5AB0AAADQ/x8AEQA5AB4AAADQ/yAAEQA5AB8AAADR/xwAEQA6ABsAAADR/x0AEQA6ABwAAADR/x4AEQA6AB0AAADR/x8AEQA6AB4AAADR/yAAEQA6AB8AAADR/yEAEQA6ACAAAADR/yIAEQA6ACEAAADS/xsAEQA7ABoAAADS/xwAEQA7ABsAAADS/x0AEQA7ABwAAADS/x4AEQA7AB0AAADS/x8AEQA7AB4AAADS/yAAEQA7AB8AAADS/yEAEQA7ACAAAADS/yIAEQA7ACEAAADS/yMAEQA7ACIAAADT/xsAEQA8ABoAAADT/xwAEQA8ABsAAADT/x0AEQA8ABwAAADT/x4AEQA8AB0AAADT/x8AEQA8AB4AAADT/yAAEQA8AB8AAADT/yEAEQA8ACAAAADT/yIAEQA8ACEAAADT/yMAEQA8ACIAAADT/yQAEQA8ACMAAADU/xsAEQA9ABoAAADU/xwAEQA9ABsAAADU/x0AEQA9ABwAAADU/x4AEQA9AB0AAADU/x8AEQA9AB4AAADU/yAAEQA9AB8AAADU/yEAEQA9ACAAAADU/yIAEQA9ACEAAADU/yMAEQA9ACIAAADU/yQAEQA9ACMAAADU/yUAEQA9ACQAAADV/xsAEQA+ABoAAADV/xwAEQA+ABsAAADV/x0AEQA+ABwAAADV/x4AEQA+AB0AAADV/x8AEQA+AB4AAADV/yAAEQA+AB8AAADV/yEAEQA+ACAAAADV/yIAEQA+ACEAAADV/yMAEQA+ACIAAADV/yQAEQA+ACMAAADV/yUAEQA+ACQAAADW/xwAEQA/ABsAAADW/x0AEQA/ABwAAADW/x4AEQA/AB0AAADW/x8AEQA/AB4AAADW/yAAEQA/AB8AAADW/yEAEQA/ACAAAADW/yIAEQA/ACEAAADW/yMAEQA/ACIAAADW/yQAEQA/ACMAAADW/yUAEQA/ACQAAADX/xwAEQBAABsAAADX/x0AEQBAABwAAADX/x4AEQBAAB0AAADX/x8AEQBAAB4AAADX/yAAEQBAAB8AAADX/yEAEQBAACAAAADX/yIAEQBAACEAAADX/yMAEQBAACIAAADX/yQAEQBAACMAAADX/yUAEQBAACQAAADY/x8AEQBBAB4AAADY/yAAEQBBAB8AAADY/yEAEQBBACAAAAApABsAEQA7ABoAABAoABsAEQA8ABoAABAnABsAEQA9ABoAABAmABsAEQA+ABoAABAqABwAEQA6ABsAABApABwAEQA7ABsAABAoABwAEQA8ABsAABAnABwAEQA9ABsAABAmABwAEQA+ABsAABAlABwAEQA/ABsAABAkABwAEQBAABsAABArAB0AEQA5ABwAABAqAB0AEQA6ABwAABApAB0AEQA7ABwAABAoAB0AEQA8ABwAABAnAB0AEQA9ABwAABAmAB0AEQA+ABwAABAlAB0AEQA/ABwAABAkAB0AEQBAABwAABArAB4AEQA5AB0AABAqAB4AEQA6AB0AABApAB4AEQA7AB0AABAoAB4AEQA8AB0AABAnAB4AEQA9AB0AABAmAB4AEQA+AB0AABAlAB4AEQA/AB0AABAkAB4AEQBAAB0AABArAB8AEQA5AB4AABAqAB8AEQA6AB4AABApAB8AEQA7AB4AABAoAB8AEQA8AB4AABAnAB8AEQA9AB4AABAmAB8AEQA+AB4AABAlAB8AEQA/AB4AABAkAB8AEQBAAB4AABAjAB8AEQBBAB4AABArACAAEQA5AB8AABAqACAAEQA6AB8AABApACAAEQA7AB8AABAoACAAEQA8AB8AABAnACAAEQA9AB8AABAmACAAEQA+AB8AABAlACAAEQA/AB8AABAkACAAEQBAAB8AABAjACAAEQBBAB8AABAqACEAEQA6ACAAABApACEAEQA7ACAAABAoACEAEQA8ACAAABAnACEAEQA9ACAAABAmACEAEQA+ACAAABAlACEAEQA/ACAAABAkACEAEQBAACAAABAjACEAEQBBACAAABAqACIAEQA6ACEAABApACIAEQA7ACEAABAoACIAEQA8ACEAABAnACIAEQA9ACEAABAmACIAEQA+ACEAABAlACIAEQA/ACEAABAkACIAEQBAACEAABApACMAEQA7ACIAABAoACMAEQA8ACIAABAnACMAEQA9ACIAABAmACMAEQA+ACIAABAlACMAEQA/ACIAABAkACMAEQBAACIAABAoACQAEQA8ACMAABAnACQAEQA9ACMAABAmACQAEQA+ACMAABAlACQAEQA/ACMAABAkACQAEQBAACMAABAnACUAEQA9ACQAABAmACUAEQA+ACQAABAlACUAEQA/ACQAABAkACUAEQBAACQAABC9/xAAEwAsABsAAAC9/xEAEwAsABwAAAC9/xIAEwAsAB0AAAC9/xMAEwAsAB4AAAC9/xQAEwAsAB8AAAC+/w8AEwAtABoAAAC+/xAAEwAtABsAAAC+/xEAEwAtABwAAAC+/xIAEwAtAB0AAAC+/xMAEwAtAB4AAAC+/xQAEwAtAB8AAAC+/xUAEwAtACAAAAC//w4AEwAuABkAAAC//w8AEwAuABoAAAC//xAAEwAuABsAAAC//xEAEwAuABwAAAC//xIAEwAuAB0AAAC//xMAEwAuAB4AAAC//xQAEwAuAB8AAAC//xUAEwAuACAAAAC//xYAEwAuACEAAADA/w4AEwAvABkAAADA/w8AEwAvABoAAADA/xAAEwAvABsAAADA/xEAEwAvABwAAADA/xIAEwAvAB0AAADA/xMAEwAvAB4AAADA/xQAEwAvAB8AAADA/xUAEwAvACAAAADA/xYAEwAvACEAAADA/xcAEwAvACIAAADB/w4AEwAwABkAAADB/w8AEwAwABoAAADB/xAAEwAwABsAAADB/xEAEwAwABwAAADB/xIAEwAwAB0AAADB/xMAEwAwAB4AAADB/xQAEwAwAB8AAADB/xUAEwAwACAAAADB/xYAEwAwACEAAADB/xcAEwAwACIAAADC/w4AEwAxABkAAADC/w8AEwAxABoAAADC/xAAEwAxABsAAADC/xEAEwAxABwAAADC/xIAEwAxAB0AAADC/xMAEwAxAB4AAADC/xQAEwAxAB8AAADC/xUAEwAxACAAAADC/xYAEwAxACEAAADC/xcAEwAxACIAAADD/w4AEwAyABkAAADD/w8AEwAyABoAAADD/xAAEwAyABsAAADD/xEAEwAyABwAAADD/xIAEwAyAB0AAADD/xMAEwAyAB4AAADD/xQAEwAyAB8AAADD/xUAEwAyACAAAADD/xYAEwAyACEAAADD/xcAEwAyACIAAADD/xgAEwAyACMAAADE/w8AEwAzABoAAADE/xAAEwAzABsAAADE/xEAEwAzABwAAADE/xIAEwAzAB0AAADE/xMAEwAzAB4AAADE/xQAEwAzAB8AAADE/xUAEwAzACAAAADE/xYAEwAzACEAAADE/xcAEwAzACIAAADE/xgAEwAzACMAAADF/xEAEwA0ABwAAADF/xIAEwA0AB0AAADF/xMAEwA0AB4AAADF/xQAEwA0AB8AAADF/xUAEwA0ACAAAADF/xYAEwA0ACEAAADF/xcAEwA0ACIAAADF/xgAEwA0ACMAAAA7AA8AEwAuABkAABA6AA8AEwAvABkAABA5AA8AEwAwABkAABA4AA8AEwAxABkAABA3AA8AEwAyABkAABA8ABAAEwAtABoAABA7ABAAEwAuABoAABA6ABAAEwAvABoAABA5ABAAEwAwABoAABA4ABAAEwAxABoAABA3ABAAEwAyABoAABA2ABAAEwAzABoAABA9ABEAEwAsABsAABA8ABEAEwAtABsAABA7ABEAEwAuABsAABA6ABEAEwAvABsAABA5ABEAEwAwABsAABA4ABEAEwAxABsAABA3ABEAEwAyABsAABA2ABEAEwAzABsAABA9ABIAEwAsABwAABA8ABIAEwAtABwAABA7ABIAEwAuABwAABA6ABIAEwAvABwAABA5ABIAEwAwABwAABA4ABIAEwAxABwAABA3ABIAEwAyABwAABA2ABIAEwAzABwAABA1ABIAEwA0ABwAABA9ABMAEwAsAB0AABA8ABMAEwAtAB0AABA7ABMAEwAuAB0AABA6ABMAEwAvAB0AABA5ABMAEwAwAB0AABA4ABMAEwAxAB0AABA3ABMAEwAyAB0AABA2ABMAEwAzAB0AABA1ABMAEwA0AB0AABA9ABQAEwAsAB4AABA8ABQAEwAtAB4AABA7ABQAEwAuAB4AABA6ABQAEwAvAB4AABA5ABQAEwAwAB4AABA4ABQAEwAxAB4AABA3ABQAEwAyAB4AABA2ABQAEwAzAB4AABA1ABQAEwA0AB4AABA9ABUAEwAsAB8AABA8ABUAEwAtAB8AABA7ABUAEwAuAB8AABA6ABUAEwAvAB8AABA5ABUAEwAwAB8AABA4ABUAEwAxAB8AABA3ABUAEwAyAB8AABA2ABUAEwAzAB8AABA1ABUAEwA0AB8AABA8ABYAEwAtACAAABA7ABYAEwAuACAAABA6ABYAEwAvACAAABA5ABYAEwAwACAAABA4ABYAEwAxACAAABA3ABYAEwAyACAAABA2ABYAEwAzACAAABA1ABYAEwA0ACAAABA7ABcAEwAuACEAABA6ABcAEwAvACEAABA5ABcAEwAwACEAABA4ABcAEwAxACEAABA3ABcAEwAyACEAABA2ABcAEwAzACEAABA1ABcAEwA0ACEAABA6ABgAEwAvACIAABA5ABgAEwAwACIAABA4ABgAEwAxACIAABA3ABgAEwAyACIAABA2ABgAEwAzACIAABA1ABgAEwA0ACIAABA3ABkAEwAyACMAABA2ABkAEwAzACMAABA1ABkAEwA0ACMAABDZ/wEAEgAhABoAABDY/wEAEgAiABoAABDX/wEAEgAjABoAABDW/wEAEgAkABoAABDV/wEAEgAlABoAABDa/wIAEgAgABsAABDZ/wIAEgAhABsAABDY/wIAEgAiABsAABDX/wIAEgAjABsAABDW/wIAEgAkABsAABDV/wIAEgAlABsAABDU/wIAEgAmABsAABDa/wMAEgAgABwAABDZ/wMAEgAhABwAABDY/wMAEgAiABwAABDX/wMAEgAjABwAABDW/wMAEgAkABwAABDV/wMAEgAlABwAABDU/wMAEgAmABwAABDT/wMAEgAnABwAABDa/wQAEgAgAB0AABDZ/wQAEgAhAB0AABDY/wQAEgAiAB0AABDX/wQAEgAjAB0AABDW/wQAEgAkAB0AABDV/wQAEgAlAB0AABDU/wQAEgAmAB0AABDT/wQAEgAnAB0AABDa/wUAEgAgAB4AABDZ/wUAEgAhAB4AABDY/wUAEgAiAB4AABDX/wUAEgAjAB4AABDW/wUAEgAkAB4AABDV/wUAEgAlAB4AABDU/wUAEgAmAB4AABDT/wUAEgAnAB4AABDa/wYAEgAgAB8AABDZ/wYAEgAhAB8AABDY/wYAEgAiAB8AABDX/wYAEgAjAB8AABDW/wYAEgAkAB8AABDV/wYAEgAlAB8AABDU/wYAEgAmAB8AABDT/wYAEgAnAB8AABDa/wcAEgAgACAAABDZ/wcAEgAhACAAABDY/wcAEgAiACAAABDX/wcAEgAjACAAABDW/wcAEgAkACAAABDV/wcAEgAlACAAABDU/wcAEgAmACAAABDT/wcAEgAnACAAABDZ/wgAEgAhACEAABDY/wgAEgAiACEAABDX/wgAEgAjACEAABDW/wgAEgAkACEAABDV/wgAEgAlACEAABDU/wgAEgAmACEAABDT/wgAEgAnACEAABDZ/wkAEgAhACIAABDY/wkAEgAiACIAABDX/wkAEgAjACIAABDW/wkAEgAkACIAABDV/wkAEgAlACIAABDU/wkAEgAmACIAABDT/wkAEgAnACIAABDY/woAEgAiACMAABDX/woAEgAjACMAABDW/woAEgAkACMAABDV/woAEgAlACMAABDU/woAEgAmACMAABDT/woAEgAnACMAABDW/wsAEgAkACQAABDV/wsAEgAlACQAABDU/wsAEgAmACQAABDT/wsAEgAnACQAABAnAAAAEgAlABoAAAAmAAAAEgAkABoAAAAlAAAAEgAjABoAAAAkAAAAEgAiABoAAAAjAAAAEgAhABoAAAAoAAEAEgAmABsAAAAnAAEAEgAlABsAAAAmAAEAEgAkABsAAAAlAAEAEgAjABsAAAAkAAEAEgAiABsAAAAjAAEAEgAhABsAAAAiAAEAEgAgABsAAAApAAIAEgAnABwAAAAoAAIAEgAmABwAAAAnAAIAEgAlABwAAAAmAAIAEgAkABwAAAAlAAIAEgAjABwAAAAkAAIAEgAiABwAAAAjAAIAEgAhABwAAAAiAAIAEgAgABwAAAApAAMAEgAnAB0AAAAoAAMAEgAmAB0AAAAnAAMAEgAlAB0AAAAmAAMAEgAkAB0AAAAlAAMAEgAjAB0AAAAkAAMAEgAiAB0AAAAjAAMAEgAhAB0AAAAiAAMAEgAgAB0AAAApAAQAEgAnAB4AAAAoAAQAEgAmAB4AAAAnAAQAEgAlAB4AAAAmAAQAEgAkAB4AAAAlAAQAEgAjAB4AAAAkAAQAEgAiAB4AAAAjAAQAEgAhAB4AAAAiAAQAEgAgAB4AAAApAAUAEgAnAB8AAAAoAAUAEgAmAB8AAAAnAAUAEgAlAB8AAAAmAAUAEgAkAB8AAAAlAAUAEgAjAB8AAAAkAAUAEgAiAB8AAAAjAAUAEgAhAB8AAAAiAAUAEgAgAB8AAAApAAYAEgAnACAAAAAoAAYAEgAmACAAAAAnAAYAEgAlACAAAAAmAAYAEgAkACAAAAAlAAYAEgAjACAAAAAkAAYAEgAiACAAAAAjAAYAEgAhACAAAAAiAAYAEgAgACAAAAApAAcAEgAnACEAAAAoAAcAEgAmACEAAAAnAAcAEgAlACEAAAAmAAcAEgAkACEAAAAlAAcAEgAjACEAAAAkAAcAEgAiACEAAAAjAAcAEgAhACEAAAApAAgAEgAnACIAAAAoAAgAEgAmACIAAAAnAAgAEgAlACIAAAAmAAgAEgAkACIAAAAlAAgAEgAjACIAAAAkAAgAEgAiACIAAAAjAAgAEgAhACIAAAApAAkAEgAnACMAAAAoAAkAEgAmACMAAAAnAAkAEgAlACMAAAAmAAkAEgAkACMAAAAlAAkAEgAjACMAAAAkAAkAEgAiACMAAAApAAoAEgAnACQAAAAoAAoAEgAmACQAAAAnAAoAEgAlACQAAAAmAAoAEgAkACQAAAA=")
 tile_set = SubResource("TileSet_n0iv4")
-collision_enabled = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Phase2"]
 
-[node name="HealthBar" type="TextureRect" parent="Phase2/CanvasLayer"]
+[node name="HealthBarOutline" type="TextureRect" parent="Phase2/CanvasLayer"]
+visible = false
 anchors_preset = -1
-anchor_left = 0.142
-anchor_top = 0.392
-anchor_right = 0.828
-anchor_bottom = 1.253
-offset_left = 0.416
-offset_top = -0.0159912
-offset_right = 2718.14
-offset_bottom = 1922.06
+anchor_left = 0.172
+anchor_top = 0.298
+anchor_right = 0.873
+anchor_bottom = 1.347
+offset_left = -0.144012
+offset_top = -0.104004
+offset_right = 2783.49
+offset_bottom = 2342.69
 scale = Vector2(0.225, 0.225)
 texture = ExtResource("28_xq7gd")
 
-[node name="ProgressBar" type="ProgressBar" parent="Phase2/CanvasLayer/HealthBar"]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 267.0
-offset_top = 1382.0
-offset_right = 3404.0
-offset_bottom = 1453.0
-value = 80.88
+[node name="HealthBar" type="ProgressBar" parent="Phase2/CanvasLayer/HealthBarOutline"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.076
+anchor_top = 0.557
+anchor_right = 0.97
+anchor_bottom = 0.586
+offset_left = -5.93024
+offset_top = -7.55737
+offset_right = 5.54858
+offset_bottom = -2.21106
+theme_override_styles/background = SubResource("StyleBoxEmpty_i6b6s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jkgtx")
+max_value = 10.0
+value = 10.0
 show_percentage = false
+script = ExtResource("30_cvu0o")
+
+[node name="DamageBar" type="ProgressBar" parent="Phase2/CanvasLayer/HealthBarOutline/HealthBar"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_aeds6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_46rn7")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Phase2/CanvasLayer/HealthBarOutline/HealthBar"]
+wait_time = 0.6
+one_shot = true
 
 [node name="ScreenSlashAttack" parent="Phase2" instance=ExtResource("30_vr0k7")]
 unique_name_in_owner = true
+position = Vector2(600, -562)
+
+[node name="SliceFollowAttack" parent="Phase2" instance=ExtResource("31_sed3u")]
+unique_name_in_owner = true
+
+[node name="EyeAttack" parent="Phase2" instance=ExtResource("33_lmkmk")]
+unique_name_in_owner = true
+position = Vector2(0, -436)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -3
@@ -14695,18 +14603,4 @@ animation = &"land"
 frame = 12
 frame_progress = 1.0
 
-[node name="EyeAttackVFX" type="AnimatedSprite2D" parent="VFX"]
-visible = false
-position = Vector2(-61, -350)
-sprite_frames = SubResource("SpriteFrames_3k002")
-animation = &"eye_attack"
-frame = 8
-frame_progress = 1.0
-
-[node name="LongCutVFX" type="AnimatedSprite2D" parent="VFX"]
-material = SubResource("ShaderMaterial_xk05i")
-position = Vector2(3, -282)
-sprite_frames = SubResource("SpriteFrames_kcf0n")
-animation = &"green"
-frame = 5
-frame_progress = 1.0
+[connection signal="timeout" from="Phase2/CanvasLayer/HealthBarOutline/HealthBar/Timer" to="Phase2/CanvasLayer/HealthBarOutline/HealthBar" method="_on_timer_timeout"]

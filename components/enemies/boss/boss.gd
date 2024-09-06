@@ -6,6 +6,8 @@ extends Node2D
 @onready var jump_up_sfx: AudioStreamPlayer2D = $Node2D/JumpUpSFX
 @onready var jump_down_sfx: AudioStreamPlayer2D = $Node2D/JumpDownSFX
 @onready var jump_down_rubble_sfx: AudioStreamPlayer2D = $Node2D/JumpDownRubbleSFX
+@onready var collision_shape: CollisionShape2D = $HitboxComponent/CollisionShape2D
+@onready var hitbox_component: Area2D = $HitboxComponent
 
 var delta_temp : float
 # Called when the node enters the scene tree for the first time.
@@ -45,3 +47,9 @@ func jump_down() -> void:
 	jump_down_sfx.play()
 	jump_down_rubble_sfx.play()
 	enemy_sprite.play("hurt")
+	hitbox_component.set_deferred("monitoring", true)
+	hitbox_component.set_deferred("monitorable", true)
+
+func turn_off() -> void:
+	hitbox_component.set_deferred("monitoring", false)
+	hitbox_component.set_deferred("monitorable", false)

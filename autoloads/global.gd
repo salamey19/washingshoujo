@@ -3,7 +3,8 @@ extends Node
 
 signal enemy_defeated
 signal player_hurt
-var intro_done : bool = true
+signal boss_hurt
+var intro_done : bool = false
 
 ## Whether or not the app is currently focused.
 var is_app_focused : bool = true
