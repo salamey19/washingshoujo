@@ -1,11 +1,10 @@
-[gd_scene load_steps=127 format=4 uid="uid://clfu10k5s3xdi"]
+[gd_scene load_steps=126 format=4 uid="uid://clfu10k5s3xdi"]
 
 [ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="1_yikws"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="2_5fx5r"]
 [ext_resource type="Shader" path="res://art/shaders/shield.gdshader" id="3_0d1lc"]
 [ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="4_t1kka"]
 [ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_ep2je"]
-[ext_resource type="PackedScene" uid="uid://cuiv5t25y74gt" path="res://components/boss/phase_1_enemies.tscn" id="6_ddwfm"]
 [ext_resource type="PackedScene" uid="uid://1hr8scmagpfr" path="res://components/misc/charging_area.tscn" id="6_q1qi5"]
 [ext_resource type="Texture2D" uid="uid://darx5ih604l11" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1(1).png" id="7_y5yxn"]
 [ext_resource type="Texture2D" uid="uid://cun4uhwa2wnqi" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1.png" id="8_espd5"]
@@ -14455,16 +14454,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mcg2"]
 size = Vector2(548, 184)
 
-[node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss", "barrier", "barrier_enemy1", "barrier_enemy2")]
+[node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss", "barrier_enemy1", "barrier_enemy2")]
 position = Vector2(10691, 1604)
 script = ExtResource("1_yikws")
 boss = NodePath("Boss")
-barrier = NodePath("Phase1/Barrier")
 barrier_enemy1 = NodePath("Phase1/TankEnemy")
 barrier_enemy2 = NodePath("Phase1/TankEnemy2")
 
 [node name="Boss" parent="." groups=["Boss"] instance=ExtResource("2_5fx5r")]
-position = Vector2(17, -77)
+position = Vector2(17, -3696)
 
 [node name="Phase1" type="Node2D" parent="."]
 
@@ -14490,8 +14488,6 @@ scale = Vector2(1, -1)
 
 [node name="TankEnemy2" parent="Phase1" instance=ExtResource("5_ep2je")]
 position = Vector2(877, 103)
-
-[node name="Phase1Enemies" parent="Phase1" instance=ExtResource("6_ddwfm")]
 
 [node name="ChargingArea" parent="Phase1" instance=ExtResource("6_q1qi5")]
 position = Vector2(-57, 941)
@@ -14522,6 +14518,7 @@ tile_set = SubResource("TileSet_n0iv4")
 [node name="CanvasLayer" type="CanvasLayer" parent="Phase2"]
 
 [node name="HealthBarOutline" type="TextureRect" parent="Phase2/CanvasLayer"]
+unique_name_in_owner = true
 visible = false
 anchors_preset = -1
 anchor_left = 0.172

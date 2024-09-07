@@ -1,18 +1,13 @@
-[gd_scene load_steps=158 format=4 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=178 format=4 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_3wg1a"]
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
-[ext_resource type="PackedScene" uid="uid://8smw70b3vfh0" path="res://components/backgrounds/background.tscn" id="3_ob2ms"]
-[ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/eye_enemy/eye_enemy.tscn" id="4_fcwub"]
-[ext_resource type="PackedScene" uid="uid://bbqabv0leiynf" path="res://components/backgrounds/background_2.tscn" id="5_dg5wq"]
-[ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="6_ubnj5"]
 [ext_resource type="Script" path="res://components/camera/camera.gd" id="13_4f1gs"]
 [ext_resource type="Texture2D" uid="uid://cgheqvc6d33sm" path="res://art/2d/TalkingSprites/AkriaTalkingSprite.png" id="14_0wawe"]
 [ext_resource type="Script" path="res://cutscenes/talking_sprites.gd" id="14_2owoh"]
 [ext_resource type="Shader" path="res://art/shaders/godrays.gdshader" id="18_7bbeh"]
 [ext_resource type="PackedScene" uid="uid://dxyi7khgjp0v0" path="res://components/riro/riro.tscn" id="19_llrsb"]
 [ext_resource type="AudioStream" uid="uid://ci8jdtrrcccb5" path="res://art/music/little fight.wav" id="24_4f8kf"]
-[ext_resource type="PackedScene" uid="uid://b15rxaq80jsmp" path="res://components/enemies/respawn_enemy.tscn" id="26_lgynh"]
 [ext_resource type="Texture2D" uid="uid://cun4uhwa2wnqi" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1.png" id="28_rmv73"]
 [ext_resource type="Texture2D" uid="uid://darx5ih604l11" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1(1).png" id="29_rtt73"]
 [ext_resource type="Texture2D" uid="uid://bs1pydwmjcc47" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-2.png" id="30_eng4v"]
@@ -51,15 +46,39 @@
 [ext_resource type="AudioStream" uid="uid://bhr564hwo6s7" path="res://art/Dialouge/Akira/akira-dialogue-6.wav" id="50_f5bqe"]
 [ext_resource type="Texture2D" uid="uid://ddmml3fqg2u6b" path="res://art/2d/platforms/Platforms level 3/Untitled_Artwork-8.png" id="50_o3wxr"]
 [ext_resource type="AudioStream" uid="uid://dqgyg7crg5u6o" path="res://art/Dialouge/Akira/akira-dialogue-7.wav" id="51_6wt0i"]
+[ext_resource type="AudioStream" uid="uid://bkerdyvbeu6tw" path="res://art/Dialouge/riro/riro-dialogue-1.wav" id="51_s6ipl"]
 [ext_resource type="Texture2D" uid="uid://dkdha28dm7s52" path="res://art/2d/UI/Hearts/Untitled_Artwork-1.png" id="52_avi5q"]
 [ext_resource type="AudioStream" uid="uid://wgkhlevu5wi6" path="res://art/Dialouge/Akira/akira-dialogue-8.wav" id="52_s80qg"]
+[ext_resource type="AudioStream" uid="uid://bdc7kld0lfx7y" path="res://art/Dialouge/riro/riro-dialogue-2.wav" id="52_to72j"]
+[ext_resource type="AudioStream" uid="uid://0lcque1lhuwo" path="res://art/Dialouge/riro/riro-dialogue-3.wav" id="53_7tia1"]
+[ext_resource type="AudioStream" uid="uid://c4encyp2nx7jc" path="res://art/Dialouge/riro/riro-dialogue-4.wav" id="54_dblo3"]
 [ext_resource type="Texture2D" uid="uid://crdqcv3k5q7bu" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-1.png" id="55_4dbgx"]
+[ext_resource type="AudioStream" uid="uid://tkktib2k02rk" path="res://art/Dialouge/riro/riro-dialogue-5.wav" id="55_ucsdi"]
+[ext_resource type="AudioStream" uid="uid://dfialnpqxlslk" path="res://art/Dialouge/riro/riro-dialogue-6.wav" id="56_6giox"]
 [ext_resource type="Texture2D" uid="uid://dlac7wamdgv0g" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-2.png" id="56_kqimd"]
+[ext_resource type="AudioStream" uid="uid://bvlddr38b46cv" path="res://art/Dialouge/riro/riro-dialogue-7.wav" id="57_mdybo"]
 [ext_resource type="Texture2D" uid="uid://kl0pqinx60ww" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-3.png" id="57_xtpgl"]
 [ext_resource type="Script" path="res://levels/bonk_vfx.gd" id="58_7xdx6"]
+[ext_resource type="AudioStream" uid="uid://sj2t6ngallf8" path="res://art/Dialouge/riro/riro-dialogue-8.wav" id="58_xsfxw"]
+[ext_resource type="AudioStream" uid="uid://dakju5u2wwqwl" path="res://art/Dialouge/riro/riro-dialogue-9.wav" id="59_oesm5"]
+[ext_resource type="AudioStream" uid="uid://cux7ujd3fkywd" path="res://art/Dialouge/riro/riro-dialogue-10.wav" id="60_xelrp"]
+[ext_resource type="Script" path="res://components/misc/do_once_load.gd" id="61_21i8c"]
 [ext_resource type="Script" path="res://components/misc/queue_free.gd" id="61_87tle"]
+[ext_resource type="AudioStream" uid="uid://d1xh67ytbv38g" path="res://art/Dialouge/riro/riro-dialogue-11.wav" id="61_v24dk"]
+[ext_resource type="AudioStream" uid="uid://dbcj2xuhmflt" path="res://art/Dialouge/riro/riro-dialogue-12.wav" id="62_c8i0h"]
+[ext_resource type="AudioStream" uid="uid://c26qctm68xvn7" path="res://art/Dialouge/riro/riro-dialogue-13.wav" id="63_38wv6"]
 [ext_resource type="PackedScene" uid="uid://cso2310pb4ijo" path="res://components/misc/hint_popup.tscn" id="63_ydgql"]
+[ext_resource type="AudioStream" uid="uid://c0k6rqmapf5dg" path="res://art/Dialouge/riro/riro-dialogue-14.wav" id="64_4dhcl"]
+[ext_resource type="AudioStream" uid="uid://bxk4gilb1k0iv" path="res://art/Dialouge/riro/riro-dialogue-15.wav" id="65_awc34"]
+[ext_resource type="AudioStream" uid="uid://do0cufqnmtvmp" path="res://art/Dialouge/riro/riro-dialogue-16.wav" id="66_epevd"]
+[ext_resource type="AudioStream" uid="uid://dowyvvjais23d" path="res://art/Dialouge/riro/riro-dialogue-17.wav" id="67_ykke7"]
+[ext_resource type="AudioStream" uid="uid://cufdp5hpoxi0g" path="res://art/Dialouge/riro/riro-dialogue-18.wav" id="68_0dm7x"]
 [ext_resource type="Script" path="res://components/misc/start_cutscene.gd" id="68_up2f5"]
+[ext_resource type="AudioStream" uid="uid://g45fs3lpyaaa" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-1.wav" id="69_wk6f5"]
+[ext_resource type="AudioStream" uid="uid://b0ymtiaglfv6w" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-2.wav" id="70_xr60f"]
+[ext_resource type="AudioStream" uid="uid://cad5m7saxo8yq" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-3.wav" id="71_th3f2"]
+[ext_resource type="AudioStream" uid="uid://ts2n0b5e38x6" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-4.wav" id="72_uvy6a"]
+[ext_resource type="AudioStream" uid="uid://ddb4e4isho034" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-5.wav" id="73_rqmbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(632.39, 541.875)
@@ -14743,53 +14762,29 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwmbn"]
 size = Vector2(195, 184)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r60rp"]
+size = Vector2(255, 138)
+
 [node name="MainLevel" type="Node2D" groups=["Main"]]
 script = ExtResource("1_3wg1a")
 
-[node name="Riro" parent="." instance=ExtResource("19_llrsb")]
+[node name="Riro" parent="." groups=["Level1"] instance=ExtResource("19_llrsb")]
 position = Vector2(216, -526)
 scale = Vector2(0.125, 0.125)
 collision_layer = 0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
-position = Vector2(408, -525)
+position = Vector2(9303, -2167)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
 update_rotation = false
 update_scale = false
 
-[node name="Background" parent="." instance=ExtResource("3_ob2ms")]
-position = Vector2(56.6989, 25.5289)
-
-[node name="Layer1" parent="Background/CanvasLayer2" index="0"]
-position = Vector2(2450, -572)
-
-[node name="Layer2" parent="Background/ParallaxBackground/ParallaxLayer" index="0"]
-position = Vector2(-544, -1489)
-
-[node name="Layer3" parent="Background/ParallaxBackground2/ParallaxLayer" index="0"]
-position = Vector2(-497, -1459)
-
-[node name="Layer4" parent="Background/CanvasLayer4" index="0"]
-position = Vector2(2183, -343)
-
-[node name="Layer9" parent="Background" index="7"]
-position = Vector2(2122.3, -399.529)
-
-[node name="Background2" parent="." groups=["Level1"] instance=ExtResource("5_dg5wq")]
-position = Vector2(3525.03, -304.53)
-
-[node name="Layer2" parent="Background2/ParallaxBackground/ParallaxLayer" index="0"]
-position = Vector2(1721, -2989)
-
-[node name="Layer4" parent="Background2/CanvasLayer4" index="0"]
-position = Vector2(6342.17, -1935.2)
-
 [node name="Floors" type="Node2D" parent="."]
 position = Vector2(0, -450)
 
-[node name="Floor" type="StaticBody2D" parent="Floors"]
+[node name="Floor" type="StaticBody2D" parent="Floors" groups=["Level1"]]
 position = Vector2(0, 911)
 scale = Vector2(18.6, 1)
 
@@ -14797,7 +14792,7 @@ scale = Vector2(18.6, 1)
 position = Vector2(176.87, 47)
 shape = SubResource("RectangleShape2D_8l8x7")
 
-[node name="Crane" type="StaticBody2D" parent="Floors"]
+[node name="Crane" type="StaticBody2D" parent="Floors" groups=["Level1"]]
 position = Vector2(212, -44)
 rotation = 0.123918
 scale = Vector2(1, 0.16)
@@ -14813,23 +14808,23 @@ position = Vector2(10540, 3171)
 position = Vector2(126, 32)
 shape = SubResource("RectangleShape2D_muatn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Floors"]
+[node name="Sprite2D" type="Sprite2D" parent="Floors" groups=["Level1"]]
 material = SubResource("ShaderMaterial_thj4k")
 position = Vector2(2003, 778.25)
 scale = Vector2(32.5469, 1.45703)
 texture = ExtResource("32_cuu8r")
 
-[node name="Balloons" type="Sprite2D" parent="Floors"]
+[node name="Balloons" type="Sprite2D" parent="Floors" groups=["Level1"]]
 z_index = -1
 position = Vector2(2121, -380)
 texture = ExtResource("48_lp66d")
 
-[node name="Balloons2" type="Sprite2D" parent="Floors"]
+[node name="Balloons2" type="Sprite2D" parent="Floors" groups=["Level1"]]
 z_index = -1
 position = Vector2(7749, -2002)
 texture = ExtResource("49_yk426")
 
-[node name="Balloons3" type="Sprite2D" parent="Floors"]
+[node name="Balloons3" type="Sprite2D" parent="Floors" groups=["Level1"]]
 z_index = -1
 position = Vector2(5042, -1655)
 texture = ExtResource("50_o3wxr")
@@ -14888,7 +14883,7 @@ position = Vector2(339.5, -1527.5)
 shape = SubResource("RectangleShape2D_61s0x")
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(408, -525)
+position = Vector2(9303, -2167)
 zoom = Vector2(0.9, 0.9)
 limit_smoothed = true
 script = ExtResource("13_4f1gs")
@@ -15034,82 +15029,6 @@ offset_bottom = 40.0
 stream = ExtResource("24_4f8kf")
 volume_db = -0.654
 
-[node name="Enemies" type="Node2D" parent="." groups=["Level1"]]
-
-[node name="enemy_small" parent="Enemies" instance=ExtResource("4_fcwub")]
-position = Vector2(3209, -1328)
-
-[node name="enemy_small2" parent="Enemies" instance=ExtResource("4_fcwub")]
-position = Vector2(2015, -102)
-
-[node name="enemy_small6" parent="Enemies" instance=ExtResource("4_fcwub")]
-position = Vector2(2357, -395)
-
-[node name="enemy_small3" parent="Enemies" instance=ExtResource("4_fcwub")]
-position = Vector2(3706, -343)
-
-[node name="RespawnEnemy2" parent="Enemies" node_paths=PackedStringArray("enemy") instance=ExtResource("26_lgynh")]
-position = Vector2(7028, -1776)
-rotation = -3.14159
-enemy = NodePath("enemy_small5")
-respawn_timer = 3.0
-
-[node name="enemy_small5" parent="Enemies/RespawnEnemy2" instance=ExtResource("4_fcwub")]
-rotation = 0.0
-asleep = true
-
-[node name="RespawnEnemy4" parent="Enemies" node_paths=PackedStringArray("enemy") instance=ExtResource("26_lgynh")]
-position = Vector2(7989, -2009)
-rotation = -3.14159
-enemy = NodePath("enemy_small7")
-respawn_timer = 2.0
-
-[node name="enemy_small7" parent="Enemies/RespawnEnemy4" instance=ExtResource("4_fcwub")]
-rotation = 0.0
-asleep = true
-
-[node name="RespawnEnemy3" parent="Enemies" node_paths=PackedStringArray("enemy") instance=ExtResource("26_lgynh")]
-position = Vector2(8332, -2114)
-rotation = -3.14159
-enemy = NodePath("enemy_small8")
-respawn_timer = 2.0
-
-[node name="enemy_small8" parent="Enemies/RespawnEnemy3" instance=ExtResource("4_fcwub")]
-rotation = 0.0
-asleep = true
-
-[node name="RespawnEnemy" parent="Enemies" node_paths=PackedStringArray("enemy") instance=ExtResource("26_lgynh")]
-position = Vector2(4926, -2148)
-rotation = -3.14159
-enemy = NodePath("enemy_small10")
-respawn_timer = 3.0
-
-[node name="enemy_small10" parent="Enemies/RespawnEnemy" instance=ExtResource("4_fcwub")]
-position = Vector2(5, 0)
-rotation = 0.0
-asleep = true
-
-[node name="enemy_small9" parent="Enemies" instance=ExtResource("4_fcwub")]
-position = Vector2(3338, -635)
-
-[node name="EnemyMedium" parent="Enemies" instance=ExtResource("6_ubnj5")]
-position = Vector2(776, 193)
-
-[node name="EnemyMedium2" parent="Enemies" instance=ExtResource("6_ubnj5")]
-position = Vector2(2442, 198)
-
-[node name="EnemyMedium5" parent="Enemies" instance=ExtResource("6_ubnj5")]
-position = Vector2(3144, -191)
-
-[node name="EnemyMedium4" parent="Enemies" instance=ExtResource("6_ubnj5")]
-position = Vector2(1965, -343)
-
-[node name="EnemyMedium3" parent="Enemies" instance=ExtResource("6_ubnj5")]
-position = Vector2(3198, 198)
-
-[node name="EnemyMedium6" parent="Enemies" instance=ExtResource("6_ubnj5")]
-position = Vector2(3540, -1108)
-
 [node name="Lighting" type="Node2D" parent="."]
 
 [node name="SpotLight" type="PointLight2D" parent="Lighting"]
@@ -15122,6 +15041,7 @@ blend_mode = 2
 texture = SubResource("GradientTexture1D_woep0")
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting"]
+visible = false
 position = Vector2(2503.5, -366.5)
 scale = Vector2(79.2344, 30.1406)
 color = Color(1, 1, 1, 0.537255)
@@ -15154,7 +15074,9 @@ scale = Vector2(0.125, 0.125)
 position = Vector2(-11552, 0)
 
 [node name="RichTextLabel" parent="Hints/IntroHints/IntroAttack/HintPopup/Control" index="1"]
-text = "[center]Press attack to let out a BONK! If you click in quick succession, Akira will do a quick follow up attack. "
+text = "[center]Press attack to let out a BONK! 
+If you click in quick succession, Akira will do a quick follow up attack. 
+"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/IntroHints/IntroAttack"]
 shape = SubResource("RectangleShape2D_0ewsb")
@@ -15163,7 +15085,10 @@ shape = SubResource("RectangleShape2D_0ewsb")
 position = Vector2(-11552, 0)
 
 [node name="RichTextLabel" parent="Hints/IntroHints/IntroAbility1/HintPopup/Control" index="1"]
-text = "[center]Akira can hold 3 Oni Charges. These are used to power her two abilities. Akira regains a charge per enemy she defeats."
+text = "[center]Akira can hold 3 Oni Charges. These are used to power her two abilities. 
+Akira regains a charge per enemy she defeats.
+Ability 1 - Swing and send out an Oni
+Ability 2 - Use all charges for a powerful blast "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/IntroHints/IntroAbility1"]
 shape = SubResource("RectangleShape2D_0ewsb")
@@ -15451,6 +15376,102 @@ bus = &"Voice"
 stream = ExtResource("52_s80qg")
 bus = &"Voice"
 
+[node name="Riro" type="Node" parent="CutsceneAudio"]
+
+[node name="1" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("51_s6ipl")
+bus = &"Voice"
+
+[node name="2" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("52_to72j")
+bus = &"Voice"
+
+[node name="3" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("53_7tia1")
+bus = &"Voice"
+
+[node name="4" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("54_dblo3")
+bus = &"Voice"
+
+[node name="5" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("55_ucsdi")
+bus = &"Voice"
+
+[node name="6" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("56_6giox")
+bus = &"Voice"
+
+[node name="7" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("57_mdybo")
+bus = &"Voice"
+
+[node name="8" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("58_xsfxw")
+bus = &"Voice"
+
+[node name="9" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("59_oesm5")
+bus = &"Voice"
+
+[node name="10" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("60_xelrp")
+bus = &"Voice"
+
+[node name="11" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("61_v24dk")
+bus = &"Voice"
+
+[node name="12" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("62_c8i0h")
+bus = &"Voice"
+
+[node name="13" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("63_38wv6")
+bus = &"Voice"
+
+[node name="14" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("64_4dhcl")
+bus = &"Voice"
+
+[node name="15" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("65_awc34")
+bus = &"Voice"
+
+[node name="16" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("66_epevd")
+bus = &"Voice"
+
+[node name="17" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("67_ykke7")
+bus = &"Voice"
+
+[node name="18" type="AudioStreamPlayer" parent="CutsceneAudio/Riro"]
+stream = ExtResource("68_0dm7x")
+bus = &"Voice"
+
+[node name="Kaguya" type="Node" parent="CutsceneAudio"]
+
+[node name="1" type="AudioStreamPlayer" parent="CutsceneAudio/Kaguya"]
+stream = ExtResource("69_wk6f5")
+bus = &"Voice"
+
+[node name="2" type="AudioStreamPlayer" parent="CutsceneAudio/Kaguya"]
+stream = ExtResource("70_xr60f")
+bus = &"Voice"
+
+[node name="3" type="AudioStreamPlayer" parent="CutsceneAudio/Kaguya"]
+stream = ExtResource("71_th3f2")
+bus = &"Voice"
+
+[node name="4" type="AudioStreamPlayer" parent="CutsceneAudio/Kaguya"]
+stream = ExtResource("72_uvy6a")
+bus = &"Voice"
+
+[node name="5" type="AudioStreamPlayer" parent="CutsceneAudio/Kaguya"]
+stream = ExtResource("73_rqmbk")
+bus = &"Voice"
+
 [node name="BonkVFX" type="AnimatedSprite2D" parent="."]
 position = Vector2(-726, -520)
 rotation = 0.523599
@@ -15487,13 +15508,20 @@ script = ExtResource("61_87tle")
 position = Vector2(-7, 18)
 shape = SubResource("RectangleShape2D_xwmbn")
 
+[node name="DoOnceLoad" type="Area2D" parent="."]
+position = Vector2(354, -577)
+script = ExtResource("61_21i8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoOnceLoad"]
+position = Vector2(23.5, 59)
+shape = SubResource("RectangleShape2D_r60rp")
+
 [connection signal="body_entered" from="Checkpoints/FallArea" to="Checkpoints" method="_on_fall_area_body_entered"]
 [connection signal="body_entered" from="Cutscene/StartCutscene" to="Player" method="_on_start_cutscene_body_entered"]
 [connection signal="body_entered" from="Cutscene/StartCutscene" to="Cutscene/StartCutscene" method="_on_body_entered"]
 [connection signal="body_entered" from="QueueFree" to="QueueFree" method="_on_body_entered"]
+[connection signal="body_entered" from="DoOnceLoad" to="DoOnceLoad" method="_on_body_entered"]
 
-[editable path="Background"]
-[editable path="Background2"]
 [editable path="Hints/IntroHints/IntroAttack"]
 [editable path="Hints/IntroHints/IntroAbility1"]
 [editable path="Hints/IntroHints/IntroMovement"]

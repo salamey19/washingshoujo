@@ -4,9 +4,9 @@ extends Node2D
 var player : CharacterBody2D
 
 @export_category("Phase1")
-@export var barrier : Area2D
 @onready var barrier_collision: CollisionShape2D = $Phase1/Barrier/CollisionShape2D
-const PHASE_1_ENEMIES = preload("res://components/boss/phase_1_enemies.tscn")
+@onready var barrier: StaticBody2D = $Phase1/Barrier
+
 var barrier_active : bool = true
 @export var barrier_enemy1 : Node2D
 @export var barrier_enemy2 : Node2D
@@ -29,12 +29,14 @@ var attack_finished : bool = false
 var attack_cooldown : float = 3
 var attack_counter : int = 0
 
-var attacks_available : Array[bool] = [false, false, true]
+var attacks_available : Array[bool] = [true, true, true]
 
 
 func _ready() -> void:
 	Global.boss_hurt.connect(_boss_hurt)
 	CutsceneManager.start_phase1_boss.connect(phase1_start)
+	CutsceneManager.start_phase2.connect(phase2_start)
+	CutsceneManager.boss_jump.connect(phase2_jump)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -64,7 +66,7 @@ func _physics_process(delta: float) -> void:
 				await get_tree().create_timer(0.7).timeout
 				choose_attack()
 				attack_counter += 1
-			if attack_counter == 3:
+			if attack_counter == 6:
 				is_attack_phase = false
 				start_damage_phase()
 				attack_counter = 0
@@ -76,29 +78,32 @@ func _physics_process(delta: float) -> void:
 				await get_tree().create_timer(0.7).timeout
 				choose_attack()
 				attack_counter += 1
-			if attack_counter == 3:
+			if attack_counter == 7:
 				attack_counter = 0
 				is_attack_phase = false
 				start_damage_phase()
-func _input(event: InputEvent) -> void:
 
-	if event.is_action_pressed("ability2"):
-		phase2_start()
+
+
 
 
 func phase1_start():
 
 	barrier_collision.disabled = false
 	#set sprite visible
+	var PHASE_1_ENEMIES = load("res://components/boss/phase_1_enemies.tscn")
+
 	add_child(PHASE_1_ENEMIES.instantiate())
 
 
 
-
-func phase2_start():
+func phase2_jump():
 	boss.turn_off()
 	boss.jump_up()
-	await get_tree().create_timer(0.7).timeout
+
+func phase2_start():
+
+	await get_tree().create_timer(0.2).timeout
 	boss_background.visible = true
 	var tween = create_tween()
 	tween.tween_property(boss_background, "position:y", 193, 0.7)
@@ -107,9 +112,10 @@ func phase2_start():
 	landing_vfx.play()
 	await get_tree().create_timer(1.0).timeout
 	#do cutscene then start attack phase
-	CutsceneManager.play_phase2_1()
+
 	await get_tree().create_timer(1.0).timeout
 	is_attack_phase = true
+	%HealthBarOutline.show()
 
 func start_attack_phase():
 	boss.jump_up()
@@ -157,6 +163,7 @@ func _boss_hurt() -> void:
 
 func boss_death() -> void:
 	#play ending cutscene
+	%HealthBarOutline.hide()
 	CutsceneManager.play_phase2_2()
 	#end game/credits
 	#boss.queue_free()
@@ -245,4 +252,4 @@ var done : bool = false
 func _on_start_phase_2_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and !done:
 		done = true
-		phase2_start()
+		CutsceneManager.play_phase2_1()

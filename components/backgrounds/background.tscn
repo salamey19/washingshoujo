@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c8phkckr2jtv7" path="res://art/2d/Backgrounds/bg 1/6.png" id="9_gwncc"]
 [ext_resource type="Texture2D" uid="uid://boaih0fc0wrgj" path="res://art/2d/Backgrounds/bg 1/8.png" id="10_3tbjh"]
 
-[node name="Background" type="Node2D" groups=["Level1"]]
+[node name="Background" type="Node2D"]
 position = Vector2(460, -347)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
@@ -19,8 +19,8 @@ layer = -5
 offset = Vector2(0, 200)
 transform = Transform2D(1, 0, 0, 1, 0, 200)
 
-[node name="Layer1" type="Sprite2D" parent="CanvasLayer2"]
-position = Vector2(2450, -223)
+[node name="Layer1" type="Sprite2D" parent="CanvasLayer2" groups=["Level1"]]
+position = Vector2(2450, -410)
 texture = ExtResource("1_xqps1")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -33,8 +33,8 @@ scroll_base_scale = Vector2(4.308, 1.473)
 motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(-3.41, 67.435)
 
-[node name="Layer2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(-544, -1368)
+[node name="Layer2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["Level1"]]
+position = Vector2(-544, -1489)
 texture = ExtResource("2_njlwg")
 centered = false
 
@@ -48,8 +48,8 @@ scroll_base_scale = Vector2(4.308, 1.473)
 motion_scale = Vector2(0.2, 0.2)
 motion_offset = Vector2(-3.41, 67.435)
 
-[node name="Layer3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-position = Vector2(-497, -1368)
+[node name="Layer3" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer" groups=["Level1"]]
+position = Vector2(-497, -1459)
 texture = ExtResource("3_x13gy")
 centered = false
 
@@ -57,14 +57,14 @@ centered = false
 layer = -4
 follow_viewport_enabled = true
 
-[node name="Layer4" type="Sprite2D" parent="CanvasLayer4"]
-position = Vector2(2183, -212)
+[node name="Layer4" type="Sprite2D" parent="CanvasLayer4" groups=["Level1"]]
+position = Vector2(2183, -343)
 texture = ExtResource("4_inaar")
 
 [node name="CanvasLayer5" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Layer8" type="Sprite2D" parent="CanvasLayer5"]
+[node name="Layer8" type="Sprite2D" parent="CanvasLayer5" groups=["Level1"]]
 position = Vector2(-544, -1623)
 texture = ExtResource("5_afx1y")
 centered = false
@@ -72,7 +72,7 @@ centered = false
 [node name="CanvasLayer7" type="CanvasLayer" parent="."]
 layer = -3
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer7"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer7" groups=["Level1"]]
 position = Vector2(2020, -160)
 texture = ExtResource("6_31sr3")
 
@@ -80,19 +80,19 @@ texture = ExtResource("6_31sr3")
 layer = -3
 follow_viewport_enabled = true
 
-[node name="Layer6" type="Sprite2D" parent="CanvasLayer6"]
+[node name="Layer6" type="Sprite2D" parent="CanvasLayer6" groups=["Level1"]]
 position = Vector2(1942, -372.96)
 texture = ExtResource("7_iyimx")
 
-[node name="Layer7" type="Sprite2D" parent="CanvasLayer6"]
+[node name="Layer7" type="Sprite2D" parent="CanvasLayer6" groups=["Level1"]]
 position = Vector2(2309.69, -250)
 texture = ExtResource("8_33vsn")
 
-[node name="Layer5" type="Sprite2D" parent="CanvasLayer6"]
+[node name="Layer5" type="Sprite2D" parent="CanvasLayer6" groups=["Level1"]]
 position = Vector2(-420, -1451)
 texture = ExtResource("9_gwncc")
 centered = false
 
-[node name="Layer9" type="Sprite2D" parent="."]
-position = Vector2(1849.69, -25.96)
+[node name="Layer9" type="Sprite2D" parent="." groups=["Level1"]]
+position = Vector2(1709, -28)
 texture = ExtResource("10_3tbjh")

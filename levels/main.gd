@@ -9,7 +9,7 @@ func _ready() -> void:
 	player.set_physics_process(false)
 	player.in_cutscene = true
 	if !Global.intro_done:
-		CutsceneManager.play_intro()
+		CutsceneManager.play_cinematic()
 	else:
 		player.set_process_input(true)
 		player.set_physics_process(true)

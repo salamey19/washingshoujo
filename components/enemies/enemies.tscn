@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://oax3c34sdcr4"]
+
+[ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/eye_enemy/eye_enemy.tscn" id="1_ydqk8"]
+[ext_resource type="PackedScene" uid="uid://b15rxaq80jsmp" path="res://components/enemies/respawn_enemy.tscn" id="2_mi04r"]
+[ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="3_jpt1s"]
+
+[node name="Enemies" type="Node2D" groups=["Level1"]]
+
+[node name="enemy_small" parent="." instance=ExtResource("1_ydqk8")]
+position = Vector2(3209, -1328)
+
+[node name="enemy_small2" parent="." instance=ExtResource("1_ydqk8")]
+position = Vector2(2015, -102)
+
+[node name="enemy_small6" parent="." instance=ExtResource("1_ydqk8")]
+position = Vector2(2357, -395)
+
+[node name="enemy_small3" parent="." instance=ExtResource("1_ydqk8")]
+position = Vector2(3706, -343)
+
+[node name="RespawnEnemy2" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("2_mi04r")]
+position = Vector2(7028, -1776)
+rotation = -3.14159
+enemy = NodePath("enemy_small5")
+respawn_timer = 3.0
+
+[node name="enemy_small5" parent="RespawnEnemy2" instance=ExtResource("1_ydqk8")]
+rotation = 0.0
+asleep = true
+
+[node name="RespawnEnemy4" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("2_mi04r")]
+position = Vector2(7989, -2009)
+rotation = -3.14159
+enemy = NodePath("enemy_small7")
+respawn_timer = 2.0
+
+[node name="enemy_small7" parent="RespawnEnemy4" instance=ExtResource("1_ydqk8")]
+rotation = 0.0
+asleep = true
+
+[node name="RespawnEnemy3" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("2_mi04r")]
+position = Vector2(8332, -2114)
+rotation = -3.14159
+enemy = NodePath("enemy_small8")
+respawn_timer = 2.0
+
+[node name="enemy_small8" parent="RespawnEnemy3" instance=ExtResource("1_ydqk8")]
+rotation = 0.0
+asleep = true
+
+[node name="RespawnEnemy" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("2_mi04r")]
+position = Vector2(4926, -2148)
+rotation = -3.14159
+enemy = NodePath("enemy_small10")
+respawn_timer = 3.0
+
+[node name="enemy_small10" parent="RespawnEnemy" instance=ExtResource("1_ydqk8")]
+position = Vector2(5, 0)
+rotation = 0.0
+asleep = true
+
+[node name="enemy_small9" parent="." instance=ExtResource("1_ydqk8")]
+position = Vector2(3338, -635)
+
+[node name="EnemyMedium" parent="." instance=ExtResource("3_jpt1s")]
+position = Vector2(776, 193)
+
+[node name="EnemyMedium2" parent="." instance=ExtResource("3_jpt1s")]
+position = Vector2(2442, 198)
+
+[node name="EnemyMedium5" parent="." instance=ExtResource("3_jpt1s")]
+position = Vector2(3144, -191)
+
+[node name="EnemyMedium4" parent="." instance=ExtResource("3_jpt1s")]
+position = Vector2(1965, -343)
+
+[node name="EnemyMedium3" parent="." instance=ExtResource("3_jpt1s")]
+position = Vector2(3198, 198)
+
+[node name="EnemyMedium6" parent="." instance=ExtResource("3_jpt1s")]
+position = Vector2(3540, -1108)

@@ -1,6 +1,7 @@
 ~ Phase1Start
 
 do color_riro()
+do play_audio.emit(1, 14)
 Riro: Akira, be careful! 
 
 do color_akira()
@@ -8,6 +9,7 @@ do play_audio.emit(0, 5)
 Akira: You! …. You won’t get away with this!
 
 do color_kaguya()
+do play_audio.emit(2, 1)
 Kaguya: HAHAHAHA, IT WON’T BE LONG BEFORE YOU SERVE ME.
 
 do player_falls_phase1()
@@ -17,13 +19,15 @@ do player_falls_phase1()
 ~ Phase1End
 
 do color_riro()
-Riro: Akira, Remember that she’s still “human!”(idk if we consider them human) 
+do play_audio.emit(1, 15)
+Riro: Akira, remember that she’s still “human!”
 
 do play_audio.emit(0, 6)
 do color_akira()
 Akira: I know!
 
 do color_kaguya()
+do play_audio.emit(2, 2)
 Kaguya: FEEL THE WRATH OF MY ARMY
 
 do player_falls2()

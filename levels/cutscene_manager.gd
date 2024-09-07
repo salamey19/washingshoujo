@@ -8,7 +8,8 @@ signal start_phase1_cutscene
 signal play_audio
 signal show_sprites
 signal start_phase1_boss
-
+signal start_phase2
+signal boss_jump
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +19,19 @@ func _ready() -> void:
 
 var player : CharacterBody2D
 
-func play_intro() -> void:
+func play_cinematic() -> void:
 	player = get_tree().get_first_node_in_group("Player")
+	player.in_cutscene = true
+	balloon = BALLOON.instantiate()
+	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(load("res://cutscenes/intro.dialogue"), "Cinematic")
+	player.set_process_input(false)
+	player.set_physics_process(false)
+	await DialogueManager.dialogue_ended
+	play_intro()
+
+func play_intro() -> void:
 	player.in_cutscene = true
 	balloon = BALLOON.instantiate()
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
@@ -72,7 +84,9 @@ func _physics_process(_delta: float) -> void:
 		play_phase1_2()
 	if on_wait_player_phase1_2 and player.is_on_floor():
 		on_wait_player_phase1_2 = false
-		player.set_physics_process(false)
+		player.in_cutscene = false
+		player.set_process_input(true)
+		player.set_physics_process(true)
 		start_phase1_boss.emit()
 
 
@@ -86,7 +100,7 @@ func player_falls() -> void:
 func player_falls2() -> void:
 	player.set_physics_process(true)
 	player.set_collision_mask_value(1, false)
-	await get_tree().create_timer(1.2).timeout
+	await get_tree().create_timer(1.3).timeout
 	on_wait_player_phase1_2 = true
 	player.set_collision_mask_value(1, true)
 
@@ -95,7 +109,7 @@ func player_falls_phase1() -> void:
 	var boss = get_tree().get_first_node_in_group("Boss")
 	boss.enemy_sprite.play("jump_down")
 	var tween = create_tween()
-	tween.tween_property(boss, "position:y", 1532, 1.5)
+	tween.tween_property(boss, "position:y", -77, 1.5)
 	await get_tree().create_timer(1.0).timeout
 	boss.enemy_sprite.play("idle")
 	player.set_physics_process(true)
@@ -179,9 +193,7 @@ func play_phase1_2() -> void:
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/phase1.dialogue"), "Phase1End")
 	await DialogueManager.dialogue_ended
-	player.in_cutscene = false
-	player.set_process_input(true)
-	player.set_physics_process(true)
+
 
 
 	#get_tree().get_first_node_in_group("Main").add_child(BOSS_FIGHT.instantiate())

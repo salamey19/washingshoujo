@@ -5,7 +5,7 @@ signal enemy_defeated
 signal player_hurt
 signal boss_hurt
 signal bonk
-var intro_done : bool = false
+var intro_done : bool = true
 
 ## Whether or not the app is currently focused.
 var is_app_focused : bool = true
@@ -16,10 +16,12 @@ const TEST_LEVEL = preload("res://levels/test_level.tscn")
 #restart level on death? if has checkpoint respawn there
 func restart_level() -> void:
 	get_tree().change_scene_to_packed(TEST_LEVEL)
+	pass
 
 func start_game() -> void:
 
 	get_tree().change_scene_to_packed(TEST_LEVEL)
+	pass
 
 
 
