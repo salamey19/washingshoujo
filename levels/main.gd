@@ -14,3 +14,8 @@ func _ready() -> void:
 		player.set_process_input(true)
 		player.set_physics_process(true)
 		player.in_cutscene = false
+	CutsceneManager.play_outro.connect(_outro)
+
+func _outro() -> void:
+	if %Transition:
+		%Transition.play("fade_in")

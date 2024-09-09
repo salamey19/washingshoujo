@@ -7,9 +7,9 @@ func _ready() -> void:
 
 
 func _show_sprites(akira :bool = false, riro : bool = false, kaguya : bool = false, hide_all : bool = false) -> void:
+
+	$Akira.visible = akira
+	$Kaguya.visible = kaguya
 	if hide_all:
 		$Akira.visible = false
-	if akira:
-		$Akira.visible = true
-	else:
-		$Akira.visible = false
+		$Kaguya.visible = false

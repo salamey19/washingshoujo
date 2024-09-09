@@ -31,6 +31,7 @@ var attack_counter : int = 0
 
 var attacks_available : Array[bool] = [true, true, true]
 
+@onready var boss_music: AudioStreamPlayer = $BossMusic
 
 func _ready() -> void:
 	Global.boss_hurt.connect(_boss_hurt)
@@ -91,9 +92,7 @@ func phase1_start():
 
 	barrier_collision.disabled = false
 	#set sprite visible
-	var PHASE_1_ENEMIES = load("res://components/boss/phase_1_enemies.tscn")
 
-	add_child(PHASE_1_ENEMIES.instantiate())
 
 
 
@@ -115,6 +114,7 @@ func phase2_start():
 
 	await get_tree().create_timer(1.0).timeout
 	is_attack_phase = true
+	boss_music.play()
 	%HealthBarOutline.show()
 
 func start_attack_phase():
@@ -163,6 +163,7 @@ func _boss_hurt() -> void:
 
 func boss_death() -> void:
 	#play ending cutscene
+	boss_music.stop()
 	%HealthBarOutline.hide()
 	CutsceneManager.play_phase2_2()
 	#end game/credits

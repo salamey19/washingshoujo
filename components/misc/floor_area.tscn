@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgakgcnkf6ng4"]
+
+[ext_resource type="Script" path="res://levels/floor_type.gd" id="1_sqatl"]
+
+[node name="FloorArea" type="Area2D"]
+script = ExtResource("1_sqatl")
+floor_type = "WATER"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

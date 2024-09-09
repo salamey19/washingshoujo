@@ -55,6 +55,9 @@ var combo_speed : float = 0
 
 var is_transformed : bool = false
 
+#voice
+@onready var hurt_voice: AudioStreamPlayer2D = $Voice/Hurt
+@onready var death_voice: AudioStreamPlayer2D = $Voice/Death
 
 
 #Abilities
@@ -89,18 +92,18 @@ func _input(event: InputEvent) -> void:
 		#has_jump = false
 
 	#handling character flipping
-
-	if event.is_action_pressed("move_right") and is_left:
-		is_left = false
-		print("right")
-		weapon.scale.x = -1
-		#animated_sprite.flip_h = true
-	if event.is_action_pressed("move_left") and !is_left:
-		if scale.x != -1:
-			is_left = true
-			print("scale")
-			#weapon.scale.x = -1
-			#animated_sprite.flip_h = false
+	if !in_cutscene:
+		if event.is_action_pressed("move_right") and is_left:
+			is_left = false
+			print("right")
+			weapon.scale.x = -1
+			#animated_sprite.flip_h = true
+		if event.is_action_pressed("move_left") and !is_left:
+			if scale.x != -1:
+				is_left = true
+				print("scale")
+				#weapon.scale.x = -1
+				#animated_sprite.flip_h = false
 
 
 
@@ -139,12 +142,12 @@ func _physics_process(delta: float) -> void:
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
 
-	if direction > 0 and !animated_sprite.flip_h:
+	if direction > 0 and !animated_sprite.flip_h and !in_cutscene:
 		vfx.flip_h = true
 		vfx.position.x = absf(vfx.position.x)
 		animated_sprite.flip_h = true
 		weapon.scale.x = 1
-	if direction < 0 and animated_sprite.flip_h:
+	if direction < 0 and animated_sprite.flip_h and !in_cutscene:
 		vfx.flip_h = false
 
 		vfx.position.x = absf(vfx.position.x) * -1
@@ -152,7 +155,7 @@ func _physics_process(delta: float) -> void:
 		weapon.scale.x = -1
 
 	if !is_dashing:
-		if direction and !using_ability:
+		if direction and !using_ability and !in_cutscene:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -212,13 +215,17 @@ func hurt() -> void:
 	if current_lives < 1:
 		death()
 	else:
+		hurt_voice.play()
 		var kb_direction = -1
 		if is_left:
 			kb_direction = 1
 
 		get_tree().get_first_node_in_group("Camera").camera_shake(10)
-		var kb = (Vector2(500 * kb_direction, 500) - velocity).normalized() * kb_force
-		velocity.x = kb.x
+
+		if is_on_floor():
+			var kb = (Vector2(1000 * kb_direction, 20 * kb_direction) - velocity).normalized() * kb_force
+			velocity.x = kb.x
+
 		print(velocity)
 		animated_sprite.play("hurt")
 		animation_player.play("flash_red")
@@ -235,7 +242,14 @@ func hurt() -> void:
 		can_be_hurt = true
 
 func death():
+	animated_sprite.play("hurt")
+	in_cutscene = true
 	print("death")
+	death_voice.play()
+	if %Transition:
+		%Transition.play("fade_in")
+	await death_voice.finished
+	in_cutscene = false
 	Global.restart_level()
 
 func lock_player() -> void:

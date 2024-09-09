@@ -3,11 +3,13 @@ class_name PlayerDash
 
 @onready var dash_sfx: AudioStreamPlayer = $"../../DashSFX"
 
+@onready var dash_voice: AudioStreamPlayer2D = $"../../Voice/Dash"
 
 func Enter():
 	player.animated_sprite.play("dash_start")
 	dash_sfx.play()
 	await player.animated_sprite.animation_finished
+	dash_voice.play()
 	player.animated_sprite.play("dash")
 	player.has_dash = false
 	dash()
@@ -35,7 +37,8 @@ func Physics_Update(delta : float):
 		player.dash_timer += delta
 
 	if player.is_dashing and player.dash_timer >= player.dash_time_max:
-
+		if player.is_hurt:
+			Transitioned.emit(self, "hurt")
 		if !player.is_on_floor():
 			Transitioned.emit(self, "falling")
 
@@ -75,7 +78,6 @@ func Handle_Input(event: InputEvent):
 
 
 func dash() -> void:
-		#dash stuff, should be able to dash once on every beat
 	print("dash")
 	player.is_dashing = true
 

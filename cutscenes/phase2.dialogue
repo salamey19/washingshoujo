@@ -5,6 +5,8 @@ do play_audio.emit(1, 16)
 Riro: W-what’s happening? 
 
 do color_akira()
+do play_audio.emit(0, 7)
+do show_sprites.emit(true)
 Akira:  What!? 
 
 do boss_jump.emit()
@@ -15,8 +17,10 @@ Riro: Look up!
 
 do color_kaguya()
 do play_audio.emit(2, 3)
+do show_sprites.emit(true, false, true)
 Kaguya:  HAHAHA, DON’T GET SCARED NOW.
 
+do show_sprites.emit()
 do start_phase2.emit()
 
 => END
@@ -25,14 +29,17 @@ do start_phase2.emit()
 
 do color_kaguya()
 do play_audio.emit(2, 4)
+do show_sprites.emit(false, false, true)
 Kaguya: I-I’m sorry, I didn’t mean for it to go this far. 
 
 do color_akira()
-do play_audio.emit(0, 6)
+do play_audio.emit(0, 8)
+do show_sprites.emit(true, false, true)
 Akira: You need to say sorry to a lot more than just us. 
 
 do color_kaguya()
 do play_audio.emit(2, 5)
+do show_sprites.emit(true, false, true)
 Kaguya: I’m sorry my little ones. (spoken with sadness)
 
 do color_riro()
@@ -41,7 +48,9 @@ Riro: Thankfully it worked out in the end
 
 
 do color_akira()
-do play_audio.emit(0, 8)
+do play_audio.emit(0, 9)
+do show_sprites.emit(true)
 Akira: I’m tired. 
 
+do show_sprites.emit()
 => END

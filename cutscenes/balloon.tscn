@@ -62,7 +62,7 @@ MarginContainer/constants/margin_top = 15
 Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1pc7"]
-bg_color = Color(0, 0, 0, 0.811765)
+bg_color = Color(0, 0, 0, 1)
 
 [node name="ExampleBalloon" type="CanvasLayer"]
 layer = 100
@@ -122,6 +122,18 @@ size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("3_eai2v")
 text = "Dialogue..."
 seconds_per_step = 0.06
+
+[node name="Background" type="ColorRect" parent="Balloon"]
+process_mode = 3
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.215686)
 
 [node name="Responses" type="MarginContainer" parent="Balloon"]
 layout_mode = 1

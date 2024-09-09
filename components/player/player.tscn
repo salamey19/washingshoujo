@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://bgoiy1vdujhr"]
+[gd_scene load_steps=169 format=3 uid="uid://bgoiy1vdujhr"]
 
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_vyv0g"]
 [ext_resource type="Texture2D" uid="uid://x5gmglkthoof" path="res://art/2d/player/Finished idle/Idle_1-1.png" id="2_drps4"]
@@ -110,6 +110,30 @@
 [ext_resource type="Texture2D" uid="uid://dlac7wamdgv0g" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-2.png" id="103_q2qg2"]
 [ext_resource type="AudioStream" uid="uid://ekkytjbq640a" path="res://art/sfx/NewSFX2/BEAM!.wav" id="104_1ratk"]
 [ext_resource type="Texture2D" uid="uid://kl0pqinx60ww" path="res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-3.png" id="104_alrkq"]
+[ext_resource type="AudioStream" uid="uid://h56ca62g0xff" path="res://art/Dialouge/Akira/efforts/akira-jump-1.wav" id="110_fkw25"]
+[ext_resource type="AudioStream" uid="uid://chio1relrrwoy" path="res://art/sfx/NewSFX/STPWTR.wav" id="110_prhu7"]
+[ext_resource type="AudioStream" uid="uid://b6ckl87tpyofg" path="res://art/Dialouge/Akira/efforts/akira-jump-2.wav" id="111_e82a8"]
+[ext_resource type="AudioStream" uid="uid://50sabbyrybj4" path="res://art/sfx/NewSFX/STPROCK.wav" id="111_oqc6s"]
+[ext_resource type="AudioStream" uid="uid://b7cjm3kwbxqey" path="res://art/Dialouge/Akira/efforts/akira-jump-3.wav" id="112_ti5cr"]
+[ext_resource type="AudioStream" uid="uid://lr0khcdgmr5q" path="res://art/sfx/NewSFX/STPMETAL.wav" id="112_vbow7"]
+[ext_resource type="AudioStream" uid="uid://do7d6tacr3382" path="res://art/sfx/NewSFX/STPCCT.wav" id="113_3ikvi"]
+[ext_resource type="AudioStream" uid="uid://bpjitt0l865gq" path="res://art/Dialouge/Akira/efforts/akira-jump-4.wav" id="113_r2wbx"]
+[ext_resource type="AudioStream" uid="uid://nxv4s82c40rk" path="res://art/Dialouge/Akira/efforts/akira-happy-laugh-1.wav" id="114_mhu5c"]
+[ext_resource type="AudioStream" uid="uid://clb2k14abp88d" path="res://art/Dialouge/Akira/efforts/akira-happy-laugh-2.wav" id="115_bdyi4"]
+[ext_resource type="AudioStream" uid="uid://bo2d54c01cxh3" path="res://art/Dialouge/Akira/efforts/akira-happy-laugh-3.wav" id="116_bcsrd"]
+[ext_resource type="AudioStream" uid="uid://bpllxl7bo44cu" path="res://art/Dialouge/Akira/efforts/akira-hurt-light-3.wav" id="117_hu1jt"]
+[ext_resource type="AudioStream" uid="uid://csxvgh6q1s27r" path="res://art/Dialouge/Akira/efforts/akira-dash-1.wav" id="117_iv6rr"]
+[ext_resource type="AudioStream" uid="uid://byvw6d27w6j4" path="res://art/Dialouge/Akira/efforts/akira-hurt-light-2.wav" id="118_icvd8"]
+[ext_resource type="AudioStream" uid="uid://bwk1o7blcp0e1" path="res://art/Dialouge/Akira/efforts/akira-dash-2.wav" id="118_tbf5k"]
+[ext_resource type="AudioStream" uid="uid://d2ylmyol5m40g" path="res://art/Dialouge/Akira/efforts/akira-angry-groan-1.wav" id="119_lbp70"]
+[ext_resource type="AudioStream" uid="uid://cysy2438njaja" path="res://art/Dialouge/Akira/efforts/akira-dash-3.wav" id="119_np7id"]
+[ext_resource type="AudioStream" uid="uid://rex6y271g6hx" path="res://art/Dialouge/Akira/efforts/akira-hurt-light-4.wav" id="120_abk1v"]
+[ext_resource type="AudioStream" uid="uid://dmb7x2p3erky3" path="res://art/Dialouge/Akira/efforts/akira-dash-4.wav" id="120_t0t18"]
+[ext_resource type="AudioStream" uid="uid://sfjr3q5nggs0" path="res://art/Dialouge/Akira/efforts/akira-hurt-med-4.wav" id="121_6hdxk"]
+[ext_resource type="AudioStream" uid="uid://bftdvunpetwhe" path="res://art/Dialouge/Akira/efforts/akira-hurt-gameover-1.wav" id="121_w454g"]
+[ext_resource type="AudioStream" uid="uid://dnbuur5udytkd" path="res://art/Dialouge/Akira/efforts/akira-hurt-gameover-2.wav" id="122_sebp0"]
+[ext_resource type="AudioStream" uid="uid://f46dtxbvm0s1" path="res://art/Dialouge/Akira/efforts/akira-hurt-light-1.wav" id="122_svj2i"]
+[ext_resource type="AudioStream" uid="uid://c4lyintks7bje" path="res://art/Dialouge/Akira/efforts/akira-hurt-gameover-3.wav" id="123_8cj2f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iew1x"]
 radius = 34.0
@@ -260,10 +284,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.5,
+"duration": 0.5,
 "texture": ExtResource("9_psnhx")
 }, {
-"duration": 1.5,
+"duration": 0.5,
 "texture": ExtResource("10_wabcn")
 }],
 "loop": true,
@@ -1072,6 +1096,61 @@ random_pitch = 1.3
 streams_count = 1
 stream_0/stream = ExtResource("70_hetaw")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cc4qb"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("110_prhu7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_coxk0"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("111_oqc6s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_px5em"]
+random_pitch = 1.05
+streams_count = 1
+stream_0/stream = ExtResource("112_vbow7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_hrlg6"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("113_3ikvi")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c84nw"]
+streams_count = 4
+stream_0/stream = ExtResource("110_fkw25")
+stream_1/stream = ExtResource("111_e82a8")
+stream_2/stream = ExtResource("112_ti5cr")
+stream_3/stream = ExtResource("113_r2wbx")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_77fnv"]
+streams_count = 3
+stream_0/stream = ExtResource("114_mhu5c")
+stream_1/stream = ExtResource("115_bdyi4")
+stream_2/stream = ExtResource("116_bcsrd")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1dqre"]
+streams_count = 4
+stream_0/stream = ExtResource("117_iv6rr")
+stream_1/stream = ExtResource("118_tbf5k")
+stream_2/stream = ExtResource("119_np7id")
+stream_3/stream = ExtResource("120_t0t18")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6ue2d"]
+streams_count = 3
+stream_0/stream = ExtResource("121_w454g")
+stream_1/stream = ExtResource("122_sebp0")
+stream_2/stream = ExtResource("123_8cj2f")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_erlxw"]
+streams_count = 6
+stream_0/stream = ExtResource("117_hu1jt")
+stream_1/stream = ExtResource("118_icvd8")
+stream_2/stream = ExtResource("119_lbp70")
+stream_3/stream = ExtResource("120_abk1v")
+stream_4/stream = ExtResource("121_6hdxk")
+stream_5/stream = ExtResource("122_svj2i")
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gacld"]
 random_pitch = 1.4
 streams_count = 1
@@ -1145,8 +1224,7 @@ flip_h = true
 position = Vector2(0, 3.8147e-06)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_va6oa")
-animation = &"idle"
-frame_progress = 0.0629315
+animation = &"dash"
 flip_h = true
 
 [node name="VFX" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
@@ -1247,6 +1325,44 @@ bus = &"Effects"
 [node name="Ability2SFX" type="AudioStreamPlayer2D" parent="SFX"]
 stream = ExtResource("104_1ratk")
 bus = &"Effects"
+
+[node name="Steps" type="Node2D" parent="SFX"]
+
+[node name="Water" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = SubResource("AudioStreamRandomizer_cc4qb")
+bus = &"Effects"
+
+[node name="Rock" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = SubResource("AudioStreamRandomizer_coxk0")
+bus = &"Effects"
+
+[node name="Metal" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = SubResource("AudioStreamRandomizer_px5em")
+
+[node name="Concrete" type="AudioStreamPlayer2D" parent="SFX/Steps"]
+stream = SubResource("AudioStreamRandomizer_hrlg6")
+
+[node name="Voice" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Voice"]
+stream = SubResource("AudioStreamRandomizer_c84nw")
+bus = &"Voice"
+
+[node name="Happy" type="AudioStreamPlayer2D" parent="Voice"]
+stream = SubResource("AudioStreamRandomizer_77fnv")
+bus = &"Voice"
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="Voice"]
+stream = SubResource("AudioStreamRandomizer_1dqre")
+bus = &"Voice"
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Voice"]
+stream = SubResource("AudioStreamRandomizer_6ue2d")
+bus = &"Voice"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Voice"]
+stream = SubResource("AudioStreamRandomizer_erlxw")
+bus = &"Voice"
 
 [node name="DashSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_gacld")

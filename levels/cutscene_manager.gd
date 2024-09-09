@@ -10,6 +10,7 @@ signal show_sprites
 signal start_phase1_boss
 signal start_phase2
 signal boss_jump
+signal play_outro
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,6 +24,7 @@ func play_cinematic() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	player.in_cutscene = true
 	balloon = BALLOON.instantiate()
+
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	get_tree().current_scene.add_child(balloon)
 	balloon.start(load("res://cutscenes/intro.dialogue"), "Cinematic")
@@ -67,6 +69,7 @@ func play_intro4() -> void:
 	player.set_process_input(false)
 	player.set_physics_process(true)
 	player.in_cutscene = false
+	Global.intro_done = true
 
 
 
@@ -113,6 +116,7 @@ func player_falls_phase1() -> void:
 	await get_tree().create_timer(1.0).timeout
 	boss.enemy_sprite.play("idle")
 	player.set_physics_process(true)
+	player.in_cutscene = true
 	player.set_collision_mask_value(1, false)
 	await get_tree().create_timer(1.5).timeout
 	on_wait_player_phase1 = true
@@ -188,24 +192,34 @@ func move_player() -> void:
 
 #const BOSS_FIGHT = preload("res://levels/boss_fight.tscn")
 func play_phase1_2() -> void:
+	player.in_cutscene = true
+	player.set_process_input(false)
 	balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/phase1.dialogue"), "Phase1End")
 	await DialogueManager.dialogue_ended
-
+	player.in_cutscene = true
+	player.set_process_input(true)
 
 
 	#get_tree().get_first_node_in_group("Main").add_child(BOSS_FIGHT.instantiate())
 
 func play_phase2_1() -> void:
+	player.in_cutscene = true
+	player.set_process_input(false)
 	balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/phase2.dialogue"), "Phase2Start")
 	await DialogueManager.dialogue_ended
+	player.in_cutscene = false
+	player.set_process_input(true)
 
 func play_phase2_2() -> void:
+	player.in_cutscene = true
+	player.set_process_input(false)
+	play_outro.emit()
 	balloon = BALLOON.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)

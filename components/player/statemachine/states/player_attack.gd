@@ -3,6 +3,7 @@ class_name PlayerAttack
 
 var is_attacking : bool = false
 @onready var attack_sfx: AudioStreamPlayer2D = $"../../SFX/AttackSFX"
+@onready var happy_voice: AudioStreamPlayer2D = $"../../Voice/Happy"
 
 var delta_temp : float
 
@@ -21,6 +22,7 @@ func Enter():
 	player.using_ability = true
 	is_attacking = true
 	player.velocity.y = 0
+	happy_voice.play()
 	player.animated_sprite.play("basic_attack")
 	player.abilities_animation_player.play("basic_attack")
 	attack_sfx.play()

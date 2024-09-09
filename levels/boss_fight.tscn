@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=4 uid="uid://clfu10k5s3xdi"]
+[gd_scene load_steps=127 format=4 uid="uid://clfu10k5s3xdi"]
 
 [ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="1_yikws"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="2_5fx5r"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://x7k3a5cc8ckq" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-10.png" id="38_d060w"]
 [ext_resource type="Texture2D" uid="uid://b2kk1seh3lksb" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-11.png" id="39_at6pe"]
 [ext_resource type="Texture2D" uid="uid://s7lpget7o5o0" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-12.png" id="40_5ducg"]
+[ext_resource type="AudioStream" uid="uid://1u0sc5xjvmab" path="res://art/music/big fight_2.wav" id="46_gllrg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n4y4g"]
 radius = 559.151
@@ -14609,6 +14610,10 @@ position = Vector2(0, -190)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StartPhase2"]
 position = Vector2(10, 82)
 shape = SubResource("RectangleShape2D_4mcg2")
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("46_gllrg")
+bus = &"Music"
 
 [connection signal="timeout" from="Phase2/CanvasLayer/HealthBarOutline/HealthBar/Timer" to="Phase2/CanvasLayer/HealthBarOutline/HealthBar" method="_on_timer_timeout"]
 [connection signal="body_entered" from="StartPhase2" to="." method="_on_start_phase_2_body_entered"]

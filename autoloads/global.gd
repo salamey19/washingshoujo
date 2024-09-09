@@ -5,13 +5,15 @@ signal enemy_defeated
 signal player_hurt
 signal boss_hurt
 signal bonk
-var intro_done : bool = true
+signal player_floor_sound
+
+var intro_done : bool = false
 
 ## Whether or not the app is currently focused.
 var is_app_focused : bool = true
 
 const TEST_LEVEL = preload("res://levels/test_level.tscn")
-
+const MAIN_MENU = preload("res://scenes/start_menu.tscn")
 
 #restart level on death? if has checkpoint respawn there
 func restart_level() -> void:
@@ -23,7 +25,10 @@ func start_game() -> void:
 	get_tree().change_scene_to_packed(TEST_LEVEL)
 	pass
 
-
+func main_menu() -> void:
+	get_tree().change_scene_to_packed(MAIN_MENU)
+	await get_tree().root.ready
+	%Transition.play("fade_out")
 
 
 ## Convert events into user-readable text.

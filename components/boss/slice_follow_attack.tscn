@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cq43ijrifvhjf"]
+[gd_scene load_steps=32 format=3 uid="uid://cq43ijrifvhjf"]
 
 [ext_resource type="Shader" path="res://art/shaders/outline.gdshader" id="1_4tj5r"]
 [ext_resource type="Script" path="res://components/boss/slice_follow_attack.gd" id="1_hufet"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c781o2l0gcvph" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-3.png" id="15_tx0sp"]
 [ext_resource type="Texture2D" uid="uid://bw8ji1he8pkkw" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-4.png" id="16_31fy0"]
 [ext_resource type="Texture2D" uid="uid://c3rg2grsbkusm" path="res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-5.png" id="17_y2tdq"]
+[ext_resource type="AudioStream" uid="uid://7tyb0njiweby" path="res://art/sfx/cutshort.wav" id="19_0d3tk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u08t0"]
 shader = ExtResource("1_4tj5r")
@@ -249,6 +250,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [Vector2(-0.00358582, 14.7753)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AttackSFX:playing")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_nep7g"]
 resource_name = "attack1"
@@ -325,6 +338,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-248, -214), Vector2(-0.00358582, 14.7753), Vector2(73, 74)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AttackSFX:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.566667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_hlw4g"]
 resource_name = "attack2"
@@ -365,6 +390,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackSFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_77dhh"]
 resource_name = "attack3"
@@ -404,6 +441,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackSFX:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.466667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o6fe6"]
@@ -471,3 +520,6 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_o6fe6")
 }
+
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_0d3tk")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://blmavqoarhqwd"]
 
-[ext_resource type="Texture2D" uid="uid://y0mlf1ehfih7" path="res://art/2d/Backgrounds/final bg 3/1.png" id="1_eyres"]
+[ext_resource type="Texture2D" uid="uid://chnpjy5dcs5fp" path="res://art/2d/Backgrounds/final bg 3/1-min.png" id="1_epky7"]
 [ext_resource type="Texture2D" uid="uid://bvsbfije2u6g3" path="res://art/2d/Backgrounds/final bg 3/3.png" id="2_wmijo"]
 [ext_resource type="Texture2D" uid="uid://bq0n5hvy6ywxj" path="res://art/2d/Backgrounds/final bg 3/4.png" id="3_kad0g"]
 [ext_resource type="Texture2D" uid="uid://qqf4tdunxycv" path="res://art/2d/Backgrounds/final bg 3/6.png" id="4_xyn0e"]
@@ -21,7 +21,7 @@ follow_viewport_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(10529, -184)
-texture = ExtResource("1_eyres")
+texture = ExtResource("1_epky7")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -5

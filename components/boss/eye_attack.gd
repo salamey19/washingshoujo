@@ -7,6 +7,7 @@ extends Node2D
 @onready var marker3: Marker2D = $pivot/Marker3
 
 @onready var ray_cast: RayCast2D = $pivot/RayCast2D
+@onready var attack_sfx: AudioStreamPlayer2D = $AttackSFX
 
 var phase1 : bool = true
 var phase2 : bool = true
@@ -16,6 +17,7 @@ var timer : float = 0
 const EYE_PROJECTILE = preload("res://components/boss/eye_projectile.tscn")
 
 func attack() -> void:
+
 	animation_player.play("attack")
 
 
@@ -35,6 +37,7 @@ func spawn_projectile() -> void:
 	projectile.global_transform = marker.global_transform
 	projectile.global_position = marker.position
 	add_child(projectile)
+	attack_sfx.play()
 	if phase2:
 		var projectile2 = EYE_PROJECTILE.instantiate()
 		projectile2.global_transform = marker2.global_transform

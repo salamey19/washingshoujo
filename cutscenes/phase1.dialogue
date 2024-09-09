@@ -6,12 +6,15 @@ Riro: Akira, be careful!
 
 do color_akira()
 do play_audio.emit(0, 5)
+do show_sprites.emit(true)
 Akira: You! …. You won’t get away with this!
 
 do color_kaguya()
 do play_audio.emit(2, 1)
+do show_sprites.emit(true, false, true)
 Kaguya: HAHAHAHA, IT WON’T BE LONG BEFORE YOU SERVE ME.
 
+do show_sprites.emit()
 do player_falls_phase1()
 
 => END
@@ -24,12 +27,15 @@ Riro: Akira, remember that she’s still “human!”
 
 do play_audio.emit(0, 6)
 do color_akira()
+do show_sprites.emit(true)
 Akira: I know!
 
 do color_kaguya()
 do play_audio.emit(2, 2)
+do show_sprites.emit(true, false, true)
 Kaguya: FEEL THE WRATH OF MY ARMY
 
+do show_sprites.emit()
 do player_falls2()
 
 => END

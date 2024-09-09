@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://chhjtihuvlj27"]
+[gd_scene load_steps=41 format=3 uid="uid://chhjtihuvlj27"]
 
 [ext_resource type="Texture2D" uid="uid://b3hvha83wykyv" path="res://art/2d/enemies/boss/Final idle/Boss_idle_1-1.png" id="1_0orf8"]
 [ext_resource type="Script" path="res://components/enemies/boss/boss.gd" id="1_qxgy7"]
@@ -28,6 +28,11 @@
 [ext_resource type="AudioStream" uid="uid://c3oulodxc4ic0" path="res://art/sfx/NewSFX2/BOSSELECTRIC.wav" id="26_wovq8"]
 [ext_resource type="AudioStream" uid="uid://ccnfym10o1qtp" path="res://art/sfx/NewSFX2/BOSSROCK.wav" id="27_okp3l"]
 [ext_resource type="PackedScene" uid="uid://b37ihixhmavi6" path="res://components/enemies/hitbox_component.tscn" id="28_mxkdi"]
+[ext_resource type="AudioStream" uid="uid://bq7ebitlrhesm" path="res://art/Dialouge/kaguya/efforts/kaguya-jump-1.wav" id="29_m13ol"]
+[ext_resource type="AudioStream" uid="uid://bxjoewf0r7cop" path="res://art/Dialouge/kaguya/efforts/kaguya-jump-2.wav" id="30_up5lu"]
+[ext_resource type="AudioStream" uid="uid://cjtl4h8dl4i70" path="res://art/Dialouge/kaguya/efforts/kaguya-jump-3.wav" id="31_hjt38"]
+[ext_resource type="AudioStream" uid="uid://bo1yje3kqlamj" path="res://art/Dialouge/kaguya/efforts/kaguya-jump-4.wav" id="32_x35ib"]
+[ext_resource type="AudioStream" uid="uid://dniylau65ivku" path="res://art/Dialouge/kaguya/efforts/kaguya-jump-5.wav" id="33_3o423"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a5dbc"]
 animations = [{
@@ -191,6 +196,14 @@ _data = {
 radius = 47.0
 height = 154.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8hucf"]
+streams_count = 5
+stream_0/stream = ExtResource("29_m13ol")
+stream_1/stream = ExtResource("30_up5lu")
+stream_2/stream = ExtResource("31_hjt38")
+stream_3/stream = ExtResource("32_x35ib")
+stream_4/stream = ExtResource("33_3o423")
+
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_qxgy7")
 
@@ -236,3 +249,9 @@ is_boss = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CapsuleShape2D_vcp6q")
+
+[node name="Voice" type="Node2D" parent="."]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Voice"]
+stream = SubResource("AudioStreamRandomizer_8hucf")
+bus = &"Voice"

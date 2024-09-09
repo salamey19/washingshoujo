@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxwolm4rerjvs"]
+[gd_scene load_steps=5 format=3 uid="uid://debi6no3upt5e"]
 
 [ext_resource type="Shader" path="res://art/shaders/basic_blur.gdshader" id="1_cl66b"]
 [ext_resource type="Theme" uid="uid://pv1ab5fawy4f" path="res://resources/settings.tres" id="2_rlcxp"]
@@ -76,6 +76,15 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 alignment = 2
 
+[node name="Main Menu" type="Button" parent="MarginContainer/VBoxContainer/Footer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Main Menu"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/Footer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Reset" type="Button" parent="MarginContainer/VBoxContainer/Footer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
@@ -84,7 +93,8 @@ text = "Reset Settings"
 [node name="Close" type="Button" parent="MarginContainer/VBoxContainer/Footer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-text = "Return"
+text = "Resume"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Footer/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Footer/HBoxContainer/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Footer/HBoxContainer/Close" to="." method="_on_close_pressed"]

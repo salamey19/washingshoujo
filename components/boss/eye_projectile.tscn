@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwy7kwqvujbb1"]
+[gd_scene load_steps=5 format=3 uid="uid://dwy7kwqvujbb1"]
 
 [ext_resource type="Script" path="res://components/boss/eye_projectile.gd" id="1_sj4r0"]
+[ext_resource type="Texture2D" uid="uid://bcrumwgix71mi" path="res://art/2d/player/ONI charges/green.png" id="2_uyj16"]
+[ext_resource type="Texture2D" uid="uid://boeqivp5uwauw" path="res://art/Solid_white.png" id="3_wpdq3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j7jn4"]
 radius = 29.0172
@@ -17,6 +19,16 @@ one_shot = true
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+clip_children = 1
+position = Vector2(110, 38)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("2_uyj16")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+clip_children = 2
+position = Vector2(-262.069, -100)
+scale = Vector2(1.32902, 1.31106)
+texture = ExtResource("3_wpdq3")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

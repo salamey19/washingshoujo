@@ -1,10 +1,13 @@
-[gd_scene load_steps=178 format=4 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=203 format=4 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_3wg1a"]
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
+[ext_resource type="PackedScene" uid="uid://cgakgcnkf6ng4" path="res://components/misc/floor_area.tscn" id="9_a5r50"]
 [ext_resource type="Script" path="res://components/camera/camera.gd" id="13_4f1gs"]
 [ext_resource type="Texture2D" uid="uid://cgheqvc6d33sm" path="res://art/2d/TalkingSprites/AkriaTalkingSprite.png" id="14_0wawe"]
 [ext_resource type="Script" path="res://cutscenes/talking_sprites.gd" id="14_2owoh"]
+[ext_resource type="PackedScene" uid="uid://hhjv2vowd6gb" path="res://components/menu/pausemenu.tscn" id="14_sikhj"]
+[ext_resource type="Texture2D" uid="uid://bnxm2o1jrxrh" path="res://art/2d/enemies/boss/background/boss-1.png" id="16_kkbu8"]
 [ext_resource type="Shader" path="res://art/shaders/godrays.gdshader" id="18_7bbeh"]
 [ext_resource type="PackedScene" uid="uid://dxyi7khgjp0v0" path="res://components/riro/riro.tscn" id="19_llrsb"]
 [ext_resource type="AudioStream" uid="uid://ci8jdtrrcccb5" path="res://art/music/little fight.wav" id="24_4f8kf"]
@@ -46,9 +49,10 @@
 [ext_resource type="AudioStream" uid="uid://bhr564hwo6s7" path="res://art/Dialouge/Akira/akira-dialogue-6.wav" id="50_f5bqe"]
 [ext_resource type="Texture2D" uid="uid://ddmml3fqg2u6b" path="res://art/2d/platforms/Platforms level 3/Untitled_Artwork-8.png" id="50_o3wxr"]
 [ext_resource type="AudioStream" uid="uid://dqgyg7crg5u6o" path="res://art/Dialouge/Akira/akira-dialogue-7.wav" id="51_6wt0i"]
+[ext_resource type="AudioStream" uid="uid://wgkhlevu5wi6" path="res://art/Dialouge/Akira/akira-dialogue-9.wav" id="51_gbaw3"]
 [ext_resource type="AudioStream" uid="uid://bkerdyvbeu6tw" path="res://art/Dialouge/riro/riro-dialogue-1.wav" id="51_s6ipl"]
 [ext_resource type="Texture2D" uid="uid://dkdha28dm7s52" path="res://art/2d/UI/Hearts/Untitled_Artwork-1.png" id="52_avi5q"]
-[ext_resource type="AudioStream" uid="uid://wgkhlevu5wi6" path="res://art/Dialouge/Akira/akira-dialogue-8.wav" id="52_s80qg"]
+[ext_resource type="AudioStream" uid="uid://cqn0wuya4ais6" path="res://art/Dialouge/Akira/akira-dialogue-8.wav" id="52_s80qg"]
 [ext_resource type="AudioStream" uid="uid://bdc7kld0lfx7y" path="res://art/Dialouge/riro/riro-dialogue-2.wav" id="52_to72j"]
 [ext_resource type="AudioStream" uid="uid://0lcque1lhuwo" path="res://art/Dialouge/riro/riro-dialogue-3.wav" id="53_7tia1"]
 [ext_resource type="AudioStream" uid="uid://c4encyp2nx7jc" path="res://art/Dialouge/riro/riro-dialogue-4.wav" id="54_dblo3"]
@@ -79,6 +83,7 @@
 [ext_resource type="AudioStream" uid="uid://cad5m7saxo8yq" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-3.wav" id="71_th3f2"]
 [ext_resource type="AudioStream" uid="uid://ts2n0b5e38x6" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-4.wav" id="72_uvy6a"]
 [ext_resource type="AudioStream" uid="uid://ddb4e4isho034" path="res://art/Dialouge/kaguya/dialogue/kaguya-dialogue-5.wav" id="73_rqmbk"]
+[ext_resource type="Script" path="res://components/boss/load_enemies.gd" id="84_mm6cv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8l8x7"]
 size = Vector2(632.39, 541.875)
@@ -98,6 +103,57 @@ shader = ExtResource("31_fvo7k")
 shader_parameter/water_color = Color(0.705882, 0.823529, 0.878431, 0)
 shader_parameter/wave_noise = SubResource("NoiseTexture2D_en2lt")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ert14"]
+size = Vector2(4655, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gw6k"]
+size = Vector2(214, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8u8yj"]
+size = Vector2(60, 121)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uh3cu"]
+size = Vector2(214, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rljdt"]
+size = Vector2(314, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ng2ok"]
+size = Vector2(350, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jy3l"]
+size = Vector2(139, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qarm7"]
+size = Vector2(83.5, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50qmg"]
+size = Vector2(222, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w13kd"]
+size = Vector2(544, 46.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syx6g"]
+size = Vector2(878, 99.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ovxf"]
+size = Vector2(820, 398.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bo31n"]
+size = Vector2(193, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvo0y"]
+size = Vector2(244, 70.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnhfo"]
+size = Vector2(349, 70.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2l41g"]
+size = Vector2(592.5, 491.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnngc"]
+size = Vector2(375, 109.813)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn7ws"]
 size = Vector2(207, 1766.25)
 
@@ -112,6 +168,9 @@ size = Vector2(275, 6735)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_61s0x"]
 size = Vector2(681, 3898)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p51x7"]
+size = Vector2(115, 782)
 
 [sub_resource type="Gradient" id="Gradient_wp3wg"]
 colors = PackedColorArray(0.905882, 0.282353, 0.145098, 1, 0, 0, 0, 1)
@@ -14648,6 +14707,9 @@ size = Vector2(496, 371)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk3n7"]
 size = Vector2(4869, 444)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1302"]
+size = Vector2(542, 985)
+
 [sub_resource type="Animation" id="Animation_5wa3y"]
 length = 0.001
 tracks/0/type = "value"
@@ -14685,7 +14747,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4ur0"]
-size = Vector2(190, 430)
+size = Vector2(405, 430)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3kkk7"]
 animations = [{
@@ -14760,10 +14822,13 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwmbn"]
-size = Vector2(195, 184)
+size = Vector2(195, 391)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r60rp"]
 size = Vector2(255, 138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32x4v"]
+size = Vector2(777, 165)
 
 [node name="MainLevel" type="Node2D" groups=["Main"]]
 script = ExtResource("1_3wg1a")
@@ -14774,7 +14839,7 @@ scale = Vector2(0.125, 0.125)
 collision_layer = 0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
-position = Vector2(9303, -2167)
+position = Vector2(457, -508)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -14829,6 +14894,197 @@ z_index = -1
 position = Vector2(5042, -1655)
 texture = ExtResource("50_o3wxr")
 
+[node name="FloorArea" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(1728, 685)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea"]
+position = Vector2(546.5, 49)
+shape = SubResource("RectangleShape2D_ert14")
+
+[node name="FloorArea2" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(1728, 429)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea2"]
+position = Vector2(3, 39.5)
+shape = SubResource("RectangleShape2D_2gw6k")
+
+[node name="FloorArea12" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(1335, 568)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea12"]
+position = Vector2(3, -46)
+shape = SubResource("RectangleShape2D_8u8yj")
+
+[node name="FloorArea3" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(3068, 275)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea3"]
+position = Vector2(3, 39.5)
+shape = SubResource("RectangleShape2D_uh3cu")
+
+[node name="FloorArea4" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(3886, 111)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea4"]
+position = Vector2(3, 39.5)
+shape = SubResource("RectangleShape2D_uh3cu")
+
+[node name="FloorArea5" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(4143, -1060)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea5"]
+position = Vector2(3, 39.5)
+shape = SubResource("RectangleShape2D_uh3cu")
+
+[node name="FloorArea6" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(7295, -1335)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea6"]
+position = Vector2(3, 39.5)
+shape = SubResource("RectangleShape2D_uh3cu")
+
+[node name="FloorArea7" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(8547, -1614)
+floor_type = "CONCRETE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea7"]
+position = Vector2(3, 39.5)
+shape = SubResource("RectangleShape2D_uh3cu")
+
+[node name="FloorArea8" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(1260, 259)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea8"]
+position = Vector2(18, 55)
+shape = SubResource("RectangleShape2D_rljdt")
+
+[node name="FloorArea15" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(3695, -675)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea15"]
+position = Vector2(0, 55)
+shape = SubResource("RectangleShape2D_ng2ok")
+
+[node name="FloorArea9" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(2776, 192)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea9"]
+position = Vector2(-42, 42)
+shape = SubResource("RectangleShape2D_3jy3l")
+
+[node name="FloorArea10" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(2452, 198)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea10"]
+position = Vector2(-14.25, 42)
+shape = SubResource("RectangleShape2D_qarm7")
+
+[node name="FloorArea11" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(2580, 195)
+floor_type = "METAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea11"]
+position = Vector2(-9, 28)
+shape = SubResource("RectangleShape2D_50qmg")
+
+[node name="FloorArea19" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(5404, -1747)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea19"]
+position = Vector2(-42, 42)
+shape = SubResource("RectangleShape2D_3jy3l")
+
+[node name="FloorArea20" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(5080, -1741)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea20"]
+position = Vector2(-14.25, 42)
+shape = SubResource("RectangleShape2D_qarm7")
+
+[node name="FloorArea21" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(5208, -1744)
+floor_type = "METAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea21"]
+position = Vector2(-9, 28)
+shape = SubResource("RectangleShape2D_50qmg")
+
+[node name="FloorArea13" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(1909, 139)
+floor_type = "METAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea13"]
+position = Vector2(-9, 26.25)
+shape = SubResource("RectangleShape2D_w13kd")
+
+[node name="FloorArea22" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(6049, -1128)
+floor_type = "METAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea22"]
+position = Vector2(19, 38.25)
+shape = SubResource("RectangleShape2D_syx6g")
+
+[node name="FloorArea14" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(4368, -482)
+floor_type = "METAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea14"]
+position = Vector2(-26, 121.313)
+shape = SubResource("RectangleShape2D_5ovxf")
+
+[node name="FloorArea16" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(4368, -482)
+floor_type = "METAL"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea16"]
+position = Vector2(-762.5, -435.5)
+shape = SubResource("RectangleShape2D_bo31n")
+
+[node name="FloorArea17" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(4938, -1213)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea17"]
+position = Vector2(-22, 32)
+shape = SubResource("RectangleShape2D_uvo0y")
+
+[node name="FloorArea18" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(4332, -1378)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea18"]
+position = Vector2(-1.5, 32)
+shape = SubResource("RectangleShape2D_lnhfo")
+
+[node name="FloorArea23" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(5661, -1363)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea23"]
+position = Vector2(124.75, -203)
+shape = SubResource("RectangleShape2D_2l41g")
+
+[node name="FloorArea24" parent="Floors" instance=ExtResource("9_a5r50")]
+position = Vector2(9195, -1363)
+floor_type = "ROCK"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/FloorArea24"]
+position = Vector2(94.5, -217)
+shape = SubResource("RectangleShape2D_dnngc")
+
 [node name="Borders" type="Node2D" parent="."]
 
 [node name="Wall" type="StaticBody2D" parent="Borders"]
@@ -14882,8 +15138,16 @@ position = Vector2(11833, 2385)
 position = Vector2(339.5, -1527.5)
 shape = SubResource("RectangleShape2D_61s0x")
 
+[node name="Border" type="StaticBody2D" parent="Borders"]
+position = Vector2(8995, -2100)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Border"]
+position = Vector2(47.5, -286)
+shape = SubResource("RectangleShape2D_p51x7")
+disabled = true
+
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(9303, -2167)
+position = Vector2(457, -508)
 zoom = Vector2(0.9, 0.9)
 limit_smoothed = true
 script = ExtResource("13_4f1gs")
@@ -14998,6 +15262,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_2owoh")
 
+[node name="Background" type="ColorRect" parent="CanvasLayer/TalkingSprites"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.321569)
+
+[node name="Kaguya" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
+visible = false
+layout_mode = 0
+offset_left = 374.0
+offset_top = -21.0
+offset_right = 3882.0
+offset_bottom = 2459.0
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("16_kkbu8")
+
 [node name="Akira" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
 visible = false
 layout_mode = 1
@@ -15014,12 +15298,6 @@ scale = Vector2(0.305, 0.305)
 texture = ExtResource("14_0wawe")
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
 visible = false
 layout_mode = 0
 offset_right = 40.0
@@ -15097,7 +15375,7 @@ shape = SubResource("RectangleShape2D_0ewsb")
 position = Vector2(5488, 4144)
 
 [node name="RichTextLabel" parent="Hints/IntroHints/IntroMovement/HintPopup/Control" index="1"]
-text = "[center] Note!!!! Akira can only dash 1 time and double jump until they touch the ground again. However! Getting a kill while in air well reset this allowing Akira to juggle herself. "
+text = "[center] Note!!!! Akira can only dash and double jump 1 time  until they touch the ground again. However! Getting a kill while in air well reset this allowing Akira to juggle herself. "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/IntroHints/IntroMovement"]
 position = Vector2(248, 108)
@@ -15205,7 +15483,7 @@ change_zoom = true
 camera_zoom = Vector2(0.7, 0.7)
 change_limits = true
 right_limit = 12070
-left_limit = 9130
+left_limit = 7985
 top_limit = -2630
 bottom_limit = 2855
 
@@ -15271,7 +15549,7 @@ change_limits = true
 right_limit = 9025
 left_limit = 3000
 top_limit = -2630
-bottom_limit = -985
+bottom_limit = -1075
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTransitions/CameraTransitions"]
 position = Vector2(-1117, 252.5)
@@ -15301,6 +15579,13 @@ position = Vector2(6214, -1113)
 position = Vector2(827.5, -12)
 shape = SubResource("RectangleShape2D_uk3n7")
 
+[node name="FallArea2" type="Area2D" parent="Checkpoints"]
+position = Vector2(6214, -1113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/FallArea2"]
+position = Vector2(3174, -282.5)
+shape = SubResource("RectangleShape2D_p1302")
+
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("42_s1k1y")]
 position = Vector2(4391, -1833)
 
@@ -15308,7 +15593,7 @@ position = Vector2(4391, -1833)
 position = Vector2(6072, -1583)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("42_s1k1y")]
-position = Vector2(3678, -1113)
+position = Vector2(3696, -1102)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Checkpoints"]
 libraries = {
@@ -15336,7 +15621,7 @@ position = Vector2(1215, -34)
 script = ExtResource("68_up2f5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cutscene/StartCutscene"]
-position = Vector2(66, -87)
+position = Vector2(-41.5, -87)
 shape = SubResource("RectangleShape2D_a4ur0")
 
 [node name="CutsceneAudio" type="Node2D" parent="."]
@@ -15374,6 +15659,10 @@ bus = &"Voice"
 
 [node name="8" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("52_s80qg")
+bus = &"Voice"
+
+[node name="9" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
+stream = ExtResource("51_gbaw3")
 bus = &"Voice"
 
 [node name="Riro" type="Node" parent="CutsceneAudio"]
@@ -15500,12 +15789,13 @@ libraries = {
 }
 autoplay = "fade_out"
 
-[node name="QueueFree" type="Area2D" parent="."]
+[node name="QueueFree" type="Area2D" parent="." node_paths=PackedStringArray("border")]
 position = Vector2(9312, -2179)
 script = ExtResource("61_87tle")
+border = NodePath("../Borders/Border")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="QueueFree"]
-position = Vector2(-7, 18)
+position = Vector2(-7, -85.5)
 shape = SubResource("RectangleShape2D_xwmbn")
 
 [node name="DoOnceLoad" type="Area2D" parent="."]
@@ -15516,11 +15806,27 @@ script = ExtResource("61_21i8c")
 position = Vector2(23.5, 59)
 shape = SubResource("RectangleShape2D_r60rp")
 
+[node name="Pause" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 4
+
+[node name="PauseMenu" parent="Pause" instance=ExtResource("14_sikhj")]
+
+[node name="LoadEnemies" type="Area2D" parent="."]
+position = Vector2(9906, 2172)
+script = ExtResource("84_mm6cv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadEnemies"]
+position = Vector2(-57, 324)
+shape = SubResource("RectangleShape2D_32x4v")
+
 [connection signal="body_entered" from="Checkpoints/FallArea" to="Checkpoints" method="_on_fall_area_body_entered"]
+[connection signal="body_entered" from="Checkpoints/FallArea2" to="Checkpoints" method="_on_fall_area_body_entered"]
 [connection signal="body_entered" from="Cutscene/StartCutscene" to="Player" method="_on_start_cutscene_body_entered"]
 [connection signal="body_entered" from="Cutscene/StartCutscene" to="Cutscene/StartCutscene" method="_on_body_entered"]
 [connection signal="body_entered" from="QueueFree" to="QueueFree" method="_on_body_entered"]
 [connection signal="body_entered" from="DoOnceLoad" to="DoOnceLoad" method="_on_body_entered"]
+[connection signal="body_entered" from="LoadEnemies" to="LoadEnemies" method="_on_body_entered"]
 
 [editable path="Hints/IntroHints/IntroAttack"]
 [editable path="Hints/IntroHints/IntroAbility1"]

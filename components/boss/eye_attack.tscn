@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpcjomy4hfq0d"]
+[gd_scene load_steps=16 format=3 uid="uid://cpcjomy4hfq0d"]
 
 [ext_resource type="Script" path="res://components/boss/eye_attack.gd" id="1_0kger"]
 [ext_resource type="Texture2D" uid="uid://d36qlxhcg6ggl" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-1.png" id="1_idoy4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3qvk3lmv5a31" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-7.png" id="7_o8ald"]
 [ext_resource type="Texture2D" uid="uid://sjtj0xxnpxw7" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-8.png" id="8_r4c5y"]
 [ext_resource type="Texture2D" uid="uid://cc2lg485nr7ly" path="res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-9.png" id="9_ydeip"]
+[ext_resource type="AudioStream" uid="uid://bwij45bgymtkd" path="res://art/sfx/KnifeThrow_boss.wav" id="11_x2lrp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gxotn"]
 animations = [{
@@ -152,3 +153,7 @@ rotation = -2.0944
 rotation = 1.5708
 target_position = Vector2(15, 0)
 collision_mask = 0
+
+[node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_x2lrp")
+volume_db = -13.19

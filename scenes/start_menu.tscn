@@ -1,7 +1,13 @@
-[gd_scene load_steps=24 format=3 uid="uid://crxc1ipwpgjq4"]
+[gd_scene load_steps=42 format=3 uid="uid://crxc1ipwpgjq4"]
 
 [ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_o4y3m"]
 [ext_resource type="Theme" uid="uid://dclc58tp2cvc1" path="res://resources/start_menu.tres" id="2_34jyx"]
+[ext_resource type="AudioStream" uid="uid://cwl2g4shubuul" path="res://art/Dialouge/Akira/efforts/akira-title-4.wav" id="3_8inf0"]
+[ext_resource type="AudioStream" uid="uid://dq44cynyx7i8g" path="res://art/Dialouge/kaguya/efforts/kaguya-title-3.wav" id="4_83t0v"]
+[ext_resource type="AudioStream" uid="uid://tgt5msqqkqgn" path="res://art/Dialouge/riro/riro-title-3.wav" id="5_fpmw2"]
+[ext_resource type="AudioStream" uid="uid://c8kyto35tqlsf" path="res://art/sfx/NewSFX/menu select.wav" id="6_exf3k"]
+[ext_resource type="AudioStream" uid="uid://bjkwwhxkxo1ed" path="res://art/sfx/NewSFX/hoover.wav" id="6_l81r2"]
+[ext_resource type="AudioStream" uid="uid://cnf7200oyjitl" path="res://art/music/menuwith drm.wav" id="8_sliyk"]
 
 [sub_resource type="Gradient" id="Gradient_lwfy3"]
 colors = PackedColorArray(0.320654, 0.10602, 0.109112, 1, 0.100507, 0.055327, 0.171835, 1)
@@ -120,6 +126,28 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6gkai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4q5fk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4at4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ek4i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mhbqb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu6j5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljo23"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phv44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sx5ui"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hhr0g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b6e2n"]
+
 [sub_resource type="Animation" id="Animation_4tut8"]
 length = 0.001
 tracks/0/type = "value"
@@ -172,7 +200,14 @@ _data = {
 "fade_out": SubResource("Animation_0x34a")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_k67fi"]
+streams_count = 3
+stream_0/stream = ExtResource("3_8inf0")
+stream_1/stream = ExtResource("4_83t0v")
+stream_2/stream = ExtResource("5_fpmw2")
+
 [node name="StartMenu" type="Node"]
+process_mode = 3
 script = ExtResource("1_o4y3m")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -248,6 +283,30 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_bg7cw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_kvdpo")
 text = "Quit"
 
+[node name="CheckBox" type="CheckBox" parent="Root/Main"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.384
+anchor_right = 0.222
+anchor_bottom = 0.432
+offset_left = -0.216003
+offset_top = 0.167999
+offset_right = 0.255981
+offset_bottom = 0.0639954
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6gkai")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_4q5fk")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v4at4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6ek4i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mhbqb")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tu6j5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ljo23")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_phv44")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_sx5ui")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hhr0g")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b6e2n")
+text = "Skip intro"
+
 [node name="Credits" type="Control" parent="Root"]
 visible = false
 layout_mode = 2
@@ -309,6 +368,7 @@ text = "Return"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -322,10 +382,31 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_efyk6")
 }
-autoplay = "fade_out"
 
+[node name="TitleVoice" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_k67fi")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_exf3k")
+bus = &"Effects"
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l81r2")
+volume_db = -9.846
+bus = &"Effects"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sliyk")
+volume_db = 8.615
+bus = &"Music"
+
+[connection signal="mouse_entered" from="Root/Main/MarginContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="Root/Main/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_mouse_entered"]
 [connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="Root/Main/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="mouse_entered" from="Root/Main/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="Root/Main/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="toggled" from="Root/Main/CheckBox" to="." method="_on_check_box_toggled"]
 [connection signal="pressed" from="Root/Credits/Footer/HBoxContainer/CreditsClose" to="." method="_on_credits_close_pressed"]

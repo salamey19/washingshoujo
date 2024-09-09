@@ -18,12 +18,8 @@ var config_structure : Dictionary = {
 			.set_options({"button_type": 3, "max": 100, "step": 1}),
 		ConfigSetting.new("effects", 75)\
 			.set_options({"button_type": 3, "max": 100, "step": 1}),
-		ConfigSetting.new("interface", 75)\
-			.set_options({"button_type": 3, "max": 100, "step": 1}),
-		ConfigSetting.new("beat_offset", 0)\
-			.set_options({"button_type": 3, "min": -10, "max": 10, "step": 0.01})\
-			.set_description("The time offset from a beat.")
-
+		ConfigSetting.new("voice", 75)\
+			.set_options({"button_type": 3, "max": 100, "step": 1})
 	],
 	"keyboard": [
 		ConfigSetting.new("kbd_move_left", [KEY_A, KEY_NONE])\
@@ -42,24 +38,6 @@ var config_structure : Dictionary = {
 			.set_options({"button_type": 10, "display_text": "Ability 1"}),
 		ConfigSetting.new("kbd_ability2", [KEY_G, KEY_NONE])\
 			.set_options({"button_type": 10, "display_text": "Ability 2"})
-	],
-	"controller": [
-		ConfigSetting.new("ctrlr_move_left", [JOY_AXIS_LEFT_X, "axis", -1])\
-			.set_options({"button_type": 11, "display_text": "Move Left"}),
-		ConfigSetting.new("ctrlr_move_right", [JOY_AXIS_LEFT_X, "axis", 1])\
-			.set_options({"button_type": 11, "display_text": "Move Right"}),
-		ConfigSetting.new("ctrlr_move_down", [JOY_AXIS_LEFT_Y, "axis", 1])\
-			.set_options({"button_type": 11, "display_text": "Move Down"}),
-		ConfigSetting.new("ctrlr_jump", [JOY_BUTTON_A, "btn"])\
-			.set_options({"button_type": 11, "display_text": "Jump"}),
-		ConfigSetting.new("ctrlr_dash", [JOY_BUTTON_LEFT_SHOULDER, "btn"])\
-			.set_options({"button_type": 11, "display_text": "Dash"}),
-		ConfigSetting.new("ctrlr_attack", [JOY_BUTTON_X, "btn"])\
-			.set_options({"button_type": 11, "display_text": "Attack"}),
-		ConfigSetting.new("ctrlr_ability1", [JOY_BUTTON_Y, "btn"])\
-			.set_options({"button_type": 11, "display_text": "Ability 1"}),
-		ConfigSetting.new("ctrlr_ability2", [JOY_BUTTON_B, "btn"])\
-			.set_options({"button_type": 11, "display_text": "Ability 2"})
 	]
 }
 

@@ -2,11 +2,13 @@ extends State
 class_name PlayerJump
 
 var is_jumping : bool = false
+@onready var jump_voice: AudioStreamPlayer2D = $"../../Voice/Jump"
 
 func Enter():
 
 	player.animated_sprite.play("jump_up")
 	is_jumping = true
+	jump_voice.play()
 	player.velocity.y = player.JUMP_VELOCITY
 	player.spawn_afterimage()
 

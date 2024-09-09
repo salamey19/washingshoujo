@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cnf7200oyjitl"
+path="res://.godot/imported/menuwith drm.wav-3d47d406c64496bc389b87fb3cfef865.sample"
+
+[deps]
+
+source_file="res://art/music/menuwith drm.wav"
+dest_files=["res://.godot/imported/menuwith drm.wav-3d47d406c64496bc389b87fb3cfef865.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
