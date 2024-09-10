@@ -25,6 +25,7 @@ func _ready() -> void:
 	$TitleVoice.play()
 	await $TitleVoice.finished
 	$MenuMusic.play()
+	Global.boss_checkpoint_met = false
 
 	#color_rect.visible = false
 

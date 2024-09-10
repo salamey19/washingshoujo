@@ -6,6 +6,8 @@ signal player_hurt
 signal boss_hurt
 signal bonk
 signal player_floor_sound
+signal boss_fight_ready
+var boss_checkpoint_met : bool = false
 
 var intro_done : bool = false
 

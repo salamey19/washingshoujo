@@ -14,6 +14,9 @@ func move_forward(amount : float) -> void:
 
 func Physics_Update(delta: float):
 	delta_temp = delta
+	if player.is_hurt:
+		Transitioned.emit(self, "hurt")
+
 
 #deal damage
 func Enter():
@@ -40,6 +43,7 @@ func Enter():
 		Transitioned.emit(self, "falling")
 	else:
 		Transitioned.emit(self, "idle")
+
 
 func Handle_Input(event: InputEvent):
 	if event.is_action_pressed("attack") and !is_attacking:

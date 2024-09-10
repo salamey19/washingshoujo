@@ -245,6 +245,8 @@ volume_db = 18.965
 bus = &"Effects"
 
 [node name="HitboxComponent" parent="." groups=["Enemy"] instance=ExtResource("28_mxkdi")]
+monitoring = false
+monitorable = false
 is_boss = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]

@@ -17,6 +17,8 @@ position = Vector2(791, 604)
 
 [node name="EnemyMedium" parent="." instance=ExtResource("2_yncua")]
 position = Vector2(-368, 1079)
+scale = Vector2(-1, 1)
 
 [node name="EnemyMedium2" parent="." instance=ExtResource("2_yncua")]
 position = Vector2(312, 1084)
+scale = Vector2(-1, 1)

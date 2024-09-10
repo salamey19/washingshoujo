@@ -14455,7 +14455,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mcg2"]
 size = Vector2(548, 184)
 
-[node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss", "barrier_enemy1", "barrier_enemy2")]
+[node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss", "barrier_enemy1", "barrier_enemy2") groups=["BossFight"]]
 position = Vector2(10691, 1604)
 script = ExtResource("1_yikws")
 boss = NodePath("Boss")

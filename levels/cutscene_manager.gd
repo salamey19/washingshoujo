@@ -206,6 +206,7 @@ func play_phase1_2() -> void:
 	#get_tree().get_first_node_in_group("Main").add_child(BOSS_FIGHT.instantiate())
 
 func play_phase2_1() -> void:
+	player = get_tree().get_first_node_in_group("Player")
 	player.in_cutscene = true
 	player.set_process_input(false)
 	balloon = BALLOON.instantiate()

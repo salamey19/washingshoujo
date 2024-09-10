@@ -85,6 +85,8 @@ var in_cutscene : bool = false
 func _ready() -> void:
 	Global.enemy_defeated.connect(on_enemy_defeated)
 	current_lives = MAX_LIVES
+	if Global.boss_checkpoint_met:
+		position = Vector2(9877, 2496)
 
 func _input(event: InputEvent) -> void:
 

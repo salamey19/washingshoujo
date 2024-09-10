@@ -38,6 +38,7 @@ func _ready() -> void:
 	CutsceneManager.start_phase1_boss.connect(phase1_start)
 	CutsceneManager.start_phase2.connect(phase2_start)
 	CutsceneManager.boss_jump.connect(phase2_jump)
+	Global.boss_fight_ready.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -89,7 +90,7 @@ func _physics_process(delta: float) -> void:
 
 
 func phase1_start():
-
+	Global.boss_checkpoint_met = true
 	barrier_collision.disabled = false
 	#set sprite visible
 
@@ -168,6 +169,7 @@ func boss_death() -> void:
 	CutsceneManager.play_phase2_2()
 	#end game/credits
 	#boss.queue_free()
+
 
 var rng = RandomNumberGenerator.new()
 func choose_attack() -> void:
