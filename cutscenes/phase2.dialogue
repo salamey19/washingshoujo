@@ -2,6 +2,7 @@
 
 do color_riro()
 do play_audio.emit(1, 16)
+do show_sprites.emit(false, true)
 Riro: W-what’s happening? 
 
 do color_akira()
@@ -13,6 +14,7 @@ do boss_jump.emit()
 
 do color_riro()
 do play_audio.emit(1, 17)
+do show_sprites.emit(true, true)
 Riro: Look up! 
 
 do color_kaguya()
@@ -44,6 +46,7 @@ Kaguya: I’m sorry my little ones. (spoken with sadness)
 
 do color_riro()
 do play_audio.emit(1, 18)
+do show_sprites.emit(true, true)
 Riro: Thankfully it worked out in the end
 
 

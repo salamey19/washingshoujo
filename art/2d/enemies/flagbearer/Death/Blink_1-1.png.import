@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/Blink_1-1.png-ad0dd35aae9852966b1848f8ebc0e08
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

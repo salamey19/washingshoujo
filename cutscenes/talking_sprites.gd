@@ -10,6 +10,8 @@ func _show_sprites(akira :bool = false, riro : bool = false, kaguya : bool = fal
 
 	$Akira.visible = akira
 	$Kaguya.visible = kaguya
+	$Riro.visible = riro
 	if hide_all:
 		$Akira.visible = false
 		$Kaguya.visible = false
+		$Riro.visible = false

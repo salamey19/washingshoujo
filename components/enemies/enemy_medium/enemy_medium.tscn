@@ -306,9 +306,11 @@ shape = SubResource("RectangleShape2D_end8p")
 
 [node name="AttackSFX" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_tlp6y")
+bus = &"Effects"
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_agt46")
+bus = &"Effects"
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
 [connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

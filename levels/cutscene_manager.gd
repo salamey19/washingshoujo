@@ -70,6 +70,7 @@ func play_intro4() -> void:
 	player.set_physics_process(true)
 	player.in_cutscene = false
 	Global.intro_done = true
+	get_tree().get_first_node_in_group("Main").music.play()
 
 
 

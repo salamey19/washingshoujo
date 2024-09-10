@@ -2,6 +2,7 @@
 
 do color_riro()
 do play_audio.emit(1, 14)
+do show_sprites.emit(false, true)
 Riro: Akira, be careful! 
 
 do color_akira()
@@ -23,6 +24,7 @@ do player_falls_phase1()
 
 do color_riro()
 do play_audio.emit(1, 15)
+do show_sprites.emit(false, true)
 Riro: Akira, remember that she’s still “human!”
 
 do play_audio.emit(0, 6)

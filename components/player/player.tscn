@@ -1338,9 +1338,11 @@ bus = &"Effects"
 
 [node name="Metal" type="AudioStreamPlayer2D" parent="SFX/Steps"]
 stream = SubResource("AudioStreamRandomizer_px5em")
+bus = &"Effects"
 
 [node name="Concrete" type="AudioStreamPlayer2D" parent="SFX/Steps"]
 stream = SubResource("AudioStreamRandomizer_hrlg6")
+bus = &"Effects"
 
 [node name="Voice" type="Node2D" parent="."]
 
@@ -1364,8 +1366,9 @@ bus = &"Voice"
 stream = SubResource("AudioStreamRandomizer_erlxw")
 bus = &"Voice"
 
-[node name="DashSFX" type="AudioStreamPlayer" parent="."]
+[node name="DashSFX" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_gacld")
+bus = &"Effects"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(0, -2)

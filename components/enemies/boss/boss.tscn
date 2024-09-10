@@ -254,6 +254,6 @@ shape = SubResource("CapsuleShape2D_vcp6q")
 
 [node name="Voice" type="Node2D" parent="."]
 
-[node name="Jump" type="AudioStreamPlayer2D" parent="Voice"]
+[node name="JumpVoice" type="AudioStreamPlayer2D" parent="Voice"]
 stream = SubResource("AudioStreamRandomizer_8hucf")
 bus = &"Voice"

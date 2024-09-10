@@ -39,6 +39,8 @@ func _ready() -> void:
 	CutsceneManager.start_phase2.connect(phase2_start)
 	CutsceneManager.boss_jump.connect(phase2_jump)
 	Global.boss_fight_ready.emit()
+	get_tree().get_first_node_in_group("BossFallArea").get_child(0).disabled = true
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -115,6 +117,7 @@ func phase2_start():
 
 	await get_tree().create_timer(1.0).timeout
 	is_attack_phase = true
+	get_tree().get_first_node_in_group("BossFallArea").get_child(0).disabled = false
 	boss_music.play()
 	%HealthBarOutline.show()
 

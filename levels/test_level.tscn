@@ -1,4 +1,4 @@
-[gd_scene load_steps=205 format=4 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=207 format=4 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_3wg1a"]
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://cutscenes/talking_sprites.gd" id="14_2owoh"]
 [ext_resource type="PackedScene" uid="uid://hhjv2vowd6gb" path="res://components/menu/pausemenu.tscn" id="14_sikhj"]
 [ext_resource type="Texture2D" uid="uid://bnxm2o1jrxrh" path="res://art/2d/enemies/boss/background/boss-1.png" id="16_kkbu8"]
+[ext_resource type="Texture2D" uid="uid://brs15rkyi7ylu" path="res://art/2d/TalkingSprites/Untitled_Artwork.png" id="18_5jrmj"]
 [ext_resource type="Shader" path="res://art/shaders/godrays.gdshader" id="18_7bbeh"]
 [ext_resource type="PackedScene" uid="uid://dxyi7khgjp0v0" path="res://components/riro/riro.tscn" id="19_llrsb"]
 [ext_resource type="AudioStream" uid="uid://ci8jdtrrcccb5" path="res://art/music/little fight.wav" id="24_4f8kf"]
@@ -14711,6 +14712,9 @@ size = Vector2(4869, 444)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p1302"]
 size = Vector2(542, 985)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu8vl"]
+size = Vector2(2459, 534)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3py2"]
 size = Vector2(769, 226)
 
@@ -14834,16 +14838,17 @@ size = Vector2(255, 138)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32x4v"]
 size = Vector2(777, 165)
 
-[node name="MainLevel" type="Node2D" groups=["Main"]]
+[node name="MainLevel" type="Node2D" node_paths=PackedStringArray("music") groups=["Main"]]
 script = ExtResource("1_3wg1a")
+music = NodePath("Music")
 
 [node name="Riro" parent="." groups=["Level1"] instance=ExtResource("19_llrsb")]
-position = Vector2(216, -526)
+position = Vector2(215, -532)
 scale = Vector2(0.125, 0.125)
 collision_layer = 0
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_l3xy2")]
-position = Vector2(427, -518)
+position = Vector2(412, -485)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -14867,7 +14872,7 @@ rotation = 0.123918
 scale = Vector2(1, 0.16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Crane"]
-position = Vector2(32.3738, 393.522)
+position = Vector2(33.3262, 559.798)
 shape = SubResource("RectangleShape2D_8l8x7")
 
 [node name="BossFloor" type="StaticBody2D" parent="Floors"]
@@ -15151,7 +15156,7 @@ shape = SubResource("RectangleShape2D_p51x7")
 disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
-position = Vector2(427, -518)
+position = Vector2(412, -485)
 zoom = Vector2(0.9, 0.9)
 limit_smoothed = true
 script = ExtResource("13_4f1gs")
@@ -15301,15 +15306,24 @@ offset_bottom = -6422.16
 scale = Vector2(0.305, 0.305)
 texture = ExtResource("14_0wawe")
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
+[node name="Riro" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.551
+anchor_top = -0.032
+anchor_right = 1.067
+anchor_bottom = 1.19
+offset_left = 0.248047
+offset_top = -0.264002
+offset_right = 1453.82
+offset_bottom = 1939.88
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("18_5jrmj")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_4f8kf")
-volume_db = -0.654
+bus = &"Music"
 
 [node name="Lighting" type="Node2D" parent="."]
 
@@ -15590,6 +15604,13 @@ position = Vector2(6214, -1113)
 position = Vector2(3174, -282.5)
 shape = SubResource("RectangleShape2D_p1302")
 
+[node name="BossFallArea" type="Area2D" parent="Checkpoints" groups=["BossFallArea"]]
+position = Vector2(7479, 2033)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoints/BossFallArea"]
+position = Vector2(3185.5, -57)
+shape = SubResource("RectangleShape2D_wu8vl")
+
 [node name="Checkpoint" parent="Checkpoints" instance=ExtResource("42_s1k1y")]
 position = Vector2(4391, -1833)
 
@@ -15598,6 +15619,12 @@ position = Vector2(6072, -1583)
 
 [node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("42_s1k1y")]
 position = Vector2(3696, -1102)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("42_s1k1y")]
+position = Vector2(10414, 1519)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("42_s1k1y")]
+position = Vector2(10968, 1519)
 
 [node name="BossCheckpoint" type="Area2D" parent="Checkpoints"]
 position = Vector2(9849, 2496)
@@ -15644,38 +15671,47 @@ script = ExtResource("44_iqe15")
 
 [node name="1" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("45_jnl37")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="2" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("46_rktp2")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="3" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("47_0g0b2")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="4" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("48_26ql8")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="5" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("49_7a6fv")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="6" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("50_f5bqe")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="7" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("51_6wt0i")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="8" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("52_s80qg")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="9" type="AudioStreamPlayer" parent="CutsceneAudio/Akira"]
 stream = ExtResource("51_gbaw3")
+volume_db = 5.0
 bus = &"Voice"
 
 [node name="Riro" type="Node" parent="CutsceneAudio"]
@@ -15835,6 +15871,7 @@ shape = SubResource("RectangleShape2D_32x4v")
 
 [connection signal="body_entered" from="Checkpoints/FallArea" to="Checkpoints" method="_on_fall_area_body_entered"]
 [connection signal="body_entered" from="Checkpoints/FallArea2" to="Checkpoints" method="_on_fall_area_body_entered"]
+[connection signal="body_entered" from="Checkpoints/BossFallArea" to="Checkpoints" method="_on_fall_area_body_entered"]
 [connection signal="area_entered" from="Checkpoints/BossCheckpoint" to="Checkpoints/BossCheckpoint" method="_on_area_entered"]
 [connection signal="body_entered" from="Checkpoints/BossCheckpoint" to="Checkpoints/BossCheckpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="Cutscene/StartCutscene" to="Player" method="_on_start_cutscene_body_entered"]

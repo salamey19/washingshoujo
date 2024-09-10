@@ -28,7 +28,7 @@ layer = -5
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" groups=["Level3"]]
 position = Vector2(10651, -211)
 texture = ExtResource("2_wmijo")
 offset = Vector2(-263, 49.581)
@@ -80,12 +80,12 @@ position = Vector2(8679, -2797)
 texture = ExtResource("7_lmao5")
 centered = false
 
-[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer" groups=["Level3"]]
 position = Vector2(8763, -2913)
 texture = ExtResource("8_1r7j4")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer"]
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground4/ParallaxLayer" groups=["Level3"]]
 position = Vector2(9194, -2854)
 texture = ExtResource("9_pfv0f")
 centered = false
@@ -101,7 +101,7 @@ layer = 1
 motion_scale = Vector2(0.885, 0.885)
 motion_offset = Vector2(-900, 0)
 
-[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer9/ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer9/ParallaxBackground/ParallaxLayer" groups=["Level3"]]
 position = Vector2(8618, -2854)
 texture = ExtResource("10_cgv3m")
 centered = false

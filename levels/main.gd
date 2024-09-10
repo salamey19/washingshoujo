@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var music : AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 	if !Global.intro_done:
 		CutsceneManager.play_cinematic()
 	else:
+		music.play()
 		player.set_process_input(true)
 		player.set_physics_process(true)
 		player.in_cutscene = false

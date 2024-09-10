@@ -36,6 +36,7 @@ Akira: Yea yea, we've all heard this story before Riro. We don't have time for t
 
 do color_riro()
 do play_audio.emit(1, 9)
+do show_sprites.emit(true, true)
 Riro: History is important ya know! It might help you understand your situation better.
 
 do color_akira()
@@ -55,10 +56,11 @@ do player_falls()
 
 do color_riro()
 do play_audio.emit(1, 11)
+do show_sprites.emit(false, true)
 Riro: It seems your power revolves around your bat. Try giving it a swing. 
 
 set attack_input = true
-
+do show_sprites.emit()
 
 => END
 
@@ -71,6 +73,7 @@ Akira: That felt good.
 
 do color_riro()
 do play_audio.emit(1, 12)
+do show_sprites.emit(true, true)
 Riro: Right. It seems that your able to summon oni’s, try using them to strike with your bat!
 
 do show_sprites.emit()
@@ -87,6 +90,7 @@ Akira: This kinda feels fun.
 
 do color_riro()
 do play_audio.emit(1, 13)
+do show_sprites.emit(true, true)
 Riro: Maybe that’s your real oni emotion.
 
 do show_sprites.emit()

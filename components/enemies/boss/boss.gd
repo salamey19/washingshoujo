@@ -9,6 +9,9 @@ extends Node2D
 @onready var collision_shape: CollisionShape2D = $HitboxComponent/CollisionShape2D
 @onready var hitbox_component: Area2D = $HitboxComponent
 
+@onready var jump_voice: AudioStreamPlayer2D = $Voice/JumpVoice
+
+
 var delta_temp : float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +29,7 @@ func move_up(value: float) -> void:
 
 func jump_up() -> void:
 	vfx.play("jump_up_vfx")
+	jump_voice.play()
 	jump_up_sfx.play(0.0)
 	enemy_sprite.play("jump_up")
 	var tween = create_tween()
@@ -34,6 +38,7 @@ func jump_up() -> void:
 func jump_down() -> void:
 
 	enemy_sprite.play("jump_down")
+	jump_voice.play()
 	var tween = create_tween()
 	tween.tween_method(move_up, 4000, -1, 0.9)
 	await tween.finished

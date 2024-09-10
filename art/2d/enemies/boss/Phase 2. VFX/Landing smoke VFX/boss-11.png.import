@@ -15,7 +15,7 @@ dest_files=["res://.godot/imported/boss-11.png-4b5420cfb16bcb2cf08790991c385566.
 
 [params]
 
-compress/mode=0
+compress/mode=1
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

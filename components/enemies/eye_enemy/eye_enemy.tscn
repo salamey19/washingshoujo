@@ -201,9 +201,11 @@ shape = SubResource("CircleShape2D_p1t3x")
 
 [node name="LaserSFX" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_mgtuh")
+bus = &"Effects"
 
 [node name="DeathSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_myxfd")
+bus = &"Effects"
 
 [connection signal="body_entered" from="WithinRange" to="." method="_on_within_range_body_entered"]
 [connection signal="body_exited" from="WithinRange" to="." method="_on_within_range_body_exited"]

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbp1qlvqwhbh"
-path="res://.godot/imported/Blink_2-3.png-3def0c942ecd57409bf24e52156e599c.ctex"
+uid="uid://brs15rkyi7ylu"
+path="res://.godot/imported/Untitled_Artwork.png-bff211d50efbe763f77f023690a28525.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/2d/enemies/tank/Blink/Blink_2-3.png"
-dest_files=["res://.godot/imported/Blink_2-3.png-3def0c942ecd57409bf24e52156e599c.ctex"]
+source_file="res://art/2d/TalkingSprites/Untitled_Artwork.png"
+dest_files=["res://.godot/imported/Untitled_Artwork.png-bff211d50efbe763f77f023690a28525.ctex"]
 
 [params]
 
-compress/mode=1
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

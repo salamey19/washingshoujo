@@ -1,7 +1,7 @@
 extends State
 class_name PlayerDash
 
-@onready var dash_sfx: AudioStreamPlayer = $"../../DashSFX"
+@onready var dash_sfx: AudioStreamPlayer2D = $"../../DashSFX"
 
 @onready var dash_voice: AudioStreamPlayer2D = $"../../Voice/Dash"
 
