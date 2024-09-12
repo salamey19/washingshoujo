@@ -14518,14 +14518,14 @@ one_shot = true
 
 [node name="ScreenSlashAttack" parent="Phase2" instance=ExtResource("30_vr0k7")]
 unique_name_in_owner = true
-position = Vector2(428, -562)
+position = Vector2(492, -562)
 
 [node name="SliceFollowAttack" parent="Phase2" instance=ExtResource("31_sed3u")]
 unique_name_in_owner = true
 
 [node name="EyeAttack" parent="Phase2" instance=ExtResource("33_lmkmk")]
 unique_name_in_owner = true
-position = Vector2(0, -436)
+position = Vector2(38, -667)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -3

@@ -7,6 +7,7 @@ var character_label : RichTextLabel
 signal start_phase1_cutscene
 signal play_audio
 signal show_sprites
+signal show_black_screen
 signal start_phase1_boss
 signal start_phase2
 signal boss_jump

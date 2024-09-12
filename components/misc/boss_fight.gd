@@ -39,9 +39,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ability1"):
-		landing_sfx.play()
-
 	if is_attack_phase:
 		attack_cooldown -= delta
 		if is_phase2_1:

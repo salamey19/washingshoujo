@@ -1,6 +1,7 @@
 ~ Cinematic
 
 do color_riro()
+do show_black_screen.emit(true)
 do play_audio.emit(1, 1)
 ???: "Greed, Envy, Wrath.
 
@@ -24,6 +25,7 @@ do play_audio.emit(1, 7)
 
 do play_audio.emit(1, 8)
 ???: These abilities were used to accomplish great feats, yet it came at a cost-” 
+do show_black_screen.emit(false)
 
 => END
 
