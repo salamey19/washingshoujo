@@ -14525,7 +14525,7 @@ unique_name_in_owner = true
 
 [node name="EyeAttack" parent="Phase2" instance=ExtResource("33_lmkmk")]
 unique_name_in_owner = true
-position = Vector2(38, -667)
+position = Vector2(98, -623)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -3

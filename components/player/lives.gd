@@ -16,7 +16,7 @@ func lose_life() -> void:
 		get_child(0).visible = false
 
 func add_life() -> void:
-	if !get_child(2).visible:
-		get_child(2).visible = true
-	elif !get_child(1).visible:
+	if !get_child(1).visible:
 		get_child(1).visible = true
+	elif !get_child(2).visible:
+		get_child(2).visible = true

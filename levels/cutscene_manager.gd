@@ -228,6 +228,8 @@ func play_phase2_2() -> void:
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/phase2.dialogue"), "Phase2End")
 	await DialogueManager.dialogue_ended
+	get_tree().get_first_node_in_group("Main")._outro()
+
 
 
 func color_akira() -> void:

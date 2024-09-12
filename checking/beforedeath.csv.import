@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://ch8q7h0g36kse"
+
+[deps]
+
+files=["res://checking/beforedeath.Type.translation", "res://checking/beforedeath.Format.translation", "res://checking/beforedeath.Usage.translation"]
+
+source_file="res://checking/beforedeath.csv"
+dest_files=["res://checking/beforedeath.Type.translation", "res://checking/beforedeath.Format.translation", "res://checking/beforedeath.Usage.translation"]
+
+[params]
+
+compress=true
+delimiter=0

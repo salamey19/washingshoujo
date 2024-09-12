@@ -89,6 +89,9 @@ func phase1_start():
 
 func phase2_jump():
 	get_tree().get_first_node_in_group("Music").stop()
+	get_tree().get_first_node_in_group("TransitionDelete").call_deferred("queue_free")
+	Global.phase2_reached = true
+
 	boss.turn_off()
 	boss.jump_up()
 
@@ -116,6 +119,7 @@ func start_attack_phase():
 	boss.jump_up()
 	await get_tree().create_timer(0.7).timeout
 	boss_background.visible = true
+	landing_sfx.play()
 	var tween = create_tween()
 	tween.tween_property(boss_background, "position:y", 193, 0.7)
 	await tween.finished
@@ -129,6 +133,7 @@ func start_damage_phase():
 
 	var tween = create_tween()
 	tween.tween_property(boss_background, "position:y", -2750, 0.7)
+
 	await get_tree().create_timer(2.0).timeout
 	boss_background.visible = false
 	boss.jump_down()
@@ -162,6 +167,7 @@ func boss_death() -> void:
 	%HealthBarOutline.hide()
 	CutsceneManager.play_phase2_2()
 	#end game/credits
+
 	#boss.queue_free()
 
 
@@ -182,14 +188,14 @@ func short_cuts() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	if is_phase2_1:
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.3).timeout
 		%SliceFollowAttack.attack3()
 	if is_phase2_2:
 		%SliceFollowAttack.global_position = player.global_position
 		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack3()
 		await get_tree().create_timer(1.4).timeout
-		%SliceFollowAttack.global_position = player.global_position
+		#%SliceFollowAttack.global_position = player.global_position
 		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack2()
 	if is_phase2_3:
@@ -197,15 +203,16 @@ func short_cuts() -> void:
 		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack3()
 		await get_tree().create_timer(1.4).timeout
-		%SliceFollowAttack.global_position = player.global_position
+		#%SliceFollowAttack.global_position = player.global_position
 		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack2()
 		await get_tree().create_timer(1.4).timeout
-		%SliceFollowAttack.global_position = player.global_position
+		#%SliceFollowAttack.global_position = player.global_position
 		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack1()
 		await get_tree().create_timer(1.4).timeout
 		attack_finished = true
+	await get_tree().create_timer(1.5).timeout
 	attacks_available[0] = true
 
 
@@ -229,20 +236,20 @@ func long_cut() -> void:
 		await get_tree().create_timer(1.6).timeout
 		%ScreenSlashAttack.position.y = -781
 		%ScreenSlashAttack.attack()
+	await get_tree().create_timer(1.5).timeout
 	attacks_available[1] = true
 
 
 func eye_attack() -> void:
 
 	if is_phase2_1:
-		%EyeAttack.animation_player.speed_scale = 0.8
+		%EyeAttack.animation_player.speed_scale = 0.5
 	if is_phase2_2:
-		%EyeAttack.animation_player.speed_scale = 0.9
+		%EyeAttack.animation_player.speed_scale = 0.7
 	if is_phase2_3:
-		%EyeAttack.animation_player.speed_scale = 1.0
+		%EyeAttack.animation_player.speed_scale = 0.9
 	%EyeAttack.attack()
-
-
+	await get_tree().create_timer(2.0).timeout
 	attacks_available[2] = true
 
 var done : bool = false

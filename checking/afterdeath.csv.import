@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bqn5oqa1nuawx"
+
+[deps]
+
+files=["res://checking/afterdeath.Type.translation", "res://checking/afterdeath.Format.translation", "res://checking/afterdeath.Usage.translation"]
+
+source_file="res://checking/afterdeath.csv"
+dest_files=["res://checking/afterdeath.Type.translation", "res://checking/afterdeath.Format.translation", "res://checking/afterdeath.Usage.translation"]
+
+[params]
+
+compress=true
+delimiter=0

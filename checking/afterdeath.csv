@@ -1,0 +1,428 @@
+Resource Path,Type,Format,Usage
+res://art/2d/Backgrounds/final bg 3/1-min.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/Backgrounds/final bg 3/6.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/Backgrounds/final bg 3/4.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/Backgrounds/final bg 3/8.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/Backgrounds/final bg 3/12.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/Backgrounds/final bg 3/2.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/Backgrounds/final bg 3/5.png,Texture,3708x5708x1 RGBA8,107.6 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 1/boss-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack finished for/Blink_1-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack finished for/Blink_1-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Death/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/FINISHED BLINK FR/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-6.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/background/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/Riro/Yap pop up/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/Riro/Yap pop up/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/Riro/Yap pop up/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack finished for/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack finished for/Blink_1-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-6.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-7.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-8.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-12.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-11.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-8.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-10.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-9.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 3/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Slash VFX 2/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/Death/Blink_2-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/Blink/Blink_2-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/Blink/Blink_2-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Eye opening VFX/boss-9.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-12.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-11.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-10.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-9.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-8.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-7.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-6.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/UI/boss.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-7.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/boss/Screen slash VFX/boss-6.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-10.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-9.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-8.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/small/Attack Final VFX/Blink_1-7.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/VFX/Blink_2-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Death/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Blink final/Blink_1-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-7.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Blink final/Blink_1-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-6.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-5.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/flagbearer/Final Attack/Blink_1-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/VFX/Blink_2-4.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/VFX/Blink_2-3.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/VFX/Blink_2-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/VFX/Blink_2-1.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/enemies/tank/Blink/Blink_2-2.png,Texture,3508x2480x1 RGBA8,44.24 MiB
+res://art/2d/TalkingSprites/Untitled_Artwork.png,Texture,2048x2732x1 RGBA8,28.45 MiB
+res://art/2d/TalkingSprites/AkriaTalkingSprite.png,Texture,2048x2732x1 RGBA8,28.45 MiB
+res://art/2d/enemies/boss/Final jumps/Second-phase-jump_up-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Final jumps/jump_up-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Final jumps/Jump-down.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Final idle/Boss_idle_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Final idle/Boss_idle_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Final idle/Boss_idle_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Final idle/Boss_idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump up VFX/jump_up-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/Final Riro/Idle_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/Final Riro/Idle_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/Final Riro/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 1 VFX/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-7.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-8.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-9.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-7.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-8.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 3/Running_1-9.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Bonk VFX/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Hurt finished/Idle_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Jump final/Jump up/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Finished idle/Idle_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Hurt finished/Idle_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Finished idle/Idle_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Hurt finished/Idle_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump up VFX/jump_up-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Hurt finished/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Finished idle/Idle_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ONI charges/IMG_2918.PNG,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ONI charges/IMG_2917.PNG,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ONI charges/IMG_2916.PNG,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump up VFX/jump_up-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt final/hurt_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt final/hurt_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt VFX/hurt_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt VFX/hurt_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt VFX/hurt_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt VFX/hurt_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump down VFX (impact)/jump_up-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Hurt VFX/hurt_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ONI charges/yellow.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ONI charges/green.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ONI charges/red.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump up VFX/jump_up-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/enemies/boss/Jump up VFX/jump_up-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Dash final/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Finished idle/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Run test/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Run test/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-7.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Knock back VFX/Idle_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Knock back VFX/Idle_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Jump final/Jump down/Jump-down-cantered.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Knock back VFX/Idle_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 1 VFX/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 1 VFX/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 1 VFX/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 1 VFX/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Knock back VFX/Idle_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Knock back VFX/Idle_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Real final dash/Idle_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Real final dash/Idle_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Real final dash/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/1 charge/NA_1-7.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Real final dash/Idle_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINSL FINAL SBILITY 1/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Knock back VFX/Idle_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINSL FINAL SBILITY 1/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/2 charge/NA_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINSL FINAL SBILITY 1/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-9.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-8.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-7.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 1 charge/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Normal attack VFX/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Run test/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Run test/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Run test/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Run test/Running_1-6.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/ability 2/3 charge/NA_1-7.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-1.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-3.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Ability 2 VFX/Ability 2 VFX 2 charge/Running_1-2.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-4.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/FINAL FINAL NORMAL ATTACK/Running_1-5.png,Texture,2211x1333x1 RGBA8,14.98 MiB
+res://art/2d/player/Finished idle/Idle_1-1_n.png,Texture,2211x1333x1 RGB8,11.23 MiB
+res://art/2d/Backgrounds/Menú art.jpg,Texture,2211x1333x1 RGB8,11.23 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+,Texture,1296x720x1 RGBA8,4.74 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-4.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-5.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-6.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/UI/Hearts/Untitled_Artwork-2.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/UI/Hearts/Untitled_Artwork-3.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/UI/Hearts/Untitled_Artwork-4.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-7.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/plat lvl 2/Untitled_Artwork-1.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/plat lvl 2/Untitled_Artwork-2.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-9.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-1.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-2.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-3.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-4.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-5.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-6.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1(1).png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/UI/Hearts/Untitled_Artwork-1.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-8.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/Platforms level 3/Untitled_Artwork-7.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-2.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/plat lvl 2/Untitled_Artwork-3.png,Texture,1152x648x1 RGBA8,3.79 MiB
+res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-3.png,Texture,1152x648x1 RGBA8,3.79 MiB
+Render Target (Internal),Texture,1152x648x1 RGB8,2.84 MiB
+Render Target (Internal),Texture,1152x648x1 RGB8,2.84 MiB
+,Texture,512x512x1 RGBA8,1.33 MiB
+,Texture,512x512x1 RGBA8,1.33 MiB
+res://levels/test_level.tscn::NoiseTexture2D_en2lt,Texture,512x512x1 Lum8,341.3 KiB
+,Texture,256x256x1 LumAlpha8,170.6 KiB
+res://art/Solid_white.png,Texture,200x200x1 RGB8,156.1 KiB
+res://icon.svg,Texture,128x128x1 RGBA8,85.33 KiB
+,Texture,800x6x1 RGBA8,24.98 KiB
+,Texture,800x6x1 RGBA8,24.98 KiB
+res://levels/test_level.tscn::GradientTexture2D_ogp0r,Texture,64x64x1 RGBA8,21.33 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,32x16x1 RGBA8,2.66 KiB
+,Texture,16x32x1 RGBA8,2.66 KiB
+,Texture,48x8x1 RGBA8,2.00 KiB
+,Texture,8x48x1 RGBA8,2.00 KiB
+res://levels/test_level.tscn::GradientTexture1D_333i3,Texture,256x1x1 RGBA8,1.99 KiB
+res://levels/test_level.tscn::GradientTexture1D_woep0,Texture,256x1x1 RGBA8,1.99 KiB
+res://levels/boss_fight.tscn::GradientTexture1D_333i3,Texture,256x1x1 RGBA8,1.99 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,16x16x1 RGBA8,1.33 KiB
+,Texture,12x12x1 RGBA8,760 B
+,Texture,12x12x1 RGBA8,760 B
+,Texture,12x12x1 RGBA8,760 B
+,Texture,8x16x1 RGBA8,684 B
+,Texture,8x16x1 RGBA8,684 B
+,Texture,14x8x1 RGBA8,588 B
+,Texture,10x10x1 RGBA8,520 B
+,Texture,4x16x1 RGBA8,348 B
+,Texture,16x4x1 RGBA8,348 B
+,Texture,8x8x1 RGBA8,340 B
+,Texture,8x8x1 RGBA8,340 B

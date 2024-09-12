@@ -7,8 +7,8 @@ signal boss_hurt
 signal bonk
 signal player_floor_sound
 signal boss_fight_ready
-var boss_checkpoint_met : bool = true # CHANGR BACK
-
+var boss_checkpoint_met : bool = false # CHANGR BACK
+var phase2_reached: bool = false
 var intro_done : bool = false
 
 ## Whether or not the app is currently focused.
