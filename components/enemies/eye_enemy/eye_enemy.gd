@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var enemy_sprite: AnimatedSprite2D = $EnemySprite
 @onready var attack_sprite: AnimatedSprite2D = $VFX/AttackSprite
-@export var attack_cooldown : float = 4.8
+@export var attack_cooldown : float = 3.3
 @onready var hitbox_component: Area2D = $HitboxComponent
 @onready var attack_area: Area2D = $AttackArea
 @onready var laser_sfx: AudioStreamPlayer2D = $LaserSFX

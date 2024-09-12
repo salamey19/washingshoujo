@@ -4,12 +4,6 @@ extends Node2D
 var player : CharacterBody2D
 
 @export_category("Phase1")
-@onready var barrier_collision: CollisionShape2D = $Phase1/Barrier/CollisionShape2D
-@onready var barrier: StaticBody2D = $Phase1/Barrier
-
-var barrier_active : bool = true
-@export var barrier_enemy1 : Node2D
-@export var barrier_enemy2 : Node2D
 var phase1_health : int = 10
 
 @export_category("Phase2")
@@ -32,6 +26,7 @@ var attack_counter : int = 0
 var attacks_available : Array[bool] = [true, true, true]
 
 @onready var boss_music: AudioStreamPlayer = $BossMusic
+@onready var landing_sfx: AudioStreamPlayer2D = $VFX/LandingSFX
 
 func _ready() -> void:
 	Global.boss_hurt.connect(_boss_hurt)
@@ -42,14 +37,11 @@ func _ready() -> void:
 	get_tree().get_first_node_in_group("BossFallArea").get_child(0).disabled = true
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if barrier_active:
-		if !barrier_enemy1 and !barrier_enemy2:
-			barrier_active = false
-			barrier.queue_free()
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("ability1"):
+		landing_sfx.play()
+
 	if is_attack_phase:
 		attack_cooldown -= delta
 		if is_phase2_1:
@@ -58,7 +50,7 @@ func _physics_process(delta: float) -> void:
 				choose_attack()
 				attack_cooldown = 3
 				attack_counter += 1
-			if attack_counter == 5:
+			if attack_counter == 4:
 				is_attack_phase = false
 				start_damage_phase()
 				attack_counter = 0
@@ -67,10 +59,10 @@ func _physics_process(delta: float) -> void:
 				attack_cooldown = 4
 				print("attack")
 				choose_attack()
-				await get_tree().create_timer(0.7).timeout
+				await get_tree().create_timer(1.5).timeout
 				choose_attack()
 				attack_counter += 1
-			if attack_counter == 6:
+			if attack_counter == 5:
 				is_attack_phase = false
 				start_damage_phase()
 				attack_counter = 0
@@ -79,10 +71,10 @@ func _physics_process(delta: float) -> void:
 				attack_cooldown = 4
 				print("attack")
 				choose_attack()
-				await get_tree().create_timer(0.7).timeout
+				await get_tree().create_timer(1.5).timeout
 				choose_attack()
 				attack_counter += 1
-			if attack_counter == 7:
+			if attack_counter == 6:
 				attack_counter = 0
 				is_attack_phase = false
 				start_damage_phase()
@@ -93,13 +85,13 @@ func _physics_process(delta: float) -> void:
 
 func phase1_start():
 	Global.boss_checkpoint_met = true
-	barrier_collision.disabled = false
 	#set sprite visible
 
 
 
 
 func phase2_jump():
+	get_tree().get_first_node_in_group("Music").stop()
 	boss.turn_off()
 	boss.jump_up()
 
@@ -107,6 +99,8 @@ func phase2_start():
 
 	await get_tree().create_timer(0.2).timeout
 	boss_background.visible = true
+
+	landing_sfx.play()
 	var tween = create_tween()
 	tween.tween_property(boss_background, "position:y", 193, 0.7)
 	await tween.finished
@@ -191,27 +185,27 @@ func short_cuts() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	if is_phase2_1:
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack3()
 	if is_phase2_2:
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack3()
 		await get_tree().create_timer(1.4).timeout
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack2()
 	if is_phase2_3:
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack3()
 		await get_tree().create_timer(1.4).timeout
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack2()
 		await get_tree().create_timer(1.4).timeout
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.2).timeout
 		%SliceFollowAttack.attack1()
 		await get_tree().create_timer(1.4).timeout
 		attack_finished = true
@@ -244,9 +238,9 @@ func long_cut() -> void:
 func eye_attack() -> void:
 
 	if is_phase2_1:
-		%EyeAttack.animation_player.speed_scale = 0.6
-	if is_phase2_2:
 		%EyeAttack.animation_player.speed_scale = 0.8
+	if is_phase2_2:
+		%EyeAttack.animation_player.speed_scale = 0.9
 	if is_phase2_3:
 		%EyeAttack.animation_player.speed_scale = 1.0
 	%EyeAttack.attack()

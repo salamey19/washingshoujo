@@ -15,6 +15,10 @@ var settings : PackedScene = preload("res://components/menu/settings.tscn")
 @onready var hover_sound: AudioStreamPlayer = $HoverSound
 @onready var select_sound: AudioStreamPlayer = $SelectSound
 
+var start_normal_pos : float = -2
+var settings_normal_pos : float = -4
+var credits_normal_pos : float = -2
+var quit_normal_pos : float = -2
 
 func _ready() -> void:
 	# Enable keyboard/controller navigation.
@@ -26,7 +30,6 @@ func _ready() -> void:
 	await $TitleVoice.finished
 	$MenuMusic.play()
 	Global.boss_checkpoint_met = false
-
 	#color_rect.visible = false
 
 func _on_start_pressed() -> void:
@@ -71,17 +74,96 @@ func _on_check_box_toggled(toggled_on: bool) -> void:
 	print(Global.intro_done)
 
 
+var start_change : float = 39
+var setting_change : float = 23
+var credit_change : float = 27
+var quit_change : float = 43
+
 func _on_start_mouse_entered() -> void:
 	hover_sound.play()
+	if %Start.get_child(0).position.x != start_normal_pos:
+		%Start.get_child(0).position.x -= start_change
+
+
+
+
+
+func _on_start_mouse_exited() -> void:
+	if %Start.get_child(0).position.x != (start_normal_pos + start_change):
+		%Start.get_child(0).position.x += start_change
+
+func _on_start_button_down() -> void:
+	if %Start.get_child(0).position.x != (start_normal_pos + start_change):
+		%Start.get_child(0).position.x += start_change
+
+
+func _on_start_button_up() -> void:
+	if %Start.get_child(0).position.x != start_normal_pos:
+		%Start.get_child(0).position.x -= start_change
+
+
+
+
 
 
 func _on_settings_mouse_entered() -> void:
 	hover_sound.play()
+	if %Settings.get_child(0).position.x != settings_normal_pos:
+		%Settings.get_child(0).position.x -= setting_change
+
+func _on_settings_mouse_exited() -> void:
+	if %Settings.get_child(0).position.x != (settings_normal_pos + setting_change):
+		%Settings.get_child(0).position.x += setting_change
+
+func _on_settings_button_down() -> void:
+	if %Settings.get_child(0).position.x != (settings_normal_pos + setting_change):
+		%Settings.get_child(0).position.x += setting_change
+
+func _on_settings_button_up() -> void:
+	if %Settings.get_child(0).position.x != settings_normal_pos:
+		%Settings.get_child(0).position.x -= setting_change
+
 
 
 func _on_credits_mouse_entered() -> void:
 	hover_sound.play()
+	if %Credits.get_child(0).position.x != credits_normal_pos:
+		%Credits.get_child(0).position.x -= credit_change
+
+
+func _on_credits_mouse_exited() -> void:
+	if %Credits.get_child(0).position.x != (credits_normal_pos + credit_change):
+		%Credits.get_child(0).position.x += credit_change
+
+
+func _on_credits_button_down() -> void:
+	if %Credits.get_child(0).position.x != (credits_normal_pos + credit_change):
+		%Credits.get_child(0).position.x += credit_change
+
+
+func _on_credits_button_up() -> void:
+	if %Credits.get_child(0).position.x != credits_normal_pos:
+		%Credits.get_child(0).position.x -= credit_change
+
 
 
 func _on_quit_mouse_entered() -> void:
 	hover_sound.play()
+	if %Quit.get_child(0).position.x != quit_normal_pos:
+		%Quit.get_child(0).position.x -= quit_change
+
+
+func _on_quit_mouse_exited() -> void:
+	if %Quit.get_child(0).position.x != (quit_normal_pos + quit_change):
+		%Quit.get_child(0).position.x += quit_change
+
+
+func _on_quit_button_down() -> void:
+	if %Quit.get_child(0).position.x != (quit_normal_pos + quit_change):
+		%Quit.get_child(0).position.x += quit_change
+
+
+func _on_quit_button_up() -> void:
+
+	if %Quit.get_child(0).position.x != quit_normal_pos:
+		%Quit.get_child(0).position.x -= quit_change

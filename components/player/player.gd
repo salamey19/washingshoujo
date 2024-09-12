@@ -175,8 +175,14 @@ func _physics_process(delta: float) -> void:
 		has_basic_attack = true
 	move_and_slide()
 
-
+var live_recharge_counter : int = 0
 func on_enemy_defeated() -> void:
+	if current_lives < 3:
+		live_recharge_counter += 1
+		if live_recharge_counter == 3:
+			live_recharge_counter = 0
+			current_lives += 1
+			get_tree().get_first_node_in_group("Lives").add_life()
 	has_double_jump = true
 	has_dash = true
 	add_charge()

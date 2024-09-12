@@ -1,24 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuiv5t25y74gt"]
+[gd_scene load_steps=4 format=3 uid="uid://cuiv5t25y74gt"]
 
 [ext_resource type="PackedScene" uid="uid://c37rct5n5yh32" path="res://components/enemies/eye_enemy/eye_enemy.tscn" id="1_ctiw5"]
 [ext_resource type="PackedScene" uid="uid://bxsckyyrrfes0" path="res://components/enemies/enemy_medium/enemy_medium.tscn" id="2_yncua"]
+[ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="3_5kn4v"]
 
 [node name="Phase1Enemies" type="Node2D"]
 position = Vector2(0, -3)
 
 [node name="EyeEnemy" parent="." instance=ExtResource("1_ctiw5")]
-position = Vector2(-1, 404)
+position = Vector2(-1, 347)
 
 [node name="EyeEnemy2" parent="." instance=ExtResource("1_ctiw5")]
-position = Vector2(-843, 604)
+position = Vector2(-915, 577)
 
 [node name="EyeEnemy3" parent="." instance=ExtResource("1_ctiw5")]
-position = Vector2(791, 604)
+position = Vector2(855, 559)
 
 [node name="EnemyMedium" parent="." instance=ExtResource("2_yncua")]
 position = Vector2(-368, 1079)
-scale = Vector2(-1, 1)
 
 [node name="EnemyMedium2" parent="." instance=ExtResource("2_yncua")]
 position = Vector2(312, 1084)
 scale = Vector2(-1, 1)
+
+[node name="TankEnemy" parent="." instance=ExtResource("3_5kn4v")]
+position = Vector2(-743, 105)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="TankEnemy2" parent="." instance=ExtResource("3_5kn4v")]
+position = Vector2(707, 103)

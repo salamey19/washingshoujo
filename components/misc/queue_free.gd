@@ -6,6 +6,8 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		%Transition.play("fade_in")
+		await %Transition.animation_finished
 		border.get_child(0).set_deferred("disabled", false)
 		get_tree().call_group("Level1", "queue_free")
 		await get_tree().create_timer(0.2).timeout
@@ -13,4 +15,6 @@ func _on_body_entered(body: Node2D) -> void:
 		get_parent().call_deferred("add_child", BOSS_BACKGROUND.instantiate())
 		var boss_fight = load("res://levels/boss_fight.tscn")
 		get_parent().call_deferred("add_child", boss_fight.instantiate())
+		%Transition.play("fade_out")
+		await %Transition.animation_finished
 		queue_free()

@@ -1,10 +1,7 @@
-[gd_scene load_steps=127 format=4 uid="uid://clfu10k5s3xdi"]
+[gd_scene load_steps=119 format=4 uid="uid://clfu10k5s3xdi"]
 
 [ext_resource type="Script" path="res://components/misc/boss_fight.gd" id="1_yikws"]
 [ext_resource type="PackedScene" uid="uid://chhjtihuvlj27" path="res://components/enemies/boss/boss.tscn" id="2_5fx5r"]
-[ext_resource type="Shader" path="res://art/shaders/shield.gdshader" id="3_0d1lc"]
-[ext_resource type="Texture2D" uid="uid://cvbjbibja0uc5" path="res://icon.svg" id="4_t1kka"]
-[ext_resource type="PackedScene" uid="uid://dv0f12ej066u7" path="res://components/enemies/enemy_tank/tank_enemy.tscn" id="5_ep2je"]
 [ext_resource type="PackedScene" uid="uid://1hr8scmagpfr" path="res://components/misc/charging_area.tscn" id="6_q1qi5"]
 [ext_resource type="Texture2D" uid="uid://darx5ih604l11" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1(1).png" id="7_y5yxn"]
 [ext_resource type="Texture2D" uid="uid://cun4uhwa2wnqi" path="res://art/2d/platforms/platf. lvl 1/Untitled_Artwork-1.png" id="8_espd5"]
@@ -45,34 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://x7k3a5cc8ckq" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-10.png" id="38_d060w"]
 [ext_resource type="Texture2D" uid="uid://b2kk1seh3lksb" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-11.png" id="39_at6pe"]
 [ext_resource type="Texture2D" uid="uid://s7lpget7o5o0" path="res://art/2d/enemies/boss/Phase 2. VFX/Landing smoke VFX/boss-12.png" id="40_5ducg"]
+[ext_resource type="AudioStream" uid="uid://dhbj5bahoknbn" path="res://art/sfx/0.9.wav" id="43_ly8fa"]
 [ext_resource type="AudioStream" uid="uid://1u0sc5xjvmab" path="res://art/music/big fight_2.wav" id="46_gllrg"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_n4y4g"]
-radius = 559.151
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_na2ty"]
-seed = 1
-frequency = 0.0027
-fractal_octaves = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eiixv"]
-seamless = true
-noise = SubResource("FastNoiseLite_na2ty")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2p7bs"]
-seed = 1
-fractal_lacunarity = 5.485
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rdejk"]
-seamless = true
-noise = SubResource("FastNoiseLite_2p7bs")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxaq4"]
-shader = ExtResource("3_0d1lc")
-shader_parameter/brightness = 2.0
-shader_parameter/time_scale = 0.114
-shader_parameter/noise = SubResource("NoiseTexture2D_eiixv")
-shader_parameter/noise2 = SubResource("NoiseTexture2D_rdejk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wl0nw"]
 size = Vector2(337, 46)
@@ -14455,40 +14426,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mcg2"]
 size = Vector2(548, 184)
 
-[node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss", "barrier_enemy1", "barrier_enemy2") groups=["BossFight"]]
+[node name="BossFight" type="Node2D" node_paths=PackedStringArray("boss") groups=["BossFight"]]
 position = Vector2(10691, 1604)
 script = ExtResource("1_yikws")
 boss = NodePath("Boss")
-barrier_enemy1 = NodePath("Phase1/TankEnemy")
-barrier_enemy2 = NodePath("Phase1/TankEnemy2")
 
 [node name="Boss" parent="." groups=["Boss"] instance=ExtResource("2_5fx5r")]
 position = Vector2(17, -3696)
 
 [node name="Phase1" type="Node2D" parent="."]
-
-[node name="Barrier" type="StaticBody2D" parent="Phase1"]
-position = Vector2(0, -168)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase1/Barrier"]
-position = Vector2(0, -209)
-shape = SubResource("CircleShape2D_n4y4g")
-disabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Phase1/Barrier"]
-visible = false
-material = SubResource("ShaderMaterial_kxaq4")
-position = Vector2(13.0002, -286)
-scale = Vector2(18, 18)
-texture = ExtResource("4_t1kka")
-
-[node name="TankEnemy" parent="Phase1" instance=ExtResource("5_ep2je")]
-position = Vector2(-933, 105)
-rotation = 3.14159
-scale = Vector2(1, -1)
-
-[node name="TankEnemy2" parent="Phase1" instance=ExtResource("5_ep2je")]
-position = Vector2(877, 103)
 
 [node name="ChargingArea" parent="Phase1" instance=ExtResource("6_q1qi5")]
 position = Vector2(-57, 941)
@@ -14572,7 +14518,7 @@ one_shot = true
 
 [node name="ScreenSlashAttack" parent="Phase2" instance=ExtResource("30_vr0k7")]
 unique_name_in_owner = true
-position = Vector2(575, -562)
+position = Vector2(428, -562)
 
 [node name="SliceFollowAttack" parent="Phase2" instance=ExtResource("31_sed3u")]
 unique_name_in_owner = true
@@ -14603,6 +14549,11 @@ sprite_frames = SubResource("SpriteFrames_s21xs")
 animation = &"land"
 frame = 12
 frame_progress = 1.0
+
+[node name="LandingSFX" type="AudioStreamPlayer2D" parent="VFX"]
+stream = ExtResource("43_ly8fa")
+volume_db = 11.0
+bus = &"Effects"
 
 [node name="StartPhase2" type="Area2D" parent="."]
 position = Vector2(0, -190)

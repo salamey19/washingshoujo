@@ -60,7 +60,7 @@ rotation = 0.0
 asleep = true
 
 [node name="enemy_small9" parent="." instance=ExtResource("1_ydqk8")]
-position = Vector2(3338, -635)
+position = Vector2(3284, -689)
 
 [node name="EnemyMedium" parent="." instance=ExtResource("3_jpt1s")]
 position = Vector2(776, 193)

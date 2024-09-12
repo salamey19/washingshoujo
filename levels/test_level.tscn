@@ -1,4 +1,4 @@
-[gd_scene load_steps=207 format=4 uid="uid://dckrm6hql7quq"]
+[gd_scene load_steps=208 format=4 uid="uid://dckrm6hql7quq"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_3wg1a"]
 [ext_resource type="PackedScene" uid="uid://bgoiy1vdujhr" path="res://components/player/player.tscn" id="1_l3xy2"]
@@ -158,6 +158,9 @@ size = Vector2(375, 109.813)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn7ws"]
 size = Vector2(207, 1766.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf6gb"]
+size = Vector2(135, 614.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g7u8y"]
 size = Vector2(184, 3006)
@@ -14649,7 +14652,7 @@ sources/20 = SubResource("TileSetAtlasSource_gj68a")
 size = Vector2(688, 4616)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3kof"]
-size = Vector2(1096, 1672)
+size = Vector2(1440, 1672)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5ewr"]
 size = Vector2(337, 46)
@@ -14700,8 +14703,8 @@ size = Vector2(660.5, 134.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxit4"]
 size = Vector2(312, 371)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_54nl4"]
-size = Vector2(502, 371)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f4pq"]
+size = Vector2(380, 371)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3mrjs"]
 size = Vector2(496, 371)
@@ -14901,6 +14904,11 @@ texture = ExtResource("49_yk426")
 [node name="Balloons3" type="Sprite2D" parent="Floors" groups=["Level1"]]
 z_index = -1
 position = Vector2(5042, -1655)
+texture = ExtResource("50_o3wxr")
+
+[node name="Balloons4" type="Sprite2D" parent="Floors" groups=["Level1"]]
+z_index = -1
+position = Vector2(5042, -1438)
 texture = ExtResource("50_o3wxr")
 
 [node name="FloorArea" parent="Floors" instance=ExtResource("9_a5r50")]
@@ -15110,6 +15118,13 @@ position = Vector2(4575, -343)
 position = Vector2(112.5, -92.875)
 shape = SubResource("RectangleShape2D_hn7ws")
 
+[node name="Wall8" type="StaticBody2D" parent="Borders"]
+position = Vector2(5123, -1290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Wall8"]
+position = Vector2(122.5, -507.25)
+shape = SubResource("RectangleShape2D_lf6gb")
+
 [node name="Wall3" type="StaticBody2D" parent="Borders"]
 position = Vector2(638, -1184)
 rotation = 1.5708
@@ -15232,21 +15247,19 @@ vertical_alignment = 1
 
 [node name="Lives" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchor_top = 0.054
-anchor_right = 0.124
-anchor_bottom = 0.275
-offset_top = 0.00799942
-offset_right = 0.151993
-offset_bottom = -0.199997
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LivesContainer" type="HBoxContainer" parent="CanvasLayer/Lives" groups=["Lives"]]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 8.098
-anchor_bottom = 4.531
-offset_left = 1.0
-offset_right = 0.986084
-offset_bottom = 0.0669556
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = -1149
 script = ExtResource("35_e1524")
 
@@ -15284,11 +15297,11 @@ color = Color(0, 0, 0, 0.321569)
 [node name="Kaguya" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
 visible = false
 layout_mode = 0
-offset_left = 374.0
-offset_top = -21.0
-offset_right = 3882.0
-offset_bottom = 2459.0
-scale = Vector2(0.285, 0.285)
+offset_left = 408.0
+offset_top = -35.0
+offset_right = 3916.0
+offset_bottom = 2445.0
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("16_kkbu8")
 
 [node name="Akira" type="TextureRect" parent="CanvasLayer/TalkingSprites"]
@@ -15321,7 +15334,8 @@ offset_bottom = 1939.88
 scale = Vector2(0.29, 0.29)
 texture = ExtResource("18_5jrmj")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="Music" type="AudioStreamPlayer" parent="." groups=["Music"]]
+unique_name_in_owner = true
 stream = ExtResource("24_4f8kf")
 bus = &"Music"
 
@@ -15370,8 +15384,8 @@ scale = Vector2(0.125, 0.125)
 position = Vector2(-11552, 0)
 
 [node name="RichTextLabel" parent="Hints/IntroHints/IntroAttack/HintPopup/Control" index="1"]
-text = "[center]Press attack to let out a BONK! 
-If you click in quick succession, Akira will do a quick follow up attack. 
+text = "[center]Press attack(Default: E) to let out a BONK! 
+If you click in quick succession, Akira will do a quick follow up attack. Try it! 
 "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/IntroHints/IntroAttack"]
@@ -15383,8 +15397,9 @@ position = Vector2(-11552, 0)
 [node name="RichTextLabel" parent="Hints/IntroHints/IntroAbility1/HintPopup/Control" index="1"]
 text = "[center]Akira can hold 3 Oni Charges. These are used to power her two abilities. 
 Akira regains a charge per enemy she defeats.
-Ability 1 - Swing and send out an Oni
-Ability 2 - Use all charges for a powerful blast "
+Ability 1 - Swing and send out an Oni (Default: F)
+Ability 2 - Use all charges for a powerful blast  (Default: G)
+Try out Ability 1! "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/IntroHints/IntroAbility1"]
 shape = SubResource("RectangleShape2D_0ewsb")
@@ -15408,6 +15423,16 @@ Reminder! Akira resets her jump and dash after killing an enemy in air. "
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/HintPopup"]
 position = Vector2(-32, 352)
+shape = SubResource("RectangleShape2D_c3kof")
+
+[node name="HintPopup2" parent="Hints" instance=ExtResource("63_ydgql")]
+position = Vector2(83112, 24424)
+
+[node name="RichTextLabel" parent="Hints/HintPopup2/HintPopup/Control" index="1"]
+text = "[center]Tank Enemies need a full blast from Akira's Ability 2(default g) to be taken out. Remember! You can recharge your oni at glowing pools."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hints/HintPopup2"]
+position = Vector2(16, 352)
 shape = SubResource("RectangleShape2D_c3kof")
 
 [node name="ChargingAreas" type="Node2D" parent="." groups=["Level1"]]
@@ -15570,8 +15595,8 @@ top_limit = -2630
 bottom_limit = -1075
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraTransitions/CameraTransitions"]
-position = Vector2(-1117, 252.5)
-shape = SubResource("RectangleShape2D_54nl4")
+position = Vector2(-1056, 252.5)
+shape = SubResource("RectangleShape2D_0f4pq")
 
 [node name="CameraTransitions2" parent="CameraTransitions" instance=ExtResource("40_04aqe")]
 position = Vector2(7312, -1990)
@@ -15857,9 +15882,10 @@ shape = SubResource("RectangleShape2D_r60rp")
 
 [node name="Pause" type="CanvasLayer" parent="."]
 process_mode = 3
-layer = 4
+layer = 128
 
 [node name="PauseMenu" parent="Pause" instance=ExtResource("14_sikhj")]
+mouse_filter = 2
 
 [node name="LoadEnemies" type="Area2D" parent="."]
 position = Vector2(9906, 2172)
@@ -15884,3 +15910,4 @@ shape = SubResource("RectangleShape2D_32x4v")
 [editable path="Hints/IntroHints/IntroAbility1"]
 [editable path="Hints/IntroHints/IntroMovement"]
 [editable path="Hints/HintPopup"]
+[editable path="Hints/HintPopup2"]
