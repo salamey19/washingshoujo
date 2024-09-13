@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://crxc1ipwpgjq4"]
+[gd_scene load_steps=42 format=3 uid="uid://crxc1ipwpgjq4"]
 
 [ext_resource type="Script" path="res://scenes/start_menu.gd" id="1_o4y3m"]
 [ext_resource type="Texture2D" uid="uid://60ylrgop7122" path="res://art/2d/Backgrounds/Menú art.jpg" id="2_5rs3n"]
 [ext_resource type="Theme" uid="uid://dclc58tp2cvc1" path="res://resources/start_menu.tres" id="2_34jyx"]
 [ext_resource type="AudioStream" uid="uid://cwl2g4shubuul" path="res://art/Dialouge/Akira/efforts/akira-title-4.wav" id="3_8inf0"]
+[ext_resource type="Texture2D" uid="uid://b5ko0e61kmfqj" path="res://art/2d/UI/logo.png" id="3_oryyj"]
 [ext_resource type="AudioStream" uid="uid://dq44cynyx7i8g" path="res://art/Dialouge/kaguya/efforts/kaguya-title-3.wav" id="4_83t0v"]
 [ext_resource type="AudioStream" uid="uid://tgt5msqqkqgn" path="res://art/Dialouge/riro/riro-title-3.wav" id="5_fpmw2"]
 [ext_resource type="AudioStream" uid="uid://c8kyto35tqlsf" path="res://art/sfx/NewSFX/menu select.wav" id="6_exf3k"]
@@ -216,6 +217,21 @@ scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_5rs3n")
 expand_mode = 2
 
+[node name="Logo" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.575
+anchor_right = 1.0
+anchor_bottom = 0.387
+offset_left = 81.6
+offset_top = -57.0
+offset_right = 1407.0
+offset_bottom = 620.224
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.238, 0.238)
+texture = ExtResource("3_oryyj")
+expand_mode = 2
+
 [node name="Root" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 anchors_preset = 15
@@ -267,7 +283,7 @@ offset_right = -4.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 20
 text = "     Start"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -296,7 +312,7 @@ offset_right = -2.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 20
 text = "     Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -321,7 +337,7 @@ offset_right = -4.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 20
 text = "     Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -347,7 +363,7 @@ offset_right = -4.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 23
+theme_override_font_sizes/font_size = 20
 text = "     Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -388,6 +404,15 @@ text = "Skip intro"
 visible = false
 layout_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="Root/Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="Root/Credits"]
 layout_mode = 1
 anchors_preset = 15
@@ -404,11 +429,19 @@ text = "
 
 
 
+[center]All Art Credited to: Rhea
 
+All Story/Writing Credited to: Salamey & Rhea
 
+All Music/SFX Credited to: Annish
 
+Programing/Game Design: Salamey
 
-[center]TBD[/center]"
+Voice Acting/Editor(Akira): OD.MP3
+
+Voice Acting(Riro & Kaguya): Estelle Son
+
+ [/center]"
 
 [node name="HSeparator" type="HSeparator" parent="Root/Credits"]
 layout_mode = 0
@@ -445,6 +478,7 @@ text = "Return"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -28,6 +28,7 @@ func start_game() -> void:
 	pass
 
 func main_menu() -> void:
+
 	get_tree().change_scene_to_packed(MAIN_MENU)
 	await get_tree().root.ready
 	%Transition.play("fade_out")

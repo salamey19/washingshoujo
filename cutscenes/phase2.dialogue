@@ -42,12 +42,12 @@ Akira: You need to say sorry to a lot more than just us.
 do color_kaguya()
 do play_audio.emit(2, 5)
 do show_sprites.emit(true, false, true)
-Kaguya: I’m sorry my little ones. (spoken with sadness)
+Kaguya: I’m sorry my little ones.
 
 do color_riro()
 do play_audio.emit(1, 18)
 do show_sprites.emit(true, true)
-Riro: Thankfully it worked out in the end
+Riro: Thankfully it worked out in the end.
 
 
 do color_akira()
@@ -56,4 +56,6 @@ do show_sprites.emit(true)
 Akira: I’m tired. 
 
 do show_sprites.emit()
+do Global.main_menu()
+
 => END

@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			if attack_cooldown <= 0:
 				print("attack")
 				choose_attack()
-				attack_cooldown = 3
+				attack_cooldown = 5
 				attack_counter += 1
 			if attack_counter == 4:
 				is_attack_phase = false
@@ -53,25 +53,25 @@ func _physics_process(delta: float) -> void:
 				attack_counter = 0
 		elif is_phase2_2:
 			if attack_cooldown <= 0:
-				attack_cooldown = 4
+				attack_cooldown = 5
 				print("attack")
 				choose_attack()
-				await get_tree().create_timer(1.5).timeout
+				await get_tree().create_timer(3).timeout
 				choose_attack()
 				attack_counter += 1
-			if attack_counter == 5:
+			if attack_counter == 4:
 				is_attack_phase = false
 				start_damage_phase()
 				attack_counter = 0
 		elif is_phase2_3:
 			if attack_cooldown <= 0:
-				attack_cooldown = 4
+				attack_cooldown = 5
 				print("attack")
 				choose_attack()
-				await get_tree().create_timer(1.5).timeout
+				await get_tree().create_timer(3).timeout
 				choose_attack()
 				attack_counter += 1
-			if attack_counter == 6:
+			if attack_counter == 4:
 				attack_counter = 0
 				is_attack_phase = false
 				start_damage_phase()
@@ -192,23 +192,23 @@ func short_cuts() -> void:
 		%SliceFollowAttack.attack3()
 	if is_phase2_2:
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.4).timeout
 		%SliceFollowAttack.attack3()
 		await get_tree().create_timer(1.4).timeout
 		#%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.4).timeout
 		%SliceFollowAttack.attack2()
 	if is_phase2_3:
 		%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.4).timeout
 		%SliceFollowAttack.attack3()
 		await get_tree().create_timer(1.4).timeout
 		#%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.4).timeout
 		%SliceFollowAttack.attack2()
 		await get_tree().create_timer(1.4).timeout
 		#%SliceFollowAttack.global_position = player.global_position
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(0.4).timeout
 		%SliceFollowAttack.attack1()
 		await get_tree().create_timer(1.4).timeout
 		attack_finished = true
@@ -245,11 +245,11 @@ func eye_attack() -> void:
 	if is_phase2_1:
 		%EyeAttack.animation_player.speed_scale = 0.5
 	if is_phase2_2:
-		%EyeAttack.animation_player.speed_scale = 0.7
+		%EyeAttack.animation_player.speed_scale = 0.6
 	if is_phase2_3:
-		%EyeAttack.animation_player.speed_scale = 0.9
+		%EyeAttack.animation_player.speed_scale = 0.65
 	%EyeAttack.attack()
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	attacks_available[2] = true
 
 var done : bool = false

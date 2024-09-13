@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		timer += delta
 		pivot.rotation += deg_to_rad(1)
 		$EyeAttackVFX.rotation += deg_to_rad(1)
-		if timer > 5:
+		if timer > 3.5:
 			timer = 0
 			animation_player.stop()
 			$EyeAttackVFX.visible = false

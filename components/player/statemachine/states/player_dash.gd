@@ -4,8 +4,10 @@ class_name PlayerDash
 @onready var dash_sfx: AudioStreamPlayer2D = $"../../DashSFX"
 
 @onready var dash_voice: AudioStreamPlayer2D = $"../../Voice/Dash"
+var dash_finished : bool = false
 
 func Enter():
+	player.force_stop_dash = false
 	player.animated_sprite.play("dash_start")
 	dash_sfx.play()
 	await player.animated_sprite.animation_finished
@@ -16,14 +18,18 @@ func Enter():
 
 
 func Exit():
+	player.force_stop_dash = true
 	player.is_dashing = false
 	#dash_sfx.stop()
 	player.spawn_afterimage()
 	player.do_once = false
 	player.do_twice = false
 	player.do_thrice = false
-	if !player.is_on_floor():
+	if !player.is_on_floor() and dash_finished:
+		dash_finished = false
 		player.velocity.y = -205
+	player.dash_done.emit()
+
 
 
 
@@ -37,8 +43,9 @@ func Physics_Update(delta : float):
 		player.dash_timer += delta
 
 	if player.is_dashing and player.dash_timer >= player.dash_time_max:
-		if player.is_hurt:
-			Transitioned.emit(self, "hurt")
+		dash_finished = true
+		#if player.is_hurt:
+			#Transitioned.emit(self, "hurt")
 		if !player.is_on_floor():
 			Transitioned.emit(self, "falling")
 
@@ -84,7 +91,7 @@ func dash() -> void:
 	player.dash_height = player.position.y
 	player.dash_timer = 0
 
-	player.charge_counter += 1
-	if player.charge_counter >= 1:
-		player.charge_counter = 0
-		player.add_charge()
+	#player.charge_counter += 1
+	#if player.charge_counter >= 1:
+		#player.charge_counter = 0
+		#player.add_charge()

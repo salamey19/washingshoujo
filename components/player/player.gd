@@ -42,6 +42,7 @@ var do_twice = false
 var do_thrice = false
 var afterimage_counter : int = 0
 
+var force_stop_dash : bool = false
 
 #ideas balls act as charges up to 3
 #charges can block damage, but lose charge
@@ -82,8 +83,11 @@ var is_left : bool = false
 
 var in_cutscene : bool = false
 
+signal dash_done
+
 func _ready() -> void:
 	Global.enemy_defeated.connect(on_enemy_defeated)
+	dash_done.connect(_dash_done)
 	current_lives = MAX_LIVES
 	if Global.boss_checkpoint_met:
 		position = Vector2(9877, 2496)
@@ -118,9 +122,9 @@ func get_grav(velocity: Vector2):
 
 
 func _physics_process(delta: float) -> void:
-	#print(velocity.y)
 	#print("has jump: ",has_jump)
-
+	if force_stop_dash and is_dashing:
+		is_dashing = false
 
 	if Input.is_action_just_pressed("jump"):
 		jump_buffer = 0.1
@@ -132,10 +136,12 @@ func _physics_process(delta: float) -> void:
 	if locked:
 		position.y = locked_height
 
+
+
 	if is_dashing:
 		position.y = dash_height
 	else:
-		if not is_on_floor() and should_fall:
+		if !is_on_floor() and should_fall:
 			velocity.y += get_grav(velocity) * delta
 
 
@@ -143,6 +149,7 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("move_left", "move_right")
+	#print("is dashing ",is_dashing, "is locked ",locked)
 
 	if direction > 0 and !animated_sprite.flip_h and !in_cutscene:
 		vfx.flip_h = true
@@ -173,6 +180,7 @@ func _physics_process(delta: float) -> void:
 		has_dash = true
 	if is_on_floor() and !has_basic_attack:
 		has_basic_attack = true
+
 	move_and_slide()
 
 var live_recharge_counter : int = 0
@@ -187,6 +195,7 @@ func on_enemy_defeated() -> void:
 	has_dash = true
 	add_charge()
 	#add_combo()
+
 
 
 
@@ -212,14 +221,22 @@ func spawn_afterimage() -> void:
 
 func damaged() -> void:
 	if can_be_hurt:
+		is_dashing = false
+		can_be_hurt = false
 		is_hurt = true
 
 
 var kb_force = 1200
+var hurt_counter : int = 0
 func hurt() -> void:
 	Global.player_hurt.emit()
-	current_lives -= 1
-	get_tree().get_first_node_in_group("Lives").lose_life()
+	hurt_counter += 1
+	is_dashing = false
+	if hurt_counter == 2:
+		hurt_counter = 0
+		current_lives -= 1
+		get_tree().get_first_node_in_group("Lives").lose_life()
+
 	if current_lives < 1:
 		death()
 	else:
@@ -230,9 +247,8 @@ func hurt() -> void:
 
 		get_tree().get_first_node_in_group("Camera").camera_shake(10)
 
-		if is_on_floor():
-			var kb = (Vector2(1000 * kb_direction, 20 * kb_direction) - velocity).normalized() * kb_force
-			velocity.x = kb.x
+		#var kb = (Vector2(1000 * kb_direction, 20 * kb_direction) - velocity).normalized() * kb_force
+		#velocity.x = kb.x
 
 		print(velocity)
 		animated_sprite.play("hurt")
@@ -240,12 +256,12 @@ func hurt() -> void:
 		#velocity.y -= 300
 		if is_on_floor():
 			%VFX.play("knock_back")
-		move_and_slide()
+		#move_and_slide()
 
 		await animated_sprite.animation_finished
 		is_hurt = false
 		animation_player.play("immune_flash")
-		can_be_hurt = false
+
 		await animation_player.animation_finished
 		can_be_hurt = true
 
@@ -277,3 +293,6 @@ func add_charge() -> void:
 	if not ((current_charges + 1) > MAX_CHARGES):
 		current_charges += 1
 		charge_added.emit()
+
+func _dash_done() -> void:
+	is_dashing = false

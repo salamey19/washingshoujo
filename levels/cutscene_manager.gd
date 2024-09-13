@@ -178,6 +178,7 @@ func _start_phase1() -> void:
 	player.in_cutscene = true
 	player.set_process_input(false)
 	move_player()
+	get_tree().get_first_node_in_group("Main").pause_music()
 
 
 
@@ -203,6 +204,7 @@ func play_phase1_2() -> void:
 	await DialogueManager.dialogue_ended
 	player.in_cutscene = true
 	player.set_process_input(true)
+	get_tree().get_first_node_in_group("Main").resume_music()
 
 
 	#get_tree().get_first_node_in_group("Main").add_child(BOSS_FIGHT.instantiate())

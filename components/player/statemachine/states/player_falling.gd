@@ -12,10 +12,10 @@ func Physics_Update(_delta: float):
 
 	if player.jump_buffer > 0 and player.has_jump:
 		Transitioned.emit(self, "jump")
-	if player.is_hurt:
+	if player.is_hurt and player.can_be_hurt:
 		Transitioned.emit(self, "hurt")
 	if player.is_on_floor():
-		if player.velocity.x:
+		if player.velocity.x > 0 or player.velocity.x < 0:
 			Transitioned.emit(self, "run")
 		else:
 			Transitioned.emit(self, "idle")

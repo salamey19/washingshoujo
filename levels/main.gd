@@ -21,4 +21,9 @@ func _ready() -> void:
 func _outro() -> void:
 	if %Transition:
 		%Transition.play("fade_in")
-		Global.main_menu()
+		#Global.main_menu()
+
+func pause_music() -> void:
+	music.stream_paused = true
+func resume_music() -> void:
+	music.stream_paused = false
