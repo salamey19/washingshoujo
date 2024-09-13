@@ -103,6 +103,8 @@ func player_falls() -> void:
 	player.set_collision_mask_value(1, true)
 
 func player_falls2() -> void:
+	player.in_cutscene = true
+	player.set_process_input(false)
 	player.set_physics_process(true)
 	player.set_collision_mask_value(1, false)
 	await get_tree().create_timer(1.3).timeout
@@ -202,8 +204,8 @@ func play_phase1_2() -> void:
 	character_label = balloon.get_child(0).get_child(0).get_child(0).get_child(0).get_child(0)
 	balloon.start(load("res://cutscenes/phase1.dialogue"), "Phase1End")
 	await DialogueManager.dialogue_ended
-	player.in_cutscene = true
-	player.set_process_input(true)
+	#player.in_cutscene = true
+	#player.set_process_input(true)
 	get_tree().get_first_node_in_group("Main").resume_music()
 
 

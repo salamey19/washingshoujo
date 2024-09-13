@@ -2,7 +2,8 @@ extends Area2D
 
 
 
-
+func _ready() -> void:
+	CutsceneManager.start_phase1_boss.connect(load_enemies)
 
 func load_enemies() -> void:
 	get_tree().call_group("Level3", "queue_free")

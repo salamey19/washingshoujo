@@ -10,7 +10,7 @@ func Enter():
 
 func Physics_Update(_delta: float):
 
-	if player.jump_buffer > 0 and player.has_jump:
+	if player.jump_buffer > 0 and player.has_jump and !player.in_cutscene:
 		Transitioned.emit(self, "jump")
 	if player.is_hurt and player.can_be_hurt:
 		Transitioned.emit(self, "hurt")

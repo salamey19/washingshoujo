@@ -15868,6 +15868,7 @@ script = ExtResource("84_mm6cv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoadEnemies"]
 position = Vector2(-32, 387)
 shape = SubResource("RectangleShape2D_32x4v")
+disabled = true
 
 [connection signal="body_entered" from="Checkpoints/FallArea" to="Checkpoints" method="_on_fall_area_body_entered"]
 [connection signal="body_entered" from="Checkpoints/FallArea2" to="Checkpoints" method="_on_fall_area_body_entered"]
